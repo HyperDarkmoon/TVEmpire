@@ -114,7 +114,7 @@ public:
         logo_label_1->setObjectName(QStringLiteral("logo_label_1"));
         logo_label_1->setMinimumSize(QSize(50, 50));
         logo_label_1->setMaximumSize(QSize(50, 50));
-        logo_label_1->setPixmap(QPixmap(QString::fromUtf8("../../Desktop/hhh.png")));
+        logo_label_1->setPixmap(QPixmap(QString::fromUtf8("hhh.png")));
         logo_label_1->setScaledContents(true);
 
         horizontalLayout_3->addWidget(logo_label_1);
@@ -215,7 +215,7 @@ public:
         logo_label_2->setObjectName(QStringLiteral("logo_label_2"));
         logo_label_2->setMinimumSize(QSize(40, 40));
         logo_label_2->setMaximumSize(QSize(40, 40));
-        logo_label_2->setPixmap(QPixmap(QString::fromUtf8("../../Desktop/hhh.png")));
+        logo_label_2->setPixmap(QPixmap(QString::fromUtf8("hhh.png")));
         logo_label_2->setScaledContents(true);
 
         horizontalLayout_2->addWidget(logo_label_2);
@@ -469,7 +469,7 @@ public:
         QObject::connect(exit_btn_2, SIGNAL(clicked()), MainWindow, SLOT(close()));
         QObject::connect(exit_btn_1, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -488,20 +488,20 @@ public:
         logo_label_2->setText(QString());
         logo_label_3->setText(QApplication::translate("MainWindow", "TvEmpire", Q_NULLPTR));
         home_btn_2->setText(QApplication::translate("MainWindow", "Home", Q_NULLPTR));
-        dashborad_btn_2->setText(QApplication::translate("MainWindow", "Dashboard", Q_NULLPTR));
-        orders_btn_2->setText(QApplication::translate("MainWindow", "Orders", Q_NULLPTR));
-        products_btn_2->setText(QApplication::translate("MainWindow", "Products", Q_NULLPTR));
-        customers_btn_2->setText(QApplication::translate("MainWindow", "Customers", Q_NULLPTR));
+        dashborad_btn_2->setText(QApplication::translate("MainWindow", "Emissions", Q_NULLPTR));
+        orders_btn_2->setText(QApplication::translate("MainWindow", "Equipements", Q_NULLPTR));
+        products_btn_2->setText(QApplication::translate("MainWindow", "Scenes", Q_NULLPTR));
+        customers_btn_2->setText(QApplication::translate("MainWindow", "Employees", Q_NULLPTR));
         exit_btn_2->setText(QApplication::translate("MainWindow", "Exit", Q_NULLPTR));
         change_btn->setText(QString());
         search_input->setPlaceholderText(QApplication::translate("MainWindow", "Search...", Q_NULLPTR));
         search_btn->setText(QString());
         user_btn->setText(QString());
         label_4->setText(QApplication::translate("MainWindow", "Home Page", Q_NULLPTR));
-        label_5->setText(QApplication::translate("MainWindow", "Dashboard Page", Q_NULLPTR));
-        label_6->setText(QApplication::translate("MainWindow", "Orders Page", Q_NULLPTR));
-        label_7->setText(QApplication::translate("MainWindow", "Product Page", Q_NULLPTR));
-        label_8->setText(QApplication::translate("MainWindow", "Customers Page", Q_NULLPTR));
+        label_5->setText(QApplication::translate("MainWindow", "Emissions Page", Q_NULLPTR));
+        label_6->setText(QApplication::translate("MainWindow", "Equipements Page", Q_NULLPTR));
+        label_7->setText(QApplication::translate("MainWindow", "Scenes Page", Q_NULLPTR));
+        label_8->setText(QApplication::translate("MainWindow", "Employees  Page", Q_NULLPTR));
         label_9->setText(QApplication::translate("MainWindow", "Search Page", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "User Page", Q_NULLPTR));
     } // retranslateUi

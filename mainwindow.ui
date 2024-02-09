@@ -68,7 +68,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>../../Desktop/hhh.png</pixmap>
+            <pixmap>hhh.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -263,7 +263,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>../../Desktop/hhh.png</pixmap>
+            <pixmap>hhh.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -316,7 +316,7 @@
          <item>
           <widget class="QPushButton" name="dashborad_btn_2">
            <property name="text">
-            <string>Dashboard</string>
+            <string>Emissions</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -340,7 +340,7 @@
          <item>
           <widget class="QPushButton" name="orders_btn_2">
            <property name="text">
-            <string>Orders</string>
+            <string>Equipements</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -364,7 +364,7 @@
          <item>
           <widget class="QPushButton" name="products_btn_2">
            <property name="text">
-            <string>Products</string>
+            <string>Scenes</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -388,7 +388,7 @@
          <item>
           <widget class="QPushButton" name="customers_btn_2">
            <property name="text">
-            <string>Customers</string>
+            <string>Employees</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -574,7 +574,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>6</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -605,7 +605,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Dashboard Page</string>
+              <string>Emissions Page</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -624,7 +624,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Orders Page</string>
+              <string>Equipements Page</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -643,7 +643,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Product Page</string>
+              <string>Scenes Page</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -662,7 +662,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Customers Page</string>
+              <string>Employees  Page</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>

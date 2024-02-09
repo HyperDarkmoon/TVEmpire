@@ -1,7 +1,7 @@
 /*= Style for mainwindow START
   ==================================================== */
 	#MainWindow {
-		background-color: #fff;
+		background-color: #EBF1F4;
 	}
 /*= END
   ==================================================== */
@@ -29,7 +29,7 @@
   ==================================================== */
   	/* style for widget */
 	#icon_only_widget {
-		background-color: #313a46;
+		background-color: #252E42;
 		width:50px;
 	}
 
@@ -55,7 +55,7 @@
   ==================================================== */
 	/* style for widget */
 	#full_menu_widget {
-		background-color: #313a46;
+		background-color: #252E42;
 	}
 
 	/* style for QPushButton */
