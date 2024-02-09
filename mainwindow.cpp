@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->icon_only_widget->hide();
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->home_btn_2->setChecked(true);
 }
 
 MainWindow::~MainWindow()
