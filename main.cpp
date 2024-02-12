@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "form2.h"
 #include <QApplication>
 #include <QFile>
 #include <QDir>
@@ -20,7 +21,9 @@ int main(int argc, char *argv[]) {
 
         // Create and show the main application window (MainWindow)
         MainWindow mainWindow;
-        mainWindow.show();
+        //mainWindow.show();
+        Form2 loginpage;
+        loginpage.show();
 
         // Start the application event loop
         return a.exec();

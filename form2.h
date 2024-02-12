@@ -2,21 +2,25 @@
 #define LOGIN_H
 
 #include <QWidget>
-
+#include "mainwindow.h"
 namespace Ui {
-class login;
+class Form2;
 }
 
-class login : public QWidget
+class Form2 : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit login(QWidget *parent = nullptr);
-    ~login();
+    explicit Form2(QWidget *parent = nullptr);
+    ~Form2();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
-    Ui::login *ui;
+    Ui::Form2 *ui;
+    MainWindow *mainWindow;
 };
 
 #endif // LOGIN_H

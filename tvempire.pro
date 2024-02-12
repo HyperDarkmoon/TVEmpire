@@ -11,16 +11,16 @@ CONFIG += c++11
 RESOURCES += resource.qrc
 
 SOURCES += \
-    login.cpp \
+    form2.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    login.h \
+    form2.h \
     mainwindow.h
 
 FORMS += \
-    login.ui \
+    form2.ui \
     mainwindow.ui
 
 # Default rules for deployment.
