@@ -29,3 +29,5 @@ win32: target.path = $$OUT_PWD/debug
 unix:!android: target.path = /opt/$${TARGET}/bin
 
 !isEmpty(target.path): INSTALLS += target
+
+QT+= sql
