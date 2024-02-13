@@ -11,11 +11,13 @@ CONFIG += c++11
 RESOURCES += resource.qrc
 
 SOURCES += \
+    dbconnection.cpp \
     form2.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    dbconnection.h \
     form2.h \
     mainwindow.h
 
@@ -31,3 +33,4 @@ unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 QT+= sql
+CONFIG += console

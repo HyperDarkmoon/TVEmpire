@@ -5,6 +5,8 @@
 #include <QDir>
 #include <QDebug>
 #include <qsqldatabase.h>
+#include "dbconnection.h"
+#include <QMessageBox>
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
@@ -24,10 +26,13 @@ int main(int argc, char *argv[]) {
         //mainWindow.show();
         Form2 loginpage;
         loginpage.show();
-        QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-        db.setDatabaseName("aaaaa");
-        db.setUserName("slimane");
-        db.setPassword("267501");
+        dbconnection db;
+        bool test = db.createconnect();
+        if (test)
+        {
+            qDebug() << "success";
+        }
+        else qDebug() << "fail";
         // Start the application event loop
         return a.exec();
     } else {
