@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QFile>
+#include <QTextStream>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -9,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->icon_only_widget->hide();
     ui->stackedWidget->setCurrentIndex(0);
     ui->home_btn_2->setChecked(true);
+    loadStyleSheet("style.qss");
 }
 
 MainWindow::~MainWindow()
@@ -65,5 +67,21 @@ void MainWindow::on_customers_btn_1_clicked()
 void MainWindow::on_customers_btn_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::loadStyleSheet(const QString &styleSheetPath)
+{
+    QFile file(styleSheetPath);
+
+    if (!file.open(QFile::ReadOnly | QFile::Text))
+    {
+        return;
+    }
+
+    QTextStream stream(&file);
+    QString styleSheet = stream.readAll();
+    file.close();
+
+    this->setStyleSheet(styleSheet);
 }
 
