@@ -12,18 +12,33 @@ RESOURCES += resource.qrc
 
 SOURCES += \
     dbconnection.cpp \
+    emission.cpp \
+    employee.cpp \
+    equipment.cpp \
     form2.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    scenes.cpp \
+    sponsor.cpp
 
 HEADERS += \
     dbconnection.h \
+    emission.h \
+    employee.h \
+    equipment.h \
     form2.h \
-    mainwindow.h
+    mainwindow.h \
+    scenes.h \
+    sponsor.h
 
 FORMS += \
+    emission.ui \
+    employee.ui \
+    equipment.ui \
     form2.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    scenes.ui \
+    sponsor.ui
 
 # Default rules for deployment.
 # Adjust installation path based on your deployment needs

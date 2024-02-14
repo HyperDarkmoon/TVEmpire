@@ -24,6 +24,7 @@
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "emission.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -72,7 +73,7 @@ public:
     QWidget *page;
     QGridLayout *gridLayout_2;
     QLabel *label_4;
-    QWidget *page_2;
+    Emission *page_2;
     QGridLayout *gridLayout_3;
     QLabel *label_5;
     QWidget *page_3;
@@ -373,7 +374,7 @@ public:
         gridLayout_2->addWidget(label_4, 0, 0, 1, 1);
 
         stackedWidget->addWidget(page);
-        page_2 = new QWidget();
+        page_2 = new Emission();
         page_2->setObjectName(QStringLiteral("page_2"));
         gridLayout_3 = new QGridLayout(page_2);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
@@ -469,7 +470,7 @@ public:
         QObject::connect(exit_btn_2, SIGNAL(clicked()), MainWindow, SLOT(close()));
         QObject::connect(exit_btn_1, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
