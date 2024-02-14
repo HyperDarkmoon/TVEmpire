@@ -21,7 +21,7 @@ bool dbconnection::createconnect()
         //*********************************
         // test query REMOVE LATER
         //***************************************************************
-
+    /*
         QString queryStr = "SELECT * FROM SPONSOR"; // Adjust query and table name
 
         QSqlQuery query(db);
@@ -33,7 +33,7 @@ bool dbconnection::createconnect()
 
         }
 
-
+    */
 
 
     }
