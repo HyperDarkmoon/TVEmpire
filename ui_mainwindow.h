@@ -77,7 +77,6 @@ public:
     QLabel *label_4;
     Emission *page_2;
     QGridLayout *gridLayout_3;
-    QLabel *label_5;
     QWidget *page_3;
     QGridLayout *gridLayout_4;
     QLabel *label_6;
@@ -396,13 +395,6 @@ public:
         page_2->setObjectName(QStringLiteral("page_2"));
         gridLayout_3 = new QGridLayout(page_2);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        label_5 = new QLabel(page_2);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setFont(font1);
-        label_5->setAlignment(Qt::AlignCenter);
-
-        gridLayout_3->addWidget(label_5, 0, 0, 1, 1);
-
         stackedWidget->addWidget(page_2);
         page_3 = new QWidget();
         page_3->setObjectName(QStringLiteral("page_3"));
@@ -519,7 +511,6 @@ public:
         search_btn->setText(QString());
         user_btn->setText(QString());
         label_4->setText(QApplication::translate("MainWindow", "Home Page", Q_NULLPTR));
-        label_5->setText(QApplication::translate("MainWindow", "Emissions Page", Q_NULLPTR));
         label_6->setText(QApplication::translate("MainWindow", "Equipements Page", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindow", "Scenes Page", Q_NULLPTR));
         label_8->setText(QApplication::translate("MainWindow", "Employees  Page", Q_NULLPTR));

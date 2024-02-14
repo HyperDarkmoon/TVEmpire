@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,12 +22,16 @@ QT_BEGIN_NAMESPACE
 class Ui_Emission
 {
 public:
+    QPushButton *pushButton;
 
     void setupUi(QWidget *Emission)
     {
         if (Emission->objectName().isEmpty())
             Emission->setObjectName(QStringLiteral("Emission"));
-        Emission->resize(400, 300);
+        Emission->resize(737, 560);
+        pushButton = new QPushButton(Emission);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(320, 40, 121, 31));
 
         retranslateUi(Emission);
 
@@ -36,6 +41,7 @@ public:
     void retranslateUi(QWidget *Emission)
     {
         Emission->setWindowTitle(QApplication::translate("Emission", "Form", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("Emission", "Ajouter une emmision", Q_NULLPTR));
     } // retranslateUi
 
 };
