@@ -23,3 +23,4 @@ void Form2::on_pushButton_clicked()
         this->close();
     }
 }
+
