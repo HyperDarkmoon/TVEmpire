@@ -31,10 +31,11 @@ int main(int argc, char *argv[]) {
         if (test)
         {
             qDebug() << "success";
+            return a.exec();
         }
-        else qDebug() << "fail";
+        else qDebug() << "fail to connect to db";
         // Start the application event loop
-        return a.exec();
+
     } else {
         // Print an error message if opening the file fails
         qDebug() << "Failed to open style.qss file! Error: " << styleFile.errorString();

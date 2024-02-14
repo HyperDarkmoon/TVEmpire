@@ -415,7 +415,40 @@ release/dbconnection.o: dbconnection.cpp dbconnection.h \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQuery \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquery.h \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlError \
-		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlerror.h
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlerror.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDebug \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdebug.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qalgorithms.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhash.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiterator.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlist.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhashfunctions.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpair.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearraylist.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringlist.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregexp.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringmatcher.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmap.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtextstream.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiodevice.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreevent.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qscopedpointer.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmetatype.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvarlengtharray.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontainerfwd.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject_impl.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlocale.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvariant.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qshareddata.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvector.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpoint.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qset.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontiguouscache.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer.h \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\dbconnection.o dbconnection.cpp
 
 release/form2.o: form2.cpp form2.h \

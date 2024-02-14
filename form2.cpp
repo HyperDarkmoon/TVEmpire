@@ -17,6 +17,9 @@ Form2::~Form2()
 
 void Form2::on_pushButton_clicked()
 {
-    mainWindow->show();
-    this->close();
+    if (ui->lineEdit->text() == "admin" && ui->lineEdit_2->text() == "admin")
+    {
+        mainWindow->show();
+        this->close();
+    }
 }
