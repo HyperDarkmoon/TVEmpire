@@ -1,4 +1,5 @@
 INPUT(
+./debug\addemployee.o
 ./debug\dbconnection.o
 ./debug\emission.o
 ./debug\employee.o
@@ -9,6 +10,7 @@ INPUT(
 ./debug\scenes.o
 ./debug\sponsor.o
 ./debug\qrc_resource.o
+./debug\moc_addemployee.o
 ./debug\moc_emission.o
 ./debug\moc_employee.o
 ./debug\moc_equipment.o

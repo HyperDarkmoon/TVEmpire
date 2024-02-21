@@ -2,6 +2,7 @@
 #define EMPLOYEE_H
 
 #include <QWidget>
+#include "addemployee.h"
 
 namespace Ui {
 class Employee;
@@ -15,8 +16,13 @@ public:
     explicit Employee(QWidget *parent = nullptr);
     ~Employee();
 
+private slots:
+    void on_addEmpButton_clicked();
+
 private:
     Ui::Employee *ui;
+    addEmployee *employeeDialog;
+
 };
 
 #endif // EMPLOYEE_H

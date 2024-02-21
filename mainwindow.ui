@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>950</width>
+    <width>1150</width>
     <height>600</height>
    </rect>
   </property>
@@ -607,7 +607,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -669,24 +669,8 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_5">
-          <layout class="QGridLayout" name="gridLayout_6">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_8">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Employees  Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <widget class="Employee" name="page_5">
+          <layout class="QGridLayout" name="gridLayout_6"/>
          </widget>
          <widget class="QWidget" name="page_6">
           <layout class="QGridLayout" name="gridLayout_7">
@@ -739,6 +723,12 @@
    <class>Emission</class>
    <extends>QWidget</extends>
    <header>emission.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Employee</class>
+   <extends>QWidget</extends>
+   <header>employee.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

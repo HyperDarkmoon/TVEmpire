@@ -1,9 +1,10 @@
 #include "employee.h"
 #include "ui_employee.h"
+#include "addemployee.h"
 
 Employee::Employee(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Employee)
+    ui(new Ui::Employee), employeeDialog(new addEmployee())
 {
     ui->setupUi(this);
 }
@@ -11,4 +12,9 @@ Employee::Employee(QWidget *parent) :
 Employee::~Employee()
 {
     delete ui;
+}
+
+void Employee::on_addEmpButton_clicked()
+{
+    employeeDialog->show();
 }

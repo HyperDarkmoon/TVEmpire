@@ -25,6 +25,7 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "emission.h"
+#include "employee.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -83,9 +84,8 @@ public:
     QWidget *page_4;
     QGridLayout *gridLayout_5;
     QLabel *label_7;
-    QWidget *page_5;
+    Employee *page_5;
     QGridLayout *gridLayout_6;
-    QLabel *label_8;
     QWidget *page_6;
     QGridLayout *gridLayout_7;
     QLabel *label_9;
@@ -97,7 +97,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(950, 600);
+        MainWindow->resize(1150, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -420,17 +420,10 @@ public:
         gridLayout_5->addWidget(label_7, 0, 0, 1, 1);
 
         stackedWidget->addWidget(page_4);
-        page_5 = new QWidget();
+        page_5 = new Employee();
         page_5->setObjectName(QStringLiteral("page_5"));
         gridLayout_6 = new QGridLayout(page_5);
         gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
-        label_8 = new QLabel(page_5);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setFont(font1);
-        label_8->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(label_8, 0, 0, 1, 1);
-
         stackedWidget->addWidget(page_5);
         page_6 = new QWidget();
         page_6->setObjectName(QStringLiteral("page_6"));
@@ -480,7 +473,7 @@ public:
         QObject::connect(exit_btn_2, SIGNAL(clicked()), MainWindow, SLOT(close()));
         QObject::connect(exit_btn_1, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -513,7 +506,6 @@ public:
         label_4->setText(QApplication::translate("MainWindow", "Home Page", Q_NULLPTR));
         label_6->setText(QApplication::translate("MainWindow", "Equipements Page", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindow", "Scenes Page", Q_NULLPTR));
-        label_8->setText(QApplication::translate("MainWindow", "Employees  Page", Q_NULLPTR));
         label_9->setText(QApplication::translate("MainWindow", "Search Page", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "User Page", Q_NULLPTR));
     } // retranslateUi

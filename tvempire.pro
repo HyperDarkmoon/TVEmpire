@@ -11,6 +11,7 @@ CONFIG += c++11
 RESOURCES += resource.qrc
 
 SOURCES += \
+    addemployee.cpp \
     dbconnection.cpp \
     emission.cpp \
     employee.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
     sponsor.cpp
 
 HEADERS += \
+    addemployee.h \
     dbconnection.h \
     emission.h \
     employee.h \
@@ -32,6 +34,7 @@ HEADERS += \
     sponsor.h
 
 FORMS += \
+    addemployee.ui \
     emission.ui \
     employee.ui \
     equipment.ui \
