@@ -10,3 +10,4 @@ debug/*
 *.user
 config.ini
 *.Debug
+*.user
