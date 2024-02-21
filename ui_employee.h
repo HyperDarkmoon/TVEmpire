@@ -21,6 +21,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTableView>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,20 +31,8 @@ class Ui_Employee
 public:
     QStackedWidget *searchStackedWidget;
     QWidget *searchWidget;
-    QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_6;
-    QLineEdit *searchTextBox;
-    QPushButton *pushButton;
-    QTableView *tableView;
-    QLabel *label_8;
-    QLabel *label_21;
-    QLabel *label_22;
-    QLabel *label_23;
-    QLabel *label_24;
-    QLabel *label_25;
-    QPushButton *addEmpButton;
-    QLabel *label_35;
+    QTableWidget *tableWidget;
+    QPushButton *add_btn;
     QWidget *attendanceWidget;
     QWidget *paymentWidget;
     QWidget *addEmpWidget;
@@ -131,193 +120,117 @@ public:
 "{\n"
 "	background:#2D2D2D;\n"
 "}"));
-        label_4 = new QLabel(searchWidget);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(36, 30, 241, 136));
-        label_4->setPixmap(QPixmap(QString::fromUtf8(":/Images/empcardbg.png")));
-        label_4->setScaledContents(true);
-        label_5 = new QLabel(searchWidget);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(296, 30, 238, 136));
-        label_5->setPixmap(QPixmap(QString::fromUtf8(":/Images/attendancebg.png")));
-        label_5->setScaledContents(true);
-        label_6 = new QLabel(searchWidget);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(570, 30, 241, 136));
-        label_6->setPixmap(QPixmap(QString::fromUtf8(":/Images/absentbg.png")));
-        label_6->setScaledContents(true);
-        searchTextBox = new QLineEdit(searchWidget);
-        searchTextBox->setObjectName(QStringLiteral("searchTextBox"));
-        searchTextBox->setGeometry(QRect(40, 190, 871, 32));
+        tableWidget = new QTableWidget(searchWidget);
+        if (tableWidget->columnCount() < 6)
+            tableWidget->setColumnCount(6);
         QFont font;
+        font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
         font.setPointSize(10);
-        searchTextBox->setFont(font);
-        searchTextBox->setStyleSheet(QLatin1String("#searchTextBox\n"
-"{\n"
-"	padding-left:8px;\n"
-"	border:none;\n"
-"}"));
-        pushButton = new QPushButton(searchWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(870, 190, 40, 32));
-        QFont font1;
-        font1.setPointSize(12);
-        pushButton->setFont(font1);
-        pushButton->setStyleSheet(QLatin1String("#pushButton\n"
-"{\n"
-"	border:none;\n"
-"	color:black;\n"
-"background:white;\n"
-"}\n"
-"#pushButton:hover\n"
-"{\n"
-"	border:none;\n"
-"	color:red;\n"
-"background:white;\n"
-"}"));
-        tableView = new QTableView(searchWidget);
-        tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(40, 260, 871, 271));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(tableView->sizePolicy().hasHeightForWidth());
-        tableView->setSizePolicy(sizePolicy);
-        tableView->setFocusPolicy(Qt::NoFocus);
-        tableView->setAutoFillBackground(false);
-        tableView->setFrameShape(QFrame::NoFrame);
-        tableView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
-        tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        tableView->setTabKeyNavigation(false);
-        tableView->setProperty("showDropIndicator", QVariant(false));
-        tableView->setDragDropOverwriteMode(false);
-        tableView->setAlternatingRowColors(true);
-        tableView->setSelectionMode(QAbstractItemView::SingleSelection);
-        tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-        tableView->setTextElideMode(Qt::ElideNone);
-        tableView->setShowGrid(false);
-        tableView->setGridStyle(Qt::NoPen);
-        tableView->setCornerButtonEnabled(false);
-        tableView->horizontalHeader()->setVisible(false);
-        tableView->horizontalHeader()->setDefaultSectionSize(120);
-        tableView->horizontalHeader()->setMinimumSectionSize(30);
-        label_8 = new QLabel(searchWidget);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(40, 225, 131, 34));
-        QFont font2;
-        font2.setPointSize(10);
-        font2.setBold(true);
-        font2.setWeight(75);
-        label_8->setFont(font2);
-        label_8->setStyleSheet(QLatin1String("#label_8\n"
-"{\n"
-"	color:white;\n"
-"	background:#11110E;\n"
-"padding-left:10px;\n"
-"}"));
-        label_21 = new QLabel(searchWidget);
-        label_21->setObjectName(QStringLiteral("label_21"));
-        label_21->setGeometry(QRect(170, 225, 120, 34));
-        label_21->setFont(font2);
-        label_21->setStyleSheet(QLatin1String("#label_21\n"
-"{\n"
-"	color:white;\n"
-"	background:#11110E;\n"
-"	padding-left:5px;\n"
-"}"));
-        label_22 = new QLabel(searchWidget);
-        label_22->setObjectName(QStringLiteral("label_22"));
-        label_22->setGeometry(QRect(290, 225, 125, 34));
-        label_22->setFont(font2);
-        label_22->setStyleSheet(QLatin1String("#label_22\n"
-"{\n"
-"	color:white;\n"
-"	background:#11110E;\n"
-"	padding-left:3px;\n"
-"}"));
-        label_23 = new QLabel(searchWidget);
-        label_23->setObjectName(QStringLiteral("label_23"));
-        label_23->setGeometry(QRect(413, 225, 120, 34));
-        label_23->setFont(font2);
-        label_23->setStyleSheet(QLatin1String("#label_23\n"
-"{\n"
-"	color:white;\n"
-"	background:#11110E;\n"
-"}"));
-        label_24 = new QLabel(searchWidget);
-        label_24->setObjectName(QStringLiteral("label_24"));
-        label_24->setGeometry(QRect(533, 225, 122, 34));
-        label_24->setFont(font2);
-        label_24->setStyleSheet(QLatin1String("#label_24\n"
-"{\n"
-"	color:white;\n"
-"	background:#11110E;\n"
-"}"));
-        label_25 = new QLabel(searchWidget);
-        label_25->setObjectName(QStringLiteral("label_25"));
-        label_25->setGeometry(QRect(655, 225, 261, 34));
-        label_25->setFont(font2);
-        label_25->setStyleSheet(QLatin1String("#label_25\n"
-"{\n"
-"	color:white;\n"
-"	background:#11110E;\n"
-"}"));
-        addEmpButton = new QPushButton(searchWidget);
-        addEmpButton->setObjectName(QStringLiteral("addEmpButton"));
-        addEmpButton->setGeometry(QRect(690, 80, 181, 91));
-        QFont font3;
-        font3.setPointSize(11);
-        addEmpButton->setFont(font3);
-        addEmpButton->setLayoutDirection(Qt::LeftToRight);
-        addEmpButton->setStyleSheet(QLatin1String("#addEmpButton\n"
-"{\n"
-"	text-align:left;\n"
-"	padding-left:26px;\n"
-"	border:none;	\n"
-"	color:white;	\n"
-"	background:#1F1F1F;\n"
-"}\n"
-"#addEmpButton:hover\n"
-"{\n"
-"	text-align:left;\n"
-"	padding-left:26px;\n"
-"	border:none;	\n"
-"	color:white;	\n"
-"	background:#333;\n"
-"}"));
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        __qtablewidgetitem->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
+        __qtablewidgetitem->setFont(font);
+        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        __qtablewidgetitem1->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
+        __qtablewidgetitem1->setFont(font);
+        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        __qtablewidgetitem2->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
+        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        __qtablewidgetitem3->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
+        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        __qtablewidgetitem4->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
+        tableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        __qtablewidgetitem5->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
+        tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
+        if (tableWidget->rowCount() < 21)
+            tableWidget->setRowCount(21);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(0, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(1, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(2, __qtablewidgetitem8);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(3, __qtablewidgetitem9);
+        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(4, __qtablewidgetitem10);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(5, __qtablewidgetitem11);
+        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(6, __qtablewidgetitem12);
+        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(7, __qtablewidgetitem13);
+        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(8, __qtablewidgetitem14);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(9, __qtablewidgetitem15);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(10, __qtablewidgetitem16);
+        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(11, __qtablewidgetitem17);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(12, __qtablewidgetitem18);
+        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(13, __qtablewidgetitem19);
+        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(14, __qtablewidgetitem20);
+        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(15, __qtablewidgetitem21);
+        QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(16, __qtablewidgetitem22);
+        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(17, __qtablewidgetitem23);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(18, __qtablewidgetitem24);
+        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(19, __qtablewidgetitem25);
+        QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(20, __qtablewidgetitem26);
+        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
+        tableWidget->setItem(0, 0, __qtablewidgetitem27);
+        QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
+        tableWidget->setItem(0, 1, __qtablewidgetitem28);
+        QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
+        tableWidget->setItem(0, 2, __qtablewidgetitem29);
+        QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
+        tableWidget->setItem(0, 3, __qtablewidgetitem30);
+        QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
+        tableWidget->setItem(20, 0, __qtablewidgetitem31);
+        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        tableWidget->setGeometry(QRect(10, 120, 951, 431));
+        tableWidget->setFont(font);
+        tableWidget->setFocusPolicy(Qt::NoFocus);
+        tableWidget->setStyleSheet(QStringLiteral(""));
+        tableWidget->setFrameShape(QFrame::NoFrame);
+        tableWidget->setSelectionMode(QAbstractItemView::ExtendedSelection);
+        tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidget->setShowGrid(false);
+        tableWidget->setGridStyle(Qt::NoPen);
+        tableWidget->setSortingEnabled(true);
+        tableWidget->setWordWrap(true);
+        tableWidget->setCornerButtonEnabled(false);
+        tableWidget->setRowCount(21);
+        tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
+        tableWidget->horizontalHeader()->setDefaultSectionSize(120);
+        tableWidget->horizontalHeader()->setMinimumSectionSize(50);
+        tableWidget->horizontalHeader()->setStretchLastSection(true);
+        tableWidget->verticalHeader()->setVisible(false);
+        tableWidget->verticalHeader()->setCascadingSectionResizes(false);
+        tableWidget->verticalHeader()->setDefaultSectionSize(28);
+        tableWidget->verticalHeader()->setHighlightSections(false);
+        tableWidget->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
+        tableWidget->verticalHeader()->setStretchLastSection(false);
+        add_btn = new QPushButton(searchWidget);
+        add_btn->setObjectName(QStringLiteral("add_btn"));
+        add_btn->setGeometry(QRect(10, 20, 161, 71));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Images/icons8_Add_User_Male_50px.png"), QSize(), QIcon::Normal, QIcon::Off);
-        addEmpButton->setIcon(icon);
-        addEmpButton->setIconSize(QSize(32, 32));
-        label_35 = new QLabel(searchWidget);
-        label_35->setObjectName(QStringLiteral("label_35"));
-        label_35->setGeometry(QRect(790, 225, 130, 34));
-        QPalette palette;
-        QBrush brush(QColor(255, 255, 255, 255));
-        brush.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-        QBrush brush1(QColor(0, 0, 0, 255));
-        brush1.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Button, brush1);
-        palette.setBrush(QPalette::Active, QPalette::Base, brush1);
-        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
-        palette.setBrush(QPalette::Inactive, QPalette::Base, brush1);
-        QBrush brush2(QColor(120, 120, 120, 255));
-        brush2.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush2);
-        palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
-        QBrush brush3(QColor(45, 45, 45, 255));
-        brush3.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::Base, brush3);
-        label_35->setPalette(palette);
-        label_35->setFont(font2);
-        label_35->setStyleSheet(QLatin1String("#label_25\n"
-"{\n"
-"	color:white;\n"
-"	background:#11110E;\n"
-"}"));
+        icon.addFile(QStringLiteral("../../../Desktop/#017_Students information system/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        add_btn->setIcon(icon);
+        add_btn->setIconSize(QSize(20, 20));
         searchStackedWidget->addWidget(searchWidget);
         attendanceWidget = new QWidget();
         attendanceWidget->setObjectName(QStringLiteral("attendanceWidget"));
@@ -334,10 +247,10 @@ public:
         empName = new QLineEdit(addEmpWidget);
         empName->setObjectName(QStringLiteral("empName"));
         empName->setGeometry(QRect(30, 90, 240, 32));
-        QFont font4;
-        font4.setFamily(QStringLiteral("Arial"));
-        font4.setPointSize(10);
-        empName->setFont(font4);
+        QFont font1;
+        font1.setFamily(QStringLiteral("Arial"));
+        font1.setPointSize(10);
+        empName->setFont(font1);
         empName->setStyleSheet(QLatin1String("#empName\n"
 "{\n"
 "	background:white;\n"
@@ -348,7 +261,7 @@ public:
         empFather = new QLineEdit(addEmpWidget);
         empFather->setObjectName(QStringLiteral("empFather"));
         empFather->setGeometry(QRect(290, 90, 240, 32));
-        empFather->setFont(font4);
+        empFather->setFont(font1);
         empFather->setStyleSheet(QLatin1String("#empFather\n"
 "{\n"
 "	background:white;\n"
@@ -359,16 +272,20 @@ public:
         id = new QLabel(addEmpWidget);
         id->setObjectName(QStringLiteral("id"));
         id->setGeometry(QRect(30, 65, 141, 21));
+        QFont font2;
+        font2.setPointSize(10);
+        font2.setBold(true);
+        font2.setWeight(75);
         id->setFont(font2);
         label_18 = new QLabel(addEmpWidget);
         label_18->setObjectName(QStringLiteral("label_18"));
         label_18->setGeometry(QRect(30, 20, 241, 31));
-        QFont font5;
-        font5.setFamily(QStringLiteral("Arial"));
-        font5.setPointSize(12);
-        font5.setBold(true);
-        font5.setWeight(75);
-        label_18->setFont(font5);
+        QFont font3;
+        font3.setFamily(QStringLiteral("Arial"));
+        font3.setPointSize(12);
+        font3.setBold(true);
+        font3.setWeight(75);
+        label_18->setFont(font3);
         id_2 = new QLabel(addEmpWidget);
         id_2->setObjectName(QStringLiteral("id_2"));
         id_2->setGeometry(QRect(290, 65, 141, 21));
@@ -380,7 +297,7 @@ public:
         empDOB = new QDateEdit(addEmpWidget);
         empDOB->setObjectName(QStringLiteral("empDOB"));
         empDOB->setGeometry(QRect(550, 90, 240, 32));
-        empDOB->setFont(font4);
+        empDOB->setFont(font1);
         empDOB->setStyleSheet(QLatin1String("#empDOB\n"
 "{\n"
 "	background:white;\n"
@@ -396,7 +313,7 @@ public:
         empGender = new QComboBox(addEmpWidget);
         empGender->setObjectName(QStringLiteral("empGender"));
         empGender->setGeometry(QRect(30, 165, 240, 32));
-        empGender->setFont(font4);
+        empGender->setFont(font1);
         empGender->setStyleSheet(QLatin1String("#empGender\n"
 "{\n"
 "	background:white;\n"
@@ -411,7 +328,7 @@ public:
         empEmail = new QLineEdit(addEmpWidget);
         empEmail->setObjectName(QStringLiteral("empEmail"));
         empEmail->setGeometry(QRect(290, 165, 240, 32));
-        empEmail->setFont(font4);
+        empEmail->setFont(font1);
         empEmail->setStyleSheet(QLatin1String("#empEmail\n"
 "{\n"
 "	background:white;\n"
@@ -422,7 +339,7 @@ public:
         empPhone = new QLineEdit(addEmpWidget);
         empPhone->setObjectName(QStringLiteral("empPhone"));
         empPhone->setGeometry(QRect(550, 165, 240, 32));
-        empPhone->setFont(font4);
+        empPhone->setFont(font1);
         empPhone->setStyleSheet(QLatin1String("#empPhone\n"
 "{\n"
 "	background:white;\n"
@@ -437,7 +354,7 @@ public:
         empAddress = new QLineEdit(addEmpWidget);
         empAddress->setObjectName(QStringLiteral("empAddress"));
         empAddress->setGeometry(QRect(30, 235, 761, 32));
-        empAddress->setFont(font4);
+        empAddress->setFont(font1);
         empAddress->setStyleSheet(QLatin1String("#empAddress\n"
 "{\n"
 "	background:white;\n"
@@ -461,7 +378,7 @@ public:
         empID->setObjectName(QStringLiteral("empID"));
         empID->setEnabled(false);
         empID->setGeometry(QRect(30, 440, 201, 32));
-        empID->setFont(font4);
+        empID->setFont(font1);
         empID->setStyleSheet(QLatin1String("#empID\n"
 "{\n"
 "	background:white;\n"
@@ -472,7 +389,7 @@ public:
         empSalary = new QLineEdit(addEmpWidget);
         empSalary->setObjectName(QStringLiteral("empSalary"));
         empSalary->setGeometry(QRect(550, 440, 240, 32));
-        empSalary->setFont(font4);
+        empSalary->setFont(font1);
         empSalary->setStyleSheet(QLatin1String("#empSalary\n"
 "{\n"
 "	background:white;\n"
@@ -483,7 +400,7 @@ public:
         empDept = new QComboBox(addEmpWidget);
         empDept->setObjectName(QStringLiteral("empDept"));
         empDept->setGeometry(QRect(30, 365, 240, 32));
-        empDept->setFont(font4);
+        empDept->setFont(font1);
         empDept->setStyleSheet(QLatin1String("#empDept\n"
 "{\n"
 "	background:white;\n"
@@ -494,7 +411,7 @@ public:
         empDOJ = new QDateEdit(addEmpWidget);
         empDOJ->setObjectName(QStringLiteral("empDOJ"));
         empDOJ->setGeometry(QRect(290, 440, 240, 32));
-        empDOJ->setFont(font4);
+        empDOJ->setFont(font1);
         empDOJ->setStyleSheet(QLatin1String("#empDOJ\n"
 "{\n"
 "	background:white;\n"
@@ -513,11 +430,11 @@ public:
         label_19 = new QLabel(addEmpWidget);
         label_19->setObjectName(QStringLiteral("label_19"));
         label_19->setGeometry(QRect(30, 295, 241, 31));
-        label_19->setFont(font5);
+        label_19->setFont(font3);
         empDesig = new QComboBox(addEmpWidget);
         empDesig->setObjectName(QStringLiteral("empDesig"));
         empDesig->setGeometry(QRect(290, 365, 240, 32));
-        empDesig->setFont(font4);
+        empDesig->setFont(font1);
         empDesig->setStyleSheet(QLatin1String("#empDesig\n"
 "{\n"
 "	background:white;\n"
@@ -532,7 +449,7 @@ public:
         empType = new QComboBox(addEmpWidget);
         empType->setObjectName(QStringLiteral("empType"));
         empType->setGeometry(QRect(550, 365, 240, 32));
-        empType->setFont(font4);
+        empType->setFont(font1);
         empType->setStyleSheet(QLatin1String("#empType\n"
 "{\n"
 "	background:white;\n"
@@ -547,7 +464,9 @@ public:
         pushButton_6 = new QPushButton(addEmpWidget);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
         pushButton_6->setGeometry(QRect(470, 500, 150, 32));
-        pushButton_6->setFont(font);
+        QFont font4;
+        font4.setPointSize(10);
+        pushButton_6->setFont(font4);
         pushButton_6->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_6->setFocusPolicy(Qt::TabFocus);
         pushButton_6->setStyleSheet(QLatin1String("#pushButton_6\n"
@@ -566,7 +485,7 @@ public:
         pushButton_5 = new QPushButton(addEmpWidget);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(640, 500, 150, 32));
-        pushButton_5->setFont(font);
+        pushButton_5->setFont(font4);
         pushButton_5->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_5->setFocusPolicy(Qt::TabFocus);
         pushButton_5->setStyleSheet(QLatin1String("#pushButton_5\n"
@@ -607,7 +526,7 @@ public:
         updateEmpName = new QLineEdit(updateEmpWidget);
         updateEmpName->setObjectName(QStringLiteral("updateEmpName"));
         updateEmpName->setGeometry(QRect(410, 90, 381, 32));
-        updateEmpName->setFont(font4);
+        updateEmpName->setFont(font1);
         updateEmpName->setStyleSheet(QStringLiteral(""));
         id_15 = new QLabel(updateEmpWidget);
         id_15->setObjectName(QStringLiteral("id_15"));
@@ -624,7 +543,7 @@ public:
         updateEmpGender = new QComboBox(updateEmpWidget);
         updateEmpGender->setObjectName(QStringLiteral("updateEmpGender"));
         updateEmpGender->setGeometry(QRect(410, 230, 180, 32));
-        updateEmpGender->setFont(font4);
+        updateEmpGender->setFont(font1);
         updateEmpGender->setStyleSheet(QLatin1String("#empDesig\n"
 "{\n"
 "	background:white;\n"
@@ -643,17 +562,17 @@ public:
         updateEmpPhone = new QLineEdit(updateEmpWidget);
         updateEmpPhone->setObjectName(QStringLiteral("updateEmpPhone"));
         updateEmpPhone->setGeometry(QRect(410, 300, 381, 32));
-        updateEmpPhone->setFont(font4);
+        updateEmpPhone->setFont(font1);
         updateEmpPhone->setStyleSheet(QStringLiteral(""));
         updateEmpEmail = new QLineEdit(updateEmpWidget);
         updateEmpEmail->setObjectName(QStringLiteral("updateEmpEmail"));
         updateEmpEmail->setGeometry(QRect(410, 370, 381, 32));
-        updateEmpEmail->setFont(font4);
+        updateEmpEmail->setFont(font1);
         updateEmpEmail->setStyleSheet(QStringLiteral(""));
         updateEmpAddress = new QLineEdit(updateEmpWidget);
         updateEmpAddress->setObjectName(QStringLiteral("updateEmpAddress"));
         updateEmpAddress->setGeometry(QRect(410, 440, 381, 32));
-        updateEmpAddress->setFont(font4);
+        updateEmpAddress->setFont(font1);
         updateEmpAddress->setStyleSheet(QStringLiteral(""));
         id_20 = new QLabel(updateEmpWidget);
         id_20->setObjectName(QStringLiteral("id_20"));
@@ -666,12 +585,12 @@ public:
         updateEmpFName = new QLineEdit(updateEmpWidget);
         updateEmpFName->setObjectName(QStringLiteral("updateEmpFName"));
         updateEmpFName->setGeometry(QRect(410, 160, 381, 32));
-        updateEmpFName->setFont(font4);
+        updateEmpFName->setFont(font1);
         updateEmpFName->setStyleSheet(QStringLiteral(""));
         pushButton_7 = new QPushButton(updateEmpWidget);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
         pushButton_7->setGeometry(QRect(640, 500, 150, 32));
-        pushButton_7->setFont(font);
+        pushButton_7->setFont(font4);
         pushButton_7->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_7->setFocusPolicy(Qt::TabFocus);
         pushButton_7->setStyleSheet(QLatin1String("#pushButton_7\n"
@@ -690,7 +609,7 @@ public:
         pushButton_8 = new QPushButton(updateEmpWidget);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
         pushButton_8->setGeometry(QRect(470, 500, 150, 32));
-        pushButton_8->setFont(font);
+        pushButton_8->setFont(font4);
         pushButton_8->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_8->setFocusPolicy(Qt::TabFocus);
         pushButton_8->setStyleSheet(QLatin1String("#pushButton_8\n"
@@ -709,11 +628,11 @@ public:
         label_20 = new QLabel(updateEmpWidget);
         label_20->setObjectName(QStringLiteral("label_20"));
         label_20->setGeometry(QRect(410, 23, 81, 31));
-        label_20->setFont(font5);
+        label_20->setFont(font3);
         updateEmpDOB = new QDateEdit(updateEmpWidget);
         updateEmpDOB->setObjectName(QStringLiteral("updateEmpDOB"));
         updateEmpDOB->setGeometry(QRect(610, 230, 181, 32));
-        updateEmpDOB->setFont(font4);
+        updateEmpDOB->setFont(font1);
         updateEmpDOB->setStyleSheet(QLatin1String("#updateEmpDOB\n"
 "{\n"
 "	background:white;\n"
@@ -724,6 +643,9 @@ public:
         updateTableView = new QTableView(updateEmpWidget);
         updateTableView->setObjectName(QStringLiteral("updateTableView"));
         updateTableView->setGeometry(QRect(30, 65, 361, 465));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(updateTableView->sizePolicy().hasHeightForWidth());
         updateTableView->setSizePolicy(sizePolicy);
         updateTableView->setFocusPolicy(Qt::NoFocus);
@@ -778,11 +700,11 @@ public:
         updateEmpID = new QLabel(updateEmpWidget);
         updateEmpID->setObjectName(QStringLiteral("updateEmpID"));
         updateEmpID->setGeometry(QRect(485, 23, 191, 31));
-        QFont font6;
-        font6.setFamily(QStringLiteral("Arial"));
-        font6.setPointSize(11);
-        font6.setItalic(true);
-        updateEmpID->setFont(font6);
+        QFont font5;
+        font5.setFamily(QStringLiteral("Arial"));
+        font5.setPointSize(11);
+        font5.setItalic(true);
+        updateEmpID->setFont(font5);
         updateEmpID->setStyleSheet(QLatin1String("color:white;\n"
 "font-style:italic;"));
         searchStackedWidget->addWidget(updateEmpWidget);
@@ -878,7 +800,7 @@ public:
         pushButton_3 = new QPushButton(deleteEmpWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setGeometry(QRect(640, 500, 150, 34));
-        pushButton_3->setFont(font);
+        pushButton_3->setFont(font4);
         pushButton_3->setStyleSheet(QLatin1String("#pushButton_3\n"
 "{\n"
 "	background:#00855C;\n"
@@ -905,19 +827,74 @@ public:
     void retranslateUi(QWidget *Employee)
     {
         Employee->setWindowTitle(QApplication::translate("Employee", "Form", Q_NULLPTR));
-        label_4->setText(QString());
-        label_5->setText(QString());
-        label_6->setText(QString());
-        searchTextBox->setPlaceholderText(QApplication::translate("Employee", "Search", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("Employee", "\303\227", Q_NULLPTR));
-        label_8->setText(QApplication::translate("Employee", "<html><head/><body><p>    Employee ID</p></body></html>", Q_NULLPTR));
-        label_21->setText(QApplication::translate("Employee", "<html><head/><body><p>Name</p></body></html>", Q_NULLPTR));
-        label_22->setText(QApplication::translate("Employee", "<html><head/><body><p>Prenom</p></body></html>", Q_NULLPTR));
-        label_23->setText(QApplication::translate("Employee", "<html><head/><body><p>Poste</p></body></html>", Q_NULLPTR));
-        label_24->setText(QApplication::translate("Employee", "<html><head/><body><p>Salaire</p></body></html>", Q_NULLPTR));
-        label_25->setText(QApplication::translate("Employee", "<html><head/><body><p>TempsEntree</p></body></html>", Q_NULLPTR));
-        addEmpButton->setText(QApplication::translate("Employee", "  Add Employee", Q_NULLPTR));
-        label_35->setText(QApplication::translate("Employee", "<html><head/><body><p>TempsSortie</p></body></html>", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("Employee", "Student ID", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("Employee", "First Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("Employee", "last Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QApplication::translate("Employee", "City", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QApplication::translate("Employee", "State", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QApplication::translate("Employee", "Email Address", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem6 = tableWidget->verticalHeaderItem(0);
+        ___qtablewidgetitem6->setText(QApplication::translate("Employee", "1", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem7 = tableWidget->verticalHeaderItem(1);
+        ___qtablewidgetitem7->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem8 = tableWidget->verticalHeaderItem(2);
+        ___qtablewidgetitem8->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem9 = tableWidget->verticalHeaderItem(3);
+        ___qtablewidgetitem9->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem10 = tableWidget->verticalHeaderItem(4);
+        ___qtablewidgetitem10->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem11 = tableWidget->verticalHeaderItem(5);
+        ___qtablewidgetitem11->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem12 = tableWidget->verticalHeaderItem(6);
+        ___qtablewidgetitem12->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem13 = tableWidget->verticalHeaderItem(7);
+        ___qtablewidgetitem13->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem14 = tableWidget->verticalHeaderItem(8);
+        ___qtablewidgetitem14->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem15 = tableWidget->verticalHeaderItem(9);
+        ___qtablewidgetitem15->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem16 = tableWidget->verticalHeaderItem(10);
+        ___qtablewidgetitem16->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem17 = tableWidget->verticalHeaderItem(11);
+        ___qtablewidgetitem17->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem18 = tableWidget->verticalHeaderItem(12);
+        ___qtablewidgetitem18->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem19 = tableWidget->verticalHeaderItem(13);
+        ___qtablewidgetitem19->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem20 = tableWidget->verticalHeaderItem(14);
+        ___qtablewidgetitem20->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem21 = tableWidget->verticalHeaderItem(15);
+        ___qtablewidgetitem21->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem22 = tableWidget->verticalHeaderItem(16);
+        ___qtablewidgetitem22->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem23 = tableWidget->verticalHeaderItem(17);
+        ___qtablewidgetitem23->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem24 = tableWidget->verticalHeaderItem(18);
+        ___qtablewidgetitem24->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem25 = tableWidget->verticalHeaderItem(19);
+        ___qtablewidgetitem25->setText(QApplication::translate("Employee", "New Row", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem26 = tableWidget->verticalHeaderItem(20);
+        ___qtablewidgetitem26->setText(QApplication::translate("Employee", "2", Q_NULLPTR));
+
+        const bool __sortingEnabled = tableWidget->isSortingEnabled();
+        tableWidget->setSortingEnabled(false);
+        QTableWidgetItem *___qtablewidgetitem27 = tableWidget->item(0, 0);
+        ___qtablewidgetitem27->setText(QApplication::translate("Employee", "fsdfsd", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem28 = tableWidget->item(0, 1);
+        ___qtablewidgetitem28->setText(QApplication::translate("Employee", "fasdfs", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem29 = tableWidget->item(0, 2);
+        ___qtablewidgetitem29->setText(QApplication::translate("Employee", "sdf", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem30 = tableWidget->item(0, 3);
+        ___qtablewidgetitem30->setText(QApplication::translate("Employee", "fsdf", Q_NULLPTR));
+        tableWidget->setSortingEnabled(__sortingEnabled);
+
+        add_btn->setText(QApplication::translate("Employee", "Add", Q_NULLPTR));
         id->setText(QApplication::translate("Employee", "<html><head/><body><p><span style=\" color:#ffffff;\">Name</span></p></body></html>", Q_NULLPTR));
         label_18->setText(QApplication::translate("Employee", "<html><head/><body><p><span style=\" font-style:italic; text-decoration: underline; color:#55aaff;\">Personal Info</span></p></body></html>", Q_NULLPTR));
         id_2->setText(QApplication::translate("Employee", "<html><head/><body><p><span style=\" color:#ffffff;\">Father's Name</span></p></body></html>", Q_NULLPTR));

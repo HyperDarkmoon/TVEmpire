@@ -14,7 +14,8 @@ Employee::~Employee()
     delete ui;
 }
 
-void Employee::on_addEmpButton_clicked()
+
+void Employee::on_add_btn_clicked()
 {
     employeeDialog->show();
 }

@@ -9,3 +9,4 @@ debug/tvempire.exe
 debug/*
 *.user
 config.ini
+*.Debug
