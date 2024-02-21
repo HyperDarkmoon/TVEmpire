@@ -1,41 +1,29 @@
 #include "dbconnection.h"
+#include <QSqlDatabase>
+#include <QSettings>
 #include <QDebug>
+
 dbconnection::dbconnection()
 {
-
 }
-
 
 bool dbconnection::createconnect()
 {
     bool test = false;
+
+    // Read credentials from config file
+    QSettings settings("config.ini", QSettings::IniFormat);
+    QString username = settings.value("Database/Username", "defaultUsername").toString();
+    QString password = settings.value("Database/Password", "defaultPassword").toString();
+
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
     db.setDatabaseName("TVEmpire");
-    db.setUserName("chedly");
-    db.setPassword("admin");
+    db.setUserName(username);
+    db.setPassword(password);
 
     if (db.open())
     {
         test = true;
-
-        //*********************************
-        // test query REMOVE LATER
-        //***************************************************************
-    /*
-        QString queryStr = "SELECT * FROM SPONSOR"; // Adjust query and table name
-
-        QSqlQuery query(db);
-        if (!query.prepare(queryStr)) {
-            qDebug() << "Error preparing query:" << query.lastError().text();
-        }
-        if (!query.exec()) {
-            qDebug() << "Error executing query:" << query.lastError().text();
-
-        }
-
-    */
-
-
     }
 
     return test;

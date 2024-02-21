@@ -8,3 +8,4 @@ debug/tvempire.exe
 *.user
 debug/*
 *.user
+config.ini
