@@ -29,11 +29,11 @@ class Ui_addEmployee
 {
 public:
     QDialogButtonBox *buttonBox;
-    QLabel *label_19;
+    QLabel *login;
     QLabel *id_14;
-    QDateEdit *empDOB;
+    QDateEdit *dob;
     QLabel *label_18;
-    QLineEdit *empFather;
+    QLineEdit *lastname;
     QLabel *id_4;
     QLineEdit *empID;
     QLabel *id_3;
@@ -44,15 +44,15 @@ public:
     QPushButton *pushButton_5;
     QLabel *id;
     QLabel *id_10;
-    QComboBox *empGender;
+    QComboBox *gender;
     QLabel *id_12;
-    QLineEdit *empName;
+    QLineEdit *name;
     QLabel *id_2;
-    QLineEdit *empID_2;
-    QTimeEdit *timeEdit;
-    QTimeEdit *timeEdit_2;
-    QLineEdit *empID_3;
-    QLineEdit *empID_4;
+    QLineEdit *post;
+    QTimeEdit *starttime;
+    QTimeEdit *endtime;
+    QLineEdit *password;
+    QLineEdit *salary;
 
     void setupUi(QDialog *addEmployee)
     {
@@ -128,15 +128,15 @@ public:
         buttonBox->setGeometry(QRect(40, 480, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
-        label_19 = new QLabel(addEmployee);
-        label_19->setObjectName(QStringLiteral("label_19"));
-        label_19->setGeometry(QRect(10, 210, 241, 31));
+        login = new QLabel(addEmployee);
+        login->setObjectName(QStringLiteral("login"));
+        login->setGeometry(QRect(10, 210, 241, 31));
         QFont font;
         font.setFamily(QStringLiteral("Arial"));
         font.setPointSize(12);
         font.setBold(true);
         font.setWeight(75);
-        label_19->setFont(font);
+        login->setFont(font);
         id_14 = new QLabel(addEmployee);
         id_14->setObjectName(QStringLiteral("id_14"));
         id_14->setGeometry(QRect(270, 320, 141, 21));
@@ -145,30 +145,30 @@ public:
         font1.setBold(true);
         font1.setWeight(75);
         id_14->setFont(font1);
-        empDOB = new QDateEdit(addEmployee);
-        empDOB->setObjectName(QStringLiteral("empDOB"));
-        empDOB->setGeometry(QRect(530, 70, 240, 32));
+        dob = new QDateEdit(addEmployee);
+        dob->setObjectName(QStringLiteral("dob"));
+        dob->setGeometry(QRect(530, 70, 240, 32));
         QFont font2;
         font2.setFamily(QStringLiteral("Arial"));
         font2.setPointSize(10);
-        empDOB->setFont(font2);
-        empDOB->setStyleSheet(QLatin1String("#empDOB\n"
+        dob->setFont(font2);
+        dob->setStyleSheet(QLatin1String("#empDOB\n"
 "{\n"
 "	background:white;\n"
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
 "}"));
-        empDOB->setCurrentSection(QDateTimeEdit::YearSection);
+        dob->setCurrentSection(QDateTimeEdit::YearSection);
         label_18 = new QLabel(addEmployee);
         label_18->setObjectName(QStringLiteral("label_18"));
-        label_18->setGeometry(QRect(20, 0, 241, 31));
+        label_18->setGeometry(QRect(10, 0, 241, 31));
         label_18->setFont(font);
-        empFather = new QLineEdit(addEmployee);
-        empFather->setObjectName(QStringLiteral("empFather"));
-        empFather->setGeometry(QRect(270, 70, 240, 32));
-        empFather->setFont(font2);
-        empFather->setStyleSheet(QLatin1String("#empFather\n"
+        lastname = new QLineEdit(addEmployee);
+        lastname->setObjectName(QStringLiteral("lastname"));
+        lastname->setGeometry(QRect(270, 70, 240, 32));
+        lastname->setFont(font2);
+        lastname->setStyleSheet(QLatin1String("#empFather\n"
 "{\n"
 "	background:white;\n"
 "	color:black;\n"
@@ -255,11 +255,11 @@ public:
         id_10->setObjectName(QStringLiteral("id_10"));
         id_10->setGeometry(QRect(550, 320, 141, 21));
         id_10->setFont(font1);
-        empGender = new QComboBox(addEmployee);
-        empGender->setObjectName(QStringLiteral("empGender"));
-        empGender->setGeometry(QRect(10, 145, 240, 32));
-        empGender->setFont(font2);
-        empGender->setStyleSheet(QLatin1String("#empGender\n"
+        gender = new QComboBox(addEmployee);
+        gender->setObjectName(QStringLiteral("gender"));
+        gender->setGeometry(QRect(10, 145, 240, 32));
+        gender->setFont(font2);
+        gender->setStyleSheet(QLatin1String("#empGender\n"
 "{\n"
 "	background:white;\n"
 "	color:black;\n"
@@ -270,11 +270,11 @@ public:
         id_12->setObjectName(QStringLiteral("id_12"));
         id_12->setGeometry(QRect(10, 250, 141, 21));
         id_12->setFont(font1);
-        empName = new QLineEdit(addEmployee);
-        empName->setObjectName(QStringLiteral("empName"));
-        empName->setGeometry(QRect(10, 70, 240, 32));
-        empName->setFont(font2);
-        empName->setStyleSheet(QLatin1String("#empName\n"
+        name = new QLineEdit(addEmployee);
+        name->setObjectName(QStringLiteral("name"));
+        name->setGeometry(QRect(10, 70, 240, 32));
+        name->setFont(font2);
+        name->setStyleSheet(QLatin1String("#empName\n"
 "{\n"
 "	background:white;\n"
 "	color:black;\n"
@@ -285,10 +285,10 @@ public:
         id_2->setObjectName(QStringLiteral("id_2"));
         id_2->setGeometry(QRect(270, 45, 141, 21));
         id_2->setFont(font1);
-        empID_2 = new QLineEdit(addEmployee);
-        empID_2->setObjectName(QStringLiteral("empID_2"));
-        empID_2->setEnabled(false);
-        empID_2->setGeometry(QRect(10, 280, 201, 32));
+        post = new QLineEdit(addEmployee);
+        post->setObjectName(QStringLiteral("post"));
+        post->setEnabled(false);
+        post->setGeometry(QRect(10, 280, 201, 32));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush1);
         palette1.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -350,25 +350,25 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush6);
 #endif
-        empID_2->setPalette(palette1);
-        empID_2->setFont(font2);
-        empID_2->setStyleSheet(QLatin1String("#empID\n"
+        post->setPalette(palette1);
+        post->setFont(font2);
+        post->setStyleSheet(QLatin1String("#empID\n"
 "{\n"
 "	background:white;\n"
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
 "}"));
-        timeEdit = new QTimeEdit(addEmployee);
-        timeEdit->setObjectName(QStringLiteral("timeEdit"));
-        timeEdit->setGeometry(QRect(270, 280, 201, 32));
-        timeEdit_2 = new QTimeEdit(addEmployee);
-        timeEdit_2->setObjectName(QStringLiteral("timeEdit_2"));
-        timeEdit_2->setGeometry(QRect(550, 280, 201, 32));
-        empID_3 = new QLineEdit(addEmployee);
-        empID_3->setObjectName(QStringLiteral("empID_3"));
-        empID_3->setEnabled(false);
-        empID_3->setGeometry(QRect(270, 350, 201, 32));
+        starttime = new QTimeEdit(addEmployee);
+        starttime->setObjectName(QStringLiteral("starttime"));
+        starttime->setGeometry(QRect(270, 280, 201, 32));
+        endtime = new QTimeEdit(addEmployee);
+        endtime->setObjectName(QStringLiteral("endtime"));
+        endtime->setGeometry(QRect(550, 280, 201, 32));
+        password = new QLineEdit(addEmployee);
+        password->setObjectName(QStringLiteral("password"));
+        password->setEnabled(false);
+        password->setGeometry(QRect(270, 350, 201, 32));
         QPalette palette2;
         palette2.setBrush(QPalette::Active, QPalette::WindowText, brush1);
         palette2.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -424,19 +424,19 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush6);
 #endif
-        empID_3->setPalette(palette2);
-        empID_3->setFont(font2);
-        empID_3->setStyleSheet(QLatin1String("#empID\n"
+        password->setPalette(palette2);
+        password->setFont(font2);
+        password->setStyleSheet(QLatin1String("#empID\n"
 "{\n"
 "	background:white;\n"
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
 "}"));
-        empID_4 = new QLineEdit(addEmployee);
-        empID_4->setObjectName(QStringLiteral("empID_4"));
-        empID_4->setEnabled(false);
-        empID_4->setGeometry(QRect(550, 350, 201, 32));
+        salary = new QLineEdit(addEmployee);
+        salary->setObjectName(QStringLiteral("salary"));
+        salary->setEnabled(false);
+        salary->setGeometry(QRect(550, 350, 201, 32));
         QPalette palette3;
         palette3.setBrush(QPalette::Active, QPalette::WindowText, brush1);
         palette3.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -492,9 +492,9 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush6);
 #endif
-        empID_4->setPalette(palette3);
-        empID_4->setFont(font2);
-        empID_4->setStyleSheet(QLatin1String("#empID\n"
+        salary->setPalette(palette3);
+        salary->setFont(font2);
+        salary->setStyleSheet(QLatin1String("#empID\n"
 "{\n"
 "	background:white;\n"
 "	color:black;\n"
@@ -512,7 +512,7 @@ public:
     void retranslateUi(QDialog *addEmployee)
     {
         addEmployee->setWindowTitle(QApplication::translate("addEmployee", "Dialog", Q_NULLPTR));
-        label_19->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" font-style:italic; text-decoration: underline; color:#55aaff;\">Company Info</span></p></body></html>", Q_NULLPTR));
+        login->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" font-style:italic; text-decoration: underline; color:#55aaff;\">Company Info</span></p></body></html>", Q_NULLPTR));
         id_14->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" color:#ffffff;\">Password</span></p></body></html>", Q_NULLPTR));
         label_18->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" font-style:italic; text-decoration: underline; color:#55aaff;\">Personal Info</span></p></body></html>", Q_NULLPTR));
         id_4->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" color:#ffffff;\">Sexe</span></p></body></html>", Q_NULLPTR));
@@ -524,8 +524,8 @@ public:
         pushButton_5->setText(QApplication::translate("addEmployee", "Submit", Q_NULLPTR));
         id->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" color:#ffffff;\">Nom</span></p><p><br/></p></body></html>", Q_NULLPTR));
         id_10->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" color:#ffffff;\">Salaire</span></p></body></html>", Q_NULLPTR));
-        empGender->clear();
-        empGender->insertItems(0, QStringList()
+        gender->clear();
+        gender->insertItems(0, QStringList()
          << QApplication::translate("addEmployee", "Male", Q_NULLPTR)
          << QApplication::translate("addEmployee", "Female", Q_NULLPTR)
          << QApplication::translate("addEmployee", "Other", Q_NULLPTR)

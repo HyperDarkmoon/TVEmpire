@@ -12,6 +12,7 @@ RESOURCES += resource.qrc
 
 SOURCES += \
     addemployee.cpp \
+    crudemployee.cpp \
     dbconnection.cpp \
     emission.cpp \
     employee.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
 
 HEADERS += \
     addemployee.h \
+    crudemployee.h \
     dbconnection.h \
     emission.h \
     employee.h \

@@ -1,5 +1,6 @@
 INPUT(
 ./release\addemployee.o
+./release\crudemployee.o
 ./release\dbconnection.o
 ./release\emission.o
 ./release\employee.o

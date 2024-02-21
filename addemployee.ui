@@ -471,7 +471,7 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_19">
+  <widget class="QLabel" name="login">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -512,7 +512,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QDateEdit" name="empDOB">
+  <widget class="QDateEdit" name="dob">
    <property name="geometry">
     <rect>
      <x>530</x>
@@ -543,7 +543,7 @@
   <widget class="QLabel" name="label_18">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>0</y>
      <width>241</width>
      <height>31</height>
@@ -561,7 +561,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic; text-decoration: underline; color:#55aaff;&quot;&gt;Personal Info&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="empFather">
+  <widget class="QLineEdit" name="lastname">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -832,7 +832,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Salaire&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="empGender">
+  <widget class="QComboBox" name="gender">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -892,7 +892,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Poste&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="empName">
+  <widget class="QLineEdit" name="name">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -937,7 +937,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Prenom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="empID_2">
+  <widget class="QLineEdit" name="post">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -1407,7 +1407,7 @@
 }</string>
    </property>
   </widget>
-  <widget class="QTimeEdit" name="timeEdit">
+  <widget class="QTimeEdit" name="starttime">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -1417,7 +1417,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTimeEdit" name="timeEdit_2">
+  <widget class="QTimeEdit" name="endtime">
    <property name="geometry">
     <rect>
      <x>550</x>
@@ -1427,7 +1427,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="empID_3">
+  <widget class="QLineEdit" name="password">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -1897,7 +1897,7 @@
 }</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="empID_4">
+  <widget class="QLineEdit" name="salary">
    <property name="enabled">
     <bool>false</bool>
    </property>
