@@ -86,7 +86,7 @@
       <bool>false</bool>
      </property>
      <property name="rowCount">
-      <number>21</number>
+      <number>20</number>
      </property>
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>false</bool>
@@ -118,11 +118,6 @@
      <attribute name="verticalHeaderStretchLastSection">
       <bool>false</bool>
      </attribute>
-     <row>
-      <property name="text">
-       <string>1</string>
-      </property>
-     </row>
      <row>
       <property name="text">
        <string>New Row</string>
@@ -225,7 +220,7 @@
      </row>
      <column>
       <property name="text">
-       <string>Student ID</string>
+       <string>ID</string>
       </property>
       <property name="font">
        <font>
@@ -239,7 +234,12 @@
      </column>
      <column>
       <property name="text">
-       <string>First Name</string>
+       <string>Login</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nom</string>
       </property>
       <property name="font">
        <font>
@@ -253,7 +253,7 @@
      </column>
      <column>
       <property name="text">
-       <string>last Name</string>
+       <string>Prenom</string>
       </property>
       <property name="textAlignment">
        <set>AlignLeading|AlignVCenter</set>
@@ -261,7 +261,7 @@
      </column>
      <column>
       <property name="text">
-       <string>City</string>
+       <string>Poste</string>
       </property>
       <property name="textAlignment">
        <set>AlignLeading|AlignVCenter</set>
@@ -269,7 +269,7 @@
      </column>
      <column>
       <property name="text">
-       <string>State</string>
+       <string>Salaire</string>
       </property>
       <property name="textAlignment">
        <set>AlignLeading|AlignVCenter</set>
@@ -277,33 +277,18 @@
      </column>
      <column>
       <property name="text">
-       <string>Email Address</string>
+       <string>Temps d'entree</string>
       </property>
       <property name="textAlignment">
        <set>AlignLeading|AlignVCenter</set>
       </property>
      </column>
-     <item row="0" column="0">
+     <column>
       <property name="text">
-       <string>fsdfsd</string>
+       <string>Temps de Sortie</string>
       </property>
-     </item>
-     <item row="0" column="1">
-      <property name="text">
-       <string>fasdfs</string>
-      </property>
-     </item>
-     <item row="0" column="2">
-      <property name="text">
-       <string>sdf</string>
-      </property>
-     </item>
-     <item row="0" column="3">
-      <property name="text">
-       <string>fsdf</string>
-      </property>
-     </item>
-     <item row="20" column="0">
+     </column>
+     <item row="19" column="0">
       <property name="text">
        <string/>
       </property>
