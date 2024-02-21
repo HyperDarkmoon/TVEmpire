@@ -7,12 +7,10 @@
 class CrudEmployee
 {
 public:
-    CrudEmployee();
-     void setId(unsigned int id);
+    CrudEmployee(unsigned int id, QString name, QString lastName, QString post, unsigned int salary, QTime startTime, QTime endTime, QString login, QString password, QDate dob, QString gender);
+    void setId(unsigned int id);
     unsigned int getId();
 
-    void setScene(QString scene);
-    QString getScene();
 
     void setCrudEmployeeName(QString name);
     QString getCrudEmployeeName();
@@ -50,7 +48,6 @@ public:
     bool deleteEmployee(unsigned int id);
 private: 
     unsigned int id;
-    QString scene;
     QString CrudEmployeeName;
     QString CrudEmployeeLastName;
     QString post;
@@ -60,6 +57,7 @@ private:
     QString password;
     QString login;
     QDate dob;
+    QString gender;
 
 };
 

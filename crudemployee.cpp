@@ -1,19 +1,21 @@
 #include "crudemployee.h"
 #include <QtSql>
 
-CrudEmployee::CrudEmployee()
+CrudEmployee::CrudEmployee(unsigned int id, QString name, QString lastName, QString post, unsigned int salary, QTime startTime, QTime endTime, QString login, QString password, QDate dob, QString gender)
 {
-    id = 0;
-    scene = "";
-    CrudEmployeeName = "";
-    CrudEmployeeLastName = "";
-    post = "";
-    salary = 0;
-    startTime = QTime();
-    endTime = QTime();
-    password = "";
-    login = "";
+    this->id = id;
+    this->CrudEmployeeName = name;
+    this->CrudEmployeeLastName = lastName;
+    this->post = post;
+    this->salary = salary;
+    this->startTime = startTime;
+    this->endTime = endTime;
+    this->login = login;
+    this->password = password;
+    this->dob = dob;
+    this->gender = gender;
 }
+
 
 void CrudEmployee::setId(unsigned int id)
 {
@@ -25,15 +27,6 @@ unsigned int CrudEmployee::getId()
     return id;
 }
 
-void CrudEmployee::setScene(QString scene)
-{
-    this->scene = scene;
-}
-
-QString CrudEmployee::getScene()
-{
-    return scene;
-}
 
 void CrudEmployee::setCrudEmployeeName(QString name)
 {
@@ -125,11 +118,19 @@ QDate CrudEmployee::getDob()
     return dob;
 }
 
+void CrudEmployee::setGender(QString gender) {
+    this->gender = gender;
+}
+
+QString CrudEmployee::getGender() {
+    return gender;
+}
+
 bool CrudEmployee::createEmployee(CrudEmployee emp) {
     QSqlQuery query;
-    query.prepare("INSERT INTO employee (id, scene, name, last_name, post, salary, start_time, end_time, password, login, dob) VALUES (:id, :scene, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob)");
+    query.prepare("INSERT INTO employees (id, name, last_name, post, salary, start_time, end_time, password, login, dob, gender) VALUES (:id, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob, :gender)");
+
     query.bindValue(":id", emp.getId());
-    query.bindValue(":scene", emp.getScene());
     query.bindValue(":name", emp.getCrudEmployeeName());
     query.bindValue(":last_name", emp.getCrudEmployeeLastName());
     query.bindValue(":post", emp.getPost());
@@ -139,18 +140,29 @@ bool CrudEmployee::createEmployee(CrudEmployee emp) {
     query.bindValue(":password", emp.getPassword());
     query.bindValue(":login", emp.getLogin());
     query.bindValue(":dob", emp.getDob());
-    return query.exec();
+    query.bindValue(":gender", emp.getGender());
+
+    if (!query.exec()) {
+        qDebug() << "Error executing query:";
+        qDebug() << "Query:" << query.lastQuery();
+        qDebug() << "Error:" << query.lastError().text();
+        return false;
+    } else {
+        qDebug() << "Query executed successfully:";
+        qDebug() << "Query:" << query.lastQuery();
+        return true;
+    }
 }
+
 
 CrudEmployee CrudEmployee::getEmployee(unsigned int id) {
     QSqlQuery query;
-    query.prepare("SELECT * FROM employee WHERE id = :id");
+    query.prepare("SELECT * FROM employees WHERE id = :id");
     query.bindValue(":id", id);
     query.exec();
-    CrudEmployee emp;
+    CrudEmployee emp(0, "", "", "", "", 0, QTime(), QTime(), "", "", QDate(), "");
     while (query.next()) {
         emp.setId(query.value(0).toUInt());
-        emp.setScene(query.value(1).toString());
         emp.setCrudEmployeeName(query.value(2).toString());
         emp.setCrudEmployeeLastName(query.value(3).toString());
         emp.setPost(query.value(4).toString());
@@ -160,15 +172,15 @@ CrudEmployee CrudEmployee::getEmployee(unsigned int id) {
         emp.setPassword(query.value(8).toString());
         emp.setLogin(query.value(9).toString());
         emp.setDob(query.value(10).toDate());
+        emp.setGender(query.value(11).toString());
     }
     return emp;
 }
 
 bool CrudEmployee::updateEmployee(unsigned int id, CrudEmployee emp) {
     QSqlQuery query;
-    query.prepare("UPDATE employee SET id = :id, scene = :scene, name = :name, last_name = :last_name, post = :post, salary = :salary, start_time = :start_time, end_time = :end_time, password = :password, login = :login, dob = :dob WHERE id = :id");
+    query.prepare("UPDATE employees SET id = :id, name = :name, last_name = :last_name, post = :post, salary = :salary, start_time = :start_time, end_time = :end_time, password = :password, login = :login, dob = :dob, gender = :gender WHERE id = :id");
     query.bindValue(":id", emp.getId());
-    query.bindValue(":scene", emp.getScene());
     query.bindValue(":name", emp.getCrudEmployeeName());
     query.bindValue(":last_name", emp.getCrudEmployeeLastName());
     query.bindValue(":post", emp.getPost());
@@ -178,12 +190,13 @@ bool CrudEmployee::updateEmployee(unsigned int id, CrudEmployee emp) {
     query.bindValue(":password", emp.getPassword());
     query.bindValue(":login", emp.getLogin());
     query.bindValue(":dob", emp.getDob());
+    query.bindValue(":gender", emp.getGender());
     return query.exec();
 }
 
 bool CrudEmployee::deleteEmployee(unsigned int id) {
     QSqlQuery query;
-    query.prepare("DELETE FROM employee WHERE id = :id");
+    query.prepare("DELETE FROM employees WHERE id = :id");
     query.bindValue(":id", id);
     return query.exec();
 }
