@@ -16,8 +16,7 @@ Employee::~Employee()
 
 
 
-void Employee::on_add_btn_clicked()
+void Employee::on_add_btn_2_clicked()
 {
     employeeDialog->show();
 }
-

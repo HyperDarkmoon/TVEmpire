@@ -193,19 +193,22 @@ public:
         tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
         tableWidget_2->setGeometry(QRect(10, 110, 951, 431));
         QPalette palette1;
-        palette1.setBrush(QPalette::Active, QPalette::Button, brush1);
-        palette1.setBrush(QPalette::Active, QPalette::Base, brush1);
-        palette1.setBrush(QPalette::Active, QPalette::Window, brush1);
-        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush1);
-        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush1);
-        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush1);
-        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush1);
-        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        QBrush brush10(QColor(241, 241, 241, 255));
+        brush10.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::Button, brush10);
+        palette1.setBrush(QPalette::Active, QPalette::Base, brush10);
+        palette1.setBrush(QPalette::Active, QPalette::Window, brush10);
+        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush10);
+        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush10);
+        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush10);
+        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush10);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush10);
+        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush10);
         tableWidget_2->setPalette(palette1);
         tableWidget_2->setFont(font);
         tableWidget_2->setFocusPolicy(Qt::NoFocus);
-        tableWidget_2->setStyleSheet(QStringLiteral(""));
+        tableWidget_2->setAutoFillBackground(true);
+        tableWidget_2->setStyleSheet(QStringLiteral("background-color: #f1f1f1;"));
         tableWidget_2->setFrameShape(QFrame::NoFrame);
         tableWidget_2->setSelectionMode(QAbstractItemView::ExtendedSelection);
         tableWidget_2->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -233,24 +236,24 @@ public:
         palette2.setBrush(QPalette::Active, QPalette::Text, brush);
         palette2.setBrush(QPalette::Active, QPalette::Base, brush1);
         palette2.setBrush(QPalette::Active, QPalette::Window, brush1);
-        QBrush brush10(QColor(224, 224, 225, 128));
-        brush10.setStyle(Qt::SolidPattern);
+        QBrush brush11(QColor(224, 224, 225, 128));
+        brush11.setStyle(Qt::SolidPattern);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette::Active, QPalette::PlaceholderText, brush10);
+        palette2.setBrush(QPalette::Active, QPalette::PlaceholderText, brush11);
 #endif
         palette2.setBrush(QPalette::Inactive, QPalette::Button, brush1);
         palette2.setBrush(QPalette::Inactive, QPalette::Text, brush);
         palette2.setBrush(QPalette::Inactive, QPalette::Base, brush1);
         palette2.setBrush(QPalette::Inactive, QPalette::Window, brush1);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush10);
+        palette2.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush11);
 #endif
         palette2.setBrush(QPalette::Disabled, QPalette::Button, brush1);
         palette2.setBrush(QPalette::Disabled, QPalette::Text, brush4);
         palette2.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         palette2.setBrush(QPalette::Disabled, QPalette::Window, brush1);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush10);
+        palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush11);
 #endif
         add_btn_2->setPalette(palette2);
         QIcon icon;

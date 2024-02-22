@@ -23,6 +23,8 @@ private slots:
 
     void on_add_btn_clicked();
 
+    void on_add_btn_2_clicked();
+
 private:
     Ui::Employee *ui;
     addEmployee *employeeDialog;
