@@ -108,7 +108,89 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush9);
 #endif
         Employee->setPalette(palette);
-        Employee->setStyleSheet(QStringLiteral(""));
+        Employee->setStyleSheet(QLatin1String("#info_frame {\n"
+"	background-color: #fff;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"\n"
+"#info_frame QLabel,\n"
+"#info_frame QLineEdit,\n"
+"#info_frame QComboBox,\n"
+"#function_frame QPushButton,\n"
+"QHeaderView::section\n"
+" {\n"
+"	font-family: Segoe UI Semibold;\n"
+"	font-size: 12px;\n"
+"}\n"
+"\n"
+"#info_frame QLineEdit,\n"
+"#info_frame QComboBox {\n"
+"	padding: 4px 5px;\n"
+"	border: 1px solid #838383;\n"
+"	border-radius: 2px;\n"
+"}\n"
+"\n"
+"#info_frame QLineEdit:focus,\n"
+"#info_frame QComboBox:focus\n"
+" {\n"
+"	border-color: #0055ff;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down { \n"
+"	background: transparent; \n"
+"	border: none;\n"
+"	margin-right: 5px;\n"
+"} \n"
+"\n"
+"QComboBox::down-arrow {\n"
+"	image: url(:/icons/icons/expand_more.svg);\n"
+"}\n"
+"\n"
+"#result_frame {\n"
+"	border-radius: 5px;\n"
+"	background-color: #fff;\n"
+"}\n"
+"\n"
+"QHeaderView::section{\n"
+"	border: none;\n"
+"	border-bottom:1px solid #d0c6ff;\n"
+"	text-align:left;\n"
+"	padding: 3px 5px;\n"
+"}\n"
+"\n"
+"QTableWidget::Item{\n"
+"	bor"
+                        "der-bottom:1px solid #d0c6ff;\n"
+"	color: black;\n"
+"	padding-left: 3px;\n"
+"}\n"
+"\n"
+"#function_frame QPushButton {\n"
+"	font-size: 14px;\n"
+"	padding: 5px 10px;\n"
+"	border: 2px solid #f0f0f0;\n"
+"	border-radius: 5px;\n"
+"	background-color: #84e8f7;\n"
+"}\n"
+"\n"
+"#function_frame QPushButton:hover {\n"
+"	border-color: #4c96f7;\n"
+"	font-size: 15px;\n"
+"}\n"
+"\n"
+"#function_frame #delete_btn {\n"
+"	background-color: #ff8183;\n"
+"}\n"
+"\n"
+"#function_frame #delete_btn:hover {\n"
+"	border-color: #dc0004;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+""));
         employeeContainer = new QWidget(Employee);
         employeeContainer->setObjectName(QStringLiteral("employeeContainer"));
         employeeContainer->setGeometry(QRect(-1, -1, 971, 561));
@@ -193,19 +275,26 @@ public:
         tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
         tableWidget_2->setGeometry(QRect(10, 110, 951, 431));
         QPalette palette1;
-        palette1.setBrush(QPalette::Active, QPalette::Button, brush1);
-        palette1.setBrush(QPalette::Active, QPalette::Base, brush1);
-        palette1.setBrush(QPalette::Active, QPalette::Window, brush1);
-        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush1);
-        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush1);
-        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush1);
-        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush1);
-        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        QBrush brush10(QColor(241, 241, 241, 255));
+        brush10.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::Button, brush10);
+        palette1.setBrush(QPalette::Active, QPalette::Base, brush10);
+        palette1.setBrush(QPalette::Active, QPalette::Window, brush10);
+        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush10);
+        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush10);
+        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush10);
+        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush10);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush10);
+        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush10);
         tableWidget_2->setPalette(palette1);
-        tableWidget_2->setFont(font);
+        QFont font1;
+        font1.setFamily(QStringLiteral("Arial"));
+        font1.setPointSize(10);
+        tableWidget_2->setFont(font1);
         tableWidget_2->setFocusPolicy(Qt::NoFocus);
-        tableWidget_2->setStyleSheet(QStringLiteral(""));
+        tableWidget_2->setAutoFillBackground(true);
+        tableWidget_2->setStyleSheet(QLatin1String("background:#F1F1F1;\n"
+""));
         tableWidget_2->setFrameShape(QFrame::NoFrame);
         tableWidget_2->setSelectionMode(QAbstractItemView::ExtendedSelection);
         tableWidget_2->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -229,30 +318,32 @@ public:
         add_btn_2->setObjectName(QStringLiteral("add_btn_2"));
         add_btn_2->setGeometry(QRect(10, 20, 161, 71));
         QPalette palette2;
-        palette2.setBrush(QPalette::Active, QPalette::Button, brush1);
+        palette2.setBrush(QPalette::Active, QPalette::Button, brush10);
         palette2.setBrush(QPalette::Active, QPalette::Text, brush);
-        palette2.setBrush(QPalette::Active, QPalette::Base, brush1);
-        palette2.setBrush(QPalette::Active, QPalette::Window, brush1);
-        QBrush brush10(QColor(224, 224, 225, 128));
-        brush10.setStyle(Qt::SolidPattern);
+        palette2.setBrush(QPalette::Active, QPalette::Base, brush10);
+        palette2.setBrush(QPalette::Active, QPalette::Window, brush10);
+        QBrush brush11(QColor(224, 224, 225, 128));
+        brush11.setStyle(Qt::SolidPattern);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette::Active, QPalette::PlaceholderText, brush10);
+        palette2.setBrush(QPalette::Active, QPalette::PlaceholderText, brush11);
 #endif
-        palette2.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette2.setBrush(QPalette::Inactive, QPalette::Button, brush10);
         palette2.setBrush(QPalette::Inactive, QPalette::Text, brush);
-        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush1);
-        palette2.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush10);
+        palette2.setBrush(QPalette::Inactive, QPalette::Window, brush10);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush10);
+        palette2.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush11);
 #endif
-        palette2.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette2.setBrush(QPalette::Disabled, QPalette::Button, brush10);
         palette2.setBrush(QPalette::Disabled, QPalette::Text, brush4);
-        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        palette2.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush10);
+        palette2.setBrush(QPalette::Disabled, QPalette::Window, brush10);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush10);
+        palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush11);
 #endif
         add_btn_2->setPalette(palette2);
+        add_btn_2->setAutoFillBackground(false);
+        add_btn_2->setStyleSheet(QStringLiteral("background : #F1F1F1;"));
         QIcon icon;
         icon.addFile(QStringLiteral("../../../Desktop/#017_Students information system/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
         add_btn_2->setIcon(icon);

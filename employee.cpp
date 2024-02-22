@@ -6,7 +6,9 @@ Employee::Employee(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Employee), employeeDialog(new addEmployee())
 {
+
     ui->setupUi(this);
+
 }
 
 Employee::~Employee()
