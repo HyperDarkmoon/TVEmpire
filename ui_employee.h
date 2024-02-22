@@ -108,6 +108,76 @@ public:
         searchStackedWidget = new QStackedWidget(Employee);
         searchStackedWidget->setObjectName(QStringLiteral("searchStackedWidget"));
         searchStackedWidget->setGeometry(QRect(0, 0, 1121, 570));
+        QPalette palette;
+        QBrush brush(QColor(255, 255, 255, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        QBrush brush1(QColor(47, 59, 82, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Light, brush1);
+        QBrush brush2(QColor(58, 73, 102, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Midlight, brush2);
+        palette.setBrush(QPalette::Active, QPalette::Dark, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Mid, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette.setBrush(QPalette::Active, QPalette::BrightText, brush);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
+        QBrush brush3(QColor(0, 0, 0, 255));
+        brush3.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Shadow, brush3);
+        QBrush brush4(QColor(23, 29, 41, 255));
+        brush4.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::AlternateBase, brush4);
+        QBrush brush5(QColor(255, 255, 220, 255));
+        brush5.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::ToolTipBase, brush5);
+        palette.setBrush(QPalette::Active, QPalette::ToolTipText, brush3);
+        QBrush brush6(QColor(255, 255, 255, 128));
+        brush6.setStyle(Qt::SolidPattern);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Active, QPalette::PlaceholderText, brush6);
+#endif
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Light, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Midlight, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Dark, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Mid, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::BrightText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Shadow, brush3);
+        palette.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush4);
+        palette.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush5);
+        palette.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush3);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush6);
+#endif
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Light, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Midlight, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Dark, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Mid, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::BrightText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Shadow, brush3);
+        palette.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush5);
+        palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush3);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush6);
+#endif
+        searchStackedWidget->setPalette(palette);
         searchStackedWidget->setStyleSheet(QLatin1String("#addEmpWidget\n"
 "{\n"
 "	background:#2D2D2D;\n"
@@ -221,6 +291,19 @@ public:
         add_btn = new QPushButton(searchWidget);
         add_btn->setObjectName(QStringLiteral("add_btn"));
         add_btn->setGeometry(QRect(10, 20, 161, 71));
+        QPalette palette1;
+        QBrush brush7(QColor(224, 224, 225, 128));
+        brush7.setStyle(Qt::SolidPattern);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette1.setBrush(QPalette::Active, QPalette::PlaceholderText, brush7);
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette1.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush7);
+#endif
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush7);
+#endif
+        add_btn->setPalette(palette1);
         QIcon icon;
         icon.addFile(QStringLiteral("../../../Desktop/#017_Students information system/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
         add_btn->setIcon(icon);

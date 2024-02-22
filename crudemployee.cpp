@@ -160,7 +160,7 @@ CrudEmployee CrudEmployee::getEmployee(unsigned int id) {
     query.prepare("SELECT * FROM employees WHERE id = :id");
     query.bindValue(":id", id);
     query.exec();
-    CrudEmployee emp(0, "", "", "", "", 0, QTime(), QTime(), "", "", QDate(), "");
+    CrudEmployee emp(0, "", "", "", 0, QTime(), QTime(), "", "", QDate(), "");
     while (query.next()) {
         emp.setId(query.value(0).toUInt());
         emp.setCrudEmployeeName(query.value(2).toString());
