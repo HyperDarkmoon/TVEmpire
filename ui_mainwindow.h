@@ -26,6 +26,7 @@
 #include <QtWidgets/QWidget>
 #include "emission.h"
 #include "employee.h"
+#include "sponsor.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -86,9 +87,8 @@ public:
     QLabel *label_7;
     Employee *page_5;
     QGridLayout *gridLayout_6;
-    QWidget *page_6;
+    Sponsor *page_6;
     QGridLayout *gridLayout_7;
-    QLabel *label_9;
     QWidget *page_7;
     QGridLayout *gridLayout_8;
     QLabel *label_10;
@@ -428,17 +428,10 @@ public:
         gridLayout_6 = new QGridLayout(page_5);
         gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
         stackedWidget->addWidget(page_5);
-        page_6 = new QWidget();
+        page_6 = new Sponsor();
         page_6->setObjectName(QStringLiteral("page_6"));
         gridLayout_7 = new QGridLayout(page_6);
         gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
-        label_9 = new QLabel(page_6);
-        label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setFont(font1);
-        label_9->setAlignment(Qt::AlignCenter);
-
-        gridLayout_7->addWidget(label_9, 0, 0, 1, 1);
-
         stackedWidget->addWidget(page_6);
         page_7 = new QWidget();
         page_7->setObjectName(QStringLiteral("page_7"));
@@ -476,7 +469,7 @@ public:
         QObject::connect(exit_btn_2, SIGNAL(clicked()), MainWindow, SLOT(close()));
         QObject::connect(exit_btn_1, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -500,7 +493,7 @@ public:
         orders_btn_2->setText(QApplication::translate("MainWindow", "Equipements", Q_NULLPTR));
         products_btn_2->setText(QApplication::translate("MainWindow", "Scenes", Q_NULLPTR));
         customers_btn_2->setText(QApplication::translate("MainWindow", "Employees", Q_NULLPTR));
-        customers_btn_4->setText(QApplication::translate("MainWindow", "Employees", Q_NULLPTR));
+        customers_btn_4->setText(QApplication::translate("MainWindow", "Sponsor", Q_NULLPTR));
         exit_btn_2->setText(QApplication::translate("MainWindow", "Exit", Q_NULLPTR));
         change_btn->setText(QString());
         search_input->setPlaceholderText(QApplication::translate("MainWindow", "Search...", Q_NULLPTR));
@@ -509,7 +502,6 @@ public:
         label_4->setText(QApplication::translate("MainWindow", "Home Page", Q_NULLPTR));
         label_6->setText(QApplication::translate("MainWindow", "Equipements Page", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindow", "Scenes Page", Q_NULLPTR));
-        label_9->setText(QApplication::translate("MainWindow", "Search Page", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "User Page", Q_NULLPTR));
     } // retranslateUi
 

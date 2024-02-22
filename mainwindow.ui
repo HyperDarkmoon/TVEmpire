@@ -421,7 +421,7 @@
          <item>
           <widget class="QPushButton" name="customers_btn_4">
            <property name="text">
-            <string>Employees</string>
+            <string>Sponsor</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -607,7 +607,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>4</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -677,24 +677,8 @@
           </property>
           <layout class="QGridLayout" name="gridLayout_6"/>
          </widget>
-         <widget class="QWidget" name="page_6">
-          <layout class="QGridLayout" name="gridLayout_7">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Search Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <widget class="Sponsor" name="page_6">
+          <layout class="QGridLayout" name="gridLayout_7"/>
          </widget>
          <widget class="QWidget" name="page_7">
           <layout class="QGridLayout" name="gridLayout_8">
@@ -734,6 +718,12 @@
    <class>Employee</class>
    <extends>QWidget</extends>
    <header>employee.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Sponsor</class>
+   <extends>QWidget</extends>
+   <header>sponsor.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

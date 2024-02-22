@@ -7,6 +7,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
+#include "addemission.h"
 namespace Ui {
 class Emission;
 }
@@ -44,8 +45,13 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_add_btn_2_clicked();
+
 private:
+
     Ui::Emission *ui;
+    addEmission *addemission;
+
     unsigned int id;
     QString nom;
     QString genre;

@@ -3,7 +3,7 @@
 #include <QDebug>
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Emission)
+    ui(new Ui::Emission), addemission(new addEmission)
 {
     ui->setupUi(this);
 }
@@ -21,11 +21,7 @@ Emission::Emission(const Emission &other) : QWidget(other.parentWidget()) {
         // Allocate new memory for any dynamically allocated members (if applicable)
     }
 
-void Emission::on_pushButton_clicked()
-{
 
-
-}
 
 void Emission::setId(unsigned int id)
 {
@@ -126,3 +122,8 @@ bool Emission::remove(unsigned int id)
 }
 
 
+
+void Emission::on_add_btn_2_clicked()
+{
+    addemission->show();
+}
