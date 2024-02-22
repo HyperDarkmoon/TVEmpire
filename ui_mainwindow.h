@@ -422,6 +422,9 @@ public:
         stackedWidget->addWidget(page_4);
         page_5 = new Employee();
         page_5->setObjectName(QStringLiteral("page_5"));
+        page_5->setStyleSheet(QLatin1String("#Employee{	\n"
+"	background:#2F3B52;\n"
+"}"));
         gridLayout_6 = new QGridLayout(page_5);
         gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
         stackedWidget->addWidget(page_5);

@@ -670,6 +670,11 @@
           </layout>
          </widget>
          <widget class="Employee" name="page_5">
+          <property name="styleSheet">
+           <string notr="true">#Employee{	
+	background:#2F3B52;
+}</string>
+          </property>
           <layout class="QGridLayout" name="gridLayout_6"/>
          </widget>
          <widget class="QWidget" name="page_6">
