@@ -28,6 +28,10 @@ private slots:
     void on_customers_btn_2_clicked();
 
 
+    void on_customers_btn_4_clicked();
+
+    void on_customers_btn_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     void loadStyleSheet(const QString &styleSheetPath);

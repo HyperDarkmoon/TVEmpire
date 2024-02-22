@@ -85,3 +85,13 @@ void MainWindow::loadStyleSheet(const QString &styleSheetPath)
     this->setStyleSheet(styleSheet);
 }
 
+
+void MainWindow::on_customers_btn_4_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+void MainWindow::on_customers_btn_3_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(5);
+}
