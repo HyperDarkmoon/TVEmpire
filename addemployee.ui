@@ -455,7 +455,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="login">
+  <widget class="QLabel" name="company_label">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -711,7 +711,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Sexe&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="empID">
+  <widget class="QLineEdit" name="login">
    <property name="enabled">
     <bool>true</bool>
    </property>

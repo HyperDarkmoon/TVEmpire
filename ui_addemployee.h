@@ -27,13 +27,13 @@ QT_BEGIN_NAMESPACE
 class Ui_addEmployee
 {
 public:
-    QLabel *login;
+    QLabel *company_label;
     QLabel *id_14;
     QDateEdit *dob;
     QLabel *label_18;
     QLineEdit *lastname;
     QLabel *id_4;
-    QLineEdit *empID;
+    QLineEdit *login;
     QLabel *id_3;
     QLabel *id_8;
     QPushButton *pushButton_6;
@@ -131,15 +131,15 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush8);
 #endif
         addEmployee->setPalette(palette);
-        login = new QLabel(addEmployee);
-        login->setObjectName(QStringLiteral("login"));
-        login->setGeometry(QRect(10, 210, 241, 31));
+        company_label = new QLabel(addEmployee);
+        company_label->setObjectName(QStringLiteral("company_label"));
+        company_label->setGeometry(QRect(10, 210, 241, 31));
         QFont font;
         font.setFamily(QStringLiteral("Arial"));
         font.setPointSize(12);
         font.setBold(true);
         font.setWeight(75);
-        login->setFont(font);
+        company_label->setFont(font);
         id_14 = new QLabel(addEmployee);
         id_14->setObjectName(QStringLiteral("id_14"));
         id_14->setGeometry(QRect(270, 320, 141, 21));
@@ -212,12 +212,12 @@ public:
         id_4->setObjectName(QStringLiteral("id_4"));
         id_4->setGeometry(QRect(10, 120, 141, 21));
         id_4->setFont(font1);
-        empID = new QLineEdit(addEmployee);
-        empID->setObjectName(QStringLiteral("empID"));
-        empID->setEnabled(true);
-        empID->setGeometry(QRect(10, 350, 201, 32));
-        empID->setFont(font2);
-        empID->setStyleSheet(QLatin1String("#empID\n"
+        login = new QLineEdit(addEmployee);
+        login->setObjectName(QStringLiteral("login"));
+        login->setEnabled(true);
+        login->setGeometry(QRect(10, 350, 201, 32));
+        login->setFont(font2);
+        login->setStyleSheet(QLatin1String("#empID\n"
 "{\n"
 "	background:white;\n"
 "	color:black;\n"
@@ -583,12 +583,12 @@ public:
     void retranslateUi(QDialog *addEmployee)
     {
         addEmployee->setWindowTitle(QApplication::translate("addEmployee", "Dialog", Q_NULLPTR));
-        login->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" font-style:italic; text-decoration: underline; color:#e0e0e1;\">Company Info</span></p></body></html>", Q_NULLPTR));
+        company_label->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" font-style:italic; text-decoration: underline; color:#e0e0e1;\">Company Info</span></p></body></html>", Q_NULLPTR));
         id_14->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" color:#ffffff;\">Password</span></p></body></html>", Q_NULLPTR));
         label_18->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" font-style:italic; text-decoration: underline; color:#e0e0e1;\">Personal Info</span></p></body></html>", Q_NULLPTR));
         lastname->setText(QString());
         id_4->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" color:#ffffff;\">Sexe</span></p></body></html>", Q_NULLPTR));
-        empID->setText(QString());
+        login->setText(QString());
         id_3->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" color:#ffffff;\">Date Necssaince</span></p></body></html>", Q_NULLPTR));
         id_8->setText(QApplication::translate("addEmployee", "<html><head/><body><p><span style=\" color:#ffffff;\">Temps de sortie</span></p></body></html>", Q_NULLPTR));
         pushButton_6->setText(QApplication::translate("addEmployee", "Clear", Q_NULLPTR));

@@ -29,9 +29,13 @@ Employee::Employee(QWidget *parent) :
     ui->emp->insertRow(row);
 
     qDebug() << "Inserting data into QTableWidget...";
+
     for (int i = 0; i < headers.size(); ++i) {
-        QTableWidgetItem *item = new QTableWidgetItem(emp.getFieldByIndex(i).toString());
+        QString fieldData = emp.getFieldByIndex(i).toString();
+        QTableWidgetItem *item = new QTableWidgetItem(fieldData);
         ui->emp->setItem(row, i, item);
+        qDebug() << "test";
+        qDebug() << headers.at(i) << ": " << fieldData;
     }
 
     qDebug() << "Debug statements added successfully.";

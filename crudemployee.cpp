@@ -182,6 +182,9 @@ CrudEmployee CrudEmployee::getAllEmployees() {
     query.prepare("SELECT * FROM employees");
     query.exec();
     CrudEmployee emp;
+    if (!query.exec()) {
+        qDebug() << "Query execution failed:" << query.lastError().text();
+    }
     while (query.next()) {
         emp.setId(query.value(0).toUInt());
         emp.setEmployeeName(query.value(2).toString());
@@ -201,27 +204,27 @@ CrudEmployee CrudEmployee::getAllEmployees() {
 QVariant CrudEmployee::getFieldByIndex(int index) {
     switch (index) {
     case 0:
-        return getId();
+        return this->getId();
     case 1:
-        return getEmployeeName();
+        return this->getEmployeeName();
     case 2:
-        return getEmployeeLastName();
+        return this->getEmployeeLastName();
     case 3:
-        return getPost();
+        return this->getPost();
     case 4:
-        return getSalary();
+        return this->getSalary();
     case 5:
-        return getStartTime();
+        return this->getStartTime();
     case 6:
-        return getEndTime();
+        return this->getEndTime();
     case 7:
-        return getPassword();
+        return this->getPassword();
     case 8:
-        return getLogin();
+        return this->getLogin();
     case 9:
-        return getDob();
+        return this->getDob();
     case 10:
-        return getGender();
+        return this->getGender();
     default:
         return QVariant();
     }

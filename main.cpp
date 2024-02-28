@@ -9,7 +9,8 @@
 #include <QMessageBox>
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-
+    dbconnection db;
+    bool test = db.createconnect();
 
 
         // Create and show the main application window (MainWindow)
@@ -17,8 +18,7 @@ int main(int argc, char *argv[]) {
         //mainWindow.show();
         Form2 loginpage;
         loginpage.show();
-        dbconnection db;
-        bool test = db.createconnect();
+
         if (test)
         {
             qDebug() << "success";
