@@ -19,27 +19,7 @@ class Emission : public QWidget
 public:
     explicit Emission(QWidget *parent = nullptr);
     ~Emission();
-    Emission(const Emission &other);
 
-    void setId(unsigned int id);
-    unsigned int getId();
-
-    void setNom(QString nom);
-    QString getNom();
-
-    void setGenre(QString genre);
-    QString getGenre();
-
-    void setHoraire(QTime horaire);
-    QTime getHoraire();
-
-    void setSceneId(unsigned int sceneId);
-    unsigned int getSceneId();
-
-    bool create(Emission e);
-    Emission read(unsigned int id);
-    bool update(unsigned int id , Emission e);
-    bool remove(unsigned int id);
 
 
 private slots:
@@ -52,12 +32,36 @@ private:
     Ui::Emission *ui;
     addEmission *addemission;
 
+
+};
+class CrudEmission {
+private:
     unsigned int id;
     QString nom;
     QString genre;
     QTime horaire;
     unsigned int sceneId;
 
+public:
+    unsigned int getId() ;
+
+    QString getNom();
+    QString getGenre();
+    QTime getHoraire() ;
+    unsigned int getSceneId();
+
+    void setId(unsigned int newId) ;
+    void setNom(const QString& newNom);
+    void setGenre(const QString& newGenre);
+    void setHoraire(const QTime& newHoraire);
+    void setSceneId(unsigned int newSceneId);
+
+    bool create(Emission e);
+    CrudEmission read(unsigned int id);
+    bool update(unsigned int id, Emission e);
+    bool remove(unsigned int id)
+
 };
+
 
 #endif // EMISSION_H
