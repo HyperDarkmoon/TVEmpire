@@ -475,7 +475,7 @@
 	background:#2F3B52;
 </string>
    </property>
-   <widget class="QTableWidget" name="tableWidget_2">
+   <widget class="QTableWidget" name="emp">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -763,12 +763,12 @@
     </column>
     <column>
      <property name="text">
-      <string>Login</string>
+      <string>Name</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Nom</string>
+      <string>Last name</string>
      </property>
      <property name="font">
       <font>
@@ -782,7 +782,7 @@
     </column>
     <column>
      <property name="text">
-      <string>Prenom</string>
+      <string>Post</string>
      </property>
      <property name="textAlignment">
       <set>AlignLeading|AlignVCenter</set>
@@ -790,7 +790,7 @@
     </column>
     <column>
      <property name="text">
-      <string>Poste</string>
+      <string>Salary</string>
      </property>
      <property name="textAlignment">
       <set>AlignLeading|AlignVCenter</set>
@@ -798,7 +798,7 @@
     </column>
     <column>
      <property name="text">
-      <string>Salaire</string>
+      <string>Login</string>
      </property>
      <property name="textAlignment">
       <set>AlignLeading|AlignVCenter</set>
@@ -815,6 +815,16 @@
     <column>
      <property name="text">
       <string>Temps de Sortie</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Date of Birth</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Gender</string>
      </property>
     </column>
     <item row="19" column="0">

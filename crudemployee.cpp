@@ -28,22 +28,22 @@ unsigned int CrudEmployee::getId()
 }
 
 
-void CrudEmployee::setCrudEmployeeName(QString name)
+void CrudEmployee::setEmployeeName(QString name)
 {
     this->CrudEmployeeName = name;
 }
 
-QString CrudEmployee::getCrudEmployeeName()
+QString CrudEmployee::getEmployeeName()
 {
     return CrudEmployeeName;
 }
 
-void CrudEmployee::setCrudEmployeeLastName(QString lastName)
+void CrudEmployee::setEmployeeLastName(QString lastName)
 {
     this->CrudEmployeeLastName = lastName;
 }
 
-QString CrudEmployee::getCrudEmployeeLastName()
+QString CrudEmployee::getEmployeeLastName()
 {
     return CrudEmployeeLastName;
 }
@@ -131,8 +131,8 @@ bool CrudEmployee::createEmployee(CrudEmployee emp) {
     query.prepare("INSERT INTO employees (id, name, last_name, post, salary, start_time, end_time, password, login, dob, gender) VALUES (:id, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob, :gender)");
 
     query.bindValue(":id", emp.getId());
-    query.bindValue(":name", emp.getCrudEmployeeName());
-    query.bindValue(":last_name", emp.getCrudEmployeeLastName());
+    query.bindValue(":name", emp.getEmployeeName());
+    query.bindValue(":last_name", emp.getEmployeeLastName());
     query.bindValue(":post", emp.getPost());
     query.bindValue(":salary", emp.getSalary());
     query.bindValue(":start_time", emp.getStartTime());
@@ -163,8 +163,8 @@ CrudEmployee CrudEmployee::getEmployee(unsigned int id) {
     CrudEmployee emp(0, "", "", "", 0, QTime(), QTime(), "", "", QDate(), "");
     while (query.next()) {
         emp.setId(query.value(0).toUInt());
-        emp.setCrudEmployeeName(query.value(2).toString());
-        emp.setCrudEmployeeLastName(query.value(3).toString());
+        emp.setEmployeeName(query.value(2).toString());
+        emp.setEmployeeLastName(query.value(3).toString());
         emp.setPost(query.value(4).toString());
         emp.setSalary(query.value(5).toUInt());
         emp.setStartTime(query.value(6).toTime());
@@ -177,12 +177,62 @@ CrudEmployee CrudEmployee::getEmployee(unsigned int id) {
     return emp;
 }
 
+CrudEmployee CrudEmployee::getAllEmployees() {
+    QSqlQuery query;
+    query.prepare("SELECT * FROM employees");
+    query.exec();
+    CrudEmployee emp;
+    while (query.next()) {
+        emp.setId(query.value(0).toUInt());
+        emp.setEmployeeName(query.value(2).toString());
+        emp.setEmployeeLastName(query.value(3).toString());
+        emp.setPost(query.value(4).toString());
+        emp.setSalary(query.value(5).toUInt());
+        emp.setStartTime(query.value(6).toTime());
+        emp.setEndTime(query.value(7).toTime());
+        emp.setPassword(query.value(8).toString());
+        emp.setLogin(query.value(9).toString());
+        emp.setDob(query.value(10).toDate());
+        emp.setGender(query.value(11).toString());
+    }
+    return emp;
+}
+
+QVariant CrudEmployee::getFieldByIndex(int index) {
+    switch (index) {
+    case 0:
+        return getId();
+    case 1:
+        return getEmployeeName();
+    case 2:
+        return getEmployeeLastName();
+    case 3:
+        return getPost();
+    case 4:
+        return getSalary();
+    case 5:
+        return getStartTime();
+    case 6:
+        return getEndTime();
+    case 7:
+        return getPassword();
+    case 8:
+        return getLogin();
+    case 9:
+        return getDob();
+    case 10:
+        return getGender();
+    default:
+        return QVariant();
+    }
+}
+
 bool CrudEmployee::updateEmployee(unsigned int id, CrudEmployee emp) {
     QSqlQuery query;
     query.prepare("UPDATE employees SET id = :id, name = :name, last_name = :last_name, post = :post, salary = :salary, start_time = :start_time, end_time = :end_time, password = :password, login = :login, dob = :dob, gender = :gender WHERE id = :id");
     query.bindValue(":id", emp.getId());
-    query.bindValue(":name", emp.getCrudEmployeeName());
-    query.bindValue(":last_name", emp.getCrudEmployeeLastName());
+    query.bindValue(":name", emp.getEmployeeName());
+    query.bindValue(":last_name", emp.getEmployeeLastName());
     query.bindValue(":post", emp.getPost());
     query.bindValue(":salary", emp.getSalary());
     query.bindValue(":start_time", emp.getStartTime());

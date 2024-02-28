@@ -7,16 +7,16 @@
 class CrudEmployee
 {
 public:
-    CrudEmployee(unsigned int id, QString name, QString lastName, QString post, unsigned int salary, QTime startTime, QTime endTime, QString login, QString password, QDate dob, QString gender);
+    CrudEmployee(unsigned int id = 0, QString name = "", QString lastName = "", QString post = "", unsigned int salary = 0, QTime startTime = QTime(), QTime endTime = QTime(), QString login = "", QString password = "", QDate dob = QDate(), QString gender = "");
     void setId(unsigned int id);
     unsigned int getId();
 
 
-    void setCrudEmployeeName(QString name);
-    QString getCrudEmployeeName();
+    void setEmployeeName(QString name);
+    QString getEmployeeName();
 
-    void setCrudEmployeeLastName(QString lastName);
-    QString getCrudEmployeeLastName();
+    void setEmployeeLastName(QString lastName);
+    QString getEmployeeLastName();
 
     void setPost(QString post);
     QString getPost();
@@ -44,6 +44,8 @@ public:
 
     bool createEmployee(CrudEmployee emp);
     CrudEmployee getEmployee(unsigned int id);
+    CrudEmployee getAllEmployees();
+    QVariant getFieldByIndex(int index);
     bool updateEmployee(unsigned int id, CrudEmployee emp);
     bool deleteEmployee(unsigned int id);
 private: 
