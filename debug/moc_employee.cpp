@@ -75,6 +75,8 @@ void Employee::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         Employee *_t = static_cast<Employee *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
+        //case 0: _t->on_addEmpButton_clicked(); break;
+        //case 1: _t->on_add_btn_clicked(); break;
         case 2: _t->on_add_btn_2_clicked(); break;
         default: ;
         }

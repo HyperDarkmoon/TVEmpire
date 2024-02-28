@@ -12,67 +12,11 @@ Emission::~Emission()
 {
     delete ui;
 }
-Emission::Emission(const Emission &other) : QWidget(other.parentWidget()) {
-        id = other.id;
-        nom = other.nom;
-        genre = other.genre;
-        horaire = other.horaire;
-        sceneId = other.sceneId;
-        // Allocate new memory for any dynamically allocated members (if applicable)
-    }
 
 
 
-void Emission::setId(unsigned int id)
-{
-    this->id = id;
-}
 
-unsigned int Emission::getId()
-{
-    return id;
-}
-
-void Emission::setNom(QString nom)
-{
-    this->nom = nom;
-}
-
-QString Emission::getNom()
-{
-    return nom;
-}
-
-void Emission::setGenre(QString genre)
-{
-    this->genre = genre;
-}
-
-QString Emission::getGenre()
-{
-    return genre;
-}
-
-void Emission::setHoraire(QTime horaire)
-{
-    this->horaire = horaire;
-}
-
-QTime Emission::getHoraire()
-{
-    return horaire;
-}
-
-void Emission::setSceneId(unsigned int sceneId)
-{
-    this->sceneId = sceneId;
-}
-
-unsigned int Emission::getSceneId()
-{
-    return sceneId;
-}
-bool Emission::create(Emission e)
+/*bool CrudEmission::create(CrudEmission e)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO emissions (id,nom, genre, horaire, idscene) VALUES (:id, :nom, :genre, :horaire, :scene_id)");
@@ -84,13 +28,13 @@ bool Emission::create(Emission e)
     return query.exec();
 }
 
-Emission Emission::read(unsigned int id)
+CrudEmission CrudEmission::read(unsigned int id)
 {
     QSqlQuery query;
     query.prepare("SELECT * FROM emissions WHERE id = :id");
     query.bindValue(":id", id);
     query.exec();
-    Emission e;
+    CrudEmission e;
     if (query.next()) {
         e.setId(query.value(0).toUInt());
         e.setNom(query.value(1).toString());
@@ -101,7 +45,7 @@ Emission Emission::read(unsigned int id)
     return e;
 }
 
-bool Emission::update(unsigned int id, Emission e)
+bool CrudEmission::update(unsigned int id, CrudEmission e)
 {
     QSqlQuery query;
     query.prepare("UPDATE emissions SET nom = :nom, genre = :genre, horaire = :horaire, scene_id = :scene_id WHERE id = :id");
@@ -113,14 +57,14 @@ bool Emission::update(unsigned int id, Emission e)
     return query.exec();
 }
 
-bool Emission::remove(unsigned int id)
+bool CrudEmission::remove(unsigned int id)
 {
     QSqlQuery query;
     query.prepare("DELETE FROM emissions WHERE id = :id");
     query.bindValue(":id", id);
     return query.exec();
 }
-
+*/
 
 
 void Emission::on_add_btn_2_clicked()

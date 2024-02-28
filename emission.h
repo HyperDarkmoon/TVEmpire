@@ -44,7 +44,6 @@ private:
 
 public:
     unsigned int getId() ;
-
     QString getNom();
     QString getGenre();
     QTime getHoraire() ;
@@ -56,10 +55,10 @@ public:
     void setHoraire(const QTime& newHoraire);
     void setSceneId(unsigned int newSceneId);
 
-    bool create(Emission e);
+    bool create(CrudEmission e);
     CrudEmission read(unsigned int id);
-    bool update(unsigned int id, Emission e);
-    bool remove(unsigned int id)
+    bool update(unsigned int id, CrudEmission e);
+    bool remove(unsigned int id);
 
 };
 
