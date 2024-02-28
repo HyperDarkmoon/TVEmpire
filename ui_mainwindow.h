@@ -26,6 +26,7 @@
 #include <QtWidgets/QWidget>
 #include "emission.h"
 #include "employee.h"
+#include "equipment.h"
 #include "sponsor.h"
 
 QT_BEGIN_NAMESPACE
@@ -79,9 +80,8 @@ public:
     QLabel *label_4;
     Emission *page_2;
     QGridLayout *gridLayout_3;
-    QWidget *page_3;
+    Equipment *page_3;
     QGridLayout *gridLayout_4;
-    QLabel *label_6;
     QWidget *page_4;
     QGridLayout *gridLayout_5;
     QLabel *label_7;
@@ -396,17 +396,10 @@ public:
         gridLayout_3 = new QGridLayout(page_2);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         stackedWidget->addWidget(page_2);
-        page_3 = new QWidget();
+        page_3 = new Equipment();
         page_3->setObjectName(QStringLiteral("page_3"));
         gridLayout_4 = new QGridLayout(page_3);
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
-        label_6 = new QLabel(page_3);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setFont(font1);
-        label_6->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_6, 0, 0, 1, 1);
-
         stackedWidget->addWidget(page_3);
         page_4 = new QWidget();
         page_4->setObjectName(QStringLiteral("page_4"));
@@ -469,7 +462,7 @@ public:
         QObject::connect(exit_btn_2, SIGNAL(clicked()), MainWindow, SLOT(close()));
         QObject::connect(exit_btn_1, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -500,7 +493,6 @@ public:
         search_btn->setText(QString());
         user_btn->setText(QString());
         label_4->setText(QApplication::translate("MainWindow", "Home Page", Q_NULLPTR));
-        label_6->setText(QApplication::translate("MainWindow", "Equipements Page", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindow", "Scenes Page", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "User Page", Q_NULLPTR));
     } // retranslateUi

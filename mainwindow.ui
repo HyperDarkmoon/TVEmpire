@@ -607,7 +607,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>5</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -631,24 +631,8 @@
          <widget class="Emission" name="page_2">
           <layout class="QGridLayout" name="gridLayout_3"/>
          </widget>
-         <widget class="QWidget" name="page_3">
-          <layout class="QGridLayout" name="gridLayout_4">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Equipements Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <widget class="Equipment" name="page_3">
+          <layout class="QGridLayout" name="gridLayout_4"/>
          </widget>
          <widget class="QWidget" name="page_4">
           <layout class="QGridLayout" name="gridLayout_5">
@@ -724,6 +708,12 @@
    <class>Sponsor</class>
    <extends>QWidget</extends>
    <header>sponsor.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Equipment</class>
+   <extends>QWidget</extends>
+   <header>equipment.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
