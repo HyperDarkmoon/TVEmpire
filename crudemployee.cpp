@@ -157,10 +157,10 @@ bool CrudEmployee::createEmployee(CrudEmployee emp) {
 
 CrudEmployee CrudEmployee::getEmployee(unsigned int id) {
     QSqlQuery query;
-    query.prepare("SELECT * FROM employees WHERE id = :id");
+    query.prepare("SELECT  FROM employees WHERE id = :id");
     query.bindValue(":id", id);
     query.exec();
-    CrudEmployee emp(0, "", "", "", 0, QTime(), QTime(), "", "", QDate(), "");
+    CrudEmployee emp;
     while (query.next()) {
         emp.setId(query.value(0).toUInt());
         emp.setEmployeeName(query.value(2).toString());
@@ -169,34 +169,33 @@ CrudEmployee CrudEmployee::getEmployee(unsigned int id) {
         emp.setSalary(query.value(5).toUInt());
         emp.setStartTime(query.value(6).toTime());
         emp.setEndTime(query.value(7).toTime());
-        emp.setPassword(query.value(8).toString());
         emp.setLogin(query.value(9).toString());
         emp.setDob(query.value(10).toDate());
         emp.setGender(query.value(11).toString());
     }
     return emp;
 }
-
 CrudEmployee CrudEmployee::getAllEmployees() {
     QSqlQuery query;
-    query.prepare("SELECT * FROM employees");
-    query.exec();
-    CrudEmployee emp;
+    query.prepare("SELECT id, name, last_name, post, salary, start_time, end_time, login, dob, gender FROM employees");
     if (!query.exec()) {
         qDebug() << "Query execution failed:" << query.lastError().text();
     }
+
+    CrudEmployee emp;  // Use a single object to represent the last record
+    qDebug() << "Login from query:" << query.value(7);
+    qDebug() << "Gender from query:" << query.value(9);
     while (query.next()) {
         emp.setId(query.value(0).toUInt());
-        emp.setEmployeeName(query.value(2).toString());
-        emp.setEmployeeLastName(query.value(3).toString());
-        emp.setPost(query.value(4).toString());
-        emp.setSalary(query.value(5).toUInt());
-        emp.setStartTime(query.value(6).toTime());
-        emp.setEndTime(query.value(7).toTime());
-        emp.setPassword(query.value(8).toString());
-        emp.setLogin(query.value(9).toString());
-        emp.setDob(query.value(10).toDate());
-        emp.setGender(query.value(11).toString());
+        emp.setEmployeeName(query.value(1).toString());
+        emp.setEmployeeLastName(query.value(2).toString());
+        emp.setPost(query.value(3).toString());
+        emp.setSalary(query.value(4).toUInt());
+        emp.setStartTime(query.value(5).toTime());
+        emp.setEndTime(query.value(6).toTime());
+        emp.setLogin(query.value(7).toString());
+        emp.setDob(query.value(8).toDate());
+        emp.setGender(query.value(9).toString());
     }
     return emp;
 }
@@ -218,12 +217,10 @@ QVariant CrudEmployee::getFieldByIndex(int index) {
     case 6:
         return this->getEndTime();
     case 7:
-        return this->getPassword();
-    case 8:
         return this->getLogin();
-    case 9:
+    case 8:
         return this->getDob();
-    case 10:
+    case 9:
         return this->getGender();
     default:
         return QVariant();

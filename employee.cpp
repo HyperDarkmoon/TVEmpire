@@ -11,34 +11,29 @@ Employee::Employee(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    qDebug() << "Setting up UI and headers...";
-
-    QStringList headers = {"ID", "Name", "Lastname", "Post", "Salary", "Start Time", "End Time", "Login", "Password", "DOB", "Gender"};
+    QStringList headers = {"ID", "Name", "Lastname", "Post", "Salary", "Start Time", "End Time", "Login", "DOB", "Gender"};
     ui->emp->setColumnCount(headers.size());
     ui->emp->setHorizontalHeaderLabels(headers);
 
     // Create an object of CrudEmployee
-    qDebug() << "Creating CrudEmployee object...";
     CrudEmployee crudEmployee;
 
     // Fetch all employees using getAllEmployees method
-    qDebug() << "Fetching all employees...";
     CrudEmployee emp = crudEmployee.getAllEmployees();
 
-    int row = ui->emp->rowCount();
-    ui->emp->insertRow(row);
+    int rowCount = ui->emp->rowCount();  // Get the current number of rows
 
-    qDebug() << "Inserting data into QTableWidget...";
+
+    ui->emp->insertRow(0);  // Insert a new row at the beginning
 
     for (int i = 0; i < headers.size(); ++i) {
+        qDebug() << "help me" << emp.getFieldByIndex(i);
         QString fieldData = emp.getFieldByIndex(i).toString();
         QTableWidgetItem *item = new QTableWidgetItem(fieldData);
-        ui->emp->setItem(row, i, item);
+        ui->emp->setItem(0, i, item);  // Set the item at row 0
         qDebug() << "test";
         qDebug() << headers.at(i) << ": " << fieldData;
     }
-
-    qDebug() << "Debug statements added successfully.";
 }
 
 Employee::~Employee()
