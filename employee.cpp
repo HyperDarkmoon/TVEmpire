@@ -19,20 +19,18 @@ Employee::Employee(QWidget *parent) :
     CrudEmployee crudEmployee;
 
     // Fetch all employees using getAllEmployees method
-    CrudEmployee emp = crudEmployee.getAllEmployees();
+    QList<CrudEmployee> employeesList = crudEmployee.getAllEmployees();
 
-    int rowCount = ui->emp->rowCount();  // Get the current number of rows
+    int rowCount = ui->emp->rowCount();
 
+    for (int row = 0; row < employeesList.size(); ++row) {
+        ui->emp->insertRow(row);
 
-    ui->emp->insertRow(0);  // Insert a new row at the beginning
-
-    for (int i = 0; i < headers.size(); ++i) {
-        qDebug() << "help me" << emp.getFieldByIndex(i);
-        QString fieldData = emp.getFieldByIndex(i).toString();
-        QTableWidgetItem *item = new QTableWidgetItem(fieldData);
-        ui->emp->setItem(0, i, item);  // Set the item at row 0
-        qDebug() << "test";
-        qDebug() << headers.at(i) << ": " << fieldData;
+        for (int col = 0; col < headers.size(); ++col) {
+            QString fieldData = employeesList.at(row).getFieldByIndex(col).toString();
+            QTableWidgetItem *item = new QTableWidgetItem(fieldData);
+            ui->emp->setItem(row, col, item);
+        }
     }
 }
 

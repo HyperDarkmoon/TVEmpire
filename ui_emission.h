@@ -142,48 +142,6 @@ public:
         tableWidget_2->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         if (tableWidget_2->rowCount() < 20)
             tableWidget_2->setRowCount(20);
-        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(0, __qtablewidgetitem5);
-        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(1, __qtablewidgetitem6);
-        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(2, __qtablewidgetitem7);
-        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(3, __qtablewidgetitem8);
-        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(4, __qtablewidgetitem9);
-        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(5, __qtablewidgetitem10);
-        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(6, __qtablewidgetitem11);
-        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(7, __qtablewidgetitem12);
-        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(8, __qtablewidgetitem13);
-        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(9, __qtablewidgetitem14);
-        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(10, __qtablewidgetitem15);
-        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(11, __qtablewidgetitem16);
-        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(12, __qtablewidgetitem17);
-        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(13, __qtablewidgetitem18);
-        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(14, __qtablewidgetitem19);
-        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(15, __qtablewidgetitem20);
-        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(16, __qtablewidgetitem21);
-        QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(17, __qtablewidgetitem22);
-        QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(18, __qtablewidgetitem23);
-        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
-        tableWidget_2->setVerticalHeaderItem(19, __qtablewidgetitem24);
-        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
-        tableWidget_2->setItem(19, 0, __qtablewidgetitem25);
         tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
         tableWidget_2->setGeometry(QRect(10, 110, 951, 431));
         QPalette palette;
@@ -208,6 +166,7 @@ public:
         tableWidget_2->setStyleSheet(QLatin1String("background:#F1F1F1;\n"
 ""));
         tableWidget_2->setFrameShape(QFrame::NoFrame);
+        tableWidget_2->setAutoScroll(true);
         tableWidget_2->setSelectionMode(QAbstractItemView::ExtendedSelection);
         tableWidget_2->setSelectionBehavior(QAbstractItemView::SelectRows);
         tableWidget_2->setShowGrid(false);
@@ -217,7 +176,7 @@ public:
         tableWidget_2->setCornerButtonEnabled(false);
         tableWidget_2->setRowCount(20);
         tableWidget_2->horizontalHeader()->setCascadingSectionResizes(false);
-        tableWidget_2->horizontalHeader()->setDefaultSectionSize(120);
+        tableWidget_2->horizontalHeader()->setDefaultSectionSize(116);
         tableWidget_2->horizontalHeader()->setMinimumSectionSize(50);
         tableWidget_2->horizontalHeader()->setStretchLastSection(true);
         tableWidget_2->verticalHeader()->setVisible(false);
@@ -233,9 +192,9 @@ public:
         QBrush brush1(QColor(0, 0, 0, 255));
         brush1.setStyle(Qt::SolidPattern);
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush1);
+        palette1.setBrush(QPalette::Active, QPalette::Button, brush);
         QBrush brush2(QColor(255, 255, 255, 255));
         brush2.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Button, brush2);
         palette1.setBrush(QPalette::Active, QPalette::Light, brush2);
         palette1.setBrush(QPalette::Active, QPalette::Midlight, brush2);
         QBrush brush3(QColor(127, 127, 127, 255));
@@ -247,8 +206,8 @@ public:
         palette1.setBrush(QPalette::Active, QPalette::Text, brush1);
         palette1.setBrush(QPalette::Active, QPalette::BrightText, brush2);
         palette1.setBrush(QPalette::Active, QPalette::ButtonText, brush1);
-        palette1.setBrush(QPalette::Active, QPalette::Base, brush2);
-        palette1.setBrush(QPalette::Active, QPalette::Window, brush2);
+        palette1.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette1.setBrush(QPalette::Active, QPalette::Window, brush);
         palette1.setBrush(QPalette::Active, QPalette::Shadow, brush1);
         palette1.setBrush(QPalette::Active, QPalette::AlternateBase, brush2);
         QBrush brush5(QColor(255, 255, 220, 255));
@@ -261,7 +220,7 @@ public:
         palette1.setBrush(QPalette::Active, QPalette::PlaceholderText, brush6);
 #endif
         palette1.setBrush(QPalette::Inactive, QPalette::WindowText, brush1);
-        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush2);
+        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush);
         palette1.setBrush(QPalette::Inactive, QPalette::Light, brush2);
         palette1.setBrush(QPalette::Inactive, QPalette::Midlight, brush2);
         palette1.setBrush(QPalette::Inactive, QPalette::Dark, brush3);
@@ -269,8 +228,8 @@ public:
         palette1.setBrush(QPalette::Inactive, QPalette::Text, brush1);
         palette1.setBrush(QPalette::Inactive, QPalette::BrightText, brush2);
         palette1.setBrush(QPalette::Inactive, QPalette::ButtonText, brush1);
-        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush2);
-        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush2);
+        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush);
         palette1.setBrush(QPalette::Inactive, QPalette::Shadow, brush1);
         palette1.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush2);
         palette1.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush5);
@@ -279,7 +238,7 @@ public:
         palette1.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush6);
 #endif
         palette1.setBrush(QPalette::Disabled, QPalette::WindowText, brush3);
-        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush2);
+        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush);
         palette1.setBrush(QPalette::Disabled, QPalette::Light, brush2);
         palette1.setBrush(QPalette::Disabled, QPalette::Midlight, brush2);
         palette1.setBrush(QPalette::Disabled, QPalette::Dark, brush3);
@@ -287,8 +246,8 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::Text, brush3);
         palette1.setBrush(QPalette::Disabled, QPalette::BrightText, brush2);
         palette1.setBrush(QPalette::Disabled, QPalette::ButtonText, brush3);
-        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush2);
-        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush2);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush);
         palette1.setBrush(QPalette::Disabled, QPalette::Shadow, brush1);
         palette1.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush2);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush5);
@@ -322,51 +281,6 @@ public:
         ___qtablewidgetitem3->setText(QApplication::translate("Emission", "Horaire", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget_2->horizontalHeaderItem(4);
         ___qtablewidgetitem4->setText(QApplication::translate("Emission", "Sponsor", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem5 = tableWidget_2->verticalHeaderItem(0);
-        ___qtablewidgetitem5->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem6 = tableWidget_2->verticalHeaderItem(1);
-        ___qtablewidgetitem6->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem7 = tableWidget_2->verticalHeaderItem(2);
-        ___qtablewidgetitem7->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem8 = tableWidget_2->verticalHeaderItem(3);
-        ___qtablewidgetitem8->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem9 = tableWidget_2->verticalHeaderItem(4);
-        ___qtablewidgetitem9->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem10 = tableWidget_2->verticalHeaderItem(5);
-        ___qtablewidgetitem10->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem11 = tableWidget_2->verticalHeaderItem(6);
-        ___qtablewidgetitem11->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem12 = tableWidget_2->verticalHeaderItem(7);
-        ___qtablewidgetitem12->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem13 = tableWidget_2->verticalHeaderItem(8);
-        ___qtablewidgetitem13->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem14 = tableWidget_2->verticalHeaderItem(9);
-        ___qtablewidgetitem14->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem15 = tableWidget_2->verticalHeaderItem(10);
-        ___qtablewidgetitem15->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem16 = tableWidget_2->verticalHeaderItem(11);
-        ___qtablewidgetitem16->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem17 = tableWidget_2->verticalHeaderItem(12);
-        ___qtablewidgetitem17->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem18 = tableWidget_2->verticalHeaderItem(13);
-        ___qtablewidgetitem18->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem19 = tableWidget_2->verticalHeaderItem(14);
-        ___qtablewidgetitem19->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem20 = tableWidget_2->verticalHeaderItem(15);
-        ___qtablewidgetitem20->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem21 = tableWidget_2->verticalHeaderItem(16);
-        ___qtablewidgetitem21->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem22 = tableWidget_2->verticalHeaderItem(17);
-        ___qtablewidgetitem22->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem23 = tableWidget_2->verticalHeaderItem(18);
-        ___qtablewidgetitem23->setText(QApplication::translate("Emission", "New Row", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem24 = tableWidget_2->verticalHeaderItem(19);
-        ___qtablewidgetitem24->setText(QApplication::translate("Emission", "2", Q_NULLPTR));
-
-        const bool __sortingEnabled = tableWidget_2->isSortingEnabled();
-        tableWidget_2->setSortingEnabled(false);
-        tableWidget_2->setSortingEnabled(__sortingEnabled);
-
         add_btn_2->setText(QApplication::translate("Emission", "Add", Q_NULLPTR));
     } // retranslateUi
 

@@ -9,43 +9,43 @@ class CrudEmployee
 public:
     CrudEmployee(unsigned int id = 0, QString name = "", QString lastName = "", QString post = "", unsigned int salary = 0, QTime startTime = QTime(), QTime endTime = QTime(), QString login = "", QString password = "", QDate dob = QDate(), QString gender = "");
     void setId(unsigned int id);
-    unsigned int getId();
+    unsigned int getId() const;
 
 
     void setEmployeeName(QString name);
-    QString getEmployeeName();
+    QString getEmployeeName() const;
 
     void setEmployeeLastName(QString lastName);
-    QString getEmployeeLastName();
+    QString getEmployeeLastName() const;
 
     void setPost(QString post);
-    QString getPost();
+    QString getPost() const;
 
     void setSalary(unsigned int email);
-    unsigned int getSalary();
+    unsigned int getSalary() const;
 
     void setStartTime(QTime startTime);
-    QTime getStartTime();
+    QTime getStartTime() const;
 
     void setEndTime(QTime endTime);
-    QTime getEndTime();
+    QTime getEndTime() const;
 
     void setPassword(QString password);
-    QString getPassword();
+    QString getPassword() const;
 
     void setLogin(QString login);
-    QString getLogin();
+    QString getLogin() const;
 
     void setDob(QDate dob);
-    QDate getDob();
+    QDate getDob() const;
 
     void setGender(QString gender);
-    QString getGender();
+    QString getGender() const;
 
     bool createEmployee(CrudEmployee emp);
     CrudEmployee getEmployee(unsigned int id);
-    CrudEmployee getAllEmployees();
-    QVariant getFieldByIndex(int index);
+    QList<CrudEmployee> getAllEmployees();
+    QVariant getFieldByIndex(int index) const;
     bool updateEmployee(unsigned int id, CrudEmployee emp);
     bool deleteEmployee(unsigned int id);
 private: 
