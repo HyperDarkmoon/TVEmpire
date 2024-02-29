@@ -481,7 +481,7 @@
    </property>
    <item>
     <property name="text">
-     <string>Scene 1</string>
+     <string>1</string>
     </property>
    </item>
   </widget>
@@ -620,7 +620,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Nom&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lastname">
+  <widget class="QLineEdit" name="genre">
    <property name="geometry">
     <rect>
      <x>270</x>
