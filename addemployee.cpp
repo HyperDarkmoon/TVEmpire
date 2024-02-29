@@ -15,6 +15,6 @@ addEmployee::~addEmployee()
 
 void addEmployee::on_pushButton_5_clicked()
 {
-    CrudEmployee Emp(2, ui->name->text(), ui->lastname->text(), ui->post->text(), ui->salary->text().toUInt(), ui->starttime->time(), ui->endtime->time(), ui->login->text(), ui->password->text(), ui->dob->date(), ui->gender->currentText());
+    CrudEmployee Emp(0, ui->name->text(), ui->lastname->text(), ui->post->text(), ui->salary->text().toUInt(), ui->starttime->time(), ui->endtime->time(), ui->login->text(), ui->password->text(), ui->dob->date(), ui->gender->currentText());
     Emp.createEmployee(Emp);
 }

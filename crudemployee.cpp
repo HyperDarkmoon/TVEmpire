@@ -22,7 +22,7 @@ void CrudEmployee::setId(unsigned int id)
     this->id = id;
 }
 
-unsigned int CrudEmployee::getId()
+unsigned int CrudEmployee::getId() const
 {
     return id;
 }
@@ -33,7 +33,7 @@ void CrudEmployee::setEmployeeName(QString name)
     this->CrudEmployeeName = name;
 }
 
-QString CrudEmployee::getEmployeeName()
+QString CrudEmployee::getEmployeeName() const
 {
     return CrudEmployeeName;
 }
@@ -43,7 +43,7 @@ void CrudEmployee::setEmployeeLastName(QString lastName)
     this->CrudEmployeeLastName = lastName;
 }
 
-QString CrudEmployee::getEmployeeLastName()
+QString CrudEmployee::getEmployeeLastName() const
 {
     return CrudEmployeeLastName;
 }
@@ -53,7 +53,7 @@ void CrudEmployee::setPost(QString post)
     this->post = post;
 }
 
-QString CrudEmployee::getPost()
+QString CrudEmployee::getPost() const
 {
     return post;
 }
@@ -63,7 +63,7 @@ void CrudEmployee::setSalary(unsigned int salary)
     this->salary = salary;
 }
 
-unsigned int CrudEmployee::getSalary()
+unsigned int CrudEmployee::getSalary() const
 {
     return salary;
 }
@@ -73,7 +73,7 @@ void CrudEmployee::setStartTime(QTime startTime)
     this->startTime = startTime;
 }
 
-QTime CrudEmployee::getStartTime()
+QTime CrudEmployee::getStartTime() const
 {
     return startTime;
 }
@@ -83,7 +83,7 @@ void CrudEmployee::setEndTime(QTime endTime)
     this->endTime = endTime;
 }
 
-QTime CrudEmployee::getEndTime()
+QTime CrudEmployee::getEndTime() const
 {
     return endTime;
 }
@@ -93,7 +93,7 @@ void CrudEmployee::setPassword(QString password)
     this->password = password;
 }
 
-QString CrudEmployee::getPassword()
+QString CrudEmployee::getPassword() const
 {
     return password;
 }
@@ -103,7 +103,7 @@ void CrudEmployee::setLogin(QString login)
     this->login = login;
 }
 
-QString CrudEmployee::getLogin()
+QString CrudEmployee::getLogin() const
 {
     return login;
 }
@@ -113,7 +113,7 @@ void CrudEmployee::setDob(QDate dob)
     this->dob = dob;
 }
 
-QDate CrudEmployee::getDob()
+QDate CrudEmployee::getDob() const
 {
     return dob;
 }
@@ -122,15 +122,14 @@ void CrudEmployee::setGender(QString gender) {
     this->gender = gender;
 }
 
-QString CrudEmployee::getGender() {
+QString CrudEmployee::getGender() const {
     return gender;
 }
 
 bool CrudEmployee::createEmployee(CrudEmployee emp) {
     QSqlQuery query;
-    query.prepare("INSERT INTO employees (id, name, last_name, post, salary, start_time, end_time, password, login, dob, gender) VALUES (:id, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob, :gender)");
+    query.prepare("INSERT INTO employees (id, name, last_name, post, salary, start_time, end_time, password, login, dob, gender) VALUES (employee_seq.NEXTVAL, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob, :gender)");
 
-    query.bindValue(":id", emp.getId());
     query.bindValue(":name", emp.getEmployeeName());
     query.bindValue(":last_name", emp.getEmployeeLastName());
     query.bindValue(":post", emp.getPost());
@@ -175,17 +174,19 @@ CrudEmployee CrudEmployee::getEmployee(unsigned int id) {
     }
     return emp;
 }
-CrudEmployee CrudEmployee::getAllEmployees() {
+
+
+QList<CrudEmployee> CrudEmployee::getAllEmployees() {
     QSqlQuery query;
     query.prepare("SELECT id, name, last_name, post, salary, start_time, end_time, login, dob, gender FROM employees");
     if (!query.exec()) {
         qDebug() << "Query execution failed:" << query.lastError().text();
     }
 
-    CrudEmployee emp;  // Use a single object to represent the last record
-    qDebug() << "Login from query:" << query.value(7);
-    qDebug() << "Gender from query:" << query.value(9);
+    QList<CrudEmployee> employeeList;  // Use a list to store all records
+
     while (query.next()) {
+        CrudEmployee emp;  // Create a new object for each record
         emp.setId(query.value(0).toUInt());
         emp.setEmployeeName(query.value(1).toString());
         emp.setEmployeeLastName(query.value(2).toString());
@@ -196,32 +197,36 @@ CrudEmployee CrudEmployee::getAllEmployees() {
         emp.setLogin(query.value(7).toString());
         emp.setDob(query.value(8).toDate());
         emp.setGender(query.value(9).toString());
+
+        employeeList.append(emp);  // Add the object to the list
     }
-    return emp;
+
+    return employeeList;
 }
 
-QVariant CrudEmployee::getFieldByIndex(int index) {
+
+QVariant CrudEmployee::getFieldByIndex(int index) const {
     switch (index) {
     case 0:
-        return this->getId();
+        return getId();
     case 1:
-        return this->getEmployeeName();
+        return getEmployeeName();
     case 2:
-        return this->getEmployeeLastName();
+        return getEmployeeLastName();
     case 3:
-        return this->getPost();
+        return getPost();
     case 4:
-        return this->getSalary();
+        return getSalary();
     case 5:
-        return this->getStartTime();
+        return getStartTime();
     case 6:
-        return this->getEndTime();
+        return getEndTime();
     case 7:
-        return this->getLogin();
+        return getLogin();
     case 8:
-        return this->getDob();
+        return getDob();
     case 9:
-        return this->getGender();
+        return getGender();
     default:
         return QVariant();
     }

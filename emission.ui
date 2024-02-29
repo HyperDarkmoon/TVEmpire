@@ -233,6 +233,9 @@ QTableWidget::Item{
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
     </property>
+    <property name="autoScroll">
+     <bool>true</bool>
+    </property>
     <property name="selectionMode">
      <enum>QAbstractItemView::ExtendedSelection</enum>
     </property>
@@ -264,7 +267,7 @@ QTableWidget::Item{
      <number>50</number>
     </attribute>
     <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>120</number>
+     <number>116</number>
     </attribute>
     <attribute name="horizontalHeaderStretchLastSection">
      <bool>true</bool>
@@ -287,106 +290,26 @@ QTableWidget::Item{
     <attribute name="verticalHeaderStretchLastSection">
      <bool>false</bool>
     </attribute>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>2</string>
-     </property>
-    </row>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
     <column>
      <property name="text">
       <string>ID</string>
@@ -421,11 +344,6 @@ QTableWidget::Item{
       <string>Sponsor</string>
      </property>
     </column>
-    <item row="19" column="0">
-     <property name="text">
-      <string/>
-     </property>
-    </item>
    </widget>
    <widget class="QPushButton" name="add_btn_2">
     <property name="geometry">
@@ -451,9 +369,9 @@ QTableWidget::Item{
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>241</red>
+          <green>241</green>
+          <blue>241</blue>
          </color>
         </brush>
        </colorrole>
@@ -523,18 +441,18 @@ QTableWidget::Item{
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>241</red>
+          <green>241</green>
+          <blue>241</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>241</red>
+          <green>241</green>
+          <blue>241</blue>
          </color>
         </brush>
        </colorrole>
@@ -597,9 +515,9 @@ QTableWidget::Item{
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>241</red>
+          <green>241</green>
+          <blue>241</blue>
          </color>
         </brush>
        </colorrole>
@@ -669,18 +587,18 @@ QTableWidget::Item{
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>241</red>
+          <green>241</green>
+          <blue>241</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>241</red>
+          <green>241</green>
+          <blue>241</blue>
          </color>
         </brush>
        </colorrole>
@@ -743,9 +661,9 @@ QTableWidget::Item{
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>241</red>
+          <green>241</green>
+          <blue>241</blue>
          </color>
         </brush>
        </colorrole>
@@ -815,18 +733,18 @@ QTableWidget::Item{
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>241</red>
+          <green>241</green>
+          <blue>241</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>241</red>
+          <green>241</green>
+          <blue>241</blue>
          </color>
         </brush>
        </colorrole>
