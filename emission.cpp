@@ -14,9 +14,47 @@ Emission::~Emission()
 }
 
 
+void CrudEmission::setId(unsigned int newId) {
+    id = newId;
+}
+
+void CrudEmission::setNom(const QString& newNom) {
+    nom = newNom;
+}
+
+void CrudEmission::setGenre(const QString& newGenre) {
+    genre = newGenre;
+}
+
+void CrudEmission::setHoraire(const QTime& newHoraire) {
+    horaire = newHoraire;
+}
+
+void CrudEmission::setSceneId(unsigned int newSceneId) {
+    sceneId = newSceneId;
+}
+unsigned int CrudEmission::getId()  {
+    return id;
+}
+
+QString CrudEmission::getNom()  {
+    return nom;
+}
+
+QString CrudEmission::getGenre() {
+    return genre;
+}
+
+QTime CrudEmission::getHoraire() {
+    return horaire;
+}
+
+unsigned int CrudEmission::getSceneId(){
+    return sceneId;
+}
 
 
-/*bool CrudEmission::create(CrudEmission e)
+bool CrudEmission::create(CrudEmission e)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO emissions (id,nom, genre, horaire, idscene) VALUES (:id, :nom, :genre, :horaire, :scene_id)");
@@ -64,7 +102,6 @@ bool CrudEmission::remove(unsigned int id)
     query.bindValue(":id", id);
     return query.exec();
 }
-*/
 
 
 void Emission::on_add_btn_2_clicked()
