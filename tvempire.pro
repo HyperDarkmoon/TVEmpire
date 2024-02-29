@@ -14,6 +14,7 @@ SOURCES += \
     addemission.cpp \
     addemployee.cpp \
     crudemployee.cpp \
+    crudequipment.cpp \
     dbconnection.cpp \
     emission.cpp \
     employee.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     addemission.h \
     addemployee.h \
     crudemployee.h \
+    crudequipment.h \
     dbconnection.h \
     emission.h \
     employee.h \
