@@ -832,7 +832,12 @@
     </column>
     <column>
      <property name="text">
-      <string>Options</string>
+      <string>Delete</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Edit</string>
      </property>
     </column>
     <item row="19" column="0">
