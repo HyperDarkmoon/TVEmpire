@@ -19,7 +19,7 @@
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>-10</x>
+     <x>0</x>
      <y>0</y>
      <width>970</width>
      <height>560</height>
@@ -470,7 +470,7 @@
    <property name="autoFillBackground">
     <bool>true</bool>
    </property>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="Calendrier">
     <property name="geometry">
      <rect>
       <x>740</x>
@@ -925,7 +925,7 @@
      <string>Calendrier</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="Utiliser">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -1380,7 +1380,7 @@
      <string>Utiliser</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="Supprimer">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -1835,7 +1835,7 @@
      <string>Supprimer</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="Afficher">
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -2290,7 +2290,7 @@
      <string>Afficher</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="Label">
     <property name="geometry">
      <rect>
       <x>340</x>
@@ -2306,7 +2306,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Répertoir de l'équipement&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="Labelequipment">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -2777,7 +2777,7 @@
      <string>Modifier</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="Trier">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -3229,7 +3229,7 @@
      </palette>
     </property>
     <property name="text">
-     <string>Tirer </string>
+     <string>Trier</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Ajout">
