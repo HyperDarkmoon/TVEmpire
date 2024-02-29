@@ -6,7 +6,9 @@ Emission::Emission(QWidget *parent) :
     ui(new Ui::Emission), addemission(new addEmission)
 {
     ui->setupUi(this);
+    refreshTable();
 }
+
 
 Emission::~Emission()
 {
@@ -26,30 +28,30 @@ void CrudEmission::setGenre(const QString& newGenre) {
     genre = newGenre;
 }
 
-void CrudEmission::setHoraire(const QTime& newHoraire) {
+void CrudEmission::setHoraire(const QDate& newHoraire) {
     horaire = newHoraire;
 }
 
 void CrudEmission::setSceneId(unsigned int newSceneId) {
     sceneId = newSceneId;
 }
-unsigned int CrudEmission::getId()  {
+unsigned int CrudEmission::getId()  const{
     return id;
 }
 
-QString CrudEmission::getNom()  {
+QString CrudEmission::getNom() const{
     return nom;
 }
 
-QString CrudEmission::getGenre() {
+QString CrudEmission::getGenre() const{
     return genre;
 }
 
-QTime CrudEmission::getHoraire() {
+QDate CrudEmission::getHoraire() const{
     return horaire;
 }
 
-unsigned int CrudEmission::getSceneId(){
+unsigned int CrudEmission::getSceneId() const{
     return sceneId;
 }
 
@@ -57,7 +59,7 @@ unsigned int CrudEmission::getSceneId(){
 bool CrudEmission::create(CrudEmission e)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO emissions (id,nom, genre, horaire, idscene) VALUES (:id, :nom, :genre, :horaire, :scene_id)");
+    query.prepare("INSERT INTO emissions (id,nom, genre, horaire, idscene) VALUES (emission_seq.NEXTVAL, :nom, :genre, :horaire, :scene_id)");
     query.bindValue(":id", e.getId());
     query.bindValue(":nom", e.getNom());
     query.bindValue(":genre", e.getGenre());
@@ -77,7 +79,7 @@ CrudEmission CrudEmission::read(unsigned int id)
         e.setId(query.value(0).toUInt());
         e.setNom(query.value(1).toString());
         e.setGenre(query.value(2).toString());
-        e.setHoraire(query.value(3).toTime());
+        e.setHoraire(query.value(3).toDate());
         e.setSceneId(query.value(4).toUInt());
     }
     return e;
@@ -103,6 +105,131 @@ bool CrudEmission::remove(unsigned int id)
     return query.exec();
 }
 
+void Emission::refreshTable()
+{
+    // Clear the existing content of the table
+    ui->tableWidget_2->clearContents();
+    ui->tableWidget_2->setRowCount(0);
+
+    QStringList headers = {"ID", "Name", "Genre","Horaire","scene","delete","edit"};
+    ui->tableWidget_2->setColumnCount(headers.size());
+    ui->tableWidget_2->setHorizontalHeaderLabels(headers);
+
+    // Create an object of CrudEmployee
+    CrudEmission c;
+
+    // Fetch all employees using getAllEmployees method
+    QList<CrudEmission> emissionList = c.getAll();
+
+    for (int row = 0; row < emissionList.size(); ++row) {
+        ui->tableWidget_2->insertRow(row);
+
+        for (int col = 0; col < headers.size() - 2; ++col) {  // Adjusted loop to skip the "Delete" and "Edit" columns
+            QString fieldData = emissionList.at(row).getFieldByIndex(col).toString();
+            QTableWidgetItem *item = new QTableWidgetItem(fieldData);
+            ui->tableWidget_2->setItem(row, col, item);
+        }
+
+        // Add "Delete" button for each row in the "Delete" column
+        QPushButton *deleteButton = new QPushButton("Delete", this);
+        connect(deleteButton, &QPushButton::clicked, [this, row]() {
+            onDeleteButtonClicked(row);
+        });
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 2, deleteButton);
+
+        // Add "Edit" button for each row in the "Edit" column
+        QPushButton *editButton = new QPushButton("Edit", this);
+        connect(editButton, &QPushButton::clicked, [this, row]() {
+            onEditButtonClicked(row);
+        });
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 1, editButton);
+    }
+}
+
+QList<CrudEmission> CrudEmission::getAll() {
+    QSqlQuery query;
+    query.prepare("SELECT id, nom, genre , horaire , idscene FROM emissions");
+    if (!query.exec()) {
+        qDebug() << "Query execution failed:" << query.lastError().text();
+    }
+
+    QList<CrudEmission> emissionList;  // Use a list to store all records
+
+    while (query.next()) {
+        CrudEmission em;  // Create a new object for each record
+        em.setId(query.value(0).toUInt());
+        em.setNom(query.value(1).toString());
+        em.setGenre(query.value(2).toString());
+        em.setHoraire(query.value(3).toDate());
+        em.setSceneId(query.value(4).toUInt());
+
+        emissionList.append(em);  // Add the object to the list
+    }
+
+    return emissionList;
+}
+QVariant CrudEmission::getFieldByIndex(int index) const{
+    switch (index) {
+    case 0:
+        return getId();
+    case 1:
+        return getNom();
+    case 2:
+        return getGenre();
+    case 3:
+        return getHoraire();
+    case 4:
+        return getSceneId();
+
+    default:
+        return QVariant();
+    }
+}
+
+
+void Emission::onDeleteButtonClicked(int row)
+{
+    qDebug() << "Delete button clicked for row:" << row;
+
+    // Get the ID of the employee in the selected row
+    QTableWidgetItem* idItem = ui->tableWidget_2->item(row, 0);  // Assuming ID is in the first column
+    if (idItem) {
+        unsigned int employeeId = idItem->text().toUInt();
+
+        // Here, you can implement the logic to delete the corresponding row from your data source
+        // For example, you might want to delete the record from the database using CrudEmployee class
+        CrudEmission crudEmployee;
+        if (crudEmployee.remove(employeeId)) {
+            qDebug() << "Employee deleted successfully from the database.";
+
+            // Remove the row from QTableWidget
+            ui->tableWidget_2->removeRow(row);
+        } else {
+            qDebug() << "Error deleting employee from the database.";
+        }
+    } else {
+        qDebug() << "Unable to get employee ID from the selected row.";
+    }
+}
+
+void Emission::onEditButtonClicked(int row)
+{
+    qDebug() << "Edit button clicked for row:" << row;
+
+    // Get the ID of the employee in the selected row
+    QTableWidgetItem* idItem = ui->tableWidget_2->item(row, 0);  // Assuming ID is in the first column
+    if (idItem) {
+        unsigned int employeeId = idItem->text().toUInt();
+
+        // Here, you can implement the logic to open the edit dialog for the corresponding employee
+        // For example, you might want to pass the employeeId to the edit dialog
+        // and then open the dialog for editing
+        // For now, let's just print the ID for demonstration purposes
+        qDebug() << "Editing employee with ID:" << employeeId;
+    } else {
+        qDebug() << "Unable to get employee ID from the selected row.";
+    }
+}
 
 void Emission::on_add_btn_2_clicked()
 {

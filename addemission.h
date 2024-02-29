@@ -15,6 +15,9 @@ public:
     explicit addEmission(QWidget *parent = nullptr);
     ~addEmission();
 
+private slots:
+    void on_pushButton_5_clicked();
+
 private:
     Ui::addEmission *ui;
 };

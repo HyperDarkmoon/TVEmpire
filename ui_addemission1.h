@@ -32,7 +32,7 @@ public:
     QPushButton *pushButton_5;
     QDateEdit *dob;
     QLabel *id;
-    QLineEdit *lastname;
+    QLineEdit *genre;
     QLabel *id_4;
     QPushButton *pushButton_6;
     QLabel *label_18;
@@ -187,11 +187,11 @@ public:
         id->setObjectName(QStringLiteral("id"));
         id->setGeometry(QRect(10, 70, 141, 21));
         id->setFont(font1);
-        lastname = new QLineEdit(addEmission);
-        lastname->setObjectName(QStringLiteral("lastname"));
-        lastname->setGeometry(QRect(270, 95, 240, 32));
-        lastname->setFont(font);
-        lastname->setStyleSheet(QLatin1String("#empFather\n"
+        genre = new QLineEdit(addEmission);
+        genre->setObjectName(QStringLiteral("genre"));
+        genre->setGeometry(QRect(270, 95, 240, 32));
+        genre->setFont(font);
+        genre->setStyleSheet(QLatin1String("#empFather\n"
 "{\n"
 "	background:white;\n"
 "	color:black;\n"
@@ -275,13 +275,13 @@ public:
         addEmission->setWindowTitle(QApplication::translate("addEmission", "Form", Q_NULLPTR));
         gender->clear();
         gender->insertItems(0, QStringList()
-         << QApplication::translate("addEmission", "Scene 1", Q_NULLPTR)
+         << QApplication::translate("addEmission", "1", Q_NULLPTR)
         );
         id_2->setText(QApplication::translate("addEmission", "<html><head/><body><p>Genre</p></body></html>", Q_NULLPTR));
         name->setText(QString());
         pushButton_5->setText(QApplication::translate("addEmission", "Submit", Q_NULLPTR));
         id->setText(QApplication::translate("addEmission", "<html><head/><body><p><span style=\" color:#ffffff;\">Nom</span></p><p><span style=\" color:#ffffff;\"><br/></span></p></body></html>", Q_NULLPTR));
-        lastname->setText(QString());
+        genre->setText(QString());
         id_4->setText(QApplication::translate("addEmission", "<html><head/><body><p>Scene</p></body></html>", Q_NULLPTR));
         pushButton_6->setText(QApplication::translate("addEmission", "Clear", Q_NULLPTR));
         label_18->setText(QApplication::translate("addEmission", "<html><head/><body><p>Detailes d'emmision</p></body></html>", Q_NULLPTR));
