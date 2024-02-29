@@ -5,13 +5,6 @@
 #include <QtWidgets>
 #include <QtSql>
 
-#include "employee.h"
-#include "ui_employee.h"
-#include "addemployee.h"
-#include "crudemployee.h"
-#include <QtWidgets>
-#include <QtSql>
-
 Employee::Employee(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Employee), employeeDialog(new addEmployee())
@@ -64,7 +57,6 @@ void Employee::onEditButtonClicked(int row)
     }
 }
 
-// ... rest of your code ...
 void Employee::refreshTable()
 {
     // Clear the existing content of the table
@@ -114,7 +106,6 @@ Employee::~Employee()
 
 void Employee::on_add_btn_2_clicked()
 {
-    qDebug() << "Add button clicked. Showing employee dialog...";
     employeeDialog->show();
 }
 

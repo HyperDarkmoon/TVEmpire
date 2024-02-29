@@ -20,7 +20,7 @@ bool dbconnection::createconnect()
     db.setDatabaseName("TVEmpire");
     db.setUserName(username);
     db.setPassword(password);
-
+    qDebug() << username << password;
     if (db.open())
     {
         test = true;
