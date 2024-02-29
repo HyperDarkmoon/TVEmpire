@@ -21,6 +21,7 @@ public:
 private slots:
 
     void on_add_btn_2_clicked();
+    void onDeleteButtonClicked(int row);
 
 private:
     Ui::Employee *ui;

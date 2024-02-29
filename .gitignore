@@ -11,3 +11,6 @@ debug/*
 config.ini
 *.Debug
 *.user
+debug/moc_employee.o
+debug/moc_employee.cpp
+debug/tvempire.exe
