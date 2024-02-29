@@ -14,3 +14,4 @@ config.ini
 debug/moc_employee.o
 debug/moc_employee.cpp
 debug/tvempire.exe
+tvempire.pro.user
