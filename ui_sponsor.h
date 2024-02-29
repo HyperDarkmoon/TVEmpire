@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -42,7 +41,7 @@ public:
     QLineEdit *lineEdit;
     QLabel *label;
     QLabel *label_4;
-    QComboBox *comboBox;
+    QLineEdit *lineEdit_2;
     QFrame *frame_3;
     QHBoxLayout *horizontalLayout_2;
     QLabel *title_label;
@@ -370,10 +369,9 @@ public:
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(450, 40, 23, 20));
         label_4->setStyleSheet(QStringLiteral("color: #F1F1F1"));
-        comboBox = new QComboBox(info_frame);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(490, 40, 211, 20));
-        comboBox->setEditable(true);
+        lineEdit_2 = new QLineEdit(info_frame);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        lineEdit_2->setGeometry(QRect(500, 40, 211, 20));
         frame_3 = new QFrame(Sponsor);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(10, 6, 914, 69));
@@ -459,14 +457,6 @@ public:
         ___qtablewidgetitem23->setText(QApplication::translate("Sponsor", "2", Q_NULLPTR));
         label->setText(QApplication::translate("Sponsor", "Id Sponsor", Q_NULLPTR));
         label_4->setText(QApplication::translate("Sponsor", "Nom", Q_NULLPTR));
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
-         << QString()
-         << QApplication::translate("Sponsor", "New Item", Q_NULLPTR)
-         << QApplication::translate("Sponsor", "New Item", Q_NULLPTR)
-         << QApplication::translate("Sponsor", "New Item", Q_NULLPTR)
-         << QApplication::translate("Sponsor", "New Item", Q_NULLPTR)
-        );
         title_label->setText(QApplication::translate("Sponsor", "Liste des sponsors", Q_NULLPTR));
     } // retranslateUi
 

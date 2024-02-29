@@ -1336,43 +1336,15 @@
      <string>Nom</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>500</x>
       <y>40</y>
       <width>211</width>
       <height>20</height>
      </rect>
     </property>
-    <property name="editable">
-     <bool>true</bool>
-    </property>
-    <item>
-     <property name="text">
-      <string/>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>New Item</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>New Item</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>New Item</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>New Item</string>
-     </property>
-    </item>
    </widget>
   </widget>
   <widget class="QFrame" name="frame_3">
