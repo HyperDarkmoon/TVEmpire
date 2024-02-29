@@ -6,7 +6,7 @@ tvempire.pro.user.433f95b
 tvempire.pro.user.ba2ff8a
 debug/tvempire.exe
 *.user
-debug/*
+debug/
 *.user
 config.ini
 *.Debug
