@@ -218,7 +218,6 @@ Makefile: tvempire.pro ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++/qm
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/resolve_config.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/exclusive_builds_post.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/default_post.prf \
-		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/win32/console.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/qml_debug.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/precompile_header.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/warn_on.prf \
@@ -229,11 +228,13 @@ Makefile: tvempire.pro ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++/qm
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/uic.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/qmake_use.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/file_copies.prf \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/win32/windows.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/testcase_targets.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/exceptions.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/yacc.prf \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/lex.prf \
 		tvempire.pro \
+		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl \
 		../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Network.prl \
@@ -397,7 +398,6 @@ Makefile: tvempire.pro ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++/qm
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/resolve_config.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/exclusive_builds_post.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/default_post.prf:
-../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/win32/console.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/qml_debug.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/precompile_header.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/warn_on.prf:
@@ -408,11 +408,13 @@ Makefile: tvempire.pro ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++/qm
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/uic.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/qmake_use.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/file_copies.prf:
+../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/win32/windows.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/testcase_targets.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/exceptions.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/yacc.prf:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/lex.prf:
 tvempire.pro:
+../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl:
 ../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Network.prl:
