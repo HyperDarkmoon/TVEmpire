@@ -15,7 +15,6 @@ int main(int argc, char *argv[]) {
         if (test)
         {
             // Create and show the main application window (MainWindow)
-            MainWindow mainWindow;
             //mainWindow.show();
             Form2 loginpage;
             loginpage.show();
