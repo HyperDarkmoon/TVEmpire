@@ -24,6 +24,7 @@ void addEmission::on_pushButton_5_clicked()
     c.setHoraire(ui->dob->date());
     c.setSceneId(ui->gender->currentText().toUInt());
     c.create(c);
+    emit buttonClicked();
     this->close();
 
 }

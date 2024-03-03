@@ -17,7 +17,8 @@ public:
 
 private slots:
     void on_pushButton_5_clicked();
-
+signals:
+    void buttonClicked();
 private:
     Ui::addEmission *ui;
 };

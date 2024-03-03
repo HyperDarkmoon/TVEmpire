@@ -22,7 +22,7 @@ public:
     void refreshTable();
     void onEditButtonClicked(int row);
     void onDeleteButtonClicked(int row);
-
+    void onAddEmissionDialogClosed();
 private slots:
     void on_pushButton_clicked();
 
@@ -62,6 +62,7 @@ public:
     bool remove(unsigned int id);
     QList<CrudEmission> getAll();
     QVariant getFieldByIndex(int index) const;
+
 };
 
 

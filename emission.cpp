@@ -6,10 +6,15 @@ Emission::Emission(QWidget *parent) :
     ui(new Ui::Emission), addemission(new addEmission)
 {
     ui->setupUi(this);
+    connect(addemission, &addEmission::buttonClicked, this, &Emission::onAddEmissionDialogClosed);
     refreshTable();
 }
 
-
+void Emission::onAddEmissionDialogClosed()
+{
+    // Refresh the table
+    refreshTable();
+}
 Emission::~Emission()
 {
     delete ui;
