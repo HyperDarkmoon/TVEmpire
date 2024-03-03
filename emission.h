@@ -8,6 +8,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include "addemission.h"
+#include "emissionedit.h"
 namespace Ui {
 class Emission;
 }
@@ -32,7 +33,7 @@ private:
 
     Ui::Emission *ui;
     addEmission *addemission;
-
+    EmissionEdit *edit;
 
 };
 class CrudEmission {

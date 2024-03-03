@@ -3,7 +3,7 @@
 #include <QDebug>
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Emission), addemission(new addEmission)
+    ui(new Ui::Emission), addemission(new addEmission),edit(new EmissionEdit)
 {
     ui->setupUi(this);
     connect(addemission, &addEmission::buttonClicked, this, &Emission::onAddEmissionDialogClosed);
@@ -19,7 +19,6 @@ Emission::~Emission()
 {
     delete ui;
 }
-
 
 void CrudEmission::setId(unsigned int newId) {
     id = newId;
@@ -194,7 +193,6 @@ QVariant CrudEmission::getFieldByIndex(int index) const{
 
 void Emission::onDeleteButtonClicked(int row)
 {
-    qDebug() << "Delete button clicked for row:" << row;
 
     // Get the ID of the employee in the selected row
     QTableWidgetItem* idItem = ui->tableWidget_2->item(row, 0);  // Assuming ID is in the first column
@@ -205,38 +203,34 @@ void Emission::onDeleteButtonClicked(int row)
         // For example, you might want to delete the record from the database using CrudEmployee class
         CrudEmission crudEmployee;
         if (crudEmployee.remove(employeeId)) {
-            qDebug() << "Employee deleted successfully from the database.";
 
             // Remove the row from QTableWidget
             ui->tableWidget_2->removeRow(row);
-        } else {
-            qDebug() << "Error deleting employee from the database.";
         }
-    } else {
-        qDebug() << "Unable to get employee ID from the selected row.";
     }
 }
 
 void Emission::onEditButtonClicked(int row)
 {
-    qDebug() << "Edit button clicked for row:" << row;
 
     // Get the ID of the employee in the selected row
-    QTableWidgetItem* idItem = ui->tableWidget_2->item(row, 0);  // Assuming ID is in the first column
-    if (idItem) {
-        unsigned int employeeId = idItem->text().toUInt();
+    QTableWidgetItem* idItem = ui->tableWidget_2->item(row, 0);
+     if (idItem) {
+         unsigned int emissionId = idItem->text().toUInt();
+         CrudEmission emissionData;  // Retrieve the data from the database
+         emissionData = emissionData.read(emissionId);
 
-        // Here, you can implement the logic to open the edit dialog for the corresponding employee
-        // For example, you might want to pass the employeeId to the edit dialog
-        // and then open the dialog for editing
-        // For now, let's just print the ID for demonstration purposes
-        qDebug() << "Editing employee with ID:" << employeeId;
-    } else {
-        qDebug() << "Unable to get employee ID from the selected row.";
-    }
+         // Pass the data to the edit dialog
+         edit->setData(emissionData);
+         edit->show();
+     } else {
+         qDebug() << "Unable to get emission ID from the selected row.";
+     }
 }
+
 
 void Emission::on_add_btn_2_clicked()
 {
     addemission->show();
 }
+

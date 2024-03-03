@@ -17,6 +17,7 @@ SOURCES += \
     crudequipment.cpp \
     dbconnection.cpp \
     emission.cpp \
+    emissionedit.cpp \
     employee.cpp \
     equipment.cpp \
     form2.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     crudequipment.h \
     dbconnection.h \
     emission.h \
+    emissionedit.h \
     employee.h \
     equipment.h \
     form2.h \
@@ -43,6 +45,7 @@ FORMS += \
     addemission1.ui \
     addemployee.ui \
     emission.ui \
+    emissionedit.ui \
     employee.ui \
     equipment.ui \
     form2.ui \
