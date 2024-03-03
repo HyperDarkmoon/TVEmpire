@@ -42,7 +42,6 @@ public:
     QPushButton *pushButton_5;
     QLabel *label_6;
     QLabel *label_7;
-    QLabel *label_8;
 
     void setupUi(QWidget *Form2)
     {
@@ -186,22 +185,13 @@ public:
         label_6->setStyleSheet(QStringLiteral("background-color:rgba(0, 0, 0, 75);"));
         label_7 = new QLabel(widget);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(50, 80, 180, 40));
+        label_7->setGeometry(QRect(50, 90, 180, 40));
         QFont font4;
         font4.setPointSize(22);
         font4.setBold(true);
         font4.setWeight(75);
         label_7->setFont(font4);
         label_7->setStyleSheet(QStringLiteral("color:rgba(255, 255, 255, 200);"));
-        label_8 = new QLabel(widget);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(50, 145, 220, 50));
-        QFont font5;
-        font5.setPointSize(10);
-        font5.setBold(true);
-        font5.setWeight(75);
-        label_8->setFont(font5);
-        label_8->setStyleSheet(QStringLiteral("color:rgba(255, 255, 255, 170);"));
 
         retranslateUi(Form2);
 
@@ -224,10 +214,7 @@ public:
         pushButton_4->setText(QApplication::translate("Form2", "M", Q_NULLPTR));
         pushButton_5->setText(QApplication::translate("Form2", "C", Q_NULLPTR));
         label_6->setText(QString());
-        label_7->setText(QApplication::translate("Form2", "SihinaCODE", Q_NULLPTR));
-        label_8->setText(QApplication::translate("Form2", "Hi,\n"
-"Welcome to my youtube channel.\n"
-"Don't forget to subscribe.", Q_NULLPTR));
+        label_7->setText(QApplication::translate("Form2", "Tv Empire", Q_NULLPTR));
     } // retranslateUi
 
 };
