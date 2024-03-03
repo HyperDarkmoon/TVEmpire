@@ -92,7 +92,7 @@ CrudEmission CrudEmission::read(unsigned int id)
 bool CrudEmission::update(unsigned int id, CrudEmission e)
 {
     QSqlQuery query;
-    query.prepare("UPDATE emissions SET nom = :nom, genre = :genre, horaire = :horaire, scene_id = :scene_id WHERE id = :id");
+    query.prepare("UPDATE emissions SET nom = :nom, genre = :genre, horaire = :horaire, idscene = :scene_id WHERE id = :id");
     query.bindValue(":nom", e.getNom());
     query.bindValue(":genre", e.getGenre());
     query.bindValue(":horaire", e.getHoraire());

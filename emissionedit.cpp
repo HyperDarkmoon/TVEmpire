@@ -25,3 +25,17 @@ void EmissionEdit::setData(const CrudEmission &emissionData)
     ui->dob->setDate(emissionData.getHoraire());
     ui->gender->setCurrentText("1");
 }
+
+void EmissionEdit::on_pushButton_5_clicked()
+{
+        CrudEmission c;
+        c.setId(ui->id->text().toUInt());
+        c.setNom(ui->name->text());
+        c.setGenre(ui->genre->text());
+        c.setHoraire(ui->dob->date());
+        c.setSceneId(ui->gender->currentText().toUInt());
+        c.update(c.getId(),c);
+        this->close();
+
+
+}

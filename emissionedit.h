@@ -18,6 +18,9 @@ public:
     ~EmissionEdit();
     void setData(const CrudEmission& emissiondata);
 
+private slots:
+    void on_pushButton_5_clicked();
+
 private:
     Ui::EmissionEdit *ui;
 };
