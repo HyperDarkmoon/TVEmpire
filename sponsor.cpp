@@ -38,7 +38,7 @@ void CrudSponsor::setNom(const QString& newNom)
 bool CrudSponsor::create(CrudSponsor s)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO Sponsor (id, nom) VALUES (:id, :nom)");
+    query.prepare("INSERT INTO Sponsor (id, nom) VALUES (sponsor_seq.NEXTVALUE, :nom)");
     query.bindValue(":id", s.getId());
     query.bindValue(":nom", s.getNom());
 
