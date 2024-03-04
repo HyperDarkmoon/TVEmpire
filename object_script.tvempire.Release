@@ -2,6 +2,7 @@ INPUT(
 ./release\addemission.o
 ./release\addemployee.o
 ./release\crudemployee.o
+./release\crudequipment.o
 ./release\dbconnection.o
 ./release\emission.o
 ./release\employee.o

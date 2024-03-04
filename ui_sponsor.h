@@ -27,14 +27,6 @@ QT_BEGIN_NAMESPACE
 class Ui_Sponsor
 {
 public:
-    QFrame *function_frame;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *add_btn;
-    QPushButton *update_btn;
-    QPushButton *select_btn;
-    QPushButton *search_btn;
-    QPushButton *clear_btn;
-    QPushButton *delete_btn;
     QFrame *result_frame;
     QTableWidget *tableWidget;
     QFrame *info_frame;
@@ -45,6 +37,14 @@ public:
     QFrame *frame_3;
     QHBoxLayout *horizontalLayout_2;
     QLabel *title_label;
+    QFrame *function_frame;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *add_btn;
+    QPushButton *update_btn;
+    QPushButton *select_btn;
+    QPushButton *search_btn;
+    QPushButton *clear_btn;
+    QPushButton *delete_btn;
 
     void setupUi(QWidget *Sponsor)
     {
@@ -128,73 +128,9 @@ public:
         Sponsor->setPalette(palette);
         Sponsor->setAutoFillBackground(true);
         Sponsor->setStyleSheet(QStringLiteral(""));
-        function_frame = new QFrame(Sponsor);
-        function_frame->setObjectName(QStringLiteral("function_frame"));
-        function_frame->setGeometry(QRect(10, 261, 914, 55));
-        function_frame->setFrameShape(QFrame::StyledPanel);
-        function_frame->setFrameShadow(QFrame::Raised);
-        horizontalLayout = new QHBoxLayout(function_frame);
-        horizontalLayout->setSpacing(15);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(30, 10, 30, 10);
-        add_btn = new QPushButton(function_frame);
-        add_btn->setObjectName(QStringLiteral("add_btn"));
-        QIcon icon;
-        icon.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        add_btn->setIcon(icon);
-        add_btn->setIconSize(QSize(20, 20));
-
-        horizontalLayout->addWidget(add_btn);
-
-        update_btn = new QPushButton(function_frame);
-        update_btn->setObjectName(QStringLiteral("update_btn"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/update.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        update_btn->setIcon(icon1);
-        update_btn->setIconSize(QSize(20, 20));
-
-        horizontalLayout->addWidget(update_btn);
-
-        select_btn = new QPushButton(function_frame);
-        select_btn->setObjectName(QStringLiteral("select_btn"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/select.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        select_btn->setIcon(icon2);
-        select_btn->setIconSize(QSize(20, 20));
-
-        horizontalLayout->addWidget(select_btn);
-
-        search_btn = new QPushButton(function_frame);
-        search_btn->setObjectName(QStringLiteral("search_btn"));
-        search_btn->setStyleSheet(QStringLiteral("background : #F1F1F1;"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/search.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        search_btn->setIcon(icon3);
-        search_btn->setIconSize(QSize(20, 20));
-
-        horizontalLayout->addWidget(search_btn);
-
-        clear_btn = new QPushButton(function_frame);
-        clear_btn->setObjectName(QStringLiteral("clear_btn"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/clear.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        clear_btn->setIcon(icon4);
-        clear_btn->setIconSize(QSize(20, 20));
-
-        horizontalLayout->addWidget(clear_btn);
-
-        delete_btn = new QPushButton(function_frame);
-        delete_btn->setObjectName(QStringLiteral("delete_btn"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/delete.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        delete_btn->setIcon(icon5);
-        delete_btn->setIconSize(QSize(20, 20));
-
-        horizontalLayout->addWidget(delete_btn);
-
         result_frame = new QFrame(Sponsor);
         result_frame->setObjectName(QStringLiteral("result_frame"));
-        result_frame->setGeometry(QRect(10, 331, 914, 283));
+        result_frame->setGeometry(QRect(-50, 190, 1071, 401));
         result_frame->setFrameShape(QFrame::StyledPanel);
         result_frame->setFrameShadow(QFrame::Raised);
         tableWidget = new QTableWidget(result_frame);
@@ -251,7 +187,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
         tableWidget->setVerticalHeaderItem(20, __qtablewidgetitem23);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(10, 10, 881, 192));
+        tableWidget->setGeometry(QRect(180, 40, 731, 361));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         palette1.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -341,7 +277,7 @@ public:
         tableWidget->verticalHeader()->setStretchLastSection(false);
         info_frame = new QFrame(Sponsor);
         info_frame->setObjectName(QStringLiteral("info_frame"));
-        info_frame->setGeometry(QRect(10, 90, 914, 156));
+        info_frame->setGeometry(QRect(70, 70, 921, 71));
         info_frame->setFrameShape(QFrame::StyledPanel);
         info_frame->setFrameShadow(QFrame::Raised);
         lineEdit = new QLineEdit(info_frame);
@@ -352,6 +288,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
         lineEdit->setSizePolicy(sizePolicy);
+        lineEdit->setStyleSheet(QStringLiteral(""));
         lineEdit->setInputMethodHints(Qt::ImhDigitsOnly);
         label = new QLabel(info_frame);
         label->setObjectName(QStringLiteral("label"));
@@ -392,6 +329,70 @@ public:
 
         horizontalLayout_2->addWidget(title_label);
 
+        function_frame = new QFrame(Sponsor);
+        function_frame->setObjectName(QStringLiteral("function_frame"));
+        function_frame->setGeometry(QRect(50, 150, 914, 55));
+        function_frame->setFrameShape(QFrame::StyledPanel);
+        function_frame->setFrameShadow(QFrame::Raised);
+        horizontalLayout = new QHBoxLayout(function_frame);
+        horizontalLayout->setSpacing(15);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(30, 10, 30, 10);
+        add_btn = new QPushButton(function_frame);
+        add_btn->setObjectName(QStringLiteral("add_btn"));
+        QIcon icon;
+        icon.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        add_btn->setIcon(icon);
+        add_btn->setIconSize(QSize(20, 20));
+
+        horizontalLayout->addWidget(add_btn);
+
+        update_btn = new QPushButton(function_frame);
+        update_btn->setObjectName(QStringLiteral("update_btn"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/update.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        update_btn->setIcon(icon1);
+        update_btn->setIconSize(QSize(20, 20));
+
+        horizontalLayout->addWidget(update_btn);
+
+        select_btn = new QPushButton(function_frame);
+        select_btn->setObjectName(QStringLiteral("select_btn"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/select.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        select_btn->setIcon(icon2);
+        select_btn->setIconSize(QSize(20, 20));
+
+        horizontalLayout->addWidget(select_btn);
+
+        search_btn = new QPushButton(function_frame);
+        search_btn->setObjectName(QStringLiteral("search_btn"));
+        search_btn->setStyleSheet(QStringLiteral("background : #F1F1F1;"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/search.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        search_btn->setIcon(icon3);
+        search_btn->setIconSize(QSize(20, 20));
+
+        horizontalLayout->addWidget(search_btn);
+
+        clear_btn = new QPushButton(function_frame);
+        clear_btn->setObjectName(QStringLiteral("clear_btn"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/clear.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        clear_btn->setIcon(icon4);
+        clear_btn->setIconSize(QSize(20, 20));
+
+        horizontalLayout->addWidget(clear_btn);
+
+        delete_btn = new QPushButton(function_frame);
+        delete_btn->setObjectName(QStringLiteral("delete_btn"));
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/delete.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        delete_btn->setIcon(icon5);
+        delete_btn->setIconSize(QSize(20, 20));
+
+        horizontalLayout->addWidget(delete_btn);
+
 
         retranslateUi(Sponsor);
 
@@ -401,18 +402,12 @@ public:
     void retranslateUi(QWidget *Sponsor)
     {
         Sponsor->setWindowTitle(QApplication::translate("Sponsor", "Form", Q_NULLPTR));
-        add_btn->setText(QApplication::translate("Sponsor", "Add", Q_NULLPTR));
-        update_btn->setText(QApplication::translate("Sponsor", "Update", Q_NULLPTR));
-        select_btn->setText(QApplication::translate("Sponsor", "Select", Q_NULLPTR));
-        search_btn->setText(QApplication::translate("Sponsor", "Search", Q_NULLPTR));
-        clear_btn->setText(QApplication::translate("Sponsor", "Clear", Q_NULLPTR));
-        delete_btn->setText(QApplication::translate("Sponsor", "Delete", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("Sponsor", "New Column", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QApplication::translate("Sponsor", "Id", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QApplication::translate("Sponsor", "nombre de contract Actif", Q_NULLPTR));
+        ___qtablewidgetitem2->setText(QApplication::translate("Sponsor", "Nom ", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->verticalHeaderItem(0);
         ___qtablewidgetitem3->setText(QApplication::translate("Sponsor", "1", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->verticalHeaderItem(1);
@@ -458,6 +453,12 @@ public:
         label->setText(QApplication::translate("Sponsor", "Id Sponsor", Q_NULLPTR));
         label_4->setText(QApplication::translate("Sponsor", "Nom", Q_NULLPTR));
         title_label->setText(QApplication::translate("Sponsor", "Liste des sponsors", Q_NULLPTR));
+        add_btn->setText(QApplication::translate("Sponsor", "Add", Q_NULLPTR));
+        update_btn->setText(QApplication::translate("Sponsor", "Update", Q_NULLPTR));
+        select_btn->setText(QApplication::translate("Sponsor", "Select", Q_NULLPTR));
+        search_btn->setText(QApplication::translate("Sponsor", "Search", Q_NULLPTR));
+        clear_btn->setText(QApplication::translate("Sponsor", "Clear", Q_NULLPTR));
+        delete_btn->setText(QApplication::translate("Sponsor", "Delete", Q_NULLPTR));
     } // retranslateUi
 
 };

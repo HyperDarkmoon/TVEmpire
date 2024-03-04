@@ -464,151 +464,13 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QFrame" name="function_frame">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>261</y>
-     <width>914</width>
-     <height>55</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="spacing">
-     <number>15</number>
-    </property>
-    <property name="leftMargin">
-     <number>30</number>
-    </property>
-    <property name="topMargin">
-     <number>10</number>
-    </property>
-    <property name="rightMargin">
-     <number>30</number>
-    </property>
-    <property name="bottomMargin">
-     <number>10</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="add_btn">
-      <property name="text">
-       <string>Add</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/add.svg</normaloff>../../../Users/moham/Desktop/icons/add.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="update_btn">
-      <property name="text">
-       <string>Update</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/update.svg</normaloff>../../../Users/moham/Desktop/icons/update.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="select_btn">
-      <property name="text">
-       <string>Select</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/select.svg</normaloff>../../../Users/moham/Desktop/icons/select.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="search_btn">
-      <property name="styleSheet">
-       <string notr="true">background : #F1F1F1;</string>
-      </property>
-      <property name="text">
-       <string>Search</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/search.svg</normaloff>../../../Users/moham/Desktop/icons/search.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="clear_btn">
-      <property name="text">
-       <string>Clear</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/clear.svg</normaloff>../../../Users/moham/Desktop/icons/clear.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="delete_btn">
-      <property name="text">
-       <string>Delete</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/delete.svg</normaloff>../../../Users/moham/Desktop/icons/delete.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QFrame" name="result_frame">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>331</y>
-     <width>914</width>
-     <height>283</height>
+     <x>-50</x>
+     <y>190</y>
+     <width>1071</width>
+     <height>401</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -620,10 +482,10 @@
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>881</width>
-      <height>192</height>
+      <x>180</x>
+      <y>40</y>
+      <width>731</width>
+      <height>361</height>
      </rect>
     </property>
     <property name="palette">
@@ -1254,7 +1116,7 @@
     </column>
     <column>
      <property name="text">
-      <string>nombre de contract Actif</string>
+      <string>Nom </string>
      </property>
     </column>
    </widget>
@@ -1262,10 +1124,10 @@
   <widget class="QFrame" name="info_frame">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>90</y>
-     <width>914</width>
-     <height>156</height>
+     <x>70</x>
+     <y>70</y>
+     <width>921</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -1288,6 +1150,9 @@
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="inputMethodHints">
      <set>Qt::ImhDigitsOnly</set>
@@ -1381,6 +1246,144 @@
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QFrame" name="function_frame">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>150</y>
+     <width>914</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>15</number>
+    </property>
+    <property name="leftMargin">
+     <number>30</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>30</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="add_btn">
+      <property name="text">
+       <string>Add</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../../Users/moham/Desktop/icons/add.svg</normaloff>../../../Users/moham/Desktop/icons/add.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="update_btn">
+      <property name="text">
+       <string>Update</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../../Users/moham/Desktop/icons/update.svg</normaloff>../../../Users/moham/Desktop/icons/update.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="select_btn">
+      <property name="text">
+       <string>Select</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../../Users/moham/Desktop/icons/select.svg</normaloff>../../../Users/moham/Desktop/icons/select.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="search_btn">
+      <property name="styleSheet">
+       <string notr="true">background : #F1F1F1;</string>
+      </property>
+      <property name="text">
+       <string>Search</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../../Users/moham/Desktop/icons/search.svg</normaloff>../../../Users/moham/Desktop/icons/search.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="clear_btn">
+      <property name="text">
+       <string>Clear</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../../Users/moham/Desktop/icons/clear.svg</normaloff>../../../Users/moham/Desktop/icons/clear.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="delete_btn">
+      <property name="text">
+       <string>Delete</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../../Users/moham/Desktop/icons/delete.svg</normaloff>../../../Users/moham/Desktop/icons/delete.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
       </property>
      </widget>
     </item>
