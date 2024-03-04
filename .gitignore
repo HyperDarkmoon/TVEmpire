@@ -15,3 +15,7 @@ debug/moc_employee.o
 debug/moc_employee.cpp
 debug/tvempire.exe
 tvempire.pro.user
+tvempire.pro.user
+Makefile.Debug
+Makefile.Release
+tvempire.pro.user

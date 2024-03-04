@@ -8,6 +8,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include "addemission.h"
+#include "emissionedit.h"
 namespace Ui {
 class Emission;
 }
@@ -19,9 +20,11 @@ class Emission : public QWidget
 public:
     explicit Emission(QWidget *parent = nullptr);
     ~Emission();
-
-
-
+    void refreshTable();
+    void onEditButtonClicked(int row);
+    void onDeleteButtonClicked(int row);
+    void onAddEmissionDialogClosed();
+    void onEdit();
 private slots:
     void on_pushButton_clicked();
 
@@ -31,7 +34,7 @@ private:
 
     Ui::Emission *ui;
     addEmission *addemission;
-
+    EmissionEdit *edit;
 
 };
 class CrudEmission {
@@ -39,26 +42,28 @@ private:
     unsigned int id;
     QString nom;
     QString genre;
-    QTime horaire;
+    QDate horaire;
     unsigned int sceneId;
 
 public:
-    unsigned int getId() ;
-    QString getNom();
-    QString getGenre();
-    QTime getHoraire() ;
-    unsigned int getSceneId();
+    unsigned int getId() const ;
+    QString getNom() const;
+    QString getGenre() const;
+    QDate getHoraire() const;
+    unsigned int getSceneId() const;
 
     void setId(unsigned int newId) ;
     void setNom(const QString& newNom);
     void setGenre(const QString& newGenre);
-    void setHoraire(const QTime& newHoraire);
+    void setHoraire(const QDate& newHoraire);
     void setSceneId(unsigned int newSceneId);
 
     bool create(CrudEmission e);
     CrudEmission read(unsigned int id);
     bool update(unsigned int id, CrudEmission e);
     bool remove(unsigned int id);
+    QList<CrudEmission> getAll();
+    QVariant getFieldByIndex(int index) const;
 
 };
 

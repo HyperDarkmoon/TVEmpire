@@ -14,7 +14,7 @@ class Form2 : public QWidget
 public:
     explicit Form2(QWidget *parent = nullptr);
     ~Form2();
-
+    void authenticate();
 private slots:
     void on_pushButton_clicked();
 
@@ -23,6 +23,7 @@ private slots:
 private:
     Ui::Form2 *ui;
     MainWindow *mainWindow;
+
 };
 
 #endif // LOGIN_H

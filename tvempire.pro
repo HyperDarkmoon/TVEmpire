@@ -1,4 +1,4 @@
-QT += core gui widgets
+QT += core gui widgets network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,6 +17,7 @@ SOURCES += \
     crudequipment.cpp \
     dbconnection.cpp \
     emission.cpp \
+    emissionedit.cpp \
     employee.cpp \
     equipment.cpp \
     form2.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     crudequipment.h \
     dbconnection.h \
     emission.h \
+    emissionedit.h \
     employee.h \
     equipment.h \
     form2.h \
@@ -43,6 +45,7 @@ FORMS += \
     addemission1.ui \
     addemployee.ui \
     emission.ui \
+    emissionedit.ui \
     employee.ui \
     equipment.ui \
     form2.ui \
@@ -58,4 +61,3 @@ unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 QT+= sql
-CONFIG += console

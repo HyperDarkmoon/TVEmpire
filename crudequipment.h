@@ -5,16 +5,20 @@
 class CRUDequipment
 {
 public:
-    CRUDequipment(int id, const std::string& name, int stockCount);
+    CRUDequipment(int id, const std::string& label, int stock, const std::string& state, const std::string& category );
     ~CRUDequipment();
 
-    int getId() const;
-    std::string getName() const;
-    int getStockCount() const;
+    int         getId() const;
+    std::string getlabel() const;
+    std::string getstate() const;
+    std::string getcategory() const;
+    int         getStock() const;
 
 
-    void setName(const std::string& name);
-    void setStockCount(int stockCount);
+    void setlabel(const std::string& label);
+    void setstate(const std::string& state);
+    void setcategory(const std::string& category);
+    void setStock(int stock);
 
     void addEquipment();
     void readEquipment();
@@ -22,9 +26,11 @@ public:
     void deleteEquipment();
 
 private:
-    int id_;
-    std::string name_;
-    int stockCount_;
+    int id;
+    int stock;
+    std::string label;
+    std::string state;
+    std::string category;
 };
 
 #endif // CRUDEQUIPMENT_H

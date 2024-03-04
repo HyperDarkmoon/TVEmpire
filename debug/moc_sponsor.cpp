@@ -75,6 +75,8 @@ void Sponsor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         Sponsor *_t = static_cast<Sponsor *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
+        //case 0: _t->on_pushButton_clicked(); break;
+        //case 1: _t->on_add_btn_2_clicked(); break;
         case 2: _t->on_add_btn_clicked(); break;
         default: ;
         }
