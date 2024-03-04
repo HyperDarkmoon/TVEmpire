@@ -25,6 +25,7 @@ class Ui_Equipment
 {
 public:
     QWidget *widget;
+<<<<<<< HEAD
     QPushButton *pushButton_8;
     QPushButton *pushButton_4;
     QPushButton *pushButton_3;
@@ -33,6 +34,16 @@ public:
     QLabel *label_2;
     QPushButton *Modifier;
     QPushButton *pushButton_7;
+=======
+    QPushButton *Calendrier;
+    QPushButton *Utiliser;
+    QPushButton *Supprimer;
+    QPushButton *Afficher;
+    QLabel *Label;
+    QLabel *Labelequipment;
+    QPushButton *Modifier;
+    QPushButton *Trier;
+>>>>>>> 251b1e6354a2729dac93d0cbc688b33e3fe20364
     QPushButton *Ajout;
     QTableWidget *tableWidget;
 
@@ -120,9 +131,15 @@ public:
 #endif
         widget->setPalette(palette);
         widget->setAutoFillBackground(true);
+<<<<<<< HEAD
         pushButton_8 = new QPushButton(widget);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
         pushButton_8->setGeometry(QRect(740, 130, 81, 31));
+=======
+        Calendrier = new QPushButton(widget);
+        Calendrier->setObjectName(QStringLiteral("Calendrier"));
+        Calendrier->setGeometry(QRect(740, 130, 81, 31));
+>>>>>>> 251b1e6354a2729dac93d0cbc688b33e3fe20364
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         palette1.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -184,10 +201,17 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush11);
 #endif
+<<<<<<< HEAD
         pushButton_8->setPalette(palette1);
         pushButton_4 = new QPushButton(widget);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setGeometry(QRect(510, 130, 101, 31));
+=======
+        Calendrier->setPalette(palette1);
+        Utiliser = new QPushButton(widget);
+        Utiliser->setObjectName(QStringLiteral("Utiliser"));
+        Utiliser->setGeometry(QRect(510, 130, 101, 31));
+>>>>>>> 251b1e6354a2729dac93d0cbc688b33e3fe20364
         QPalette palette2;
         palette2.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         palette2.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -243,10 +267,17 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush11);
 #endif
+<<<<<<< HEAD
         pushButton_4->setPalette(palette2);
         pushButton_3 = new QPushButton(widget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setGeometry(QRect(400, 130, 91, 31));
+=======
+        Utiliser->setPalette(palette2);
+        Supprimer = new QPushButton(widget);
+        Supprimer->setObjectName(QStringLiteral("Supprimer"));
+        Supprimer->setGeometry(QRect(400, 130, 91, 31));
+>>>>>>> 251b1e6354a2729dac93d0cbc688b33e3fe20364
         QPalette palette3;
         palette3.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         palette3.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -302,10 +333,17 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush11);
 #endif
+<<<<<<< HEAD
         pushButton_3->setPalette(palette3);
         pushButton_5 = new QPushButton(widget);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(420, 490, 93, 28));
+=======
+        Supprimer->setPalette(palette3);
+        Afficher = new QPushButton(widget);
+        Afficher->setObjectName(QStringLiteral("Afficher"));
+        Afficher->setGeometry(QRect(420, 490, 93, 28));
+>>>>>>> 251b1e6354a2729dac93d0cbc688b33e3fe20364
         QPalette palette4;
         palette4.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         palette4.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -361,6 +399,7 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette4.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush11);
 #endif
+<<<<<<< HEAD
         pushButton_5->setPalette(palette4);
         label = new QLabel(widget);
         label->setObjectName(QStringLiteral("label"));
@@ -370,6 +409,17 @@ public:
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(400, 190, 131, 31));
         label_2->setStyleSheet(QStringLiteral("color: #F1F1F1"));
+=======
+        Afficher->setPalette(palette4);
+        Label = new QLabel(widget);
+        Label->setObjectName(QStringLiteral("Label"));
+        Label->setGeometry(QRect(340, 20, 261, 31));
+        Label->setStyleSheet(QStringLiteral("color: #F1F1F1"));
+        Labelequipment = new QLabel(widget);
+        Labelequipment->setObjectName(QStringLiteral("Labelequipment"));
+        Labelequipment->setGeometry(QRect(400, 190, 131, 31));
+        Labelequipment->setStyleSheet(QStringLiteral("color: #F1F1F1"));
+>>>>>>> 251b1e6354a2729dac93d0cbc688b33e3fe20364
         Modifier = new QPushButton(widget);
         Modifier->setObjectName(QStringLiteral("Modifier"));
         Modifier->setGeometry(QRect(280, 130, 101, 31));
@@ -429,9 +479,15 @@ public:
         palette5.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush11);
 #endif
         Modifier->setPalette(palette5);
+<<<<<<< HEAD
         pushButton_7 = new QPushButton(widget);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
         pushButton_7->setGeometry(QRect(630, 130, 91, 31));
+=======
+        Trier = new QPushButton(widget);
+        Trier->setObjectName(QStringLiteral("Trier"));
+        Trier->setGeometry(QRect(630, 130, 91, 31));
+>>>>>>> 251b1e6354a2729dac93d0cbc688b33e3fe20364
         QPalette palette6;
         palette6.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         palette6.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -487,7 +543,11 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette6.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush11);
 #endif
+<<<<<<< HEAD
         pushButton_7->setPalette(palette6);
+=======
+        Trier->setPalette(palette6);
+>>>>>>> 251b1e6354a2729dac93d0cbc688b33e3fe20364
         Ajout = new QPushButton(widget);
         Ajout->setObjectName(QStringLiteral("Ajout"));
         Ajout->setGeometry(QRect(170, 130, 91, 31));
@@ -559,6 +619,7 @@ public:
     void retranslateUi(QWidget *Equipment)
     {
         Equipment->setWindowTitle(QApplication::translate("Equipment", "Form", Q_NULLPTR));
+<<<<<<< HEAD
         pushButton_8->setText(QApplication::translate("Equipment", "Calendrier", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("Equipment", "Utiliser", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("Equipment", "Supprimer", Q_NULLPTR));
@@ -567,6 +628,16 @@ public:
         label_2->setText(QApplication::translate("Equipment", "<html><head/><body><p><span style=\" font-size:9pt;\">Equipements r\303\251p\303\251rtori\303\251s</span></p></body></html>", Q_NULLPTR));
         Modifier->setText(QApplication::translate("Equipment", "Modifier", Q_NULLPTR));
         pushButton_7->setText(QApplication::translate("Equipment", "Tirer ", Q_NULLPTR));
+=======
+        Calendrier->setText(QApplication::translate("Equipment", "Calendrier", Q_NULLPTR));
+        Utiliser->setText(QApplication::translate("Equipment", "Utiliser", Q_NULLPTR));
+        Supprimer->setText(QApplication::translate("Equipment", "Supprimer", Q_NULLPTR));
+        Afficher->setText(QApplication::translate("Equipment", "Afficher", Q_NULLPTR));
+        Label->setText(QApplication::translate("Equipment", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">R\303\251pertoir de l'\303\251quipement</span></p></body></html>", Q_NULLPTR));
+        Labelequipment->setText(QApplication::translate("Equipment", "<html><head/><body><p><span style=\" font-size:9pt;\">Equipements r\303\251p\303\251rtori\303\251s</span></p></body></html>", Q_NULLPTR));
+        Modifier->setText(QApplication::translate("Equipment", "Modifier", Q_NULLPTR));
+        Trier->setText(QApplication::translate("Equipment", "Trier", Q_NULLPTR));
+>>>>>>> 251b1e6354a2729dac93d0cbc688b33e3fe20364
         Ajout->setText(QApplication::translate("Equipment", "Ajouter", Q_NULLPTR));
     } // retranslateUi
 
