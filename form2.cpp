@@ -2,6 +2,7 @@
 #include "ui_form2.h"
 #include "mainwindow.h"
 
+
 Form2::Form2(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Form2),
@@ -21,6 +22,7 @@ Form2::~Form2()
 
 void Form2::authenticate()
 {
+
     if (ui->lineEdit->text() == "admin" && ui->lineEdit_2->text() == "admin")
     {
         mainWindow->show();

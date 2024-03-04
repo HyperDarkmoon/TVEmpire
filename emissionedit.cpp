@@ -35,6 +35,7 @@ void EmissionEdit::on_pushButton_5_clicked()
         c.setHoraire(ui->dob->date());
         c.setSceneId(ui->gender->currentText().toUInt());
         c.update(c.getId(),c);
+        emit onButtonClick();
         this->close();
 
 

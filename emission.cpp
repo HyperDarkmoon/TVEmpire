@@ -6,13 +6,18 @@ Emission::Emission(QWidget *parent) :
     ui(new Ui::Emission), addemission(new addEmission),edit(new EmissionEdit)
 {
     ui->setupUi(this);
+    // each time the add the add button get click its emits a signal button clicked that executes onAddEmissionDialogClosed
     connect(addemission, &addEmission::buttonClicked, this, &Emission::onAddEmissionDialogClosed);
+    // same but for edit
+    connect(edit, &EmissionEdit::onButtonClick, this, &Emission::onEdit );
     refreshTable();
 }
-
+void Emission::onEdit(){
+    refreshTable();
+}
 void Emission::onAddEmissionDialogClosed()
 {
-    // Refresh the table
+
     refreshTable();
 }
 Emission::~Emission()

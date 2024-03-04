@@ -24,6 +24,7 @@ public:
     void onEditButtonClicked(int row);
     void onDeleteButtonClicked(int row);
     void onAddEmissionDialogClosed();
+    void onEdit();
 private slots:
     void on_pushButton_clicked();
 

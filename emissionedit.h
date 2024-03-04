@@ -20,7 +20,8 @@ public:
 
 private slots:
     void on_pushButton_5_clicked();
-
+signals:
+    void onButtonClick();
 private:
     Ui::EmissionEdit *ui;
 };
