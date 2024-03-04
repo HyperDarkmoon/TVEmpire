@@ -18,8 +18,8 @@ private:
     QString nom;
 
 public:
-    unsigned int getId();
-    QString getNom();
+    unsigned int getId() const;
+    QString getNom() const ;
 
     void setId(unsigned int newId);
     void setNom(const QString& newNom);
@@ -28,6 +28,8 @@ public:
     CrudSponsor read(unsigned int id);
     bool update(unsigned int id, CrudSponsor s);
     bool remove(unsigned int id);
+    QVariant getFieldByIndex(int index) const;
+    QList<CrudSponsor> getAll();
 };
 
 class Sponsor : public QWidget
@@ -37,17 +39,15 @@ class Sponsor : public QWidget
 public:
     explicit Sponsor(QWidget *parent = nullptr);
     ~Sponsor();
-
+    void refreshTable();
+    void onDeleteButtonClicked(int row);
 private slots:
     void on_pushButton_clicked();
     void on_add_btn_2_clicked(); // Assuming you have a button for some operation
     void on_add_btn_clicked();
-
+    void onEditButtonClicked(int row);
 private:
     Ui::Sponsor *ui;
-
-    // Function to update the table with sponsor details
-    void updateTableWithSponsorDetails(unsigned int sponsorId);
 };
 
 #endif // SPONSOR_H
