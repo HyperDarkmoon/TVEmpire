@@ -22,7 +22,7 @@ public:
     ~Emission();
     void refreshTable();
     void onEditButtonClicked(int row);
-    void onDeleteButtonClicked(int row);
+    void onDeleteButtonClicked(unsigned int id);
     void onAddEmissionDialogClosed();
     void onEdit();
 private slots:
