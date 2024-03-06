@@ -25,7 +25,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     scenes.cpp \
-    sponsor.cpp
+    sponsor.cpp \
+    addequipment.cpp
 
 HEADERS += \
     addemission.h \
@@ -41,7 +42,8 @@ HEADERS += \
     form2.h \
     mainwindow.h \
     scenes.h \
-    sponsor.h
+    sponsor.h \
+    addequipment.h
 
 FORMS += \
     addemission1.ui \
@@ -54,7 +56,8 @@ FORMS += \
     form2.ui \
     mainwindow.ui \
     scenes.ui \
-    sponsor.ui
+    sponsor.ui \
+    addequipment.ui
 
 # Default rules for deployment.
 # Adjust installation path based on your deployment needs
