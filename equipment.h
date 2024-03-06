@@ -2,7 +2,7 @@
 #define EQUIPMENT_H
 
 #include <QWidget>
-
+#include "addequipment.h"
 namespace Ui {
 class Equipment;
 }
@@ -15,7 +15,12 @@ public:
     explicit Equipment(QWidget *parent = nullptr);
     ~Equipment();
 
+private slots:
+    void on_Ajout_clicked();
+
 private:
+
+    addEquipment *addE;
     Ui::Equipment *ui;
 };
 

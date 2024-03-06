@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <vector>
 
-CRUDequipment::CRUDequipment(int id, const std::string& label, int stock, const std::string& state, const std::string& category)
+CRUDequipment::CRUDequipment(int id, const QString& label, int stock, const QString& state, const QString& category)
     : id(id), label(label), state(state), stock(stock), category(category) {}
 
 CRUDequipment::~CRUDequipment() {}
@@ -13,15 +13,15 @@ int CRUDequipment::getId() const {
     return id;
 }
 
-std::string CRUDequipment::getlabel() const {
+QString CRUDequipment::getlabel() const {
     return label;
 }
 
-std::string CRUDequipment::getstate() const {
+QString CRUDequipment::getstate() const {
     return state;
 }
 
-std::string CRUDequipment::getcategory() const {
+QString CRUDequipment::getcategory() const {
     return category;
 }
 
@@ -29,15 +29,15 @@ int CRUDequipment::getStock() const {
     return stock;
 }
 
-void CRUDequipment::setlabel(const std::string& newLabel) {
+void CRUDequipment::setlabel(const QString& newLabel) {
     label = newLabel;
 }
 
-void CRUDequipment::setstate(const std::string& newState) {
+void CRUDequipment::setstate(const QString& newState) {
     state = newState;
 }
 
-void CRUDequipment::setcategory(const std::string& newCategory) {
+void CRUDequipment::setcategory(const QString& newCategory) {
     category = newCategory;
 }
 
@@ -49,10 +49,10 @@ void CRUDequipment::addEquipment() {
     QSqlQuery query;
     query.prepare("INSERT INTO equipment (id, label, stock, state, category) VALUES (:id, :label, :stock, :state, :category)");
     query.bindValue(":id", id);
-    query.bindValue(":label", QString::fromStdString(label));
+    query.bindValue(":label", (label));
     query.bindValue(":stock", stock);
-    query.bindValue(":state", QString::fromStdString(state));
-    query.bindValue(":category", QString::fromStdString(category));
+    query.bindValue(":state", (state));
+    query.bindValue(":category", (category));
 
     if (query.exec()) {
         qDebug() << "Equipment added successfully!";
@@ -69,10 +69,10 @@ void CRUDequipment::readEquipment() {
     if (query.exec()) {
         if (query.next()) {
             id = query.value("id").toInt();
-            label = query.value("label").toString().toStdString();
+            label = query.value("label").toString();
             stock = query.value("stock").toInt();
-            state = query.value("state").toString().toStdString();
-            category = query.value("category").toString().toStdString();
+            state = query.value("state").toString();
+            category = query.value("category").toString();
             qDebug() << "Equipment read successfully!";
         } else {
             qDebug() << "Equipment not found!";
@@ -86,10 +86,10 @@ void CRUDequipment::updateEquipment() {
     QSqlQuery query;
     query.prepare("UPDATE equipment SET label = :label, stock = :stock, state = :state, category = :category WHERE id = :id");
     query.bindValue(":id", id);
-    query.bindValue(":label", QString::fromStdString(label));
+    query.bindValue(":label", (label));
     query.bindValue(":stock", stock);
-    query.bindValue(":state", QString::fromStdString(state));
-    query.bindValue(":category", QString::fromStdString(category));
+    query.bindValue(":state", (state));
+    query.bindValue(":category", (category));
 
     if (query.exec()) {
         qDebug() << "Equipment updated successfully!";
