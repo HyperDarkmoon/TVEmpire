@@ -24,6 +24,7 @@ SOURCES += \
     form2.cpp \
     main.cpp \
     mainwindow.cpp \
+    modifyequipment.cpp \
     scenes.cpp \
     sponsor.cpp \
     addequipment.cpp
@@ -41,6 +42,7 @@ HEADERS += \
     equipment.h \
     form2.h \
     mainwindow.h \
+    modifyequipment.h \
     scenes.h \
     sponsor.h \
     addequipment.h
@@ -55,6 +57,7 @@ FORMS += \
     equipment.ui \
     form2.ui \
     mainwindow.ui \
+    modifyequipment.ui \
     scenes.ui \
     sponsor.ui \
     addequipment.ui

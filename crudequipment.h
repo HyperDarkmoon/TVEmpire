@@ -8,11 +8,11 @@ public:
     CRUDequipment(int id, const QString& label, int stock, const QString& state, const QString& category );
     ~CRUDequipment();
 
-    int         getId() const;
+    int     getId() const;
     QString getlabel() const;
     QString getstate() const;
     QString getcategory() const;
-    int         getStock() const;
+    int     getStock() const;
 
 
     void setlabel(const QString& label);

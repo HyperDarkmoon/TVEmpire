@@ -3,7 +3,7 @@
 
 Equipment::Equipment(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Equipment), addE(new addEquipment)
+    ui(new Ui::Equipment), addE(new addEquipment), modE (new modifyEquipment)
 {
     ui->setupUi(this);
 }
@@ -16,4 +16,9 @@ Equipment::~Equipment()
 void Equipment::on_Ajout_clicked()
 {
     addE->show();
+}
+
+void Equipment::on_Modifier_clicked()
+{
+    modE->show();
 }
