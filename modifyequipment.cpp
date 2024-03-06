@@ -16,6 +16,6 @@ modifyEquipment::~modifyEquipment()
 
 void modifyEquipment::on_buttonBox_accepted()
 {
-    CRUDequipment c(1,ui->labelME->text(),1,ui->stateME->text(),ui->categoryME->text());
+    CRUDequipment E(1,ui->labelME->text(),1,ui->stateME->text(),ui->categoryME->text());
     //c.modifyEquipment();
 }
