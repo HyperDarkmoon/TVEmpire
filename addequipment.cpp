@@ -17,12 +17,12 @@ addEquipment::~addEquipment()
 
 void addEquipment::on_buttonBox_accepted()
 {
-   CRUDequipment c(1,ui->labelE->text(),1,ui->stateE->text(),ui->categoryE->text());
-   /* bool check =  c.addEquipment();
+   CRUDequipment E(1,ui->labelE->text(),1,ui->stateE->text(),ui->categoryE->text());
+    bool check =  E.createEquipment(E);
     if (check) {
         this->close();
     } else {
         qDebug() << "Empty";
-    }   */
-    c.addEquipment();
+    }
+
 }

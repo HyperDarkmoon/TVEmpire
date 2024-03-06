@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <vector>
 
+
 CRUDequipment::CRUDequipment(int id, const QString& label, int stock, const QString& state, const QString& category)
     : id(id), label(label), state(state), stock(stock), category(category) {}
 
@@ -109,3 +110,25 @@ void CRUDequipment::deleteEquipment() {
         qDebug() << "Error deleting equipment:" << query.lastError().text();
     }
 }
+
+bool CRUDequipment::createEquipment(CRUDequipment E) {
+    QSqlQuery query;
+    query.prepare("INSERT INTO equipment (id, label, stock, state, category) VALUES (equipment_seq.NEXTVAL, :label, :stock, :state, :category)");
+
+    query.bindValue(":label", E.getlabel());
+    query.bindValue(":state", E.getstate());
+    query.bindValue(":category", E.getcategory());
+
+
+    if (!query.exec()) {
+        qDebug() << "Error executing query:";
+        qDebug() << "Query:" << query.lastQuery();
+        qDebug() << "Error:" << query.lastError().text();
+        return false;
+    } else {
+        qDebug() << "Query executed successfully:";
+        qDebug() << "Query:" << query.lastQuery();
+        return true;
+    }
+}
+

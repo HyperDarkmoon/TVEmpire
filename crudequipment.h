@@ -21,6 +21,7 @@ public:
     void setStock(int stock);
 
     void addEquipment();
+    bool createEquipment(CRUDequipment E);
     void readEquipment();
     void updateEquipment();
     void deleteEquipment();
