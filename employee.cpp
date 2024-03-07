@@ -28,21 +28,20 @@ void Employee::onDeleteButtonClicked(int row)
 
 void Employee::onEditButtonClicked(int row)
 {
-    qDebug() << "Edit button clicked for row:" << row;
-
-    // Get the ID of the employee in the selected row
-    QTableWidgetItem* idItem = ui->emp->item(row, 0);  // Assuming ID is in the first column
-    if (idItem) {
-        unsigned int employeeId = idItem->text().toUInt();
-
-        // Here, you can implement the logic to open the edit dialog for the corresponding employee
-        // For example, you might want to pass the employeeId to the edit dialog
-        // and then open the dialog for editing
-        // For now, let's just print the ID for demonstration purposes
-        qDebug() << "Editing employee with ID:" << employeeId;
-    } else {
-        qDebug() << "Unable to get employee ID from the selected row.";
-    }
+    QTableWidgetItem* idItem = ui->emp->item(row, 0);
+     if (idItem) {
+         unsigned int emissionId = idItem->text().toUInt();
+         CrudEmployee employeeData;  // Retrieve the data from the database
+         employeeData = employeeData.getEmployee(emissionId);
+         qDebug() << "maybe";
+         // Pass the data to the edit dialog
+         edit->setData(employeeData);
+         qDebug() << "maybe2";
+         edit->show();
+         qDebug() << "maybe3";
+     } else {
+         qDebug() << "Unable to get emission ID from the selected row.";
+     }
 }
 
 void Employee::refreshTable()
@@ -257,21 +256,21 @@ bool CrudEmployee::createEmployee(CrudEmployee emp) {
 
 CrudEmployee CrudEmployee::getEmployee(unsigned int id) {
     QSqlQuery query;
-    query.prepare("SELECT  FROM employees WHERE id = :id");
+    query.prepare("SELECT id, name, last_name, post, salary, start_time, end_time, login, dob, gender FROM employees WHERE id = :id");
     query.bindValue(":id", id);
     query.exec();
     CrudEmployee emp;
     while (query.next()) {
         emp.setId(query.value(0).toUInt());
-        emp.setEmployeeName(query.value(2).toString());
-        emp.setEmployeeLastName(query.value(3).toString());
-        emp.setPost(query.value(4).toString());
-        emp.setSalary(query.value(5).toUInt());
-        emp.setStartTime(query.value(6).toTime());
-        emp.setEndTime(query.value(7).toTime());
-        emp.setLogin(query.value(9).toString());
-        emp.setDob(query.value(10).toDate());
-        emp.setGender(query.value(11).toString());
+        emp.setEmployeeName(query.value(1).toString());
+        emp.setEmployeeLastName(query.value(2).toString());
+        emp.setPost(query.value(3).toString());
+        emp.setSalary(query.value(4).toUInt());
+        emp.setStartTime(query.value(5).toTime());
+        emp.setEndTime(query.value(6).toTime());
+        emp.setLogin(query.value(7).toString());
+        emp.setDob(query.value(8).toDate());
+        emp.setGender(query.value(9).toString());
     }
     return emp;
 }
@@ -301,7 +300,6 @@ QList<CrudEmployee> CrudEmployee::getAllEmployees() {
 
         employeeList.append(emp);  // Add the object to the list
     }
-
     return employeeList;
 }
 

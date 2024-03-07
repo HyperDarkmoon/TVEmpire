@@ -2,12 +2,12 @@ INPUT(
 ./release\addemission.o
 ./release\addemployee.o
 ./release\contrat.o
-./release\crudemployee.o
 ./release\crudequipment.o
 ./release\dbconnection.o
 ./release\emission.o
 ./release\emissionedit.o
 ./release\employee.o
+./release\employeeedit.o
 ./release\equipment.o
 ./release\form2.o
 ./release\main.o
@@ -23,6 +23,7 @@ INPUT(
 ./release\moc_emission.o
 ./release\moc_emissionedit.o
 ./release\moc_employee.o
+./release\moc_employeeedit.o
 ./release\moc_equipment.o
 ./release\moc_form2.o
 ./release\moc_mainwindow.o

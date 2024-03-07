@@ -4,6 +4,7 @@
 #include <QTime>
 #include <QDate>
 #include "addemployee.h"
+#include "employeeedit.h"
 
 namespace Ui {
 class Employee;
@@ -28,6 +29,7 @@ private slots:
 private:
     Ui::Employee *ui;
     addEmployee *employeeDialog;
+    employeeedit *edit;
 };
 
 class CrudEmployee

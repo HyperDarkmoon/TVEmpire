@@ -2,12 +2,12 @@ INPUT(
 ./debug\addemission.o
 ./debug\addemployee.o
 ./debug\contrat.o
-./debug\crudemployee.o
 ./debug\crudequipment.o
 ./debug\dbconnection.o
 ./debug\emission.o
 ./debug\emissionedit.o
 ./debug\employee.o
+./debug\employeeedit.o
 ./debug\equipment.o
 ./debug\form2.o
 ./debug\main.o
@@ -23,6 +23,7 @@ INPUT(
 ./debug\moc_emission.o
 ./debug\moc_emissionedit.o
 ./debug\moc_employee.o
+./debug\moc_employeeedit.o
 ./debug\moc_equipment.o
 ./debug\moc_form2.o
 ./debug\moc_mainwindow.o

@@ -19,6 +19,7 @@ SOURCES += \
     emission.cpp \
     emissionedit.cpp \
     employee.cpp \
+    employeeedit.cpp \
     equipment.cpp \
     form2.cpp \
     main.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     emission.h \
     emissionedit.h \
     employee.h \
+    employeeedit.h \
     equipment.h \
     form2.h \
     mainwindow.h \
@@ -52,6 +54,7 @@ FORMS += \
     emission.ui \
     emissionedit.ui \
     employee.ui \
+    employeeedit.ui \
     equipment.ui \
     form2.ui \
     mainwindow.ui \
