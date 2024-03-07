@@ -141,8 +141,9 @@ void Emission::refreshTable()
 
         // Add "Delete" button for each row in the "Delete" column
         QPushButton *deleteButton = new QPushButton("Delete", this);
-        connect(deleteButton, &QPushButton::clicked, [this, row]() {
-            onDeleteButtonClicked(row);
+        unsigned int id = ui->tableWidget_2->item(row,0)->text().toUInt();
+        connect(deleteButton, &QPushButton::clicked, [this, id]() {
+            onDeleteButtonClicked(id);
         });
         ui->tableWidget_2->setCellWidget(row, headers.size() - 2, deleteButton);
 
@@ -196,22 +197,13 @@ QVariant CrudEmission::getFieldByIndex(int index) const{
 }
 
 
-void Emission::onDeleteButtonClicked(int row)
+void Emission::onDeleteButtonClicked(unsigned int id)
 {
 
-    // Get the ID of the employee in the selected row
-    QTableWidgetItem* idItem = ui->tableWidget_2->item(row, 0);  // Assuming ID is in the first column
-    if (idItem) {
-        unsigned int employeeId = idItem->text().toUInt();
+    CrudEmission crudEmployee;
+    if (crudEmployee.remove(id)) {
 
-        // Here, you can implement the logic to delete the corresponding row from your data source
-        // For example, you might want to delete the record from the database using CrudEmployee class
-        CrudEmission crudEmployee;
-        if (crudEmployee.remove(employeeId)) {
-
-            // Remove the row from QTableWidget
-            ui->tableWidget_2->removeRow(row);
-        }
+        refreshTable();
     }
 }
 

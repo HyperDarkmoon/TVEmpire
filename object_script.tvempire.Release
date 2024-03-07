@@ -12,8 +12,10 @@ INPUT(
 ./release\form2.o
 ./release\main.o
 ./release\mainwindow.o
+./release\modifyequipment.o
 ./release\scenes.o
 ./release\sponsor.o
+./release\addequipment.o
 ./release\qrc_resource.o
 ./release\moc_addemission.o
 ./release\moc_addemployee.o
@@ -24,6 +26,8 @@ INPUT(
 ./release\moc_equipment.o
 ./release\moc_form2.o
 ./release\moc_mainwindow.o
+./release\moc_modifyequipment.o
 ./release\moc_scenes.o
 ./release\moc_sponsor.o
+./release\moc_addequipment.o
 );

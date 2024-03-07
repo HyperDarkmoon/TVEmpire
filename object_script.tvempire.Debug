@@ -12,8 +12,10 @@ INPUT(
 ./debug\form2.o
 ./debug\main.o
 ./debug\mainwindow.o
+./debug\modifyequipment.o
 ./debug\scenes.o
 ./debug\sponsor.o
+./debug\addequipment.o
 ./debug\qrc_resource.o
 ./debug\moc_addemission.o
 ./debug\moc_addemployee.o
@@ -24,6 +26,8 @@ INPUT(
 ./debug\moc_equipment.o
 ./debug\moc_form2.o
 ./debug\moc_mainwindow.o
+./debug\moc_modifyequipment.o
 ./debug\moc_scenes.o
 ./debug\moc_sponsor.o
+./debug\moc_addequipment.o
 );

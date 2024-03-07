@@ -1,26 +1,27 @@
 #ifndef CRUDEQUIPMENT_H
 #define CRUDEQUIPMENT_H
-#include <string>
+#include <QString>
 
 class CRUDequipment
 {
 public:
-    CRUDequipment(int id, const std::string& label, int stock, const std::string& state, const std::string& category );
+    CRUDequipment(int id, const QString& label, int stock, const QString& state, const QString& category );
     ~CRUDequipment();
 
-    int         getId() const;
-    std::string getlabel() const;
-    std::string getstate() const;
-    std::string getcategory() const;
-    int         getStock() const;
+    int     getId() const;
+    QString getlabel() const;
+    QString getstate() const;
+    QString getcategory() const;
+    int     getStock() const;
 
 
-    void setlabel(const std::string& label);
-    void setstate(const std::string& state);
-    void setcategory(const std::string& category);
+    void setlabel(const QString& label);
+    void setstate(const QString& state);
+    void setcategory(const QString& category);
     void setStock(int stock);
 
     void addEquipment();
+    bool createEquipment(CRUDequipment E);
     void readEquipment();
     void updateEquipment();
     void deleteEquipment();
@@ -28,9 +29,9 @@ public:
 private:
     int id;
     int stock;
-    std::string label;
-    std::string state;
-    std::string category;
+    QString label;
+    QString state;
+    QString category;
 };
 
 #endif // CRUDEQUIPMENT_H
