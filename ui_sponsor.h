@@ -30,8 +30,6 @@ public:
     QFrame *result_frame;
     QTableWidget *tableWidget;
     QFrame *info_frame;
-    QLineEdit *lineEdit;
-    QLabel *label;
     QLabel *label_4;
     QLineEdit *lineEdit_2;
     QFrame *frame_3;
@@ -127,67 +125,99 @@ public:
 #endif
         Sponsor->setPalette(palette);
         Sponsor->setAutoFillBackground(true);
-        Sponsor->setStyleSheet(QStringLiteral(""));
+        Sponsor->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: #FFF5E0; /* Initially transparent background */\n"
+"    color: black;\n"
+"\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"    background-color: #FFF5E0;\n"
+"    border: 3px solid #141E46;\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"/* Pressed effect */\n"
+"QPushButton:pressed {\n"
+"    background-color: #141E46;\n"
+"    border: 2px solid #141E46;\n"
+"    padding: 9px 19px;\n"
+"    color: white;\n"
+"}\n"
+"QPushButton:checked {\n"
+"    background-color: #64a1c2; /* Your desired color */\n"
+"    border: none; /* Remove the border if needed */\n"
+"}\n"
+""));
         result_frame = new QFrame(Sponsor);
         result_frame->setObjectName(QStringLiteral("result_frame"));
         result_frame->setGeometry(QRect(-50, 190, 1071, 401));
         result_frame->setFrameShape(QFrame::StyledPanel);
         result_frame->setFrameShadow(QFrame::Raised);
         tableWidget = new QTableWidget(result_frame);
-        if (tableWidget->columnCount() < 3)
-            tableWidget->setColumnCount(3);
+        if (tableWidget->columnCount() < 4)
+            tableWidget->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        __qtablewidgetitem->setText(QStringLiteral("Id"));
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         if (tableWidget->rowCount() < 21)
             tableWidget->setRowCount(21);
-        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(0, __qtablewidgetitem3);
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(1, __qtablewidgetitem4);
+        tableWidget->setVerticalHeaderItem(0, __qtablewidgetitem4);
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(2, __qtablewidgetitem5);
+        tableWidget->setVerticalHeaderItem(1, __qtablewidgetitem5);
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(3, __qtablewidgetitem6);
+        tableWidget->setVerticalHeaderItem(2, __qtablewidgetitem6);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(4, __qtablewidgetitem7);
+        tableWidget->setVerticalHeaderItem(3, __qtablewidgetitem7);
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(5, __qtablewidgetitem8);
+        tableWidget->setVerticalHeaderItem(4, __qtablewidgetitem8);
         QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(6, __qtablewidgetitem9);
+        tableWidget->setVerticalHeaderItem(5, __qtablewidgetitem9);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(7, __qtablewidgetitem10);
+        tableWidget->setVerticalHeaderItem(6, __qtablewidgetitem10);
         QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(8, __qtablewidgetitem11);
+        tableWidget->setVerticalHeaderItem(7, __qtablewidgetitem11);
         QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(9, __qtablewidgetitem12);
+        tableWidget->setVerticalHeaderItem(8, __qtablewidgetitem12);
         QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(10, __qtablewidgetitem13);
+        tableWidget->setVerticalHeaderItem(9, __qtablewidgetitem13);
         QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(11, __qtablewidgetitem14);
+        tableWidget->setVerticalHeaderItem(10, __qtablewidgetitem14);
         QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(12, __qtablewidgetitem15);
+        tableWidget->setVerticalHeaderItem(11, __qtablewidgetitem15);
         QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(13, __qtablewidgetitem16);
+        tableWidget->setVerticalHeaderItem(12, __qtablewidgetitem16);
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(14, __qtablewidgetitem17);
+        tableWidget->setVerticalHeaderItem(13, __qtablewidgetitem17);
         QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(15, __qtablewidgetitem18);
+        tableWidget->setVerticalHeaderItem(14, __qtablewidgetitem18);
         QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(16, __qtablewidgetitem19);
+        tableWidget->setVerticalHeaderItem(15, __qtablewidgetitem19);
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(17, __qtablewidgetitem20);
+        tableWidget->setVerticalHeaderItem(16, __qtablewidgetitem20);
         QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(18, __qtablewidgetitem21);
+        tableWidget->setVerticalHeaderItem(17, __qtablewidgetitem21);
         QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(19, __qtablewidgetitem22);
+        tableWidget->setVerticalHeaderItem(18, __qtablewidgetitem22);
         QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(20, __qtablewidgetitem23);
+        tableWidget->setVerticalHeaderItem(19, __qtablewidgetitem23);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(20, __qtablewidgetitem24);
+        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
+        tableWidget->setItem(0, 0, __qtablewidgetitem25);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(180, 40, 731, 361));
+        tableWidget->setGeometry(QRect(140, 10, 911, 381));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         palette1.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -205,13 +235,15 @@ public:
         palette1.setBrush(QPalette::Active, QPalette::Base, brush);
         palette1.setBrush(QPalette::Active, QPalette::Window, brush);
         palette1.setBrush(QPalette::Active, QPalette::Shadow, brush6);
-        palette1.setBrush(QPalette::Active, QPalette::AlternateBase, brush);
+        QBrush brush11(QColor(240, 240, 240, 255));
+        brush11.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::AlternateBase, brush11);
         palette1.setBrush(QPalette::Active, QPalette::ToolTipBase, brush7);
         palette1.setBrush(QPalette::Active, QPalette::ToolTipText, brush6);
-        QBrush brush11(QColor(0, 0, 0, 128));
-        brush11.setStyle(Qt::SolidPattern);
+        QBrush brush12(QColor(0, 0, 0, 128));
+        brush12.setStyle(Qt::SolidPattern);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Active, QPalette::PlaceholderText, brush11);
+        palette1.setBrush(QPalette::Active, QPalette::PlaceholderText, brush12);
 #endif
         palette1.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
         palette1.setBrush(QPalette::Inactive, QPalette::Button, brush);
@@ -225,11 +257,11 @@ public:
         palette1.setBrush(QPalette::Inactive, QPalette::Base, brush);
         palette1.setBrush(QPalette::Inactive, QPalette::Window, brush);
         palette1.setBrush(QPalette::Inactive, QPalette::Shadow, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush11);
         palette1.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush7);
         palette1.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush6);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush11);
+        palette1.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush12);
 #endif
         palette1.setBrush(QPalette::Disabled, QPalette::WindowText, brush9);
         palette1.setBrush(QPalette::Disabled, QPalette::Button, brush);
@@ -243,19 +275,56 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::Base, brush);
         palette1.setBrush(QPalette::Disabled, QPalette::Window, brush);
         palette1.setBrush(QPalette::Disabled, QPalette::Shadow, brush6);
-        palette1.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush);
+        palette1.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush11);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush7);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush11);
+        palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush12);
 #endif
         tableWidget->setPalette(palette1);
         QFont font;
-        font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font.setPointSize(10);
+        font.setFamily(QStringLiteral("Arial"));
         tableWidget->setFont(font);
         tableWidget->setFocusPolicy(Qt::NoFocus);
-        tableWidget->setStyleSheet(QStringLiteral(""));
+        tableWidget->setStyleSheet(QLatin1String("QTableWidget {\n"
+"    alternate-background-color: #f0f0f0; /* Alternate row background color */\n"
+"    background-color: white; /* Default background color of the table */\n"
+"    border: 1px solid #2c3e50; /* Table border color */\n"
+"    font-family: \"Arial\"; /* Set the font family */\n"
+"    font-size: 12px; /* Set the font size */\n"
+"   border-radius: 20px;\n"
+"}\n"
+"\n"
+"/* Apply styles to the header of the QTableWidget */\n"
+"QHeaderView::section {\n"
+"    background-color: #15406e; /* Darker blue header background color */\n"
+"    color: white; /* Header text color */\n"
+"    padding: 4px; /* Header padding */\n"
+"    border: 1px solid #2c3e50; /* Header border color */\n"
+"  border-radius: 10px\n"
+"\n"
+"}\n"
+"\n"
+"/* Apply styles to the items within the QTableWidget */\n"
+"QTableWidget QTableWidget::item {\n"
+"    padding: 5px; /* Item padding */\n"
+"    border: 1px solid #2c3e50; /* Item border color */\n"
+"\n"
+"}\n"
+"\n"
+"/* Apply styles to the even rows within the QTableWidget */\n"
+"QTableWidg"
+                        "et::item:alternate {\n"
+"    background-color: #2c3e50; /* Darker blue even row background color */\n"
+"}\n"
+"\n"
+"/* Apply styles when an item is selected in the QTableWidget */\n"
+"QTableWidget QTableWidget::item:selected {\n"
+"    background-color: #3498db; /* Selected item background color (a slightly lighter blue) */\n"
+"    color: black; /* Selected item text color */\n"
+"}\n"
+"\n"
+""));
         tableWidget->setFrameShape(QFrame::NoFrame);
         tableWidget->setSelectionMode(QAbstractItemView::ExtendedSelection);
         tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -280,35 +349,25 @@ public:
         info_frame->setGeometry(QRect(70, 70, 921, 71));
         info_frame->setFrameShape(QFrame::StyledPanel);
         info_frame->setFrameShadow(QFrame::Raised);
-        lineEdit = new QLineEdit(info_frame);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(240, 40, 161, 20));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
-        lineEdit->setSizePolicy(sizePolicy);
-        lineEdit->setStyleSheet(QStringLiteral(""));
-        lineEdit->setInputMethodHints(Qt::ImhDigitsOnly);
-        label = new QLabel(info_frame);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(140, 40, 54, 20));
-        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy1);
-        QFont font1;
-        font1.setFamily(QStringLiteral("Segoe UI Semibold"));
-        label->setFont(font1);
-        label->setStyleSheet(QStringLiteral("color: #F1F1F1"));
         label_4 = new QLabel(info_frame);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(450, 40, 23, 20));
         label_4->setStyleSheet(QStringLiteral("color: #F1F1F1"));
         lineEdit_2 = new QLineEdit(info_frame);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(500, 40, 211, 20));
+        lineEdit_2->setGeometry(QRect(520, 20, 211, 41));
+        lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         frame_3 = new QFrame(Sponsor);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(10, 6, 914, 69));
@@ -318,12 +377,12 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         title_label = new QLabel(frame_3);
         title_label->setObjectName(QStringLiteral("title_label"));
-        QFont font2;
-        font2.setFamily(QStringLiteral("Roboto Black"));
-        font2.setPointSize(30);
-        font2.setBold(true);
-        font2.setWeight(75);
-        title_label->setFont(font2);
+        QFont font1;
+        font1.setFamily(QStringLiteral("Roboto Black"));
+        font1.setPointSize(30);
+        font1.setBold(true);
+        font1.setWeight(75);
+        title_label->setFont(font1);
         title_label->setStyleSheet(QStringLiteral("color: #F1F1F1"));
         title_label->setAlignment(Qt::AlignCenter);
 
@@ -402,12 +461,12 @@ public:
     void retranslateUi(QWidget *Sponsor)
     {
         Sponsor->setWindowTitle(QApplication::translate("Sponsor", "Form", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("Sponsor", "New Column", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("Sponsor", "Id", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QApplication::translate("Sponsor", "Nom ", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem->setText(QApplication::translate("Sponsor", "Nom ", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem1->setText(QApplication::translate("Sponsor", "email", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(3);
+        ___qtablewidgetitem2->setText(QApplication::translate("Sponsor", "telephone", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->verticalHeaderItem(0);
         ___qtablewidgetitem3->setText(QApplication::translate("Sponsor", "1", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->verticalHeaderItem(1);
@@ -450,7 +509,11 @@ public:
         ___qtablewidgetitem22->setText(QApplication::translate("Sponsor", "New Row", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem23 = tableWidget->verticalHeaderItem(20);
         ___qtablewidgetitem23->setText(QApplication::translate("Sponsor", "2", Q_NULLPTR));
-        label->setText(QApplication::translate("Sponsor", "Id Sponsor", Q_NULLPTR));
+
+        const bool __sortingEnabled = tableWidget->isSortingEnabled();
+        tableWidget->setSortingEnabled(false);
+        tableWidget->setSortingEnabled(__sortingEnabled);
+
         label_4->setText(QApplication::translate("Sponsor", "Nom", Q_NULLPTR));
         title_label->setText(QApplication::translate("Sponsor", "Liste des sponsors", Q_NULLPTR));
         add_btn->setText(QApplication::translate("Sponsor", "Add", Q_NULLPTR));

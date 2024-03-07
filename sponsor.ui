@@ -462,7 +462,34 @@
    <bool>true</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QPushButton {
+    background-color: #FFF5E0; /* Initially transparent background */
+    color: black;
+
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+/* Hover effect */
+QPushButton:hover {
+    background-color: #FFF5E0;
+    border: 3px solid #141E46;
+    color: black;
+}
+
+/* Pressed effect */
+QPushButton:pressed {
+    background-color: #141E46;
+    border: 2px solid #141E46;
+    padding: 9px 19px;
+    color: white;
+}
+QPushButton:checked {
+    background-color: #64a1c2; /* Your desired color */
+    border: none; /* Remove the border if needed */
+}
+</string>
   </property>
   <widget class="QFrame" name="result_frame">
    <property name="geometry">
@@ -482,10 +509,10 @@
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>40</y>
-      <width>731</width>
-      <height>361</height>
+      <x>140</x>
+      <y>10</y>
+      <width>911</width>
+      <height>381</height>
      </rect>
     </property>
     <property name="palette">
@@ -602,9 +629,9 @@
        <colorrole role="AlternateBase">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>240</red>
+          <green>240</green>
+          <blue>240</blue>
          </color>
         </brush>
        </colorrole>
@@ -748,9 +775,9 @@
        <colorrole role="AlternateBase">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>240</red>
+          <green>240</green>
+          <blue>240</blue>
          </color>
         </brush>
        </colorrole>
@@ -894,9 +921,9 @@
        <colorrole role="AlternateBase">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>240</red>
+          <green>240</green>
+          <blue>240</blue>
          </color>
         </brush>
        </colorrole>
@@ -932,15 +959,52 @@
     </property>
     <property name="font">
      <font>
-      <family>黑体</family>
-      <pointsize>10</pointsize>
+      <family>Arial</family>
+      <pointsize>-1</pointsize>
      </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QTableWidget {
+    alternate-background-color: #f0f0f0; /* Alternate row background color */
+    background-color: white; /* Default background color of the table */
+    border: 1px solid #2c3e50; /* Table border color */
+    font-family: &quot;Arial&quot;; /* Set the font family */
+    font-size: 12px; /* Set the font size */
+   border-radius: 20px;
+}
+
+/* Apply styles to the header of the QTableWidget */
+QHeaderView::section {
+    background-color: #15406e; /* Darker blue header background color */
+    color: white; /* Header text color */
+    padding: 4px; /* Header padding */
+    border: 1px solid #2c3e50; /* Header border color */
+  border-radius: 10px
+
+}
+
+/* Apply styles to the items within the QTableWidget */
+QTableWidget QTableWidget::item {
+    padding: 5px; /* Item padding */
+    border: 1px solid #2c3e50; /* Item border color */
+
+}
+
+/* Apply styles to the even rows within the QTableWidget */
+QTableWidget::item:alternate {
+    background-color: #2c3e50; /* Darker blue even row background color */
+}
+
+/* Apply styles when an item is selected in the QTableWidget */
+QTableWidget QTableWidget::item:selected {
+    background-color: #3498db; /* Selected item background color (a slightly lighter blue) */
+    color: black; /* Selected item text color */
+}
+
+</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -1106,12 +1170,7 @@
     </row>
     <column>
      <property name="text">
-      <string>New Column</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Id</string>
+      <string notr="true">Id</string>
      </property>
     </column>
     <column>
@@ -1119,6 +1178,21 @@
       <string>Nom </string>
      </property>
     </column>
+    <column>
+     <property name="text">
+      <string>email</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>telephone</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QFrame" name="info_frame">
@@ -1136,55 +1210,6 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>40</y>
-      <width>161</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhDigitsOnly</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>40</y>
-      <width>54</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe UI Semibold</family>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: #F1F1F1</string>
-    </property>
-    <property name="text">
-     <string>Id Sponsor</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
@@ -1204,11 +1229,25 @@
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>40</y>
+      <x>520</x>
+      <y>20</y>
       <width>211</width>
-      <height>20</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 1.5px;
+}
+</string>
     </property>
    </widget>
   </widget>
