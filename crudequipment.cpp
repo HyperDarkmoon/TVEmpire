@@ -111,7 +111,7 @@ void CRUDequipment::deleteEquipment() {
     }
 }
 
-bool CRUDequipment::createEquipment(CRUDequipment E) {
+/* bool CRUDequipment::createEquipment(CRUDequipment E) {
     QSqlQuery query;
     query.prepare("INSERT INTO equipment (id, label, stock, state, category) VALUES (equipment_seq.NEXTVAL, :label, :stock, :state, :category)");
 
@@ -130,5 +130,5 @@ bool CRUDequipment::createEquipment(CRUDequipment E) {
         qDebug() << "Query:" << query.lastQuery();
         return true;
     }
-}
+} */
 

@@ -14,7 +14,7 @@ class addEmission : public QWidget
 public:
     explicit addEmission(QWidget *parent = nullptr);
     ~addEmission();
-
+    void resetInputs();
 private slots:
     void on_pushButton_5_clicked();
 signals:

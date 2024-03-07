@@ -479,11 +479,6 @@
 	padding-left:6px;
 }</string>
    </property>
-   <item>
-    <property name="text">
-     <string>1</string>
-    </property>
-   </item>
   </widget>
   <widget class="QLabel" name="id_2">
    <property name="geometry">

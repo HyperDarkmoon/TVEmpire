@@ -218,6 +218,7 @@ void Emission::onEditButtonClicked(int row)
          emissionData = emissionData.read(emissionId);
 
          // Pass the data to the edit dialog
+
          edit->setData(emissionData);
          edit->show();
      } else {
@@ -230,4 +231,5 @@ void Emission::on_add_btn_2_clicked()
 {
     addemission->show();
 }
+
 
