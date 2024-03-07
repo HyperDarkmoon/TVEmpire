@@ -17,8 +17,8 @@ bool dbconnection::createconnect()
     QString password = settings.value("Database/Password", "DefaultPassword").toString();
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
     db.setDatabaseName("TVEmpire");
-    db.setUserName(username);
-    db.setPassword(password);
+    db.setUserName("antar");
+    db.setPassword("admin");
 
     if (db.open())
         test = true;

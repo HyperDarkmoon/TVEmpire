@@ -4,6 +4,8 @@
 #include <QWidget>
 #include "addequipment.h"
 #include "modifyequipment.h"
+#include "showequipment.h"
+#include "deleteequipment.h"
 
 namespace Ui {
 class Equipment;
@@ -20,11 +22,15 @@ public:
 private slots:
     void on_Ajout_clicked();
     void on_Modifier_clicked();
+    void on_Afficher_clicked();
+    void on_Supprimer_clicked();
 
 private:
 
     addEquipment *addE;
     modifyEquipment *modE;
+    showEquipment *showE;
+    deleteEquipment *delE;
     Ui::Equipment *ui;
 };
 
