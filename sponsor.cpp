@@ -16,24 +16,44 @@ Sponsor::~Sponsor()
     delete ui;
 }
 
-unsigned int CrudSponsor::getId() const
-{
+unsigned int CrudSponsor::getId() const {
     return id;
 }
 
-QString CrudSponsor::getNom() const
-{
+QString CrudSponsor::getNom() const {
     return nom;
 }
 
-void CrudSponsor::setId(unsigned int newId)
-{
+QString CrudSponsor::getEmail() const {
+    return email;
+}
+
+QString CrudSponsor::getPhone() const {
+    return phone;
+}
+
+QString CrudSponsor::getCategories() const {
+    return categories;
+}
+
+void CrudSponsor::setId(unsigned int newId) {
     id = newId;
 }
 
-void CrudSponsor::setNom(const QString& newNom)
-{
+void CrudSponsor::setNom(const QString& newNom) {
     nom = newNom;
+}
+
+void CrudSponsor::setEmail(const QString& newEmail) {
+    email = newEmail;
+}
+
+void CrudSponsor::setPhone(const QString& newPhone) {
+    phone = newPhone;
+}
+
+void CrudSponsor::setCategories(const QString& newCategories) {
+    categories = newCategories;
 }
 
 bool CrudSponsor::create(CrudSponsor s)

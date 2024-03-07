@@ -16,13 +16,22 @@ class CrudSponsor {
 private:
     unsigned int id;
     QString nom;
+    QString email;
+    QString phone;
+    QString categories;
 
 public:
     unsigned int getId() const;
-    QString getNom() const ;
+    QString getNom() const;
+    QString getEmail() const;
+    QString getPhone() const;
+    QString getCategories() const;
 
     void setId(unsigned int newId);
     void setNom(const QString& newNom);
+    void setEmail(const QString& newEmail);
+    void setPhone(const QString& newPhone);
+    void setCategories(const QString& newCategories);
 
     bool create(CrudSponsor s);
     CrudSponsor read(unsigned int id);
