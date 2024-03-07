@@ -32,13 +32,11 @@ void Employee::onEditButtonClicked(int row)
      if (idItem) {
          unsigned int emissionId = idItem->text().toUInt();
          CrudEmployee employeeData;  // Retrieve the data from the database
+         edit = new employeeedit();
          employeeData = employeeData.getEmployee(emissionId);
-         qDebug() << "maybe";
          // Pass the data to the edit dialog
          edit->setData(employeeData);
-         qDebug() << "maybe2";
          edit->show();
-         qDebug() << "maybe3";
      } else {
          qDebug() << "Unable to get emission ID from the selected row.";
      }
@@ -331,10 +329,13 @@ QVariant CrudEmployee::getFieldByIndex(int index) const {
     }
 }
 
-bool CrudEmployee::updateEmployee(unsigned int id, CrudEmployee emp) {
+bool CrudEmployee::updateEmployee(unsigned int idToUpdate, CrudEmployee emp)
+{
     QSqlQuery query;
-    query.prepare("UPDATE employees SET id = :id, name = :name, last_name = :last_name, post = :post, salary = :salary, start_time = :start_time, end_time = :end_time, password = :password, login = :login, dob = :dob, gender = :gender WHERE id = :id");
-    query.bindValue(":id", emp.getId());
+    qDebug() << "editing id: " << getId();
+    query.prepare("UPDATE employees SET id = :newId, name = :name, last_name = :last_name, post = :post, salary = :salary, start_time = :start_time, end_time = :end_time, password = :password, login = :login, dob = :dob, gender = :gender WHERE id = :id");
+    query.bindValue(":newId", emp.getId());  // New employee ID
+    query.bindValue(":id", idToUpdate);      // ID to update
     query.bindValue(":name", emp.getEmployeeName());
     query.bindValue(":last_name", emp.getEmployeeLastName());
     query.bindValue(":post", emp.getPost());
