@@ -17,13 +17,18 @@ employeeedit::~employeeedit()
 
 void employeeedit::setData(const CrudEmployee &employeeData)
 {
-    qDebug() << "Setting data for employee: " << employeeData.getId();
+    if (!ui) {
+            qDebug() << "Error: UI object is not initialized.";
+            return;
+        }
 
-    // Debug statements to check if data retrieval is successful
-    qDebug() << "Name: " << employeeData.getEmployeeName();
-    qDebug() << "Last Name: " << employeeData.getEmployeeLastName();
-    // Add similar statements for other data fields
+        qDebug() << "Setting data for employee: " << employeeData.getId();
 
+        if (!ui->name || !ui->lastname || !ui->post || !ui->salary || !ui->starttime || !ui->endtime || !ui->login || !ui->dob || !ui->gender) {
+            qDebug() << "Error: One or more UI elements are not initialized.";
+            return;
+        }
+    ui->id->setText(QString::number(employeeData.getId()));
     ui->name->setText(employeeData.getEmployeeName());
     ui->lastname->setText(employeeData.getEmployeeLastName());
     ui->post->setText(employeeData.getPost());
@@ -32,9 +37,7 @@ void employeeedit::setData(const CrudEmployee &employeeData)
     ui->endtime->setTime(employeeData.getEndTime());
     ui->login->setText(employeeData.getLogin());
     ui->dob->setDate(employeeData.getDob());
-    ui->gender->setCurrentText("1");
-
-    qDebug() << "Data set successfully.";
+    ui->gender->setCurrentText(employeeData.getGender());
 }
 
 void employeeedit::on_pushButton_5_clicked()
@@ -48,7 +51,7 @@ void employeeedit::on_pushButton_5_clicked()
     c.setStartTime(ui->starttime->time());
     c.setEndTime(ui->endtime->time());
     c.setLogin(ui->login->text());
-    c.setPassword(ui->password->text());
+    c.setPassword("placeholder");
     c.setDob(ui->dob->date());
     c.setGender(ui->dob->text());
     c.updateEmployee(c.getId(),c);

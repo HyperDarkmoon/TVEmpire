@@ -74,7 +74,7 @@ public:
     CrudEmployee getEmployee(unsigned int id);
     QList<CrudEmployee> getAllEmployees();
     QVariant getFieldByIndex(int index) const;
-    bool updateEmployee(unsigned int id, CrudEmployee emp);
+    bool updateEmployee(unsigned int idToUpdate, CrudEmployee emp);
     bool deleteEmployee(unsigned int id);
 private:
     unsigned int id;
