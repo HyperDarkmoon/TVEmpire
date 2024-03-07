@@ -273,10 +273,6 @@ public:
     void retranslateUi(QWidget *addEmission)
     {
         addEmission->setWindowTitle(QApplication::translate("addEmission", "Form", Q_NULLPTR));
-        gender->clear();
-        gender->insertItems(0, QStringList()
-         << QApplication::translate("addEmission", "1", Q_NULLPTR)
-        );
         id_2->setText(QApplication::translate("addEmission", "<html><head/><body><p>Genre</p></body></html>", Q_NULLPTR));
         name->setText(QString());
         pushButton_5->setText(QApplication::translate("addEmission", "Submit", Q_NULLPTR));

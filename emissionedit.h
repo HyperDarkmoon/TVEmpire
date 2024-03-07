@@ -17,7 +17,7 @@ public:
     explicit EmissionEdit(QWidget *parent = nullptr);
     ~EmissionEdit();
     void setData(const CrudEmission& emissiondata);
-
+    void resetInputs();
 private slots:
     void on_pushButton_5_clicked();
 signals:
