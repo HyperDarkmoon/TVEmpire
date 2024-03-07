@@ -17,5 +17,8 @@ deleteEquipment::~deleteEquipment()
 
 void deleteEquipment::on_buttonBox_accepted()
 {
+ int id = ui->deleteE->text().toUInt();
+    CRUDequipment e;
+    e.deleteEquipment(id);
 
 }

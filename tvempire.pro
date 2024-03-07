@@ -16,7 +16,6 @@ SOURCES += \
     contrat.cpp \
     crudequipment.cpp \
     dbconnection.cpp \
-    deleteequipment.cpp \
     emission.cpp \
     emissionedit.cpp \
     employee.cpp \
@@ -25,9 +24,7 @@ SOURCES += \
     form2.cpp \
     main.cpp \
     mainwindow.cpp \
-    modifyequipment.cpp \
     scenes.cpp \
-    showequipment.cpp \
     sponsor.cpp \
     addequipment.cpp
 
@@ -37,7 +34,6 @@ HEADERS += \
     contrat.h \
     crudequipment.h \
     dbconnection.h \
-    deleteequipment.h \
     emission.h \
     emissionedit.h \
     employee.h \
@@ -45,9 +41,7 @@ HEADERS += \
     equipment.h \
     form2.h \
     mainwindow.h \
-    modifyequipment.h \
     scenes.h \
-    showequipment.h \
     sponsor.h \
     addequipment.h
 
@@ -55,7 +49,6 @@ FORMS += \
     addemission1.ui \
     addemployee.ui \
     contrat.ui \
-    deleteequipment.ui \
     emission.ui \
     emissionedit.ui \
     employee.ui \
@@ -63,9 +56,7 @@ FORMS += \
     equipment.ui \
     form2.ui \
     mainwindow.ui \
-    modifyequipment.ui \
     scenes.ui \
-    showequipment.ui \
     sponsor.ui \
     addequipment.ui
 

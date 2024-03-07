@@ -31,6 +31,8 @@ public:
     QDialogButtonBox *buttonBox;
     QLineEdit *categoryE;
     QLineEdit *stateE;
+    QLabel *stockE;
+    QLineEdit *stateE_2;
 
     void setupUi(QDialog *addEquipment)
     {
@@ -64,6 +66,13 @@ public:
         stateE->setObjectName(QStringLiteral("stateE"));
         stateE->setGeometry(QRect(220, 260, 113, 22));
         stateE->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        stockE = new QLabel(addEquipment);
+        stockE->setObjectName(QStringLiteral("stockE"));
+        stockE->setGeometry(QRect(70, 330, 111, 21));
+        stateE_2 = new QLineEdit(addEquipment);
+        stateE_2->setObjectName(QStringLiteral("stateE_2"));
+        stateE_2->setGeometry(QRect(220, 330, 113, 22));
+        stateE_2->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
 
         retranslateUi(addEquipment);
 
@@ -76,6 +85,7 @@ public:
         label->setText(QApplication::translate("addEquipment", "<html><head/><body><p><span style=\" color:#ffffff;\">LIBELLE</span></p></body></html>", Q_NULLPTR));
         label_2->setText(QApplication::translate("addEquipment", "<html><head/><body><p><span style=\" color:#ffffff;\">CATEGORIE</span></p></body></html>", Q_NULLPTR));
         label_3->setText(QApplication::translate("addEquipment", "<html><head/><body><p><span style=\" color:#ffffff;\">ETAT</span></p></body></html>", Q_NULLPTR));
+        stockE->setText(QApplication::translate("addEquipment", "<html><head/><body><p><span style=\" color:#ffffff;\">STOCK</span></p></body></html>", Q_NULLPTR));
     } // retranslateUi
 
 };
