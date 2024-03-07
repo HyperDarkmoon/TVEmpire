@@ -2,7 +2,6 @@ INPUT(
 ./debug\addemission.o
 ./debug\addemployee.o
 ./debug\contrat.o
-./debug\crudemployee.o
 ./debug\crudequipment.o
 ./debug\dbconnection.o
 ./debug\emission.o

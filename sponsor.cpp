@@ -115,7 +115,7 @@ bool CrudSponsor::remove(unsigned int id)
 void Sponsor::on_add_btn_clicked()
 {
     CrudSponsor c;
-    c.setId(ui->lineEdit->text().toUInt());
+    //c.setId(ui->lineEdit->text().toUInt());
     c.setNom(ui->lineEdit_2->text());
     c.create(c);
     refreshTable();
