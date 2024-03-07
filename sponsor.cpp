@@ -9,6 +9,7 @@ Sponsor::Sponsor(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshTable();
+
 }
 
 Sponsor::~Sponsor()
@@ -126,7 +127,7 @@ void Sponsor::refreshTable()
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
 
-    QStringList headers = {"ID", "Nom", "Genre","delete","edit"};
+    QStringList headers = {"ID", "Nom", "email","telephone","delete","edit"};
     ui->tableWidget->setColumnCount(headers.size());
     ui->tableWidget->setHorizontalHeaderLabels(headers);
 
@@ -147,8 +148,9 @@ void Sponsor::refreshTable()
 
         // Add "Delete" button for each row in the "Delete" column
         QPushButton *deleteButton = new QPushButton("Delete", this);
-        connect(deleteButton, &QPushButton::clicked, [this, row]() {
-            onDeleteButtonClicked(row);
+        unsigned int id = ui->tableWidget->item(row,0)->text().toUInt();
+        connect(deleteButton, &QPushButton::clicked, [this, id]() {
+            onDeleteButtonClicked(id);
         });
         ui->tableWidget->setCellWidget(row, headers.size() - 2, deleteButton);
 
@@ -158,6 +160,19 @@ void Sponsor::refreshTable()
             onEditButtonClicked(row);
         });
         ui->tableWidget->setCellWidget(row, headers.size() - 1, editButton);
+        int columnIndex = 0;
+        for (int row = 0; row < ui->tableWidget->rowCount(); ++row) {
+               QTableWidgetItem *item = ui->tableWidget->item(row, columnIndex);
+
+               if (item) {
+                   item->setFlags(item->flags() & ~Qt::ItemIsEditable);
+               } else {
+                   // If the item does not exist, create a new one
+                   QTableWidgetItem *newItem = new QTableWidgetItem();
+                   newItem->setFlags(newItem->flags() & ~Qt::ItemIsEditable);
+                   ui->tableWidget->setItem(row, columnIndex, newItem);
+               }
+           }
     }
 }
 QList<CrudSponsor> CrudSponsor::getAll() {
@@ -189,27 +204,19 @@ QVariant CrudSponsor::getFieldByIndex(int index) const{
         return QVariant();
     }
 }
-void Sponsor::onDeleteButtonClicked(int row)
+void Sponsor::onDeleteButtonClicked(int id)
 {
 
     // Get the ID of the employee in the selected row
-    QTableWidgetItem* idItem = ui->tableWidget->item(row, 0);  // Assuming ID is in the first column
-    if (idItem) {
-        unsigned int employeeId = idItem->text().toUInt();
-
-        // Here, you can implement the logic to delete the corresponding row from your data source
-        // For example, you might want to delete the record from the database using CrudEmployee class
-        CrudSponsor crudEmployee;
-        if (crudEmployee.remove(employeeId)) {
-
-            // Remove the row from QTableWidget
-            ui->tableWidget->removeRow(row);
-        }
-    }
+    CrudSponsor c;
+    if (c.remove(id))
+        refreshTable();
 }
 void Sponsor::onEditButtonClicked(int row)
 {
-
-
+    CrudSponsor e;
+    e.setId(ui->tableWidget->item(row,0)->text().toUInt());
+    e.setNom(ui->tableWidget->item(row,1)->text());
+    e.update(ui->tableWidget->item(row,0)->text().toUInt(),e);
 }
 

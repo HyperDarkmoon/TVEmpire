@@ -462,7 +462,34 @@
    <bool>true</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QPushButton {
+    background-color: #FFF5E0; /* Initially transparent background */
+    color: black;
+
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+/* Hover effect */
+QPushButton:hover {
+    background-color: #FFF5E0;
+    border: 3px solid #141E46;
+    color: black;
+}
+
+/* Pressed effect */
+QPushButton:pressed {
+    background-color: #141E46;
+    border: 2px solid #141E46;
+    padding: 9px 19px;
+    color: white;
+}
+QPushButton:checked {
+    background-color: #64a1c2; /* Your desired color */
+    border: none; /* Remove the border if needed */
+}
+</string>
   </property>
   <widget class="QFrame" name="result_frame">
    <property name="geometry">
@@ -955,7 +982,8 @@ QHeaderView::section {
     color: white; /* Header text color */
     padding: 4px; /* Header padding */
     border: 1px solid #2c3e50; /* Header border color */
-  border-radius: 20px;
+  border-radius: 10px
+
 }
 
 /* Apply styles to the items within the QTableWidget */
@@ -1142,12 +1170,7 @@ QTableWidget QTableWidget::item:selected {
     </row>
     <column>
      <property name="text">
-      <string>New Column</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Id</string>
+      <string notr="true">Id</string>
      </property>
     </column>
     <column>
@@ -1155,6 +1178,21 @@ QTableWidget QTableWidget::item:selected {
       <string>Nom </string>
      </property>
     </column>
+    <column>
+     <property name="text">
+      <string>email</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>telephone</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QFrame" name="info_frame">
@@ -1191,11 +1229,25 @@ QTableWidget QTableWidget::item:selected {
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>40</y>
+      <x>520</x>
+      <y>20</y>
       <width>211</width>
-      <height>20</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 1.5px;
+}
+</string>
     </property>
    </widget>
   </widget>
