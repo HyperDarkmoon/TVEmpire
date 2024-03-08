@@ -2,6 +2,7 @@
 #include "ui_sponsor.h"
 #include <QTableWidgetItem>
 #include "QDebug"
+#include<QMessageBox>
 
 Sponsor::Sponsor(QWidget *parent) :
     QWidget(parent),
@@ -60,8 +61,12 @@ void CrudSponsor::setCategories(const QString& newCategories) {
 bool CrudSponsor::create(CrudSponsor s)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO Sponsor (id, nom) VALUES (sponsor_seq.NEXTVAL, :nom)");
+    query.prepare("INSERT INTO Sponsor (id, nom, tel,email, categorie) VALUES (sponsor_seq.NEXTVAL, :nom , :email,:phone, :categories)");
+
     query.bindValue(":nom", s.getNom());
+   query.bindValue(":email", s.getEmail());
+   query.bindValue(":phone", s.getPhone());
+   query.bindValue(":categories", s.getCategories());
 
     if (query.exec()) {
         return true;
@@ -80,6 +85,10 @@ CrudSponsor CrudSponsor::read(unsigned int id)
         CrudSponsor s;
         s.setId(query.value("id").toUInt());
         s.setNom(query.value("nom").toString());
+        s.setEmail(query.value("email").toString());
+        s.setPhone(query.value("tel").toString());
+        s.setCategories(query.value("categorie").toString());
+
         return s;
     } else {
         return CrudSponsor();
@@ -89,16 +98,21 @@ CrudSponsor CrudSponsor::read(unsigned int id)
 bool CrudSponsor::update(unsigned int id, CrudSponsor s)
 {
     QSqlQuery query;
-    query.prepare("UPDATE Sponsor SET nom = :nom WHERE id = :id");
+    query.prepare("UPDATE Sponsor SET nom = :nom, email = :email, tel = :phone, categorie = :categories WHERE id = :id");
     query.bindValue(":id", id);
     query.bindValue(":nom", s.getNom());
+    query.bindValue(":email", s.getEmail());
+    query.bindValue(":phone", s.getPhone());
+    query.bindValue(":categories", s.getCategories());
 
     if (query.exec()) {
         return true;
     } else {
+        qDebug() << "Update failed:" << query.lastError().text();
         return false;
     }
 }
+
 
 bool CrudSponsor::remove(unsigned int id)
 {
@@ -115,19 +129,66 @@ bool CrudSponsor::remove(unsigned int id)
 
 void Sponsor::on_add_btn_clicked()
 {
+    // Get input values from UI
+    QString nom = ui->lineEdit_2->text().trimmed();
+    QString email = ui->lineEdit->text().trimmed();
+    QString phone = ui->lineEdit_3->text().trimmed();
+    QString categories = ui->comboBox->currentText();
+
+    // Perform basic validation
+    if (nom.isEmpty() || email.isEmpty() || phone.isEmpty() || categories.isEmpty()) {
+        // Show an error message for empty fields
+        QMessageBox::critical(this, "Error", "All fields must be filled.");
+        return;
+    }
+
+    // Validate that the first letter of the name is uppercase
+    if (!nom.at(0).isUpper()) {
+        // Show an error message for the name
+        QMessageBox::critical(this, "Error", "The first letter of the name must be uppercase.");
+        return;
+    }
+
+    // Validate phone number (allow only numbers)
+    QRegExp phoneRegex("\\d*"); // Regular expression to allow only digits
+    if (!phoneRegex.exactMatch(phone)) {
+        // Show an error message for the phone number
+        QMessageBox::critical(this, "Error", "Phone must contain only numbers.");
+        return;
+    }
+
+    // Validate email format
+    QRegExp emailRegex("\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b");
+    if (!emailRegex.exactMatch(email)) {
+        // Show an error message for the email
+        QMessageBox::critical(this, "Error", "Invalid email format.");
+        return;
+    }
+
+    // Create a new CrudSponsor object with validated data
     CrudSponsor c;
-    //c.setId(ui->lineEdit->text().toUInt());
-    c.setNom(ui->lineEdit_2->text());
-    c.create(c);
-    refreshTable();
+    c.setNom(nom);
+    c.setEmail(email);
+    c.setPhone(phone);
+    c.setCategories(categories);
+
+    // Call the create method only if validation passed
+    if (c.create(c)) {
+        // Refresh the table after successful creation
+        refreshTable();
+    } else {
+        // Handle the case where insertion into the database fails
+        QMessageBox::critical(this, "Error", "Insertion into the database failed.");
+    }
 }
+
 void Sponsor::refreshTable()
 {
     // Clear the existing content of the table
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
 
-    QStringList headers = {"ID", "Nom", "email","telephone","delete","edit"};
+    QStringList headers = {"ID", "Nom", "email","telephone","categories","delete","edit"};
     ui->tableWidget->setColumnCount(headers.size());
     ui->tableWidget->setHorizontalHeaderLabels(headers);
 
@@ -177,21 +238,24 @@ void Sponsor::refreshTable()
 }
 QList<CrudSponsor> CrudSponsor::getAll() {
     QSqlQuery query;
-    query.prepare("SELECT id, nom FROM sponsor");
+    query.prepare("SELECT id, nom , email ,tel ,categorie FROM sponsor");
     if (!query.exec()) {
         qDebug() << "Query execution failed:" << query.lastError().text();
     }
 
-    QList<CrudSponsor> emissionList;  // Use a list to store all records
+    QList<CrudSponsor> sponsorlist;  // Use a list to store all records
 
     while (query.next()) {
-        CrudSponsor em;  // Create a new object for each record
-        em.setId(query.value(0).toUInt());
-        em.setNom(query.value(1).toString());
-        emissionList.append(em);  // Add the object to the list
+        CrudSponsor s;  // Create a new object for each record
+        s.setId(query.value(0).toUInt());
+        s.setNom(query.value(1).toString());
+        s.setEmail(query.value(2).toString());
+        s.setPhone(query.value(3).toString());
+        s.setCategories(query.value(4).toString());
+        sponsorlist.append(s);  // Add the object to the list
     }
 
-    return emissionList;
+    return sponsorlist;
 }
 QVariant CrudSponsor::getFieldByIndex(int index) const{
     switch (index) {
@@ -199,6 +263,13 @@ QVariant CrudSponsor::getFieldByIndex(int index) const{
         return getId();
     case 1:
         return getNom();
+    case 2:
+        return getEmail();
+    case 3:
+        return getPhone();
+    case 4:
+        return getCategories();
+
 
     default:
         return QVariant();
@@ -217,6 +288,10 @@ void Sponsor::onEditButtonClicked(int row)
     CrudSponsor e;
     e.setId(ui->tableWidget->item(row,0)->text().toUInt());
     e.setNom(ui->tableWidget->item(row,1)->text());
+    e.setEmail(ui->tableWidget->item(row,2)->text());
+    e.setPhone(ui->tableWidget->item(row,3)->text());
+    e.setCategories(ui->tableWidget->item(row,4)->text());
     e.update(ui->tableWidget->item(row,0)->text().toUInt(),e);
+
 }
 

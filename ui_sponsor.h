@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -32,6 +33,9 @@ public:
     QFrame *info_frame;
     QLabel *label_4;
     QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_3;
+    QComboBox *comboBox;
     QFrame *frame_3;
     QHBoxLayout *horizontalLayout_2;
     QLabel *title_label;
@@ -368,6 +372,51 @@ public:
 "    padding: 1.5px;\n"
 "}\n"
 ""));
+        lineEdit = new QLineEdit(info_frame);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(280, 20, 141, 41));
+        lineEdit->setStyleSheet(QLatin1String("QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
+        lineEdit_3 = new QLineEdit(info_frame);
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+        lineEdit_3->setGeometry(QRect(130, 20, 141, 41));
+        lineEdit_3->setStyleSheet(QLatin1String("QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
+        comboBox = new QComboBox(info_frame);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(780, 20, 91, 31));
+        comboBox->setStyleSheet(QLatin1String("QcomboBox {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         frame_3 = new QFrame(Sponsor);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(10, 6, 914, 69));
@@ -515,6 +564,12 @@ public:
         tableWidget->setSortingEnabled(__sortingEnabled);
 
         label_4->setText(QApplication::translate("Sponsor", "Nom", Q_NULLPTR));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("Sponsor", "test1", Q_NULLPTR)
+         << QApplication::translate("Sponsor", "test2", Q_NULLPTR)
+         << QApplication::translate("Sponsor", "test3", Q_NULLPTR)
+        );
         title_label->setText(QApplication::translate("Sponsor", "Liste des sponsors", Q_NULLPTR));
         add_btn->setText(QApplication::translate("Sponsor", "Add", Q_NULLPTR));
         update_btn->setText(QApplication::translate("Sponsor", "Update", Q_NULLPTR));
