@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1074</width>
-    <height>587</height>
+    <height>682</height>
    </rect>
   </property>
   <property name="palette">
@@ -494,11 +494,17 @@ QPushButton:checked {
   <widget class="QFrame" name="result_frame">
    <property name="geometry">
     <rect>
-     <x>-50</x>
-     <y>190</y>
-     <width>1071</width>
-     <height>401</height>
+     <x>90</x>
+     <y>200</y>
+     <width>1051</width>
+     <height>391</height>
     </rect>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>400</width>
+     <height>400</height>
+    </size>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -509,11 +515,17 @@ QPushButton:checked {
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>10</y>
-      <width>911</width>
-      <height>381</height>
+      <x>10</x>
+      <y>30</y>
+      <width>841</width>
+      <height>441</height>
      </rect>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
     </property>
     <property name="palette">
      <palette>
@@ -980,9 +992,9 @@ QPushButton:checked {
 QHeaderView::section {
     background-color: #15406e; /* Darker blue header background color */
     color: white; /* Header text color */
-    padding: 4px; /* Header padding */
-    border: 1px solid #2c3e50; /* Header border color */
-  border-radius: 10px
+    padding: 0px; /* Header padding */
+    border:2px solid #2c3e50; /* Header border color */
+ border-radius: 0px
 
 }
 
@@ -1002,9 +1014,7 @@ QTableWidget::item:alternate {
 QTableWidget QTableWidget::item:selected {
     background-color: #3498db; /* Selected item background color (a slightly lighter blue) */
     color: black; /* Selected item text color */
-}
-
-</string>
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -1168,31 +1178,6 @@ QTableWidget QTableWidget::item:selected {
       <string>2</string>
      </property>
     </row>
-    <column>
-     <property name="text">
-      <string notr="true">Id</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Nom </string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>email</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>telephone</string>
-     </property>
-    </column>
-    <item row="0" column="0">
-     <property name="text">
-      <string/>
-     </property>
-    </item>
    </widget>
   </widget>
   <widget class="QFrame" name="info_frame">
@@ -1210,51 +1195,11 @@ QTableWidget QTableWidget::item:selected {
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>40</y>
-      <width>23</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: #F1F1F1</string>
-    </property>
-    <property name="text">
-     <string>Nom</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>20</y>
-      <width>211</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit {
-    border: 2px solid #141E46;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-QTextEdit {
-    border: 2px solid #141E46;
-    border-radius: 10px;
-    padding: 1.5px;
-}
-</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>20</y>
+      <x>540</x>
+      <y>10</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -1277,8 +1222,8 @@ QTextEdit {
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>20</y>
+      <x>290</x>
+      <y>10</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -1302,7 +1247,7 @@ QTextEdit {
     <property name="geometry">
      <rect>
       <x>780</x>
-      <y>20</y>
+      <y>10</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -1336,6 +1281,78 @@ QTextEdit {
       <string>test3</string>
      </property>
     </item>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 1.5px;
+}
+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>199</x>
+      <y>20</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #F1F1F1</string>
+    </property>
+    <property name="text">
+     <string>telephone</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>20</y>
+      <width>60</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #F1F1F1</string>
+    </property>
+    <property name="text">
+     <string>email</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>10</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #F1F1F1</string>
+    </property>
+    <property name="text">
+     <string>categories</string>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="frame_3">
@@ -1425,95 +1442,46 @@ QTextEdit {
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="update_btn">
-      <property name="text">
-       <string>Update</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/update.svg</normaloff>../../../Users/moham/Desktop/icons/update.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="select_btn">
-      <property name="text">
-       <string>Select</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/select.svg</normaloff>../../../Users/moham/Desktop/icons/select.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="search_btn">
-      <property name="styleSheet">
-       <string notr="true">background : #F1F1F1;</string>
-      </property>
-      <property name="text">
-       <string>Search</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/search.svg</normaloff>../../../Users/moham/Desktop/icons/search.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="clear_btn">
-      <property name="text">
-       <string>Clear</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/clear.svg</normaloff>../../../Users/moham/Desktop/icons/clear.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="delete_btn">
-      <property name="text">
-       <string>Delete</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../Users/moham/Desktop/icons/delete.svg</normaloff>../../../Users/moham/Desktop/icons/delete.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>20</width>
-        <height>20</height>
-       </size>
-      </property>
-     </widget>
-    </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>70</y>
+     <width>31</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #F1F1F1</string>
+   </property>
+   <property name="text">
+    <string>Nom</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>912</x>
+     <y>610</y>
+     <width>61</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../Downloads/format-de-fichier-pdf.png</normaloff>../../../Downloads/format-de-fichier-pdf.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
   </widget>
  </widget>
  <resources/>
