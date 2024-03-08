@@ -12,6 +12,7 @@ INPUT(
 ./release\form2.o
 ./release\main.o
 ./release\mainwindow.o
+./release\pdfexport.o
 ./release\scenes.o
 ./release\sponsor.o
 ./release\addequipment.o

@@ -26,6 +26,8 @@ private slots:
     void onEditButtonClicked(int row);
     void on_add_btn_3_clicked();
 
+    void on_add_btn_4_clicked();
+
 private:
     Ui::Employee *ui;
     addEmployee *employeeDialog;

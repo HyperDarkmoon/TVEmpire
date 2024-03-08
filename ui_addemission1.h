@@ -37,6 +37,7 @@ public:
     QPushButton *pushButton_6;
     QLabel *label_18;
     QLabel *id_3;
+    QLabel *errorLabel;
 
     void setupUi(QWidget *addEmission)
     {
@@ -264,6 +265,9 @@ public:
         id_3->setObjectName(QStringLiteral("id_3"));
         id_3->setGeometry(QRect(530, 70, 141, 21));
         id_3->setFont(font1);
+        errorLabel = new QLabel(addEmission);
+        errorLabel->setObjectName(QStringLiteral("errorLabel"));
+        errorLabel->setGeometry(QRect(80, 280, 181, 16));
 
         retranslateUi(addEmission);
 
@@ -282,6 +286,7 @@ public:
         pushButton_6->setText(QApplication::translate("addEmission", "Clear", Q_NULLPTR));
         label_18->setText(QApplication::translate("addEmission", "<html><head/><body><p>Detailes d'emmision</p></body></html>", Q_NULLPTR));
         id_3->setText(QApplication::translate("addEmission", "<html><head/><body><p>Date</p></body></html>", Q_NULLPTR));
+        errorLabel->setText(QString());
     } // retranslateUi
 
 };
