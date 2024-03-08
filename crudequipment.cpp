@@ -5,10 +5,16 @@
 #include <vector>
 
 
-CRUDequipment::CRUDequipment(int id, const QString& label, int stock, const QString& state, const QString& category)
-    : id(id), label(label), state(state), stock(stock), category(category) {}
+CRUDequipment::CRUDequipment(int id, const QString label, int stock, const QString state, const QString category)
+    : id(id), label(label), stock(stock), state(state), category(category) {}
+CRUDequipment::CRUDequipment(){
 
+}
 CRUDequipment::~CRUDequipment() {}
+void CRUDequipment::setId(int newid)
+{
+    id = newid;
+}
 
 int CRUDequipment::getId() const {
     return id;
@@ -48,12 +54,12 @@ void CRUDequipment::setStock(int newStock) {
 
 void CRUDequipment::addEquipment() {
     QSqlQuery query;
-    query.prepare("INSERT INTO equipment (id, label, stock, state, category) VALUES (:id, :label, :stock, :state, :category)");
-    query.bindValue(":id", id);
-    query.bindValue(":label", (label));
+    query.prepare("INSERT INTO equipement (id, libelle, quantite, condition, categorie) VALUES (EQ_SEQ.NEXTVAL, :label, :stock, :state, :category)");
+
+    query.bindValue(":label", label);
     query.bindValue(":stock", stock);
-    query.bindValue(":state", (state));
-    query.bindValue(":category", (category));
+    query.bindValue(":state", state);
+    query.bindValue(":category", category );
 
     if (query.exec()) {
         qDebug() << "Equipment added successfully!";
@@ -64,7 +70,7 @@ void CRUDequipment::addEquipment() {
 
 void CRUDequipment::readEquipment() {
     QSqlQuery query;
-    query.prepare("SELECT * FROM equipment WHERE id = :id");
+    query.prepare("SELECT * FROM equipement WHERE id = :id");
     query.bindValue(":id", id);
 
     if (query.exec()) {
@@ -85,7 +91,7 @@ void CRUDequipment::readEquipment() {
 
 void CRUDequipment::updateEquipment() {
     QSqlQuery query;
-    query.prepare("UPDATE equipment SET label = :label, stock = :stock, state = :state, category = :category WHERE id = :id");
+    query.prepare("UPDATE equipement SET libelle = :label, quantite = :stock, condition = :state, categorie = :category WHERE id = :id");
     query.bindValue(":id", id);
     query.bindValue(":label", (label));
     query.bindValue(":stock", stock);
@@ -101,7 +107,7 @@ void CRUDequipment::updateEquipment() {
 
 void CRUDequipment::deleteEquipment() {
     QSqlQuery query;
-    query.prepare("DELETE FROM equipment WHERE id = :id");
+    query.prepare("DELETE FROM equipement WHERE id = :id");
     query.bindValue(":id", id);
 
     if (query.exec()) {
@@ -110,25 +116,19 @@ void CRUDequipment::deleteEquipment() {
         qDebug() << "Error deleting equipment:" << query.lastError().text();
     }
 }
-
-/* bool CRUDequipment::createEquipment(CRUDequipment E) {
+void CRUDequipment::deleteEquipment(int idd) {
     QSqlQuery query;
-    query.prepare("INSERT INTO equipment (id, label, stock, state, category) VALUES (equipment_seq.NEXTVAL, :label, :stock, :state, :category)");
+    query.prepare("DELETE FROM equipement WHERE id = :id");
+    query.bindValue(":id", idd);
 
-    query.bindValue(":label", E.getlabel());
-    query.bindValue(":state", E.getstate());
-    query.bindValue(":category", E.getcategory());
-
-
-    if (!query.exec()) {
-        qDebug() << "Error executing query:";
-        qDebug() << "Query:" << query.lastQuery();
-        qDebug() << "Error:" << query.lastError().text();
-        return false;
+    if (query.exec()) {
+        qDebug() << "Equipment deleted successfully!";
     } else {
-        qDebug() << "Query executed successfully:";
-        qDebug() << "Query:" << query.lastQuery();
-        return true;
+        qDebug() << "Error deleting equipment:" << query.lastError().text();
     }
-} */
+}
+
+
+
+
 
