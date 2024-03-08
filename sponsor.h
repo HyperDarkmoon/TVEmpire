@@ -52,9 +52,11 @@ public:
     void onDeleteButtonClicked(int row);
 private slots:
     void on_pushButton_clicked();
-    void on_add_btn_2_clicked(); // Assuming you have a button for some operation
+    void on_add_btn_2_clicked();
     void on_add_btn_clicked();
     void onEditButtonClicked(int row);
+
+
 private:
     Ui::Sponsor *ui;
 };
