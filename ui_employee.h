@@ -27,12 +27,13 @@ public:
     QTableWidget *emp;
     QPushButton *add_btn_2;
     QPushButton *add_btn_3;
+    QPushButton *add_btn_4;
 
     void setupUi(QWidget *Employee)
     {
         if (Employee->objectName().isEmpty())
             Employee->setObjectName(QStringLiteral("Employee"));
-        Employee->resize(968, 560);
+        Employee->resize(1163, 560);
         QPalette palette;
         QBrush brush(QColor(36, 46, 66, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -112,7 +113,7 @@ public:
         Employee->setStyleSheet(QStringLiteral(""));
         employeeContainer = new QWidget(Employee);
         employeeContainer->setObjectName(QStringLiteral("employeeContainer"));
-        employeeContainer->setGeometry(QRect(-1, -1, 971, 561));
+        employeeContainer->setGeometry(QRect(-1, -1, 1171, 561));
         employeeContainer->setAutoFillBackground(false);
         employeeContainer->setStyleSheet(QLatin1String("\n"
 "	background:#2F3B52;\n"
@@ -368,6 +369,67 @@ public:
         add_btn_3->setPalette(palette3);
         add_btn_3->setIcon(icon);
         add_btn_3->setIconSize(QSize(20, 20));
+        add_btn_4 = new QPushButton(employeeContainer);
+        add_btn_4->setObjectName(QStringLiteral("add_btn_4"));
+        add_btn_4->setGeometry(QRect(220, 20, 161, 71));
+        QPalette palette4;
+        palette4.setBrush(QPalette::Active, QPalette::WindowText, brush7);
+        palette4.setBrush(QPalette::Active, QPalette::Button, brush1);
+        palette4.setBrush(QPalette::Active, QPalette::Light, brush6);
+        palette4.setBrush(QPalette::Active, QPalette::Midlight, brush6);
+        palette4.setBrush(QPalette::Active, QPalette::Dark, brush11);
+        palette4.setBrush(QPalette::Active, QPalette::Mid, brush12);
+        palette4.setBrush(QPalette::Active, QPalette::Text, brush7);
+        palette4.setBrush(QPalette::Active, QPalette::BrightText, brush6);
+        palette4.setBrush(QPalette::Active, QPalette::ButtonText, brush7);
+        palette4.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette4.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette4.setBrush(QPalette::Active, QPalette::Shadow, brush7);
+        palette4.setBrush(QPalette::Active, QPalette::AlternateBase, brush6);
+        palette4.setBrush(QPalette::Active, QPalette::ToolTipBase, brush8);
+        palette4.setBrush(QPalette::Active, QPalette::ToolTipText, brush7);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette4.setBrush(QPalette::Active, QPalette::PlaceholderText, brush13);
+#endif
+        palette4.setBrush(QPalette::Inactive, QPalette::WindowText, brush7);
+        palette4.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette4.setBrush(QPalette::Inactive, QPalette::Light, brush6);
+        palette4.setBrush(QPalette::Inactive, QPalette::Midlight, brush6);
+        palette4.setBrush(QPalette::Inactive, QPalette::Dark, brush11);
+        palette4.setBrush(QPalette::Inactive, QPalette::Mid, brush12);
+        palette4.setBrush(QPalette::Inactive, QPalette::Text, brush7);
+        palette4.setBrush(QPalette::Inactive, QPalette::BrightText, brush6);
+        palette4.setBrush(QPalette::Inactive, QPalette::ButtonText, brush7);
+        palette4.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette4.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        palette4.setBrush(QPalette::Inactive, QPalette::Shadow, brush7);
+        palette4.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush6);
+        palette4.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush8);
+        palette4.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush7);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette4.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush13);
+#endif
+        palette4.setBrush(QPalette::Disabled, QPalette::WindowText, brush11);
+        palette4.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette4.setBrush(QPalette::Disabled, QPalette::Light, brush6);
+        palette4.setBrush(QPalette::Disabled, QPalette::Midlight, brush6);
+        palette4.setBrush(QPalette::Disabled, QPalette::Dark, brush11);
+        palette4.setBrush(QPalette::Disabled, QPalette::Mid, brush12);
+        palette4.setBrush(QPalette::Disabled, QPalette::Text, brush11);
+        palette4.setBrush(QPalette::Disabled, QPalette::BrightText, brush6);
+        palette4.setBrush(QPalette::Disabled, QPalette::ButtonText, brush11);
+        palette4.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette4.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        palette4.setBrush(QPalette::Disabled, QPalette::Shadow, brush7);
+        palette4.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush6);
+        palette4.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
+        palette4.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush7);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette4.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush13);
+#endif
+        add_btn_4->setPalette(palette4);
+        add_btn_4->setIcon(icon);
+        add_btn_4->setIconSize(QSize(20, 20));
 
         retranslateUi(Employee);
 
@@ -448,6 +510,7 @@ public:
 
         add_btn_2->setText(QApplication::translate("Employee", "Add", Q_NULLPTR));
         add_btn_3->setText(QApplication::translate("Employee", "Refresh", Q_NULLPTR));
+        add_btn_4->setText(QApplication::translate("Employee", "Export PDF", Q_NULLPTR));
     } // retranslateUi
 
 };

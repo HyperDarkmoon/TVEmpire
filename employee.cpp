@@ -3,6 +3,7 @@
 #include "addemployee.h"
 #include <QtWidgets>
 #include <QtSql>
+#include "pdfexport.h"
 
 Employee::Employee(QWidget *parent) :
     QWidget(parent),
@@ -357,3 +358,10 @@ bool CrudEmployee::deleteEmployee(unsigned int id) {
 }
 
 
+
+void Employee::on_add_btn_4_clicked()
+{
+    pdfExport pdfExporter;
+
+    pdfExporter.exportTableToPDF(ui->emp);
+}

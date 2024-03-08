@@ -15,6 +15,7 @@ class addEmployee : public QDialog
 public:
     explicit addEmployee(QWidget *parent = nullptr);
     ~addEmployee();
+    void validatePassword();
 
 private slots:
     void on_pushButton_5_clicked();

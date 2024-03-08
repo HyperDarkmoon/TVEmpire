@@ -4,7 +4,6 @@ INPUT(
 ./release\contrat.o
 ./release\crudequipment.o
 ./release\dbconnection.o
-./release\deleteequipment.o
 ./release\emission.o
 ./release\emissionedit.o
 ./release\employee.o
@@ -13,15 +12,14 @@ INPUT(
 ./release\form2.o
 ./release\main.o
 ./release\mainwindow.o
+./release\pdfexport.o
 ./release\scenes.o
-./release\showequipment.o
 ./release\sponsor.o
 ./release\addequipment.o
 ./release\qrc_resource.o
 ./release\moc_addemission.o
 ./release\moc_addemployee.o
 ./release\moc_contrat.o
-./release\moc_deleteequipment.o
 ./release\moc_emission.o
 ./release\moc_emissionedit.o
 ./release\moc_employee.o
@@ -30,7 +28,6 @@ INPUT(
 ./release\moc_form2.o
 ./release\moc_mainwindow.o
 ./release\moc_scenes.o
-./release\moc_showequipment.o
 ./release\moc_sponsor.o
 ./release\moc_addequipment.o
 );
