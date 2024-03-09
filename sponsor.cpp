@@ -12,6 +12,7 @@
 #include <QPainter>
 #include <QTextDocument>
 #include <QFileDialog>
+#include "pdfexport.h"
 
 Sponsor::Sponsor(QWidget *parent) : QWidget(parent), ui(new Ui::Sponsor) {
     ui->setupUi(this);
@@ -277,5 +278,7 @@ void Sponsor::onEditButtonClicked(int row) {
 
 void Sponsor::on_pushButton_clicked()
 {
+    pdfExport pdfExporter;
 
+    pdfExporter.exportTableToPDF(ui->tableWidget);
 }

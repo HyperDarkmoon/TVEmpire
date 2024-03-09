@@ -30,6 +30,7 @@ class Ui_Sponsor
 public:
     QFrame *result_frame;
     QTableWidget *tableWidget;
+    QPushButton *pushButton;
     QFrame *info_frame;
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_3;
@@ -45,7 +46,6 @@ public:
     QHBoxLayout *horizontalLayout;
     QPushButton *add_btn;
     QLabel *label_4;
-    QPushButton *pushButton;
 
     void setupUi(QWidget *Sponsor)
     {
@@ -334,6 +334,13 @@ public:
         tableWidget->verticalHeader()->setHighlightSections(false);
         tableWidget->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
         tableWidget->verticalHeader()->setStretchLastSection(false);
+        pushButton = new QPushButton(result_frame);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(890, 30, 61, 51));
+        QIcon icon;
+        icon.addFile(QStringLiteral("../../../Downloads/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon);
+        pushButton->setIconSize(QSize(40, 40));
         info_frame = new QFrame(Sponsor);
         info_frame->setObjectName(QStringLiteral("info_frame"));
         info_frame->setGeometry(QRect(70, 70, 921, 71));
@@ -442,9 +449,9 @@ public:
         horizontalLayout->setContentsMargins(30, 10, 30, 10);
         add_btn = new QPushButton(function_frame);
         add_btn->setObjectName(QStringLiteral("add_btn"));
-        QIcon icon;
-        icon.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        add_btn->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        add_btn->setIcon(icon1);
         add_btn->setIconSize(QSize(20, 20));
 
         horizontalLayout->addWidget(add_btn);
@@ -453,13 +460,6 @@ public:
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(40, 70, 31, 49));
         label_4->setStyleSheet(QStringLiteral("color: #F1F1F1"));
-        pushButton = new QPushButton(Sponsor);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(912, 610, 61, 51));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral("../../../Downloads/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon1);
-        pushButton->setIconSize(QSize(40, 40));
 
         retranslateUi(Sponsor);
 
@@ -511,6 +511,7 @@ public:
         ___qtablewidgetitem19->setText(QApplication::translate("Sponsor", "New Row", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem20 = tableWidget->verticalHeaderItem(20);
         ___qtablewidgetitem20->setText(QApplication::translate("Sponsor", "2", Q_NULLPTR));
+        pushButton->setText(QString());
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
          << QApplication::translate("Sponsor", "test1", Q_NULLPTR)
@@ -523,7 +524,6 @@ public:
         title_label->setText(QApplication::translate("Sponsor", "Liste des sponsors", Q_NULLPTR));
         add_btn->setText(QApplication::translate("Sponsor", "Add", Q_NULLPTR));
         label_4->setText(QApplication::translate("Sponsor", "Nom", Q_NULLPTR));
-        pushButton->setText(QString());
     } // retranslateUi
 
 };
