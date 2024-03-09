@@ -9,6 +9,7 @@
 #include <QSqlError>
 #include "addemission.h"
 #include "emissionedit.h"
+#include "pdfexport.h"
 namespace Ui {
 class Emission;
 }
@@ -29,6 +30,8 @@ private slots:
     void on_pushButton_clicked();
 
     void on_add_btn_2_clicked();
+
+    void on_pdfButton_clicked();
 
 private:
 

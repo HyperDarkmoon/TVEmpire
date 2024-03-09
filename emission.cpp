@@ -233,3 +233,9 @@ void Emission::on_add_btn_2_clicked()
 }
 
 
+
+void Emission::on_pdfButton_clicked()
+{
+    pdfExport pdfExporter;
+    pdfExporter.exportTableToPDF(ui->tableWidget_2);
+}

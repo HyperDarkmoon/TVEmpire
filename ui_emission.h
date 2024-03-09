@@ -26,6 +26,7 @@ public:
     QWidget *employeeContainer;
     QTableWidget *tableWidget_2;
     QPushButton *add_btn_2;
+    QPushButton *pdfButton;
 
     void setupUi(QWidget *Emission)
     {
@@ -262,6 +263,69 @@ public:
         icon.addFile(QStringLiteral("../../../Desktop/#017_Students information system/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
         add_btn_2->setIcon(icon);
         add_btn_2->setIconSize(QSize(20, 20));
+        pdfButton = new QPushButton(employeeContainer);
+        pdfButton->setObjectName(QStringLiteral("pdfButton"));
+        pdfButton->setGeometry(QRect(190, 20, 161, 71));
+        QPalette palette2;
+        palette2.setBrush(QPalette::Active, QPalette::WindowText, brush1);
+        palette2.setBrush(QPalette::Active, QPalette::Button, brush);
+        palette2.setBrush(QPalette::Active, QPalette::Light, brush2);
+        palette2.setBrush(QPalette::Active, QPalette::Midlight, brush2);
+        palette2.setBrush(QPalette::Active, QPalette::Dark, brush3);
+        palette2.setBrush(QPalette::Active, QPalette::Mid, brush4);
+        palette2.setBrush(QPalette::Active, QPalette::Text, brush1);
+        palette2.setBrush(QPalette::Active, QPalette::BrightText, brush2);
+        palette2.setBrush(QPalette::Active, QPalette::ButtonText, brush1);
+        palette2.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette2.setBrush(QPalette::Active, QPalette::Window, brush);
+        palette2.setBrush(QPalette::Active, QPalette::Shadow, brush1);
+        palette2.setBrush(QPalette::Active, QPalette::AlternateBase, brush2);
+        palette2.setBrush(QPalette::Active, QPalette::ToolTipBase, brush5);
+        palette2.setBrush(QPalette::Active, QPalette::ToolTipText, brush1);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette::Active, QPalette::PlaceholderText, brush6);
+#endif
+        palette2.setBrush(QPalette::Inactive, QPalette::WindowText, brush1);
+        palette2.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette2.setBrush(QPalette::Inactive, QPalette::Light, brush2);
+        palette2.setBrush(QPalette::Inactive, QPalette::Midlight, brush2);
+        palette2.setBrush(QPalette::Inactive, QPalette::Dark, brush3);
+        palette2.setBrush(QPalette::Inactive, QPalette::Mid, brush4);
+        palette2.setBrush(QPalette::Inactive, QPalette::Text, brush1);
+        palette2.setBrush(QPalette::Inactive, QPalette::BrightText, brush2);
+        palette2.setBrush(QPalette::Inactive, QPalette::ButtonText, brush1);
+        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette2.setBrush(QPalette::Inactive, QPalette::Window, brush);
+        palette2.setBrush(QPalette::Inactive, QPalette::Shadow, brush1);
+        palette2.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush2);
+        palette2.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush5);
+        palette2.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush1);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush6);
+#endif
+        palette2.setBrush(QPalette::Disabled, QPalette::WindowText, brush3);
+        palette2.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        palette2.setBrush(QPalette::Disabled, QPalette::Light, brush2);
+        palette2.setBrush(QPalette::Disabled, QPalette::Midlight, brush2);
+        palette2.setBrush(QPalette::Disabled, QPalette::Dark, brush3);
+        palette2.setBrush(QPalette::Disabled, QPalette::Mid, brush4);
+        palette2.setBrush(QPalette::Disabled, QPalette::Text, brush3);
+        palette2.setBrush(QPalette::Disabled, QPalette::BrightText, brush2);
+        palette2.setBrush(QPalette::Disabled, QPalette::ButtonText, brush3);
+        palette2.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette2.setBrush(QPalette::Disabled, QPalette::Window, brush);
+        palette2.setBrush(QPalette::Disabled, QPalette::Shadow, brush1);
+        palette2.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush2);
+        palette2.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush5);
+        palette2.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush1);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush6);
+#endif
+        pdfButton->setPalette(palette2);
+        pdfButton->setAutoFillBackground(false);
+        pdfButton->setStyleSheet(QStringLiteral("background : #F1F1F1;"));
+        pdfButton->setIcon(icon);
+        pdfButton->setIconSize(QSize(20, 20));
 
         retranslateUi(Emission);
 
@@ -282,6 +346,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget_2->horizontalHeaderItem(4);
         ___qtablewidgetitem4->setText(QApplication::translate("Emission", "Sponsor", Q_NULLPTR));
         add_btn_2->setText(QApplication::translate("Emission", "Add", Q_NULLPTR));
+        pdfButton->setText(QApplication::translate("Emission", "EXPORT PDF FILE", Q_NULLPTR));
     } // retranslateUi
 
 };
