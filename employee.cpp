@@ -363,5 +363,5 @@ void Employee::on_add_btn_4_clicked()
 {
     pdfExport pdfExporter;
 
-    pdfExporter.exportTableToPDF(ui->emp);
+    pdfExporter.exportTableToPDF(ui->emp); //change ui->emp with your Qtablewidget name
 }
