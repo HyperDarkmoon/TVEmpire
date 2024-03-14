@@ -40,6 +40,7 @@ public:
     QVariant getFieldByIndex(int index) const;
     QList<CrudSponsor> getAll();
 
+
 };
 
 class Sponsor : public QWidget
@@ -51,6 +52,7 @@ public:
     ~Sponsor();
     void refreshTable();
     void onDeleteButtonClicked(int row);
+    void filterTable(const QString &text);
 private slots:
     void on_pushButton_clicked();
     void on_add_btn_2_clicked();
