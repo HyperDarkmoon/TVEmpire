@@ -41,8 +41,8 @@ public:
     QLabel *label_3;
     QTableWidget *tableWidget;
     QPushButton *pushButton;
-    QLabel *label_6;
     QLineEdit *search_input;
+    QPushButton *pushButton_2;
     QFrame *frame_3;
     QHBoxLayout *horizontalLayout_2;
     QLabel *title_label;
@@ -435,14 +435,15 @@ public:
         icon1.addFile(QStringLiteral("../../../Downloads/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon1);
         pushButton->setIconSize(QSize(40, 40));
-        label_6 = new QLabel(result_widget);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(1220, 10, 51, 51));
-        label_6->setPixmap(QPixmap(QString::fromUtf8("../../../Downloads/charte-de-croissance.png")));
-        label_6->setScaledContents(true);
         search_input = new QLineEdit(result_widget);
         search_input->setObjectName(QStringLiteral("search_input"));
         search_input->setGeometry(QRect(610, 31, 291, 21));
+        pushButton_2 = new QPushButton(result_widget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(1220, 7, 71, 51));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("../../../Downloads/charte-de-croissance.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon2);
         label_5->raise();
         lineEdit_2->raise();
         label_4->raise();
@@ -454,9 +455,9 @@ public:
         label_3->raise();
         tableWidget->raise();
         pushButton->raise();
-        label_6->raise();
         search_input->raise();
         add_btn->raise();
+        pushButton_2->raise();
         frame_3 = new QFrame(Sponsor);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(10, 6, 914, 69));
@@ -541,8 +542,8 @@ public:
         QTableWidgetItem *___qtablewidgetitem20 = tableWidget->verticalHeaderItem(20);
         ___qtablewidgetitem20->setText(QApplication::translate("Sponsor", "2", Q_NULLPTR));
         pushButton->setText(QString());
-        label_6->setText(QString());
         search_input->setPlaceholderText(QApplication::translate("Sponsor", "Search...", Q_NULLPTR));
+        pushButton_2->setText(QString());
         title_label->setText(QApplication::translate("Sponsor", "Liste des sponsors", Q_NULLPTR));
     } // retranslateUi
 

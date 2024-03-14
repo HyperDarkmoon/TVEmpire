@@ -1419,25 +1419,6 @@ QTableWidget QTableWidget::item:selected {
      </size>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>1220</x>
-      <y>10</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../../../Downloads/charte-de-croissance.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="search_input">
     <property name="geometry">
      <rect>
@@ -1451,6 +1432,23 @@ QTableWidget QTableWidget::item:selected {
      <string>Search...</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>1220</x>
+      <y>7</y>
+      <width>71</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../Downloads/charte-de-croissance.png</normaloff>../../../Downloads/charte-de-croissance.png</iconset>
+    </property>
+   </widget>
    <zorder>label_5</zorder>
    <zorder>lineEdit_2</zorder>
    <zorder>label_4</zorder>
@@ -1462,9 +1460,9 @@ QTableWidget QTableWidget::item:selected {
    <zorder>label_3</zorder>
    <zorder>tableWidget</zorder>
    <zorder>pushButton</zorder>
-   <zorder>label_6</zorder>
    <zorder>search_input</zorder>
    <zorder>add_btn</zorder>
+   <zorder>pushButton_2</zorder>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">

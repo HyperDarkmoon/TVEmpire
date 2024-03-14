@@ -53,6 +53,7 @@ public:
     void refreshTable();
     void onDeleteButtonClicked(int row);
     void filterTable(const QString &text);
+    void displayChart();
 private slots:
     void on_pushButton_clicked();
     void on_add_btn_2_clicked();
@@ -62,6 +63,10 @@ private slots:
 
 
     void on_comboBox_2_activated(const QString &arg1);
+
+    void on_label_6_linkActivated(const QString &link);
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::Sponsor *ui;

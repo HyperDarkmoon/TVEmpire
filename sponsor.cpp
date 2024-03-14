@@ -13,6 +13,11 @@
 #include <QTextDocument>
 #include <QFileDialog>
 #include "pdfexport.h"
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
 
 Sponsor::Sponsor(QWidget *parent) : QWidget(parent), ui(new Ui::Sponsor) {
     ui->setupUi(this);
@@ -321,3 +326,50 @@ void Sponsor::filterTable(const QString &text) {
             ui->tableWidget->setRowHidden(row, !matchFound);
         }
     }
+void Sponsor::displayChart() {
+    // Create a bar series
+    QtCharts::QBarSeries *series = new QtCharts::QBarSeries();
+
+    // Fetch the sponsor data from the database and count the number of sponsors for each category
+    QMap<QString, int> sponsorCountByCategory;
+    CrudSponsor c;
+    QList<CrudSponsor> sponsorList = c.getAll();
+    for (const auto& sponsor : sponsorList) {
+        QString category = sponsor.getCategories();
+        sponsorCountByCategory[category]++;
+    }
+
+    // Add data to the series
+    for (auto it = sponsorCountByCategory.constBegin(); it != sponsorCountByCategory.constEnd(); ++it) {
+        QtCharts::QBarSet *set = new QtCharts::QBarSet(it.key());
+        *set << it.value();
+        series->append(set);
+    }
+
+    // Create a chart and add the series to it
+    QtCharts::QChart *chart = new QtCharts::QChart();
+    chart->addSeries(series);
+
+    // Create axes
+    QtCharts::QBarCategoryAxis *axisX = new QtCharts::QBarCategoryAxis();
+    QtCharts::QValueAxis *axisY = new QtCharts::QValueAxis();
+    chart->addAxis(axisX, Qt::AlignBottom);
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
+
+    // Create a chart view and set the chart
+    QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // Set chart view properties
+    chartView->setWindowTitle("Sponsors by Category");
+    chartView->resize(800, 600);
+    chartView->show();
+}
+
+
+void Sponsor::on_pushButton_2_clicked()
+{
+     displayChart();
+}
