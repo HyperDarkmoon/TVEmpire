@@ -236,8 +236,10 @@ Makefile: tvempire.pro ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++
 		tvempire.pro \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl \
+		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5MultimediaWidgets.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl \
+		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Multimedia.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Network.prl \
 		../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl \
@@ -418,8 +420,10 @@ Makefile: tvempire.pro ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++
 tvempire.pro:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/qtmaind.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Charts.prl:
+../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5MultimediaWidgets.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Widgets.prl:
+../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Multimedia.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Gui.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Network.prl:
 ../../../../Qt/Qt5.9.9/5.9.9/mingw53_32/lib/Qt5Sql.prl:

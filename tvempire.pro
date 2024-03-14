@@ -1,4 +1,4 @@
-QT += core gui widgets network charts
+QT += core gui widgets network charts multimedia multimediawidgets
 QT += core gui widgets network printsupport
 
 
@@ -31,6 +31,7 @@ SOURCES += \
     search.cpp \
     sponsor.cpp \
     addequipment.cpp \
+    videoplayerdialog.cpp \
     weatherapicall.cpp
 
 HEADERS += \
@@ -51,6 +52,7 @@ HEADERS += \
     search.h \
     sponsor.h \
     addequipment.h \
+    videoplayerdialog.h \
     weatherapicall.h
 
 FORMS += \
@@ -66,7 +68,8 @@ FORMS += \
     mainwindow.ui \
     scenes.ui \
     sponsor.ui \
-    addequipment.ui
+    addequipment.ui \
+    videoplayerdialog.ui
 
 # Default rules for deployment.
 # Adjust installation path based on your deployment needs
