@@ -39,6 +39,7 @@ public:
     bool remove(unsigned int id);
     QVariant getFieldByIndex(int index) const;
     QList<CrudSponsor> getAll();
+
 };
 
 class Sponsor : public QWidget
@@ -55,7 +56,10 @@ private slots:
     void on_add_btn_2_clicked();
     void on_add_btn_clicked();
     void onEditButtonClicked(int row);
+    void onContratButtonClicked(int row);
 
+
+    void on_comboBox_2_activated(const QString &arg1);
 
 private:
     Ui::Sponsor *ui;

@@ -1,71 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>contrat</class>
- <widget name="contrat" class="QDialog">
+ <widget class="QDialog" name="contrat">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>786</width>
+    <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget name="buttonBox" class="QDialogButtonBox">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>240</y>
-     <width>341</width>
-     <height>32</height>
+     <x>190</x>
+     <y>10</y>
+     <width>431</width>
+     <height>41</height>
     </rect>
    </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   <property name="text">
+    <string>contrat </string>
+   </property>
+   <property name="margin">
+    <number>200</number>
    </property>
   </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>101</y>
+     <width>601</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableWidget {
+    alternate-background-color: #f0f0f0; /* Alternate row background color */
+    background-color: white; /* Default background color of the table */
+    border: 1px solid #2c3e50; /* Table border color */
+    font-family: &quot;Arial&quot;; /* Set the font family */
+    font-size: 12px; /* Set the font size */
+   border-radius: 10px;
+}
+
+/* Apply styles to the header of the QTableWidget */
+QHeaderView::section {
+    background-color: #15406e; /* Darker blue header background color */
+    color: white; /* Header text color */
+    padding: 0px; /* Header padding */
+    border:2px solid #2c3e50; /* Header border color */
+ border-radius: px
+
+}
+
+/* Apply styles to the items within the QTableWidget */
+QTableWidget QTableWidget::item {
+    padding: 5px; /* Item padding */
+    border: 1px solid #2c3e50; /* Item border color */
+
+}
+
+/* Apply styles to the even rows within the QTableWidget */
+QTableWidget::item:alternate {
+    background-color: #2c3e50; /* Darker blue even row background color */
+}
+
+/* Apply styles when an item is selected in the QTableWidget */
+QTableWidget QTableWidget::item:selected {
+    background-color: #3498db; /* Selected item background color (a slightly lighter blue) */
+    color: black; /* Selected item text color */
+}</string>
+   </property>
+   <column>
+    <property name="text">
+     <string>ID sponosor </string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>ID emissions</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>libellle </string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>duré</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>description </string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>exportation</string>
+    </property>
+   </column>
+  </widget>
  </widget>
- <pixmapfunction/>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>contrat</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>contrat</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

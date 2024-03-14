@@ -31,6 +31,7 @@ public:
     QFrame *result_frame;
     QTableWidget *tableWidget;
     QPushButton *pushButton;
+    QComboBox *comboBox_2;
     QFrame *info_frame;
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_3;
@@ -208,7 +209,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
         tableWidget->setVerticalHeaderItem(20, __qtablewidgetitem20);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(10, 30, 841, 441));
+        tableWidget->setGeometry(QRect(20, 90, 841, 441));
         tableWidget->setBaseSize(QSize(0, 0));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
@@ -336,11 +337,14 @@ public:
         tableWidget->verticalHeader()->setStretchLastSection(false);
         pushButton = new QPushButton(result_frame);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(890, 30, 61, 51));
+        pushButton->setGeometry(QRect(20, 20, 61, 51));
         QIcon icon;
         icon.addFile(QStringLiteral("../../../Downloads/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon);
         pushButton->setIconSize(QSize(40, 40));
+        comboBox_2 = new QComboBox(result_frame);
+        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
+        comboBox_2->setGeometry(QRect(660, 30, 161, 31));
         info_frame = new QFrame(Sponsor);
         info_frame->setObjectName(QStringLiteral("info_frame"));
         info_frame->setGeometry(QRect(70, 70, 921, 71));
@@ -512,6 +516,11 @@ public:
         QTableWidgetItem *___qtablewidgetitem20 = tableWidget->verticalHeaderItem(20);
         ___qtablewidgetitem20->setText(QApplication::translate("Sponsor", "2", Q_NULLPTR));
         pushButton->setText(QString());
+        comboBox_2->clear();
+        comboBox_2->insertItems(0, QStringList()
+         << QApplication::translate("Sponsor", "Alphabet A ->Z", Q_NULLPTR)
+         << QApplication::translate("Sponsor", "categories", Q_NULLPTR)
+        );
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
          << QApplication::translate("Sponsor", "test1", Q_NULLPTR)

@@ -173,7 +173,7 @@ void Sponsor::refreshTable() {
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
 
-    QStringList headers = {"ID", "Nom", "telephone", "email", "categories", "delete", "edit"};
+    QStringList headers = {"ID", "Nom", "telephone", "email", "categories", "delete", "edit", "contrat"};
     ui->tableWidget->setColumnCount(headers.size());
     ui->tableWidget->setHorizontalHeaderLabels(headers);
 
@@ -183,27 +183,38 @@ void Sponsor::refreshTable() {
     for (int row = 0; row < emissionList.size(); ++row) {
         ui->tableWidget->insertRow(row);
 
-        for (int col = 0; col < headers.size() - 2; ++col) {
+        for (int col = 0; col < headers.size() - 3; ++col) {
             QString fieldData = emissionList.at(row).getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
             ui->tableWidget->setItem(row, col, item);
         }
 
+        // Delete button
         QToolButton *deleteButton = new QToolButton(this);
         deleteButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/delete.png"));
-        unsigned int id = ui->tableWidget->item(row, 0)->text().toUInt();
-        connect(deleteButton, &QToolButton::clicked, [this, id]() {
-            onDeleteButtonClicked(id);
+        unsigned int deleteId = ui->tableWidget->item(row, 0)->text().toUInt();
+        connect(deleteButton, &QToolButton::clicked, [this, deleteId]() {
+            onDeleteButtonClicked(deleteId);
         });
-        ui->tableWidget->setCellWidget(row, headers.size() - 2, deleteButton);
+        ui->tableWidget->setCellWidget(row, headers.size() - 3, deleteButton);
 
+        // Edit button
         QToolButton *editButton = new QToolButton(this);
         editButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/update.png"));
         connect(editButton, &QToolButton::clicked, [this, row]() {
             onEditButtonClicked(row);
         });
-        ui->tableWidget->setCellWidget(row, headers.size() - 1, editButton);
+        ui->tableWidget->setCellWidget(row, headers.size() - 2, editButton);
 
+        // Contrat button
+        QToolButton *contratButton = new QToolButton(this);
+        contratButton->setIcon(QIcon("path/to/contrat/icon.png"));  // Update with the actual path to your contrat icon
+        connect(contratButton, &QToolButton::clicked, [this, row]() {
+            onContratButtonClicked(row);
+        });
+        ui->tableWidget->setCellWidget(row, headers.size() - 1, contratButton);
+
+        // Make cells non-editable
         int columnIndex = 0;
         for (int row = 0; row < ui->tableWidget->rowCount(); ++row) {
             QTableWidgetItem *item = ui->tableWidget->item(row, columnIndex);
@@ -218,6 +229,7 @@ void Sponsor::refreshTable() {
         }
     }
 }
+
 
 QList<CrudSponsor> CrudSponsor::getAll() {
     QSqlQuery query;
@@ -281,4 +293,11 @@ void Sponsor::on_pushButton_clicked()
     pdfExport pdfExporter;
 
     pdfExporter.exportTableToPDF(ui->tableWidget);
+}
+void Sponsor::onContratButtonClicked(int row) {
+    // Add your logic here to handle the contrat button click event
+    // You can use the contratId parameter to identify the specific contrat button clicked
+
+    // For example, you can show a message box with the contrat ID
+
 }
