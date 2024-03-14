@@ -339,7 +339,7 @@ public:
         searchBar->setStyleSheet(QStringLiteral("background:#fff"));
         tempLabel = new QLabel(employeeContainer);
         tempLabel->setObjectName(QStringLiteral("tempLabel"));
-        tempLabel->setGeometry(QRect(670, 70, 291, 31));
+        tempLabel->setGeometry(QRect(740, 70, 291, 31));
         tempLabel->setStyleSheet(QLatin1String("color:#FFF\n"
 ""));
         tempLabel_2 = new QLabel(employeeContainer);
