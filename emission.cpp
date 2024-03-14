@@ -2,6 +2,11 @@
 #include "ui_emission.h"
 #include <QDebug>
 #include "weatherapicall.h"
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
 
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
@@ -278,3 +283,49 @@ void Emission::filterTable(const QString &text) {
             ui->tableWidget_2->setRowHidden(row, !matchFound);
         }
     }
+void Emission::displayChart() {
+    // Create a bar series
+    QtCharts::QBarSeries *series = new QtCharts::QBarSeries();
+
+    // Fetch the emissions data from the database and count the number of emissions for each year
+    QMap<int, int> emissionCountByYear;
+    CrudEmission C;
+    QList<CrudEmission> emissionList = C.getAll();
+    for (const auto& emission : emissionList) {
+        int year = emission.getHoraire().year();
+        emissionCountByYear[year]++;
+    }
+
+    // Add data to the series
+    for (auto it = emissionCountByYear.constBegin(); it != emissionCountByYear.constEnd(); ++it) {
+        QtCharts::QBarSet *set = new QtCharts::QBarSet(QString::number(it.key()));
+        *set << it.value();
+        series->append(set);
+    }
+
+    // Create a chart and add the series to it
+    QtCharts::QChart *chart = new QtCharts::QChart();
+    chart->addSeries(series);
+
+    // Create axes
+    QtCharts::QBarCategoryAxis *axisX = new QtCharts::QBarCategoryAxis();
+    QtCharts::QValueAxis *axisY = new QtCharts::QValueAxis();
+    chart->addAxis(axisX, Qt::AlignBottom);
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
+
+    // Create a chart view and set the chart
+    QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // Set chart view properties
+    chartView->setWindowTitle("Emissions by Year");
+    chartView->resize(800, 600);
+    chartView->show();
+}
+
+void Emission::on_pdfButton_2_clicked()
+{
+    displayChart();
+}
