@@ -27,12 +27,16 @@ public:
     void onAddEmissionDialogClosed();
     void onEdit();
     void filterTable(const QString &text);
+    void displayChart();
 private slots:
     void on_pushButton_clicked();
 
     void on_add_btn_2_clicked();
 
     void on_pdfButton_clicked();
+
+
+    void on_pdfButton_2_clicked();
 
 private:
 
