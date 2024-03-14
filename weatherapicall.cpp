@@ -14,9 +14,7 @@ WeatherApiClient::WeatherApiClient(QObject *parent)
 
 QString WeatherApiClient::getTemperature(double latitude, double longitude, const QString &apiKey)
 {
-    QEventLoop loop;
-    QTimer timer;
-    connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
+    qDebug() << "Requesting temperature for coordinates:" << latitude << "," << longitude;
 
     QUrl url("https://api.openweathermap.org/data/2.5/weather");
     QUrlQuery query;
@@ -25,9 +23,26 @@ QString WeatherApiClient::getTemperature(double latitude, double longitude, cons
     query.addQueryItem("appid", apiKey);
     url.setQuery(query);
 
+    qDebug() << "Request URL:" << url;
+
     QNetworkReply *reply = m_manager->get(QNetworkRequest(url));
-    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
-    timer.start(5000); // Timeout after 5 seconds
+
+    // Timeout after 5 seconds
+    QEventLoop loop;
+    QTimer timer;
+    QObject::connect(&timer, &QTimer::timeout, [&]() {
+        qDebug() << "Timeout occurred.";
+        loop.quit();
+    });
+    timer.start(5000);
+
+    QObject::connect(reply, &QNetworkReply::finished, [&]() {
+        qDebug() << "Reply received.";
+        timer.stop();
+        loop.quit();
+    });
+
+    qDebug() << "Waiting for reply...";
 
     loop.exec();
 
@@ -37,7 +52,13 @@ QString WeatherApiClient::getTemperature(double latitude, double longitude, cons
         return QString();
     }
 
+    qDebug() << "Received reply.";
+
     QByteArray data = reply->readAll();
+    reply->deleteLater(); // Delete reply after reading data
+
+    qDebug() << "Data received:" << data;
+
     QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
     QJsonObject jsonObj = jsonDoc.object();
 
@@ -47,9 +68,9 @@ QString WeatherApiClient::getTemperature(double latitude, double longitude, cons
         if (mainObj.contains("temp")) {
             double tempKelvin = mainObj["temp"].toDouble();
             temperature = QString::number(tempKelvin - 273.15); // Convert to Celsius
+            qDebug() << "Temperature:" << temperature;
         }
     }
 
-    reply->deleteLater();
     return temperature;
 }

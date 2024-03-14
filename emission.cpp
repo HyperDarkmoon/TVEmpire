@@ -1,9 +1,6 @@
 #include "emission.h"
 #include "ui_emission.h"
 #include <QDebug>
-#include <QStackedWidget>
-#include "weatherapicall.h"
-#include <QSslSocket>
 
 
 Emission::Emission(QWidget *parent) :
@@ -19,15 +16,7 @@ Emission::Emission(QWidget *parent) :
     // Assuming this code is inside the constructor of Emission
 
     connect(ui->searchBar, &QLineEdit::textChanged, this, &Emission::filterTable);
-    WeatherApiClient client;
-    QString temperature = client.getTemperature(40.7128, -74.0060, "4532eb473c444451c6c57986a7f7f4c9");
-    qInfo() << QSslSocket::sslLibraryBuildVersionString();
-    qInfo() << QSslSocket::sslLibraryVersionString();
-    if (!temperature.isEmpty()) {
-        qDebug() << "Current temperature:" << temperature;
-    } else {
-        qDebug() << "Failed to retrieve temperature";
-    }
+
 
     refreshTable();
    // WeatherAPI weatherAPI;
