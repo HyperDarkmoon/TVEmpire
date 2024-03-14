@@ -1290,11 +1290,28 @@ QTableWidget::Item{
    <widget class="QLineEdit" name="searchBar">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>50</y>
+      <x>430</x>
+      <y>30</y>
       <width>113</width>
       <height>21</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tempLabel">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>30</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#FFF
+</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

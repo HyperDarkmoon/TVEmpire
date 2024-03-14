@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
@@ -29,6 +30,7 @@ public:
     QPushButton *add_btn_2;
     QPushButton *pdfButton;
     QLineEdit *searchBar;
+    QLabel *tempLabel;
 
     void setupUi(QWidget *Emission)
     {
@@ -330,7 +332,12 @@ public:
         pdfButton->setIconSize(QSize(20, 20));
         searchBar = new QLineEdit(employeeContainer);
         searchBar->setObjectName(QStringLiteral("searchBar"));
-        searchBar->setGeometry(QRect(560, 50, 113, 21));
+        searchBar->setGeometry(QRect(430, 30, 113, 21));
+        tempLabel = new QLabel(employeeContainer);
+        tempLabel->setObjectName(QStringLiteral("tempLabel"));
+        tempLabel->setGeometry(QRect(600, 30, 291, 31));
+        tempLabel->setStyleSheet(QLatin1String("color:#FFF\n"
+""));
 
         retranslateUi(Emission);
 
@@ -352,6 +359,7 @@ public:
         ___qtablewidgetitem4->setText(QApplication::translate("Emission", "Sponsor", Q_NULLPTR));
         add_btn_2->setText(QApplication::translate("Emission", "Add", Q_NULLPTR));
         pdfButton->setText(QApplication::translate("Emission", "EXPORT PDF FILE", Q_NULLPTR));
+        tempLabel->setText(QString());
     } // retranslateUi
 
 };
