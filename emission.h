@@ -26,6 +26,7 @@ public:
     void onDeleteButtonClicked(unsigned int id);
     void onAddEmissionDialogClosed();
     void onEdit();
+    void filterTable(const QString &text);
 private slots:
     void on_pushButton_clicked();
 

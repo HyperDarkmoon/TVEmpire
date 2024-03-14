@@ -1,17 +1,39 @@
 #include "emission.h"
 #include "ui_emission.h"
 #include <QDebug>
+#include <QStackedWidget>
+#include "weatherapicall.h"
+#include <QSslSocket>
+
+
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Emission), addemission(new addEmission),edit(new EmissionEdit)
+    ui(new Ui::Emission), addemission(new addEmission), edit(new EmissionEdit)
 {
     ui->setupUi(this);
-    // each time the add the add button get click its emits a signal button clicked that executes onAddEmissionDialogClosed
+    // each time the add button gets clicked it emits a signal button clicked that executes onAddEmissionDialogClosed
     connect(addemission, &addEmission::buttonClicked, this, &Emission::onAddEmissionDialogClosed);
     // same but for edit
     connect(edit, &EmissionEdit::onButtonClick, this, &Emission::onEdit );
+
+    // Assuming this code is inside the constructor of Emission
+
+    connect(ui->searchBar, &QLineEdit::textChanged, this, &Emission::filterTable);
+    WeatherApiClient client;
+    QString temperature = client.getTemperature(40.7128, -74.0060, "4532eb473c444451c6c57986a7f7f4c9");
+    qInfo() << QSslSocket::sslLibraryBuildVersionString();
+    qInfo() << QSslSocket::sslLibraryVersionString();
+    if (!temperature.isEmpty()) {
+        qDebug() << "Current temperature:" << temperature;
+    } else {
+        qDebug() << "Failed to retrieve temperature";
+    }
+
     refreshTable();
+   // WeatherAPI weatherAPI;
+
 }
+
 void Emission::onEdit(){
     refreshTable();
 }
@@ -239,3 +261,24 @@ void Emission::on_pdfButton_clicked()
     pdfExport pdfExporter;
     pdfExporter.exportTableToPDF(ui->tableWidget_2);
 }
+
+void Emission::filterTable(const QString &text) {
+        // Get the search query
+        QString query = text.toLower();
+
+        // Iterate through each row in the table
+        for (int row = 0; row < ui->tableWidget_2->rowCount(); ++row) {
+            bool matchFound = false;
+            // Get the item in the first column of the current row
+            QTableWidgetItem *item = ui->tableWidget_2->item(row, 1); // Assuming the first column is the "Name" column
+            if (item) {
+                QString cellText = item->text().toLower();
+                // Check if the cell text contains the search query
+                if (cellText.contains(query)) {
+                    matchFound = true;
+                }
+            }
+            // Show or hide the row based on whether a match was found
+            ui->tableWidget_2->setRowHidden(row, !matchFound);
+        }
+    }

@@ -14,8 +14,10 @@ INPUT(
 ./release\mainwindow.o
 ./release\pdfexport.o
 ./release\scenes.o
+./release\search.o
 ./release\sponsor.o
 ./release\addequipment.o
+./release\weatherapicall.o
 ./release\qrc_resource.o
 ./release\moc_addemission.o
 ./release\moc_addemployee.o
@@ -30,4 +32,5 @@ INPUT(
 ./release\moc_scenes.o
 ./release\moc_sponsor.o
 ./release\moc_addequipment.o
+./release\moc_weatherapicall.o
 );

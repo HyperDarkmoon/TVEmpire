@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
     ui->home_btn_2->setChecked(true);
     loadStyleSheet("style.qss");
+
+
 }
 
 MainWindow::~MainWindow()

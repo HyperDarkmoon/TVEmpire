@@ -28,8 +28,10 @@ SOURCES += \
     mainwindow.cpp \
     pdfexport.cpp \
     scenes.cpp \
+    search.cpp \
     sponsor.cpp \
-    addequipment.cpp
+    addequipment.cpp \
+    weatherapicall.cpp
 
 HEADERS += \
     addemission.h \
@@ -46,8 +48,10 @@ HEADERS += \
     mainwindow.h \
     pdfexport.h \
     scenes.h \
+    search.h \
     sponsor.h \
-    addequipment.h
+    addequipment.h \
+    weatherapicall.h
 
 FORMS += \
     addemission1.ui \

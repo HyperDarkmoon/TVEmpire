@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
@@ -27,6 +28,7 @@ public:
     QTableWidget *tableWidget_2;
     QPushButton *add_btn_2;
     QPushButton *pdfButton;
+    QLineEdit *searchBar;
 
     void setupUi(QWidget *Emission)
     {
@@ -326,6 +328,9 @@ public:
         pdfButton->setStyleSheet(QStringLiteral("background : #F1F1F1;"));
         pdfButton->setIcon(icon);
         pdfButton->setIconSize(QSize(20, 20));
+        searchBar = new QLineEdit(employeeContainer);
+        searchBar->setObjectName(QStringLiteral("searchBar"));
+        searchBar->setGeometry(QRect(560, 50, 113, 21));
 
         retranslateUi(Emission);
 
