@@ -38,6 +38,8 @@ private slots:
 
     void on_pdfButton_2_clicked();
 
+    void on_playVideoButton_clicked();
+
 private:
 
     Ui::Emission *ui;

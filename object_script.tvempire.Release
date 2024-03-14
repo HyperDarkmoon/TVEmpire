@@ -17,6 +17,7 @@ INPUT(
 ./release\search.o
 ./release\sponsor.o
 ./release\addequipment.o
+./release\videoplayerdialog.o
 ./release\weatherapicall.o
 ./release\qrc_resource.o
 ./release\moc_addemission.o
@@ -32,5 +33,6 @@ INPUT(
 ./release\moc_scenes.o
 ./release\moc_sponsor.o
 ./release\moc_addequipment.o
+./release\moc_videoplayerdialog.o
 ./release\moc_weatherapicall.o
 );

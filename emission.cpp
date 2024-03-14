@@ -329,3 +329,18 @@ void Emission::on_pdfButton_2_clicked()
 {
     displayChart();
 }
+
+
+#include "videoplayerdialog.h"
+
+void Emission::on_playVideoButton_clicked() {
+    // Replace "path_to_your_video.mp4" with the actual path to your video file
+    QString videoFilePath = "D:\\Movies\\Batman The Dark Knight (2008) [1080p]\\Batman.The.Dark.Knight.2008.1080p.BluRay.x264.YIFY.mp4";
+
+
+    VideoPlayerDialog dialog(this);
+    dialog.playVideo(videoFilePath);
+    dialog.exec();  // Show the dialog modally
+}
+
+
