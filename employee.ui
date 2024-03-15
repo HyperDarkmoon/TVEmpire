@@ -2241,6 +2241,19 @@
      </size>
     </property>
    </widget>
+   <widget class="QLineEdit" name="search_input">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>30</y>
+      <width>242</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Search...</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

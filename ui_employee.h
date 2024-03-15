@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
@@ -28,6 +29,7 @@ public:
     QPushButton *add_btn_2;
     QPushButton *add_btn_3;
     QPushButton *add_btn_4;
+    QLineEdit *search_input;
 
     void setupUi(QWidget *Employee)
     {
@@ -430,6 +432,9 @@ public:
         add_btn_4->setPalette(palette4);
         add_btn_4->setIcon(icon);
         add_btn_4->setIconSize(QSize(20, 20));
+        search_input = new QLineEdit(employeeContainer);
+        search_input->setObjectName(QStringLiteral("search_input"));
+        search_input->setGeometry(QRect(470, 30, 242, 22));
 
         retranslateUi(Employee);
 
@@ -511,6 +516,7 @@ public:
         add_btn_2->setText(QApplication::translate("Employee", "Add", Q_NULLPTR));
         add_btn_3->setText(QApplication::translate("Employee", "Refresh", Q_NULLPTR));
         add_btn_4->setText(QApplication::translate("Employee", "Export PDF", Q_NULLPTR));
+        search_input->setPlaceholderText(QApplication::translate("Employee", "Search...", Q_NULLPTR));
     } // retranslateUi
 
 };
