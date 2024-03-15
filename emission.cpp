@@ -283,6 +283,7 @@ void Emission::filterTable(const QString &text) {
             ui->tableWidget_2->setRowHidden(row, !matchFound);
         }
     }
+
 void Emission::displayChart() {
     // Create a bar series
     QtCharts::QBarSeries *series = new QtCharts::QBarSeries();

@@ -11,6 +11,7 @@ Employee::Employee(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshTable();
+    connect(ui->search_input, &QLineEdit::textChanged, this, &Employee::filterTable);
 }
 
 void Employee::onDeleteButtonClicked(int row)
@@ -365,3 +366,25 @@ void Employee::on_add_btn_4_clicked()
 
     pdfExporter.exportTableToPDF(ui->emp); //change ui->emp with your Qtablewidget name
 }
+
+
+void Employee::filterTable(const QString &text) {
+        // Get the search query
+        QString query = text.toLower();
+
+        // Iterate through each row in the table
+        for (int row = 0; row < ui->emp->rowCount(); ++row) {
+            bool matchFound = false;
+            // Get the item in the first column of the current row
+            QTableWidgetItem *item = ui->emp->item(row, 1); // Assuming the first column is the "Name" column
+            if (item) {
+                QString cellText = item->text().toLower();
+                // Check if the cell text contains the search query
+                if (cellText.contains(query)) {
+                    matchFound = true;
+                }
+            }
+            // Show or hide the row based on whether a match was found
+            ui->emp->setRowHidden(row, !matchFound);
+        }
+    }

@@ -18,6 +18,7 @@ public:
     explicit Employee(QWidget *parent = nullptr);
     ~Employee();
     void refreshTable();
+    void filterTable(const QString &text);
    
 
 private slots:
