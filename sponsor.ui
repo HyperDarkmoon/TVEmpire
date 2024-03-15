@@ -494,8 +494,8 @@ QPushButton:checked {
   <widget class="QWidget" name="result_widget" native="true">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>110</y>
+     <x>60</x>
+     <y>170</y>
      <width>1301</width>
      <height>971</height>
     </rect>
@@ -533,7 +533,7 @@ QPushButton:checked {
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>80</y>
+      <y>100</y>
       <width>351</width>
       <height>401</height>
      </rect>
@@ -1436,9 +1436,9 @@ QTableWidget QTableWidget::item:selected {
     <property name="geometry">
      <rect>
       <x>1220</x>
-      <y>7</y>
-      <width>71</width>
-      <height>51</height>
+      <y>17</y>
+      <width>51</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -1479,29 +1479,34 @@ QTableWidget QTableWidget::item:selected {
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <widget class="QLabel" name="title_label">
-      <property name="font">
-       <font>
-        <family>Roboto Black</family>
-        <pointsize>30</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: #F1F1F1</string>
-      </property>
-      <property name="text">
-       <string>Liste des sponsors</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+  </widget>
+  <widget class="QLabel" name="title_label">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>10</y>
+     <width>894</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Black</family>
+     <pointsize>30</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #F1F1F1</string>
+   </property>
+   <property name="text">
+    <string>Liste des sponsors</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
  </widget>
  <resources/>

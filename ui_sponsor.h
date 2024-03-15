@@ -158,7 +158,7 @@ public:
 ""));
         result_widget = new QWidget(Sponsor);
         result_widget->setObjectName(QStringLiteral("result_widget"));
-        result_widget->setGeometry(QRect(20, 110, 1301, 971));
+        result_widget->setGeometry(QRect(40, 110, 1301, 971));
         result_widget->setBaseSize(QSize(400, 400));
         add_btn = new QPushButton(result_widget);
         add_btn->setObjectName(QStringLiteral("add_btn"));
@@ -440,7 +440,7 @@ public:
         search_input->setGeometry(QRect(610, 31, 291, 21));
         pushButton_2 = new QPushButton(result_widget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(1220, 7, 71, 51));
+        pushButton_2->setGeometry(QRect(1220, 17, 51, 41));
         QIcon icon2;
         icon2.addFile(QStringLiteral("../../../Downloads/charte-de-croissance.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_2->setIcon(icon2);
@@ -465,8 +465,9 @@ public:
         frame_3->setFrameShadow(QFrame::Raised);
         horizontalLayout_2 = new QHBoxLayout(frame_3);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        title_label = new QLabel(frame_3);
+        title_label = new QLabel(Sponsor);
         title_label->setObjectName(QStringLiteral("title_label"));
+        title_label->setGeometry(QRect(320, 10, 894, 49));
         QFont font1;
         font1.setFamily(QStringLiteral("Roboto Black"));
         font1.setPointSize(30);
@@ -475,9 +476,6 @@ public:
         title_label->setFont(font1);
         title_label->setStyleSheet(QStringLiteral("color: #F1F1F1"));
         title_label->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_2->addWidget(title_label);
-
 
         retranslateUi(Sponsor);
 
