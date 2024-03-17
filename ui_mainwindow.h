@@ -112,8 +112,8 @@ public:
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         logo_label_1 = new QLabel(icon_only_widget);
         logo_label_1->setObjectName(QStringLiteral("logo_label_1"));
-        logo_label_1->setMinimumSize(QSize(50, 50));
-        logo_label_1->setMaximumSize(QSize(50, 50));
+        logo_label_1->setMinimumSize(QSize(60, 60));
+        logo_label_1->setMaximumSize(QSize(60, 60));
         logo_label_1->setPixmap(QPixmap(QString::fromUtf8("hhh.png")));
         logo_label_1->setScaledContents(true);
 
@@ -128,10 +128,9 @@ public:
         home_btn_1 = new QPushButton(icon_only_widget);
         home_btn_1->setObjectName(QStringLiteral("home_btn_1"));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/icon/icon/home-4-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon.addFile(QStringLiteral(":/icon/icon/home-4-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon.addFile(QStringLiteral("../../../Downloads/graph-bar.png"), QSize(), QIcon::Normal, QIcon::Off);
         home_btn_1->setIcon(icon);
-        home_btn_1->setIconSize(QSize(20, 20));
+        home_btn_1->setIconSize(QSize(40, 40));
         home_btn_1->setCheckable(true);
         home_btn_1->setAutoExclusive(true);
 
@@ -140,10 +139,9 @@ public:
         dashborad_btn_1 = new QPushButton(icon_only_widget);
         dashborad_btn_1->setObjectName(QStringLiteral("dashborad_btn_1"));
         QIcon icon1;
-        icon1.addFile(QStringLiteral(":/icon/icon/dashboard-5-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon1.addFile(QStringLiteral(":/icon/icon/dashboard-5-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon1.addFile(QStringLiteral("../../../Downloads/tv.png"), QSize(), QIcon::Normal, QIcon::Off);
         dashborad_btn_1->setIcon(icon1);
-        dashborad_btn_1->setIconSize(QSize(20, 20));
+        dashborad_btn_1->setIconSize(QSize(40, 40));
         dashborad_btn_1->setCheckable(true);
         dashborad_btn_1->setAutoExclusive(true);
 
@@ -152,10 +150,9 @@ public:
         orders_btn_1 = new QPushButton(icon_only_widget);
         orders_btn_1->setObjectName(QStringLiteral("orders_btn_1"));
         QIcon icon2;
-        icon2.addFile(QStringLiteral(":/icon/icon/activity-feed-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon2.addFile(QStringLiteral(":/icon/icon/activity-feed-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon2.addFile(QStringLiteral("../../../Downloads/studio-lighting.png"), QSize(), QIcon::Normal, QIcon::Off);
         orders_btn_1->setIcon(icon2);
-        orders_btn_1->setIconSize(QSize(20, 20));
+        orders_btn_1->setIconSize(QSize(40, 40));
         orders_btn_1->setCheckable(true);
         orders_btn_1->setAutoExclusive(true);
 
@@ -164,10 +161,9 @@ public:
         products_btn_1 = new QPushButton(icon_only_widget);
         products_btn_1->setObjectName(QStringLiteral("products_btn_1"));
         QIcon icon3;
-        icon3.addFile(QStringLiteral(":/icon/icon/product-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon3.addFile(QStringLiteral(":/icon/icon/product-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon3.addFile(QStringLiteral("../../../Downloads/clapperboard.png"), QSize(), QIcon::Normal, QIcon::Off);
         products_btn_1->setIcon(icon3);
-        products_btn_1->setIconSize(QSize(20, 20));
+        products_btn_1->setIconSize(QSize(40, 40));
         products_btn_1->setCheckable(true);
         products_btn_1->setAutoExclusive(true);
 
@@ -176,10 +172,9 @@ public:
         customers_btn_1 = new QPushButton(icon_only_widget);
         customers_btn_1->setObjectName(QStringLiteral("customers_btn_1"));
         QIcon icon4;
-        icon4.addFile(QStringLiteral(":/icon/icon/group-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon4.addFile(QStringLiteral(":/icon/icon/group-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon4.addFile(QStringLiteral("../../../Downloads/self-employed (1).png"), QSize(), QIcon::Normal, QIcon::Off);
         customers_btn_1->setIcon(icon4);
-        customers_btn_1->setIconSize(QSize(20, 20));
+        customers_btn_1->setIconSize(QSize(40, 40));
         customers_btn_1->setCheckable(true);
         customers_btn_1->setAutoExclusive(true);
 
@@ -187,8 +182,10 @@ public:
 
         customers_btn_3 = new QPushButton(icon_only_widget);
         customers_btn_3->setObjectName(QStringLiteral("customers_btn_3"));
-        customers_btn_3->setIcon(icon4);
-        customers_btn_3->setIconSize(QSize(20, 20));
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("../../../Downloads/tv-antenna (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        customers_btn_3->setIcon(icon5);
+        customers_btn_3->setIconSize(QSize(40, 40));
         customers_btn_3->setCheckable(true);
         customers_btn_3->setAutoExclusive(true);
 
@@ -203,10 +200,10 @@ public:
 
         exit_btn_1 = new QPushButton(icon_only_widget);
         exit_btn_1->setObjectName(QStringLiteral("exit_btn_1"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral(":/icon/icon/close-window-64.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        exit_btn_1->setIcon(icon5);
-        exit_btn_1->setIconSize(QSize(20, 20));
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/icon/icon/close-window-64.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        exit_btn_1->setIcon(icon6);
+        exit_btn_1->setIconSize(QSize(40, 40));
 
         gridLayout_10->addWidget(exit_btn_1, 3, 0, 1, 1);
 
@@ -222,8 +219,8 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         logo_label_2 = new QLabel(full_menu_widget);
         logo_label_2->setObjectName(QStringLiteral("logo_label_2"));
-        logo_label_2->setMinimumSize(QSize(40, 40));
-        logo_label_2->setMaximumSize(QSize(40, 40));
+        logo_label_2->setMinimumSize(QSize(50, 50));
+        logo_label_2->setMaximumSize(QSize(50, 50));
         logo_label_2->setPixmap(QPixmap(QString::fromUtf8("hhh.png")));
         logo_label_2->setScaledContents(true);
 
@@ -246,7 +243,7 @@ public:
         home_btn_2 = new QPushButton(full_menu_widget);
         home_btn_2->setObjectName(QStringLiteral("home_btn_2"));
         home_btn_2->setIcon(icon);
-        home_btn_2->setIconSize(QSize(14, 14));
+        home_btn_2->setIconSize(QSize(40, 40));
         home_btn_2->setCheckable(true);
         home_btn_2->setAutoExclusive(true);
 
@@ -255,7 +252,7 @@ public:
         dashborad_btn_2 = new QPushButton(full_menu_widget);
         dashborad_btn_2->setObjectName(QStringLiteral("dashborad_btn_2"));
         dashborad_btn_2->setIcon(icon1);
-        dashborad_btn_2->setIconSize(QSize(14, 14));
+        dashborad_btn_2->setIconSize(QSize(40, 40));
         dashborad_btn_2->setCheckable(true);
         dashborad_btn_2->setAutoExclusive(true);
 
@@ -264,7 +261,7 @@ public:
         orders_btn_2 = new QPushButton(full_menu_widget);
         orders_btn_2->setObjectName(QStringLiteral("orders_btn_2"));
         orders_btn_2->setIcon(icon2);
-        orders_btn_2->setIconSize(QSize(14, 14));
+        orders_btn_2->setIconSize(QSize(40, 40));
         orders_btn_2->setCheckable(true);
         orders_btn_2->setAutoExclusive(true);
 
@@ -273,7 +270,7 @@ public:
         products_btn_2 = new QPushButton(full_menu_widget);
         products_btn_2->setObjectName(QStringLiteral("products_btn_2"));
         products_btn_2->setIcon(icon3);
-        products_btn_2->setIconSize(QSize(14, 14));
+        products_btn_2->setIconSize(QSize(40, 40));
         products_btn_2->setCheckable(true);
         products_btn_2->setAutoExclusive(true);
 
@@ -282,7 +279,7 @@ public:
         customers_btn_2 = new QPushButton(full_menu_widget);
         customers_btn_2->setObjectName(QStringLiteral("customers_btn_2"));
         customers_btn_2->setIcon(icon4);
-        customers_btn_2->setIconSize(QSize(14, 14));
+        customers_btn_2->setIconSize(QSize(40, 40));
         customers_btn_2->setCheckable(true);
         customers_btn_2->setAutoExclusive(true);
 
@@ -290,8 +287,8 @@ public:
 
         customers_btn_4 = new QPushButton(full_menu_widget);
         customers_btn_4->setObjectName(QStringLiteral("customers_btn_4"));
-        customers_btn_4->setIcon(icon4);
-        customers_btn_4->setIconSize(QSize(14, 14));
+        customers_btn_4->setIcon(icon5);
+        customers_btn_4->setIconSize(QSize(40, 40));
         customers_btn_4->setCheckable(true);
         customers_btn_4->setAutoExclusive(true);
 
@@ -306,8 +303,8 @@ public:
 
         exit_btn_2 = new QPushButton(full_menu_widget);
         exit_btn_2->setObjectName(QStringLiteral("exit_btn_2"));
-        exit_btn_2->setIcon(icon5);
-        exit_btn_2->setIconSize(QSize(14, 14));
+        exit_btn_2->setIcon(icon6);
+        exit_btn_2->setIconSize(QSize(40, 40));
 
         gridLayout_9->addWidget(exit_btn_2, 3, 0, 1, 1);
 
@@ -329,10 +326,10 @@ public:
         horizontalLayout_4->setContentsMargins(0, 0, 9, 0);
         change_btn = new QPushButton(widget);
         change_btn->setObjectName(QStringLiteral("change_btn"));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral(":/icon/icon/menu-4-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        change_btn->setIcon(icon6);
-        change_btn->setIconSize(QSize(14, 14));
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/icon/icon/menu-4-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        change_btn->setIcon(icon7);
+        change_btn->setIconSize(QSize(30, 30));
         change_btn->setCheckable(true);
 
         horizontalLayout_4->addWidget(change_btn);
@@ -351,9 +348,9 @@ public:
 
         search_btn = new QPushButton(widget);
         search_btn->setObjectName(QStringLiteral("search_btn"));
-        QIcon icon7;
-        icon7.addFile(QStringLiteral(":/icon/icon/search-13-48.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        search_btn->setIcon(icon7);
+        QIcon icon8;
+        icon8.addFile(QStringLiteral(":/icon/icon/search-13-48.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        search_btn->setIcon(icon8);
 
         horizontalLayout->addWidget(search_btn);
 
@@ -366,9 +363,9 @@ public:
 
         user_btn = new QPushButton(widget);
         user_btn->setObjectName(QStringLiteral("user_btn"));
-        QIcon icon8;
-        icon8.addFile(QStringLiteral(":/icon/icon/user-48.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        user_btn->setIcon(icon8);
+        QIcon icon9;
+        icon9.addFile(QStringLiteral(":/icon/icon/user-48.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        user_btn->setIcon(icon9);
 
         horizontalLayout_4->addWidget(user_btn);
 

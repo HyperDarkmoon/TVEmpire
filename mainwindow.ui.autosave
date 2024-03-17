@@ -295,7 +295,7 @@
          <item>
           <widget class="QPushButton" name="home_btn_2">
            <property name="text">
-            <string>Home</string>
+            <string>statistiques</string>
            </property>
            <property name="icon">
             <iconset>

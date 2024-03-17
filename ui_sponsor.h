@@ -158,7 +158,7 @@ public:
 ""));
         result_widget = new QWidget(Sponsor);
         result_widget->setObjectName(QStringLiteral("result_widget"));
-        result_widget->setGeometry(QRect(40, 110, 1301, 971));
+        result_widget->setGeometry(QRect(60, 170, 1301, 971));
         result_widget->setBaseSize(QSize(400, 400));
         add_btn = new QPushButton(result_widget);
         add_btn->setObjectName(QStringLiteral("add_btn"));
@@ -169,7 +169,7 @@ public:
         add_btn->setIconSize(QSize(20, 20));
         label_5 = new QLabel(result_widget);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(0, 80, 351, 401));
+        label_5->setGeometry(QRect(0, 100, 351, 401));
         label_5->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black;\n"
