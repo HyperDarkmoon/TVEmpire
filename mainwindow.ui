@@ -74,7 +74,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/graph-bar.png</normaloff>../../../Downloads/graph-bar.png</iconset>
+             <normaloff>icon/graph-bar.png</normaloff>icon/graph-bar.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -97,7 +97,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/tv.png</normaloff>../../../Downloads/tv.png</iconset>
+             <normaloff>icon/tv.png</normaloff>icon/tv.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -120,7 +120,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/studio-lighting.png</normaloff>../../../Downloads/studio-lighting.png</iconset>
+             <normaloff>icon/studio-lighting.png</normaloff>icon/studio-lighting.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -143,7 +143,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/clapperboard.png</normaloff>../../../Downloads/clapperboard.png</iconset>
+             <normaloff>icon/clapperboard.png</normaloff>icon/clapperboard.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -166,7 +166,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/self-employed (1).png</normaloff>../../../Downloads/self-employed (1).png</iconset>
+             <normaloff>icon/self-employed (1).png</normaloff>icon/self-employed (1).png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -189,7 +189,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/tv-antenna (1).png</normaloff>../../../Downloads/tv-antenna (1).png</iconset>
+             <normaloff>icon/tv-antenna (1).png</normaloff>icon/tv-antenna (1).png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -299,7 +299,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/graph-bar.png</normaloff>../../../Downloads/graph-bar.png</iconset>
+             <normaloff>icon/graph-bar.png</normaloff>icon/graph-bar.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -322,7 +322,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/tv.png</normaloff>../../../Downloads/tv.png</iconset>
+             <normaloff>icon/tv.png</normaloff>icon/tv.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -345,7 +345,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/studio-lighting.png</normaloff>../../../Downloads/studio-lighting.png</iconset>
+             <normaloff>icon/studio-lighting.png</normaloff>icon/studio-lighting.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -368,7 +368,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/clapperboard.png</normaloff>../../../Downloads/clapperboard.png</iconset>
+             <normaloff>icon/clapperboard.png</normaloff>icon/clapperboard.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -391,7 +391,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/self-employed (1).png</normaloff>../../../Downloads/self-employed (1).png</iconset>
+             <normaloff>icon/self-employed (1).png</normaloff>icon/self-employed (1).png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -414,7 +414,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../../Downloads/tv-antenna (1).png</normaloff>../../../Downloads/tv-antenna (1).png</iconset>
+             <normaloff>icon/tv-antenna (1).png</normaloff>icon/tv-antenna (1).png</iconset>
            </property>
            <property name="iconSize">
             <size>
