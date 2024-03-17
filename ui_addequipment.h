@@ -42,11 +42,26 @@ public:
         addEquipment->setStyleSheet(QStringLiteral("background-color: rgb(47, 59, 82);"));
         labelE = new QLineEdit(addEquipment);
         labelE->setObjectName(QStringLiteral("labelE"));
-        labelE->setGeometry(QRect(220, 130, 113, 22));
-        labelE->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        labelE->setGeometry(QRect(220, 121, 113, 31));
+        labelE->setStyleSheet(QLatin1String("\n"
+"\n"
+"QLineEdit {\n"
+"\n"
+"   background-color: rgb(255, 255, 255);\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         label = new QLabel(addEquipment);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(70, 130, 111, 21));
+        label->setGeometry(QRect(70, 130, 51, 21));
         label->setStyleSheet(QStringLiteral("border-top-color: rgb(255, 255, 255);"));
         label_2 = new QLabel(addEquipment);
         label_2->setObjectName(QStringLiteral("label_2"));
@@ -60,19 +75,61 @@ public:
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         categoryE = new QLineEdit(addEquipment);
         categoryE->setObjectName(QStringLiteral("categoryE"));
-        categoryE->setGeometry(QRect(220, 190, 113, 22));
-        categoryE->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        categoryE->setGeometry(QRect(220, 181, 113, 31));
+        categoryE->setStyleSheet(QLatin1String("\n"
+"QLineEdit {\n"
+"\n"
+"   background-color: rgb(255, 255, 255);\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         stateE = new QLineEdit(addEquipment);
         stateE->setObjectName(QStringLiteral("stateE"));
-        stateE->setGeometry(QRect(220, 260, 113, 22));
-        stateE->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        stateE->setGeometry(QRect(220, 251, 113, 31));
+        stateE->setStyleSheet(QLatin1String("\n"
+"QLineEdit {\n"
+"\n"
+"   background-color: rgb(255, 255, 255);\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         stockE = new QLabel(addEquipment);
         stockE->setObjectName(QStringLiteral("stockE"));
         stockE->setGeometry(QRect(70, 330, 111, 21));
         stateE_2 = new QLineEdit(addEquipment);
         stateE_2->setObjectName(QStringLiteral("stateE_2"));
-        stateE_2->setGeometry(QRect(220, 330, 113, 22));
-        stateE_2->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        stateE_2->setGeometry(QRect(220, 321, 113, 31));
+        stateE_2->setStyleSheet(QLatin1String("\n"
+"QLineEdit {\n"
+"\n"
+"   background-color: rgb(255, 255, 255);\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
 
         retranslateUi(addEquipment);
 

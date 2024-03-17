@@ -185,7 +185,7 @@ public:
         label_6->setStyleSheet(QStringLiteral("background-color:rgba(0, 0, 0, 75);"));
         label_7 = new QLabel(widget);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(50, 90, 180, 40));
+        label_7->setGeometry(QRect(70, 120, 180, 40));
         QFont font4;
         font4.setPointSize(22);
         font4.setBold(true);

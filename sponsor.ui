@@ -532,8 +532,8 @@ QPushButton:checked {
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>100</y>
+      <x>70</x>
+      <y>90</y>
       <width>351</width>
       <height>401</height>
      </rect>
@@ -732,10 +732,10 @@ QTextEdit {
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>70</y>
-      <width>961</width>
-      <height>471</height>
+      <x>610</x>
+      <y>90</y>
+      <width>601</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="baseSize">
@@ -1449,6 +1449,35 @@ QTableWidget QTableWidget::item:selected {
       <normaloff>../../../Downloads/charte-de-croissance.png</normaloff>../../../Downloads/charte-de-croissance.png</iconset>
     </property>
    </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>90</y>
+      <width>47</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"> background-color: #ffffff;</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>260</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
    <zorder>label_5</zorder>
    <zorder>lineEdit_2</zorder>
    <zorder>label_4</zorder>
@@ -1463,6 +1492,8 @@ QTableWidget QTableWidget::item:selected {
    <zorder>search_input</zorder>
    <zorder>add_btn</zorder>
    <zorder>pushButton_2</zorder>
+   <zorder>label_6</zorder>
+   <zorder>pushButton_3</zorder>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
@@ -1510,5 +1541,38 @@ QTableWidget QTableWidget::item:selected {
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_6</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>550</x>
+     <y>438</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>510</x>
+     <y>380</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_5</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>549</x>
+     <y>430</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>326</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

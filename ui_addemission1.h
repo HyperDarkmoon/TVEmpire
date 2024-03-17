@@ -150,7 +150,19 @@ public:
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
-"}"));
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         pushButton_5 = new QPushButton(addEmission);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(570, 280, 150, 32));
@@ -164,13 +176,15 @@ public:
 "	background:#00855C;\n"
 "	border:none;\n"
 "	color:white;\n"
+" border-radius: 10px;\n"
 "}\n"
 "\n"
 "#pushButton_5:hover\n"
 "{\n"
-"	background:#2D2D2D;\n"
+" border-radius: 10px;\n"
+"	background:solid green;\n"
 "	border:2px solid #00855C;\n"
-"	color:#00855C;\n"
+"	color: solid white;\n"
 "}"));
         dob = new QDateEdit(addEmission);
         dob->setObjectName(QStringLiteral("dob"));
@@ -182,6 +196,8 @@ public:
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
+"   border-radius:5px;\n"
+"\n"
 "}"));
         dob->setCurrentSection(QDateTimeEdit::YearSection);
         id = new QLabel(addEmission);
@@ -198,7 +214,19 @@ public:
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
-"}"));
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         id_4 = new QLabel(addEmission);
         id_4->setObjectName(QStringLiteral("id_4"));
         id_4->setGeometry(QRect(10, 145, 141, 21));
@@ -211,6 +239,7 @@ public:
         pushButton_6->setFocusPolicy(Qt::TabFocus);
         pushButton_6->setStyleSheet(QLatin1String("#pushButton_6\n"
 "{\n"
+" border-radius: 10px;\n"
 "	background:#EC3245;\n"
 "	border:none;\n"
 "	color:white;\n"
@@ -218,9 +247,10 @@ public:
 "\n"
 "#pushButton_6:hover\n"
 "{\n"
-"	background:#2d2d2d;\n"
+" border-radius: 10px;\n"
+"	background:solid red;\n"
 "	border:2px solid #EC3245;\n"
-"	color:#EC3245;\n"
+"	color:solid white;\n"
 "}"));
         label_18 = new QLabel(addEmission);
         label_18->setObjectName(QStringLiteral("label_18"));

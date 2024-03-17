@@ -329,8 +329,8 @@ padding-bottom:7px;</string>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>90</y>
+      <x>70</x>
+      <y>120</y>
       <width>180</width>
       <height>40</height>
      </rect>

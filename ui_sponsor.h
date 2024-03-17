@@ -43,6 +43,8 @@ public:
     QPushButton *pushButton;
     QLineEdit *search_input;
     QPushButton *pushButton_2;
+    QLabel *label_6;
+    QPushButton *pushButton_3;
     QFrame *frame_3;
     QHBoxLayout *horizontalLayout_2;
     QLabel *title_label;
@@ -169,7 +171,7 @@ public:
         add_btn->setIconSize(QSize(20, 20));
         label_5 = new QLabel(result_widget);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(0, 100, 351, 401));
+        label_5->setGeometry(QRect(70, 90, 351, 401));
         label_5->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black;\n"
@@ -302,7 +304,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
         tableWidget->setVerticalHeaderItem(20, __qtablewidgetitem20);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(360, 70, 961, 471));
+        tableWidget->setGeometry(QRect(610, 90, 601, 371));
         tableWidget->setBaseSize(QSize(0, 0));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
@@ -444,6 +446,13 @@ public:
         QIcon icon2;
         icon2.addFile(QStringLiteral("../../../Downloads/charte-de-croissance.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_2->setIcon(icon2);
+        label_6 = new QLabel(result_widget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(370, 90, 47, 391));
+        label_6->setStyleSheet(QStringLiteral(" background-color: #ffffff;"));
+        pushButton_3 = new QPushButton(result_widget);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setGeometry(QRect(450, 260, 41, 31));
         label_5->raise();
         lineEdit_2->raise();
         label_4->raise();
@@ -458,6 +467,8 @@ public:
         search_input->raise();
         add_btn->raise();
         pushButton_2->raise();
+        label_6->raise();
+        pushButton_3->raise();
         frame_3 = new QFrame(Sponsor);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(10, 6, 914, 69));
@@ -478,6 +489,8 @@ public:
         title_label->setAlignment(Qt::AlignCenter);
 
         retranslateUi(Sponsor);
+        QObject::connect(pushButton_3, SIGNAL(toggled(bool)), label_6, SLOT(setVisible(bool)));
+        QObject::connect(pushButton_3, SIGNAL(toggled(bool)), label_5, SLOT(setHidden(bool)));
 
         QMetaObject::connectSlotsByName(Sponsor);
     } // setupUi
@@ -542,6 +555,8 @@ public:
         pushButton->setText(QString());
         search_input->setPlaceholderText(QApplication::translate("Sponsor", "Search...", Q_NULLPTR));
         pushButton_2->setText(QString());
+        label_6->setText(QApplication::translate("Sponsor", "TextLabel", Q_NULLPTR));
+        pushButton_3->setText(QApplication::translate("Sponsor", "PushButton", Q_NULLPTR));
         title_label->setText(QApplication::translate("Sponsor", "Liste des sponsors", Q_NULLPTR));
     } // retranslateUi
 

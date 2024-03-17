@@ -67,6 +67,7 @@ public:
         pushButton_6->setFocusPolicy(Qt::TabFocus);
         pushButton_6->setStyleSheet(QLatin1String("#pushButton_6\n"
 "{\n"
+" border-radius: 10px;\n"
 "	background:#EC3245;\n"
 "	border:none;\n"
 "	color:white;\n"
@@ -74,9 +75,10 @@ public:
 "\n"
 "#pushButton_6:hover\n"
 "{\n"
-"	background:#2d2d2d;\n"
+" border-radius: 10px;\n"
+"	background:solid red;\n"
 "	border:2px solid #EC3245;\n"
-"	color:#EC3245;\n"
+"	color:solid white;\n"
 "}"));
         id_2 = new QLabel(EmissionEdit);
         id_2->setObjectName(QStringLiteral("id_2"));
@@ -127,13 +129,15 @@ public:
 "	background:#00855C;\n"
 "	border:none;\n"
 "	color:white;\n"
+" border-radius: 10px;\n"
 "}\n"
 "\n"
 "#pushButton_5:hover\n"
 "{\n"
-"	background:#2D2D2D;\n"
+" border-radius: 10px;\n"
+"	background:solid green;\n"
 "	border:2px solid #00855C;\n"
-"	color:#00855C;\n"
+"	color: solid white;\n"
 "}"));
         dob = new QDateEdit(EmissionEdit);
         dob->setObjectName(QStringLiteral("dob"));

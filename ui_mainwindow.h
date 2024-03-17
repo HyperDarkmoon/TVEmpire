@@ -128,7 +128,7 @@ public:
         home_btn_1 = new QPushButton(icon_only_widget);
         home_btn_1->setObjectName(QStringLiteral("home_btn_1"));
         QIcon icon;
-        icon.addFile(QStringLiteral("../../../Downloads/graph-bar.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("icon/graph-bar.png"), QSize(), QIcon::Normal, QIcon::Off);
         home_btn_1->setIcon(icon);
         home_btn_1->setIconSize(QSize(40, 40));
         home_btn_1->setCheckable(true);
@@ -139,7 +139,7 @@ public:
         dashborad_btn_1 = new QPushButton(icon_only_widget);
         dashborad_btn_1->setObjectName(QStringLiteral("dashborad_btn_1"));
         QIcon icon1;
-        icon1.addFile(QStringLiteral("../../../Downloads/tv.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral("icon/tv.png"), QSize(), QIcon::Normal, QIcon::Off);
         dashborad_btn_1->setIcon(icon1);
         dashborad_btn_1->setIconSize(QSize(40, 40));
         dashborad_btn_1->setCheckable(true);
@@ -150,7 +150,7 @@ public:
         orders_btn_1 = new QPushButton(icon_only_widget);
         orders_btn_1->setObjectName(QStringLiteral("orders_btn_1"));
         QIcon icon2;
-        icon2.addFile(QStringLiteral("../../../Downloads/studio-lighting.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral("icon/studio-lighting.png"), QSize(), QIcon::Normal, QIcon::Off);
         orders_btn_1->setIcon(icon2);
         orders_btn_1->setIconSize(QSize(40, 40));
         orders_btn_1->setCheckable(true);
@@ -161,7 +161,7 @@ public:
         products_btn_1 = new QPushButton(icon_only_widget);
         products_btn_1->setObjectName(QStringLiteral("products_btn_1"));
         QIcon icon3;
-        icon3.addFile(QStringLiteral("../../../Downloads/clapperboard.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QStringLiteral("icon/clapperboard.png"), QSize(), QIcon::Normal, QIcon::Off);
         products_btn_1->setIcon(icon3);
         products_btn_1->setIconSize(QSize(40, 40));
         products_btn_1->setCheckable(true);
@@ -172,7 +172,7 @@ public:
         customers_btn_1 = new QPushButton(icon_only_widget);
         customers_btn_1->setObjectName(QStringLiteral("customers_btn_1"));
         QIcon icon4;
-        icon4.addFile(QStringLiteral("../../../Downloads/self-employed (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QStringLiteral("icon/self-employed (1).png"), QSize(), QIcon::Normal, QIcon::Off);
         customers_btn_1->setIcon(icon4);
         customers_btn_1->setIconSize(QSize(40, 40));
         customers_btn_1->setCheckable(true);
@@ -183,7 +183,7 @@ public:
         customers_btn_3 = new QPushButton(icon_only_widget);
         customers_btn_3->setObjectName(QStringLiteral("customers_btn_3"));
         QIcon icon5;
-        icon5.addFile(QStringLiteral("../../../Downloads/tv-antenna (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QStringLiteral("icon/tv-antenna (1).png"), QSize(), QIcon::Normal, QIcon::Off);
         customers_btn_3->setIcon(icon5);
         customers_btn_3->setIconSize(QSize(40, 40));
         customers_btn_3->setCheckable(true);
