@@ -14,13 +14,14 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QFrame>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,28 +29,31 @@ QT_BEGIN_NAMESPACE
 class Ui_Sponsor
 {
 public:
-    QFrame *frame_3;
-    QHBoxLayout *horizontalLayout_2;
     QLabel *title_label;
     QWidget *widget;
-    QLabel *label_6;
+    QHBoxLayout *horizontalLayout;
+    QWidget *widget1;
     QPushButton *pushButton_3;
+    QGridLayout *gridLayout;
+    QLabel *label_6;
     QWidget *widget_2;
+    QVBoxLayout *verticalLayout;
     QLabel *label_5;
     QLineEdit *lineEdit_2;
     QLabel *label_4;
     QLineEdit *lineEdit_3;
-    QLineEdit *lineEdit;
-    QComboBox *comboBox;
-    QPushButton *add_btn;
     QLabel *label;
+    QLineEdit *lineEdit;
     QLabel *label_2;
+    QComboBox *comboBox;
     QLabel *label_3;
+    QPushButton *add_btn;
     QWidget *result_widget;
-    QTableWidget *tableWidget;
-    QPushButton *pushButton;
+    QGridLayout *gridLayout_2;
     QLineEdit *search_input;
+    QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QTableWidget *tableWidget;
 
     void setupUi(QWidget *Sponsor)
     {
@@ -160,13 +164,6 @@ public:
 "    border: none; /* Remove the border if needed */\n"
 "}\n"
 ""));
-        frame_3 = new QFrame(Sponsor);
-        frame_3->setObjectName(QStringLiteral("frame_3"));
-        frame_3->setGeometry(QRect(10, 6, 914, 69));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
-        horizontalLayout_2 = new QHBoxLayout(frame_3);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         title_label = new QLabel(Sponsor);
         title_label->setObjectName(QStringLiteral("title_label"));
         title_label->setGeometry(QRect(320, 10, 894, 49));
@@ -180,11 +177,21 @@ public:
         title_label->setAlignment(Qt::AlignCenter);
         widget = new QWidget(Sponsor);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 170, 61, 441));
-        widget->setStyleSheet(QStringLiteral("background-color:#fffff;"));
-        label_6 = new QLabel(widget);
+        widget->setGeometry(QRect(10, 110, 1271, 401));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        widget1 = new QWidget(widget);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setStyleSheet(QStringLiteral("background-color:#fffff;"));
+        pushButton_3 = new QPushButton(widget1);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setGeometry(QRect(10, 180, 41, 31));
+        pushButton_3->setCheckable(true);
+        gridLayout = new QGridLayout(widget1);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        label_6 = new QLabel(widget1);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(10, 10, 47, 431));
         label_6->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black;\n"
@@ -193,15 +200,18 @@ public:
 "    color: black;\n"
 "}\n"
 ""));
-        pushButton_3 = new QPushButton(widget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(10, 180, 41, 31));
-        widget_2 = new QWidget(Sponsor);
+
+        gridLayout->addWidget(label_6, 0, 0, 1, 1);
+
+
+        horizontalLayout->addWidget(widget1);
+
+        widget_2 = new QWidget(widget);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(70, 130, 381, 551));
+        verticalLayout = new QVBoxLayout(widget_2);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label_5 = new QLabel(widget_2);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(10, 50, 351, 431));
         label_5->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black;\n"
@@ -210,9 +220,11 @@ public:
 "    color: black;\n"
 "}\n"
 ""));
+
+        verticalLayout->addWidget(label_5);
+
         lineEdit_2 = new QLineEdit(widget_2);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(140, 90, 171, 41));
         lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
@@ -225,14 +237,18 @@ public:
 "    padding: 1.5px;\n"
 "}\n"
 ""));
+
+        verticalLayout->addWidget(lineEdit_2);
+
         label_4 = new QLabel(widget_2);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(60, 90, 31, 49));
         label_4->setStyleSheet(QLatin1String("color: black\n"
 ""));
+
+        verticalLayout->addWidget(label_4);
+
         lineEdit_3 = new QLineEdit(widget_2);
         lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(140, 170, 171, 41));
         lineEdit_3->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
@@ -245,9 +261,18 @@ public:
 "    padding: 1.5px;\n"
 "}\n"
 ""));
+
+        verticalLayout->addWidget(lineEdit_3);
+
+        label = new QLabel(widget_2);
+        label->setObjectName(QStringLiteral("label"));
+        label->setStyleSheet(QLatin1String("color: black\n"
+""));
+
+        verticalLayout->addWidget(label);
+
         lineEdit = new QLineEdit(widget_2);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(140, 260, 171, 41));
         lineEdit->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
@@ -260,9 +285,17 @@ public:
 "    padding: 1.5px;\n"
 "}\n"
 ""));
+
+        verticalLayout->addWidget(lineEdit);
+
+        label_2 = new QLabel(widget_2);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setStyleSheet(QStringLiteral("color: black"));
+
+        verticalLayout->addWidget(label_2);
+
         comboBox = new QComboBox(widget_2);
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(140, 350, 171, 31));
         comboBox->setStyleSheet(QLatin1String("QcomboBox {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
@@ -275,30 +308,54 @@ public:
 "    padding: 1.5px;\n"
 "}\n"
 ""));
+
+        verticalLayout->addWidget(comboBox);
+
+        label_3 = new QLabel(widget_2);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setStyleSheet(QStringLiteral("color: black"));
+
+        verticalLayout->addWidget(label_3);
+
         add_btn = new QPushButton(widget_2);
         add_btn->setObjectName(QStringLiteral("add_btn"));
-        add_btn->setGeometry(QRect(110, 430, 171, 41));
         QIcon icon;
         icon.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
         add_btn->setIcon(icon);
         add_btn->setIconSize(QSize(20, 20));
-        label = new QLabel(widget_2);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(50, 180, 61, 20));
-        label->setStyleSheet(QLatin1String("color: black\n"
-""));
-        label_2 = new QLabel(widget_2);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(60, 270, 60, 17));
-        label_2->setStyleSheet(QStringLiteral("color: black"));
-        label_3 = new QLabel(widget_2);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(50, 350, 81, 31));
-        label_3->setStyleSheet(QStringLiteral("color: black"));
-        result_widget = new QWidget(Sponsor);
+
+        verticalLayout->addWidget(add_btn);
+
+
+        horizontalLayout->addWidget(widget_2);
+
+        result_widget = new QWidget(widget);
         result_widget->setObjectName(QStringLiteral("result_widget"));
-        result_widget->setGeometry(QRect(540, 40, 851, 591));
         result_widget->setBaseSize(QSize(400, 400));
+        gridLayout_2 = new QGridLayout(result_widget);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        search_input = new QLineEdit(result_widget);
+        search_input->setObjectName(QStringLiteral("search_input"));
+
+        gridLayout_2->addWidget(search_input, 0, 0, 1, 1);
+
+        pushButton = new QPushButton(result_widget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("../../../Downloads/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon1);
+        pushButton->setIconSize(QSize(40, 40));
+
+        gridLayout_2->addWidget(pushButton, 1, 1, 1, 1);
+
+        pushButton_2 = new QPushButton(result_widget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("../../../Downloads/charte-de-croissance.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon2);
+
+        gridLayout_2->addWidget(pushButton_2, 1, 2, 1, 1);
+
         tableWidget = new QTableWidget(result_widget);
         if (tableWidget->rowCount() < 21)
             tableWidget->setRowCount(21);
@@ -345,7 +402,6 @@ public:
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
         tableWidget->setVerticalHeaderItem(20, __qtablewidgetitem20);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(60, 160, 761, 371));
         tableWidget->setBaseSize(QSize(0, 0));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
@@ -471,26 +527,15 @@ public:
         tableWidget->verticalHeader()->setHighlightSections(false);
         tableWidget->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
         tableWidget->verticalHeader()->setStretchLastSection(false);
-        pushButton = new QPushButton(result_widget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(590, 110, 51, 41));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral("../../../Downloads/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon1);
-        pushButton->setIconSize(QSize(40, 40));
-        search_input = new QLineEdit(result_widget);
-        search_input->setObjectName(QStringLiteral("search_input"));
-        search_input->setGeometry(QRect(260, 80, 291, 21));
-        pushButton_2 = new QPushButton(result_widget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(650, 110, 51, 41));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral("../../../Downloads/charte-de-croissance.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon2);
+
+        gridLayout_2->addWidget(tableWidget, 2, 0, 1, 3);
+
+
+        horizontalLayout->addWidget(result_widget);
+
 
         retranslateUi(Sponsor);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
-        QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget, SLOT(setHidden(bool)));
 
         QMetaObject::connectSlotsByName(Sponsor);
     } // setupUi
@@ -499,20 +544,23 @@ public:
     {
         Sponsor->setWindowTitle(QApplication::translate("Sponsor", "Form", Q_NULLPTR));
         title_label->setText(QApplication::translate("Sponsor", "Liste des sponsors", Q_NULLPTR));
-        label_6->setText(QString());
         pushButton_3->setText(QApplication::translate("Sponsor", "PushButton", Q_NULLPTR));
+        label_6->setText(QString());
         label_5->setText(QString());
         label_4->setText(QApplication::translate("Sponsor", "Nom", Q_NULLPTR));
+        label->setText(QApplication::translate("Sponsor", "telephone", Q_NULLPTR));
+        label_2->setText(QApplication::translate("Sponsor", "email", Q_NULLPTR));
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
          << QApplication::translate("Sponsor", "test1", Q_NULLPTR)
          << QApplication::translate("Sponsor", "test2", Q_NULLPTR)
          << QApplication::translate("Sponsor", "test3", Q_NULLPTR)
         );
-        add_btn->setText(QApplication::translate("Sponsor", "Add", Q_NULLPTR));
-        label->setText(QApplication::translate("Sponsor", "telephone", Q_NULLPTR));
-        label_2->setText(QApplication::translate("Sponsor", "email", Q_NULLPTR));
         label_3->setText(QApplication::translate("Sponsor", "categories", Q_NULLPTR));
+        add_btn->setText(QApplication::translate("Sponsor", "Add", Q_NULLPTR));
+        search_input->setPlaceholderText(QApplication::translate("Sponsor", "Search...", Q_NULLPTR));
+        pushButton->setText(QString());
+        pushButton_2->setText(QString());
         QTableWidgetItem *___qtablewidgetitem = tableWidget->verticalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("Sponsor", "1", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->verticalHeaderItem(1);
@@ -555,9 +603,6 @@ public:
         ___qtablewidgetitem19->setText(QApplication::translate("Sponsor", "New Row", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem20 = tableWidget->verticalHeaderItem(20);
         ___qtablewidgetitem20->setText(QApplication::translate("Sponsor", "2", Q_NULLPTR));
-        pushButton->setText(QString());
-        search_input->setPlaceholderText(QApplication::translate("Sponsor", "Search...", Q_NULLPTR));
-        pushButton_2->setText(QString());
     } // retranslateUi
 
 };

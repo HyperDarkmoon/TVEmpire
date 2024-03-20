@@ -33,6 +33,7 @@ public:
     QLabel *tempLabel;
     QLabel *tempLabel_2;
     QPushButton *pdfButton_2;
+    QPushButton *playVideoButton;
 
     void setupUi(QWidget *Emission)
     {
@@ -334,7 +335,7 @@ public:
         pdfButton->setIconSize(QSize(20, 20));
         searchBar = new QLineEdit(employeeContainer);
         searchBar->setObjectName(QStringLiteral("searchBar"));
-        searchBar->setGeometry(QRect(450, 40, 421, 21));
+        searchBar->setGeometry(QRect(830, 10, 113, 21));
         searchBar->setStyleSheet(QStringLiteral("background:#fff"));
         tempLabel = new QLabel(employeeContainer);
         tempLabel->setObjectName(QStringLiteral("tempLabel"));
@@ -343,12 +344,12 @@ public:
 ""));
         tempLabel_2 = new QLabel(employeeContainer);
         tempLabel_2->setObjectName(QStringLiteral("tempLabel_2"));
-        tempLabel_2->setGeometry(QRect(390, 40, 51, 21));
+        tempLabel_2->setGeometry(QRect(770, 10, 51, 21));
         tempLabel_2->setStyleSheet(QLatin1String("color:#FFF\n"
 ""));
         pdfButton_2 = new QPushButton(employeeContainer);
         pdfButton_2->setObjectName(QStringLiteral("pdfButton_2"));
-        pdfButton_2->setGeometry(QRect(20, 310, 161, 71));
+        pdfButton_2->setGeometry(QRect(10, 310, 161, 71));
         QPalette palette3;
         palette3.setBrush(QPalette::Active, QPalette::WindowText, brush1);
         palette3.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -409,6 +410,69 @@ public:
         pdfButton_2->setStyleSheet(QStringLiteral("background : #F1F1F1;"));
         pdfButton_2->setIcon(icon);
         pdfButton_2->setIconSize(QSize(20, 20));
+        playVideoButton = new QPushButton(employeeContainer);
+        playVideoButton->setObjectName(QStringLiteral("playVideoButton"));
+        playVideoButton->setGeometry(QRect(530, 20, 161, 71));
+        QPalette palette4;
+        palette4.setBrush(QPalette::Active, QPalette::WindowText, brush1);
+        palette4.setBrush(QPalette::Active, QPalette::Button, brush);
+        palette4.setBrush(QPalette::Active, QPalette::Light, brush2);
+        palette4.setBrush(QPalette::Active, QPalette::Midlight, brush2);
+        palette4.setBrush(QPalette::Active, QPalette::Dark, brush3);
+        palette4.setBrush(QPalette::Active, QPalette::Mid, brush4);
+        palette4.setBrush(QPalette::Active, QPalette::Text, brush1);
+        palette4.setBrush(QPalette::Active, QPalette::BrightText, brush2);
+        palette4.setBrush(QPalette::Active, QPalette::ButtonText, brush1);
+        palette4.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette4.setBrush(QPalette::Active, QPalette::Window, brush);
+        palette4.setBrush(QPalette::Active, QPalette::Shadow, brush1);
+        palette4.setBrush(QPalette::Active, QPalette::AlternateBase, brush2);
+        palette4.setBrush(QPalette::Active, QPalette::ToolTipBase, brush5);
+        palette4.setBrush(QPalette::Active, QPalette::ToolTipText, brush1);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette4.setBrush(QPalette::Active, QPalette::PlaceholderText, brush6);
+#endif
+        palette4.setBrush(QPalette::Inactive, QPalette::WindowText, brush1);
+        palette4.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette4.setBrush(QPalette::Inactive, QPalette::Light, brush2);
+        palette4.setBrush(QPalette::Inactive, QPalette::Midlight, brush2);
+        palette4.setBrush(QPalette::Inactive, QPalette::Dark, brush3);
+        palette4.setBrush(QPalette::Inactive, QPalette::Mid, brush4);
+        palette4.setBrush(QPalette::Inactive, QPalette::Text, brush1);
+        palette4.setBrush(QPalette::Inactive, QPalette::BrightText, brush2);
+        palette4.setBrush(QPalette::Inactive, QPalette::ButtonText, brush1);
+        palette4.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette4.setBrush(QPalette::Inactive, QPalette::Window, brush);
+        palette4.setBrush(QPalette::Inactive, QPalette::Shadow, brush1);
+        palette4.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush2);
+        palette4.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush5);
+        palette4.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush1);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette4.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush6);
+#endif
+        palette4.setBrush(QPalette::Disabled, QPalette::WindowText, brush3);
+        palette4.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        palette4.setBrush(QPalette::Disabled, QPalette::Light, brush2);
+        palette4.setBrush(QPalette::Disabled, QPalette::Midlight, brush2);
+        palette4.setBrush(QPalette::Disabled, QPalette::Dark, brush3);
+        palette4.setBrush(QPalette::Disabled, QPalette::Mid, brush4);
+        palette4.setBrush(QPalette::Disabled, QPalette::Text, brush3);
+        palette4.setBrush(QPalette::Disabled, QPalette::BrightText, brush2);
+        palette4.setBrush(QPalette::Disabled, QPalette::ButtonText, brush3);
+        palette4.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette4.setBrush(QPalette::Disabled, QPalette::Window, brush);
+        palette4.setBrush(QPalette::Disabled, QPalette::Shadow, brush1);
+        palette4.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush2);
+        palette4.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush5);
+        palette4.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush1);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette4.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush6);
+#endif
+        playVideoButton->setPalette(palette4);
+        playVideoButton->setAutoFillBackground(false);
+        playVideoButton->setStyleSheet(QStringLiteral("background : #F1F1F1;"));
+        playVideoButton->setIcon(icon);
+        playVideoButton->setIconSize(QSize(20, 20));
 
         retranslateUi(Emission);
 
@@ -433,6 +497,7 @@ public:
         tempLabel->setText(QString());
         tempLabel_2->setText(QApplication::translate("Emission", "SEARCH", Q_NULLPTR));
         pdfButton_2->setText(QApplication::translate("Emission", "GET CHARTS", Q_NULLPTR));
+        playVideoButton->setText(QApplication::translate("Emission", "playVideo", Q_NULLPTR));
     } // retranslateUi
 
 };
