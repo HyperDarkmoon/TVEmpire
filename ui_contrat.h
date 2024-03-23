@@ -30,7 +30,7 @@ public:
     {
         if (contrat->objectName().isEmpty())
             contrat->setObjectName(QStringLiteral("contrat"));
-        contrat->resize(786, 422);
+        contrat->resize(999, 540);
         label = new QLabel(contrat);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(190, 10, 431, 41));
