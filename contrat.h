@@ -1,4 +1,4 @@
-#ifndef CONTRAT_H
+/*#ifndef CONTRAT_H
 #define CONTRAT_H
 
 #include <QWidget>
@@ -67,10 +67,10 @@ private slots:
     void onContratButtonClicked(int row);
     void on_comboBox_2_activated(const QString &arg1);
     void on_label_6_linkActivated(const QString &link);
-    void on_pushButton_2_clicked();*/
+    void on_pushButton_2_clicked();
 
 private:
     Ui::Contrat *ui;
 };
 
-#endif // CONTRAT_H
+#endif */ // CONTRAT_H

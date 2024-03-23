@@ -459,7 +459,7 @@ public:
         QObject::connect(exit_btn_2, SIGNAL(clicked()), MainWindow, SLOT(close()));
         QObject::connect(exit_btn_1, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

@@ -1,4 +1,4 @@
-#include "contrat.h"
+/*#include "contrat.h"
 #include "ui_contrat.h"
 #include <QTableWidgetItem>
 #include <QDebug>
@@ -280,5 +280,5 @@ QVariant Contrat::getFieldByIndex(int index) const {
         default:
             return QVariant();
     }
-}
+}*/
 

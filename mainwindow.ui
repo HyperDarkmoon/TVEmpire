@@ -595,7 +595,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -716,8 +716,8 @@
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>197</x>
-     <y>23</y>
+     <x>274</x>
+     <y>24</y>
     </hint>
     <hint type="destinationlabel">
      <x>50</x>
@@ -732,8 +732,8 @@
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>188</x>
-     <y>25</y>
+     <x>274</x>
+     <y>26</y>
     </hint>
     <hint type="destinationlabel">
      <x>173</x>
@@ -748,12 +748,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>27</x>
-     <y>69</y>
+     <x>37</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
-     <x>72</x>
-     <y>76</y>
+     <x>162</x>
+     <y>115</y>
     </hint>
    </hints>
   </connection>
@@ -764,12 +764,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>33</x>
-     <y>100</y>
+     <x>43</x>
+     <y>173</y>
     </hint>
     <hint type="destinationlabel">
-     <x>67</x>
-     <y>99</y>
+     <x>157</x>
+     <y>163</y>
     </hint>
    </hints>
   </connection>
@@ -780,12 +780,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>33</x>
-     <y>123</y>
+     <x>43</x>
+     <y>221</y>
     </hint>
     <hint type="destinationlabel">
-     <x>69</x>
-     <y>125</y>
+     <x>159</x>
+     <y>211</y>
     </hint>
    </hints>
   </connection>
@@ -796,12 +796,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>24</x>
-     <y>148</y>
+     <x>34</x>
+     <y>269</y>
     </hint>
     <hint type="destinationlabel">
-     <x>72</x>
-     <y>148</y>
+     <x>162</x>
+     <y>259</y>
     </hint>
    </hints>
   </connection>
@@ -812,12 +812,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>33</x>
-     <y>177</y>
+     <x>43</x>
+     <y>317</y>
     </hint>
     <hint type="destinationlabel">
-     <x>67</x>
-     <y>172</y>
+     <x>157</x>
+     <y>307</y>
     </hint>
    </hints>
   </connection>
@@ -828,12 +828,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>70</x>
-     <y>63</y>
+     <x>160</x>
+     <y>115</y>
     </hint>
     <hint type="destinationlabel">
-     <x>41</x>
-     <y>60</y>
+     <x>51</x>
+     <y>125</y>
     </hint>
    </hints>
   </connection>
@@ -844,12 +844,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>160</x>
-     <y>99</y>
+     <x>222</x>
+     <y>163</y>
     </hint>
     <hint type="destinationlabel">
-     <x>26</x>
-     <y>90</y>
+     <x>36</x>
+     <y>173</y>
     </hint>
    </hints>
   </connection>
@@ -860,12 +860,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>143</x>
-     <y>112</y>
+     <x>222</x>
+     <y>211</y>
     </hint>
     <hint type="destinationlabel">
-     <x>39</x>
-     <y>114</y>
+     <x>49</x>
+     <y>221</y>
     </hint>
    </hints>
   </connection>
@@ -876,12 +876,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>162</x>
-     <y>142</y>
+     <x>222</x>
+     <y>259</y>
     </hint>
     <hint type="destinationlabel">
-     <x>43</x>
-     <y>144</y>
+     <x>53</x>
+     <y>269</y>
     </hint>
    </hints>
   </connection>
@@ -892,12 +892,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>162</x>
-     <y>163</y>
+     <x>222</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
-     <x>39</x>
-     <y>184</y>
+     <x>49</x>
+     <y>317</y>
     </hint>
    </hints>
   </connection>
@@ -908,8 +908,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>126</x>
-     <y>584</y>
+     <x>215</x>
+     <y>744</y>
     </hint>
     <hint type="destinationlabel">
      <x>284</x>
@@ -924,8 +924,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>34</x>
-     <y>592</y>
+     <x>43</x>
+     <y>744</y>
     </hint>
     <hint type="destinationlabel">
      <x>47</x>
