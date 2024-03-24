@@ -11,6 +11,7 @@ Employee::Employee(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshTable();
+    connect(employeeDialog, &addEmployee::buttonClicked, this, &Employee::onAddEmployeeDialogClosed);
     connect(ui->search_input, &QLineEdit::textChanged, this, &Employee::filterTable);
 }
 
@@ -42,6 +43,10 @@ void Employee::onEditButtonClicked(int row)
      } else {
          qDebug() << "Unable to get emission ID from the selected row.";
      }
+}
+
+void Employee::onAddEmployeeDialogClosed() {
+    refreshTable();
 }
 
 void Employee::refreshTable()

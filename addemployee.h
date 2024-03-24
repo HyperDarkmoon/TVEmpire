@@ -23,6 +23,9 @@ private slots:
 private:
     Ui::addEmployee *ui;
     addEmployee *Addemployee;
+
+signals:
+    void buttonClicked();
 };
 
 #endif // ADDEMPLOYEE_H

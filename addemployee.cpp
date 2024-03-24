@@ -79,6 +79,7 @@ void addEmployee::on_pushButton_5_clicked()
     qDebug() << check;
 
     if (check) {
+        emit buttonClicked();
         this->close();
     } else {
         // Show an error dialog

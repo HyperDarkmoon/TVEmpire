@@ -19,7 +19,7 @@ public:
     ~Employee();
     void refreshTable();
     void filterTable(const QString &text);
-   
+    void onAddEmployeeDialogClosed();
 
 private slots:
     void on_add_btn_2_clicked();
