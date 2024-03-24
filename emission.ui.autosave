@@ -118,9 +118,9 @@ QTableWidget::Item{
    <widget class="QTableWidget" name="tableWidget_2">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>340</x>
       <y>160</y>
-      <width>661</width>
+      <width>791</width>
       <height>371</height>
      </rect>
     </property>
@@ -2739,19 +2739,6 @@ QTextEdit {
     <zorder>label_6</zorder>
     <zorder>pushButton_3</zorder>
    </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>960</x>
-      <y>30</y>
-      <width>201</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <zorder>widget</zorder>
    <zorder>label</zorder>
    <zorder>tableWidget_2</zorder>
@@ -2762,7 +2749,6 @@ QTextEdit {
    <zorder>playVideoButton</zorder>
    <zorder>label_8</zorder>
    <zorder>widget_2</zorder>
-   <zorder>label_13</zorder>
   </widget>
  </widget>
  <resources/>

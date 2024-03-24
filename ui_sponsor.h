@@ -231,7 +231,7 @@ public:
         label_8->setAlignment(Qt::AlignCenter);
         result_widget = new QWidget(Sponsor);
         result_widget->setObjectName(QStringLiteral("result_widget"));
-        result_widget->setGeometry(QRect(270, 130, 1081, 431));
+        result_widget->setGeometry(QRect(270, 170, 1081, 391));
         result_widget->setBaseSize(QSize(400, 400));
         tableWidget = new QTableWidget(result_widget);
         if (tableWidget->rowCount() < 21)
@@ -279,7 +279,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
         tableWidget->setVerticalHeaderItem(20, __qtablewidgetitem20);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(30, 40, 971, 371));
+        tableWidget->setGeometry(QRect(20, 0, 971, 371));
         tableWidget->setBaseSize(QSize(0, 0));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);

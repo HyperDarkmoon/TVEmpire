@@ -648,9 +648,9 @@ QLineEdit:focus {
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>130</y>
+     <y>170</y>
      <width>1081</width>
-     <height>431</height>
+     <height>391</height>
     </rect>
    </property>
    <property name="baseSize">
@@ -662,8 +662,8 @@ QLineEdit:focus {
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>40</y>
+      <x>20</x>
+      <y>0</y>
       <width>971</width>
       <height>371</height>
      </rect>
