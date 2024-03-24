@@ -83,11 +83,20 @@ border-top-left-radius: 50px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgba(0, 0, 0, 80);
-border-top-left-radius: 50px;</string>
+     <string notr="true">
+QLabel#label_2 {
+        background-color: rgba(0, 0, 0, 80);
+        border-top-left-radius: 50px;
+    }</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../../Downloads/1338579.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -145,11 +154,15 @@ border-bottom-right-radius: 50px;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgba(0, 0, 0, 0);
+     <string notr="true">QLineEdit {background-color:rgba(0, 0, 0, 0);
 border:none;
-border-bottom:2px solid rgba(46, 82, 101, 200);
+border-bottom:2px solid rgba(46, 82, 101, 200) ;
 color:rgba(0, 0, 0, 240);
-padding-bottom:7px;</string>
+padding-bottom:7px;
+}
+QLineEdit:hover {
+      border-bottom-color: #242E42;
+    }</string>
     </property>
     <property name="placeholderText">
      <string>  User Name</string>
@@ -170,11 +183,15 @@ padding-bottom:7px;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgba(0, 0, 0, 0);
+     <string notr="true">QLineEdit {background-color:rgba(0, 0, 0, 0);
 border:none;
-border-bottom:2px solid rgba(46, 82, 101, 200);
+border-bottom:2px solid rgba(46, 82, 101, 200) ;
 color:rgba(0, 0, 0, 240);
-padding-bottom:7px;</string>
+padding-bottom:7px;
+}
+QLineEdit:hover {
+      border-bottom-color: #242E42;
+    }</string>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
@@ -198,6 +215,17 @@ padding-bottom:7px;</string>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        background: rgb(36, 46, 66);  
+       background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(36, 46, 66, 1), stop:0.93 rgba(224, 224, 225, 1));
+    }
+
+QPushButton:hover {
+      background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.17 rgba(235, 241, 244, 1), stop:0.61 rgba(224, 224, 225, 1));
+ color: black;
+    }</string>
     </property>
     <property name="text">
      <string>L o g  I n</string>
@@ -314,7 +342,7 @@ padding-bottom:7px;</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>80</y>
+      <y>110</y>
       <width>230</width>
       <height>130</height>
      </rect>
@@ -329,8 +357,8 @@ padding-bottom:7px;</string>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>90</y>
+      <x>60</x>
+      <y>150</y>
       <width>180</width>
       <height>40</height>
      </rect>

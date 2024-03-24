@@ -39,7 +39,7 @@ public:
     {
         if (Emission->objectName().isEmpty())
             Emission->setObjectName(QStringLiteral("Emission"));
-        Emission->resize(972, 560);
+        Emission->resize(1310, 730);
         Emission->setStyleSheet(QLatin1String("#info_frame {\n"
 "	background-color: #fff;\n"
 "	border: none;\n"
@@ -125,7 +125,7 @@ public:
 ""));
         employeeContainer = new QWidget(Emission);
         employeeContainer->setObjectName(QStringLiteral("employeeContainer"));
-        employeeContainer->setGeometry(QRect(0, 0, 971, 561));
+        employeeContainer->setGeometry(QRect(0, 0, 1311, 731));
         employeeContainer->setAutoFillBackground(false);
         employeeContainer->setStyleSheet(QLatin1String("\n"
 "	background:#2F3B52;\n"
@@ -151,7 +151,7 @@ public:
         if (tableWidget_2->rowCount() < 20)
             tableWidget_2->setRowCount(20);
         tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
-        tableWidget_2->setGeometry(QRect(10, 110, 951, 431));
+        tableWidget_2->setGeometry(QRect(330, 170, 951, 431));
         QPalette palette;
         QBrush brush(QColor(241, 241, 241, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -195,7 +195,7 @@ public:
         tableWidget_2->verticalHeader()->setStretchLastSection(false);
         add_btn_2 = new QPushButton(employeeContainer);
         add_btn_2->setObjectName(QStringLiteral("add_btn_2"));
-        add_btn_2->setGeometry(QRect(10, 20, 161, 71));
+        add_btn_2->setGeometry(QRect(20, 150, 161, 71));
         QPalette palette1;
         QBrush brush1(QColor(0, 0, 0, 255));
         brush1.setStyle(Qt::SolidPattern);
@@ -272,7 +272,7 @@ public:
         add_btn_2->setIconSize(QSize(20, 20));
         pdfButton = new QPushButton(employeeContainer);
         pdfButton->setObjectName(QStringLiteral("pdfButton"));
-        pdfButton->setGeometry(QRect(190, 20, 161, 71));
+        pdfButton->setGeometry(QRect(20, 230, 161, 71));
         QPalette palette2;
         palette2.setBrush(QPalette::Active, QPalette::WindowText, brush1);
         palette2.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -349,7 +349,7 @@ public:
 ""));
         pdfButton_2 = new QPushButton(employeeContainer);
         pdfButton_2->setObjectName(QStringLiteral("pdfButton_2"));
-        pdfButton_2->setGeometry(QRect(360, 20, 161, 71));
+        pdfButton_2->setGeometry(QRect(10, 310, 161, 71));
         QPalette palette3;
         palette3.setBrush(QPalette::Active, QPalette::WindowText, brush1);
         palette3.setBrush(QPalette::Active, QPalette::Button, brush);

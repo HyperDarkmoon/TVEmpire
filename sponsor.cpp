@@ -203,6 +203,12 @@ void Sponsor::refreshTable() {
         });
         ui->tableWidget->setCellWidget(row, headers.size() - 3, deleteButton);
 
+        // Style for delete button
+
+
+
+
+
         // Edit button
         QToolButton *editButton = new QToolButton(this);
         editButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/update.png"));
@@ -211,6 +217,8 @@ void Sponsor::refreshTable() {
         });
         ui->tableWidget->setCellWidget(row, headers.size() - 2, editButton);
 
+        // Style for edit button (you can customize it similarly to the delete button)
+
         // Contrat button
         QToolButton *contratButton = new QToolButton(this);
         contratButton->setIcon(QIcon("path/to/contrat/icon.png"));  // Update with the actual path to your contrat icon
@@ -218,6 +226,8 @@ void Sponsor::refreshTable() {
             onContratButtonClicked(row);
         });
         ui->tableWidget->setCellWidget(row, headers.size() - 1, contratButton);
+
+        // Style for contrat button (you can customize it similarly to the delete button)
 
         // Make cells non-editable
         int columnIndex = 0;

@@ -22,7 +22,6 @@ INPUT(
 ./release\qrc_resource.o
 ./release\moc_addemission.o
 ./release\moc_addemployee.o
-./release\moc_contrat.o
 ./release\moc_emission.o
 ./release\moc_emissionedit.o
 ./release\moc_employee.o

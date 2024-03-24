@@ -207,7 +207,19 @@ public:
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
-"}"));
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         id_4 = new QLabel(addEmployee);
         id_4->setObjectName(QStringLiteral("id_4"));
         id_4->setGeometry(QRect(10, 120, 141, 21));
@@ -223,7 +235,19 @@ public:
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
-"}"));
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         id_3 = new QLabel(addEmployee);
         id_3->setObjectName(QStringLiteral("id_3"));
         id_3->setGeometry(QRect(530, 45, 141, 21));
@@ -242,6 +266,7 @@ public:
         pushButton_6->setFocusPolicy(Qt::TabFocus);
         pushButton_6->setStyleSheet(QLatin1String("#pushButton_6\n"
 "{\n"
+" border-radius: 10px;\n"
 "	background:#EC3245;\n"
 "	border:none;\n"
 "	color:white;\n"
@@ -249,9 +274,10 @@ public:
 "\n"
 "#pushButton_6:hover\n"
 "{\n"
-"	background:#2d2d2d;\n"
+" border-radius: 10px;\n"
+"	background:solid red;\n"
 "	border:2px solid #EC3245;\n"
-"	color:#EC3245;\n"
+"	color:solid white;\n"
 "}"));
         id_13 = new QLabel(addEmployee);
         id_13->setObjectName(QStringLiteral("id_13"));
@@ -272,13 +298,15 @@ public:
 "	background:#00855C;\n"
 "	border:none;\n"
 "	color:white;\n"
+" border-radius: 10px;\n"
 "}\n"
 "\n"
 "#pushButton_5:hover\n"
 "{\n"
-"	background:#2D2D2D;\n"
+" border-radius: 10px;\n"
+"	background:solid green;\n"
 "	border:2px solid #00855C;\n"
-"	color:#00855C;\n"
+"	color: solid white;\n"
 "}"));
         id = new QLabel(addEmployee);
         id->setObjectName(QStringLiteral("id"));
@@ -313,7 +341,19 @@ public:
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
-"}"));
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         id_2 = new QLabel(addEmployee);
         id_2->setObjectName(QStringLiteral("id_2"));
         id_2->setGeometry(QRect(270, 45, 141, 21));
@@ -391,7 +431,19 @@ public:
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
-"}"));
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         starttime = new QTimeEdit(addEmployee);
         starttime->setObjectName(QStringLiteral("starttime"));
         starttime->setGeometry(QRect(270, 280, 201, 32));
@@ -505,7 +557,19 @@ public:
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
-"}"));
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
         salary = new QLineEdit(addEmployee);
         salary->setObjectName(QStringLiteral("salary"));
         salary->setEnabled(true);
@@ -573,7 +637,19 @@ public:
 "	color:black;\n"
 "	border:none;\n"
 "	padding-left:6px;\n"
-"}"));
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
 
         retranslateUi(addEmployee);
 

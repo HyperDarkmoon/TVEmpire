@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>972</width>
-    <height>560</height>
+    <width>1310</width>
+    <height>730</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,8 +102,8 @@ QTableWidget::Item{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>971</width>
-     <height>561</height>
+     <width>1311</width>
+     <height>731</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -117,8 +117,8 @@ QTableWidget::Item{
    <widget class="QTableWidget" name="tableWidget_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>110</y>
+      <x>330</x>
+      <y>170</y>
       <width>951</width>
       <height>431</height>
      </rect>
@@ -348,8 +348,8 @@ QTableWidget::Item{
    <widget class="QPushButton" name="add_btn_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
+      <x>20</x>
+      <y>150</y>
       <width>161</width>
       <height>71</height>
      </rect>
@@ -819,8 +819,8 @@ QTableWidget::Item{
    <widget class="QPushButton" name="pdfButton">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>20</y>
+      <x>20</x>
+      <y>230</y>
       <width>161</width>
       <height>71</height>
      </rect>
@@ -1337,8 +1337,8 @@ QTableWidget::Item{
    <widget class="QPushButton" name="pdfButton_2">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>20</y>
+      <x>10</x>
+      <y>310</y>
       <width>161</width>
       <height>71</height>
      </rect>

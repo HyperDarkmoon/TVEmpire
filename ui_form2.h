@@ -92,8 +92,13 @@ public:
         label_2 = new QLabel(widget);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(40, 30, 280, 430));
-        label_2->setStyleSheet(QLatin1String("background-color:rgba(0, 0, 0, 80);\n"
-"border-top-left-radius: 50px;"));
+        label_2->setStyleSheet(QLatin1String("\n"
+"QLabel#label_2 {\n"
+"        background-color: rgba(0, 0, 0, 80);\n"
+"        border-top-left-radius: 50px;\n"
+"    }"));
+        label_2->setPixmap(QPixmap(QString::fromUtf8("../../../Downloads/1338579.png")));
+        label_2->setScaledContents(true);
         label_3 = new QLabel(widget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(270, 30, 240, 430));
@@ -114,20 +119,28 @@ public:
         QFont font1;
         font1.setPointSize(10);
         lineEdit->setFont(font1);
-        lineEdit->setStyleSheet(QLatin1String("background-color:rgba(0, 0, 0, 0);\n"
+        lineEdit->setStyleSheet(QLatin1String("QLineEdit {background-color:rgba(0, 0, 0, 0);\n"
 "border:none;\n"
-"border-bottom:2px solid rgba(46, 82, 101, 200);\n"
+"border-bottom:2px solid rgba(46, 82, 101, 200) ;\n"
 "color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;"));
+"padding-bottom:7px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"      border-bottom-color: #242E42;\n"
+"    }"));
         lineEdit_2 = new QLineEdit(widget);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
         lineEdit_2->setGeometry(QRect(295, 215, 190, 40));
         lineEdit_2->setFont(font1);
-        lineEdit_2->setStyleSheet(QLatin1String("background-color:rgba(0, 0, 0, 0);\n"
+        lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {background-color:rgba(0, 0, 0, 0);\n"
 "border:none;\n"
-"border-bottom:2px solid rgba(46, 82, 101, 200);\n"
+"border-bottom:2px solid rgba(46, 82, 101, 200) ;\n"
 "color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;"));
+"padding-bottom:7px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"      border-bottom-color: #242E42;\n"
+"    }"));
         lineEdit_2->setEchoMode(QLineEdit::Password);
         pushButton = new QPushButton(widget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
@@ -137,6 +150,15 @@ public:
         font2.setBold(true);
         font2.setWeight(75);
         pushButton->setFont(font2);
+        pushButton->setStyleSheet(QLatin1String("QPushButton {\n"
+"        background: rgb(36, 46, 66);  \n"
+"       background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(36, 46, 66, 1), stop:0.93 rgba(224, 224, 225, 1));\n"
+"    }\n"
+"\n"
+"QPushButton:hover {\n"
+"      background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.17 rgba(235, 241, 244, 1), stop:0.61 rgba(224, 224, 225, 1));\n"
+" color: black;\n"
+"    }"));
         label_5 = new QLabel(widget);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(301, 345, 181, 16));
@@ -181,11 +203,11 @@ public:
 
         label_6 = new QLabel(widget);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(40, 80, 230, 130));
+        label_6->setGeometry(QRect(40, 110, 230, 130));
         label_6->setStyleSheet(QStringLiteral("background-color:rgba(0, 0, 0, 75);"));
         label_7 = new QLabel(widget);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(50, 90, 180, 40));
+        label_7->setGeometry(QRect(60, 150, 180, 40));
         QFont font4;
         font4.setPointSize(22);
         font4.setBold(true);
