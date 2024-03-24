@@ -94,10 +94,12 @@ public:
         label_2->setGeometry(QRect(40, 30, 280, 430));
         label_2->setStyleSheet(QLatin1String("\n"
 "QLabel#label_2 {\n"
-"        background-color: rgba(0, 0, 0, 80);\n"
-"        border-top-left-radius: 50px;\n"
+"        background-image: url(C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/forma.jpg); /* Background image */\n"
+"       background-color: rgba(0, 0, 0, 0); /* Transparent background */\n"
+"        border-top-left-radius: 50px; /* Border radius on the top left */\n"
+"       border-image:  url(C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/forma.jpg) 10 10 10 10 stretch stretch; /* Border image */\n"
+"        background-size: 280px 430px; /* Resize the background image */\n"
 "    }"));
-        label_2->setPixmap(QPixmap(QString::fromUtf8("../../../Downloads/1338579.png")));
         label_2->setScaledContents(true);
         label_3 = new QLabel(widget);
         label_3->setObjectName(QStringLiteral("label_3"));

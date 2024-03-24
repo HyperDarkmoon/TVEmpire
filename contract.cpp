@@ -217,7 +217,7 @@ void Contract::refreshTable() {
         QToolButton *editButton = new QToolButton();
         editButton->setIcon(QIcon("path/to/edit/icon.png"));
         connect(editButton, &QToolButton::clicked, [this, idSponsor, idEmission]() {
-            onEditButtonClicked(idSponsor, idEmission);
+          //onEditButtonClicked(idSponsor, idEmission);
         });
         ui->tableWidget->setCellWidget(row, 7, editButton);
 
@@ -225,7 +225,7 @@ void Contract::refreshTable() {
         QToolButton *deleteButton = new QToolButton();
         deleteButton->setIcon(QIcon("path/to/delete/icon.png"));
         connect(deleteButton, &QToolButton::clicked, [this, idSponsor, idEmission]() {
-            onDeleteButtonClicked(idSponsor, idEmission);
+          // onDeleteButtonClicked(idSponsor, idEmission);
         });
         ui->tableWidget->setCellWidget(row, 8, deleteButton);
     }

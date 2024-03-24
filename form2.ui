@@ -85,15 +85,15 @@ border-top-left-radius: 50px;</string>
     <property name="styleSheet">
      <string notr="true">
 QLabel#label_2 {
-        background-color: rgba(0, 0, 0, 80);
-        border-top-left-radius: 50px;
+        background-image: url(C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/forma.jpg); /* Background image */
+       background-color: rgba(0, 0, 0, 0); /* Transparent background */
+        border-top-left-radius: 50px; /* Border radius on the top left */
+       border-image:  url(C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/forma.jpg) 10 10 10 10 stretch stretch; /* Border image */
+        background-size: 280px 430px; /* Resize the background image */
     }</string>
     </property>
     <property name="text">
      <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../../../Downloads/1338579.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

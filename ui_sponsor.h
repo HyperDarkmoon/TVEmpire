@@ -569,6 +569,11 @@ public:
         label_4->raise();
         label_7->raise();
         pushButton_4->raise();
+        widget->raise();
+        title_label->raise();
+        widget_3->raise();
+        result_widget->raise();
+        widget_2->raise();
 
         retranslateUi(Sponsor);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
