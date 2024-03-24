@@ -1,5 +1,3 @@
-/*#include "contrat.h"
-#include "ui_contrat.h"
 #include <QTableWidgetItem>
 #include <QDebug>
 #include <QMessageBox>
@@ -18,77 +16,82 @@
 #include <QtCharts/QBarSet>
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
+#include "contract.h"
+#include "ui_contract.h"
 
-
-
-Contrat::Contrat(QWidget *parent) : QWidget(parent), ui(new Ui::Contrat) {
+Contract::Contract(QWidget *parent) :
+    QDialog(parent), // Inherit from QDialog
+    ui(new Ui::Contract)
+{
     ui->setupUi(this);
     refreshTable();
 }
 
-Contrat::~Contrat() {
+Contract::~Contract()
+{
     delete ui;
 }
 
-unsigned int CrudContrat::getIdSponsor() const {
+
+unsigned int CrudContract::getIdSponsor() const {
     return idSponsor;
 }
 
-unsigned int CrudContrat::getIdEmission() const {
+unsigned int CrudContract::getIdEmission() const {
     return idEmission;
 }
 
-QString CrudContrat::getMontant() const {
+QString CrudContract::getMontant() const {
     return montant;
 }
 
-QString CrudContrat::getLibelle() const {
+QString CrudContract::getLibelle() const {
     return libelle;
 }
 
-QString CrudContrat::getDateDebut() const {
+QString CrudContract::getDateDebut() const {
     return dateDebut;
 }
 
-QString CrudContrat::getDescription() const {
+QString CrudContract::getDescription() const {
     return description;
 }
 
-QString CrudContrat::getDateFin() const {
+QString CrudContract::getDateFin() const {
     return dateFin;
 }
 
-void CrudContrat::setIdSponsor(unsigned int newIdSponsor) {
+void CrudContract::setIdSponsor(unsigned int newIdSponsor) {
     idSponsor = newIdSponsor;
 }
 
-void CrudContrat::setIdEmission(unsigned int newIdEmission) {
+void CrudContract::setIdEmission(unsigned int newIdEmission) {
     idEmission = newIdEmission;
 }
 
-void CrudContrat::setMontant(const QString& newMontant) {
+void CrudContract::setMontant(const double& newMontant) {
     montant = newMontant;
 }
 
-void CrudContrat::setLibelle(const QString& newLibelle) {
+void CrudContract::setLibelle(const QString& newLibelle) {
     libelle = newLibelle;
 }
 
-void CrudContrat::setDateDebut(const QString& newDateDebut) {
+void CrudContract::setDateDebut(const QString& newDateDebut) {
     dateDebut = newDateDebut;
 }
 
-void CrudContrat::setDescription(const QString& newDescription) {
+void CrudContract::setDescription(const QString& newDescription) {
     description = newDescription;
 }
 
-void CrudContrat::setDateFin(const QString& newDateFin) {
+void CrudContract::setDateFin(const QString& newDateFin) {
     dateFin = newDateFin;
 }
 
-bool CrudContrat::create(CrudContrat c) {
+bool CrudContract::create(CrudContract c) {
     QSqlQuery query;
-    query.prepare("INSERT INTO Contrat (idSponsor, idEmission, montant, libelle, dateDebut, description, dateFin) VALUES (:idSponsor, :idEmission, :montant, :libelle, :dateDebut, :description, :dateFin)");
+    query.prepare("INSERT INTO Contract (idSponsor, idEmission, montant, libelle, dateDebut, description, dateFin) VALUES (:idSponsor, :idEmission, :montant, :libelle, :dateDebut, :description, :dateFin)");
 
     query.bindValue(":idSponsor", c.getIdSponsor());
     query.bindValue(":idEmission", c.getIdEmission());
@@ -105,17 +108,17 @@ bool CrudContrat::create(CrudContrat c) {
     }
 }
 
-CrudContrat CrudContrat::read(unsigned int idSponsor, unsigned int idEmission) {
+CrudContract CrudContract::read(unsigned int idSponsor, unsigned int idEmission) {
     QSqlQuery query;
-    query.prepare("SELECT * FROM Contrat WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
+    query.prepare("SELECT * FROM Contract WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
     query.bindValue(":idSponsor", idSponsor);
     query.bindValue(":idEmission", idEmission);
 
     if (query.exec() && query.next()) {
-        CrudContrat c;
+        CrudContract c;
         c.setIdSponsor(query.value("idSponsor").toUInt());
         c.setIdEmission(query.value("idEmission").toUInt());
-        c.setMontant(query.value("montant").toString());
+        c.setMontant(query.value("montant").toDouble());
         c.setLibelle(query.value("libelle").toString());
         c.setDateDebut(query.value("dateDebut").toString());
         c.setDescription(query.value("description").toString());
@@ -123,13 +126,13 @@ CrudContrat CrudContrat::read(unsigned int idSponsor, unsigned int idEmission) {
 
         return c;
     } else {
-        return CrudContrat();
+        return CrudContract();
     }
 }
 
-bool CrudContrat::update(unsigned int idSponsor, unsigned int idEmission, CrudContrat c) {
+bool CrudContract::update(unsigned int idSponsor, unsigned int idEmission, CrudContract c) {
     QSqlQuery query;
-    query.prepare("UPDATE Contrat SET montant = :montant, libelle = :libelle, dateDebut = :dateDebut, description = :description, dateFin = :dateFin WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
+    query.prepare("UPDATE Contract SET montant = :montant, libelle = :libelle, dateDebut = :dateDebut, description = :description, dateFin = :dateFin WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
     query.bindValue(":idSponsor", idSponsor);
     query.bindValue(":idEmission", idEmission);
     query.bindValue(":montant", c.getMontant());
@@ -146,9 +149,9 @@ bool CrudContrat::update(unsigned int idSponsor, unsigned int idEmission, CrudCo
     }
 }
 
-bool CrudContrat::remove(unsigned int idSponsor, unsigned int idEmission) {
+bool CrudContract::remove(unsigned int idSponsor, unsigned int idEmission) {
     QSqlQuery query;
-    query.prepare("DELETE FROM Contrat WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
+    query.prepare("DELETE FROM Contract WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
     query.bindValue(":idSponsor", idSponsor);
     query.bindValue(":idEmission", idEmission);
 
@@ -159,7 +162,7 @@ bool CrudContrat::remove(unsigned int idSponsor, unsigned int idEmission) {
     }
 }
 
-void Contrat::refreshTable() {
+void Contract::refreshTable() {
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
 
@@ -167,10 +170,10 @@ void Contrat::refreshTable() {
     ui->tableWidget->setColumnCount(headers.size());
     ui->tableWidget->setHorizontalHeaderLabels(headers);
 
-    // Fetch contrat data from the database
-    QSqlQuery query("SELECT * FROM Contrat");
+    // Fetch Contract data from the database
+    QSqlQuery query("SELECT * FROM Contract");
     if (!query.exec()) {
-        qDebug() << "Error fetching contrat data:" << query.lastError().text();
+        qDebug() << "Error fetching Contract data:" << query.lastError().text();
         return;
     }
 
@@ -228,14 +231,14 @@ void Contrat::refreshTable() {
     }
 }
 
-QList<Contrat> Contrat::getAll() {
+QList<CrudContract> CrudContract::getAll() {
     QSqlQuery query;
-    query.prepare("SELECT idSponsor, idEmission, montant, libelle, dateDebut, description, dateFin FROM Contrat");
+    query.prepare("SELECT idSponsor, idEmission, montant, libelle, dateDebut, description, dateFin FROM Contract");
     if (!query.exec()) {
         qDebug() << "Query execution failed:" << query.lastError().text();
     }
 
-    QList<Contrat> contratList;
+    QList<CrudContract> ContractList;
 
     while (query.next()) {
         unsigned int idSponsor = query.value("idSponsor").toUInt();
@@ -246,22 +249,22 @@ QList<Contrat> Contrat::getAll() {
         QString description = query.value("description").toString();
         QString dateFin = query.value("dateFin").toString();
 
-        Contrat contrat;
-        contrat.setIdSponsor(idSponsor);
-        contrat.setIdEmission(idEmission);
-        contrat.setMontant(montant);
-        contrat.setLibelle(libelle);
-        contrat.setDateDebut(dateDebut);
-        contrat.setDescription(description);
-        contrat.setDateFin(dateFin);
+        CrudContract Contract;
+        Contract.setIdSponsor(idSponsor);
+        Contract.setIdEmission(idEmission);
+        Contract.setMontant(montant);
+        Contract.setLibelle(libelle);
+        Contract.setDateDebut(dateDebut);
+        Contract.setDescription(description);
+        Contract.setDateFin(dateFin);
 
-        contratList.append(contrat);
+        ContractList.append(Contract);
     }
 
-    return contratList;
+    return ContractList;
 }
 
-QVariant Contrat::getFieldByIndex(int index) const {
+QVariant CrudContract::getFieldByIndex(int index) const {
     switch (index) {
         case 0:
             return getIdSponsor();
@@ -280,5 +283,4 @@ QVariant Contrat::getFieldByIndex(int index) const {
         default:
             return QVariant();
     }
-}*/
-
+}

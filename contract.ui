@@ -1,45 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>contrat</class>
- <widget class="QDialog" name="contrat">
+ <class>Contract</class>
+ <widget class="QDialog" name="Contract">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>999</width>
-    <height>540</height>
+    <width>794</width>
+    <height>524</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>10</y>
-     <width>431</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="text">
-    <string>contrat </string>
-   </property>
-   <property name="margin">
-    <number>200</number>
-   </property>
-  </widget>
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>101</y>
+     <x>60</x>
+     <y>150</y>
      <width>601</width>
      <height>301</height>
     </rect>
@@ -112,6 +90,28 @@ QTableWidget QTableWidget::item:selected {
      <string>exportation</string>
     </property>
    </column>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>59</y>
+     <width>431</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text">
+    <string>contrat </string>
+   </property>
+   <property name="margin">
+    <number>200</number>
+   </property>
   </widget>
  </widget>
  <resources/>

@@ -15,7 +15,7 @@ RESOURCES += resource.qrc
 SOURCES += \
     addemission.cpp \
     addemployee.cpp \
-    contrat.cpp \
+    contract.cpp \
     crudequipment.cpp \
     dbconnection.cpp \
     emission.cpp \
@@ -37,7 +37,7 @@ SOURCES += \
 HEADERS += \
     addemission.h \
     addemployee.h \
-    contrat.h \
+    contract.h \
     crudequipment.h \
     dbconnection.h \
     emission.h \
@@ -58,7 +58,7 @@ HEADERS += \
 FORMS += \
     addemission1.ui \
     addemployee.ui \
-    contrat.ui \
+    contract.ui \
     emission.ui \
     emissionedit.ui \
     employee.ui \
