@@ -483,58 +483,12 @@ QTextEdit {
      </rect>
     </property>
    </widget>
-   <widget class="QComboBox" name="idE">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>520</y>
-      <width>62</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="idS">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>550</y>
-      <width>62</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>530</y>
-      <width>47</width>
-      <height>14</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>IdE</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_11">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>560</y>
-      <width>47</width>
-      <height>14</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>IdS</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>580</y>
-      <width>75</width>
+      <x>70</x>
+      <y>540</y>
+      <width>121</width>
       <height>23</height>
      </rect>
     </property>
@@ -556,10 +510,6 @@ QTextEdit {
    <zorder>label_10</zorder>
    <zorder>lineEdit_4</zorder>
    <zorder>lineEdit_6</zorder>
-   <zorder>idE</zorder>
-   <zorder>idS</zorder>
-   <zorder>label_9</zorder>
-   <zorder>label_11</zorder>
    <zorder>pushButton</zorder>
   </widget>
  </widget>
