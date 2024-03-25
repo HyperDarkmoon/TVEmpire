@@ -46,6 +46,7 @@ public:
     QLabel *label_10;
     QLineEdit *lineEdit_4;
     QLineEdit *lineEdit_6;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *Contract)
     {
@@ -268,6 +269,9 @@ public:
         lineEdit_6 = new QLineEdit(widget_3);
         lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
         lineEdit_6->setGeometry(QRect(10, 320, 231, 191));
+        pushButton = new QPushButton(widget_3);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(70, 540, 121, 23));
         label_5->raise();
         lineEdit_2->raise();
         add_btn->raise();
@@ -282,6 +286,7 @@ public:
         label_10->raise();
         lineEdit_4->raise();
         lineEdit_6->raise();
+        pushButton->raise();
 
         retranslateUi(Contract);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_3, SLOT(setVisible(bool)));
@@ -319,6 +324,7 @@ public:
         pushButton_4->setText(QString());
         label_8->setText(QString());
         label_10->setText(QApplication::translate("Contract", "description", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("Contract", "signature", Q_NULLPTR));
     } // retranslateUi
 
 };
