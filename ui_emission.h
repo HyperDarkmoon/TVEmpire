@@ -53,7 +53,6 @@ public:
     QWidget *widget;
     QPushButton *pushButton_3;
     QLabel *label_6;
-    QLabel *label_13;
 
     void setupUi(QWidget *Emission)
     {
@@ -172,7 +171,7 @@ public:
         if (tableWidget_2->rowCount() < 20)
             tableWidget_2->setRowCount(20);
         tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
-        tableWidget_2->setGeometry(QRect(450, 160, 661, 371));
+        tableWidget_2->setGeometry(QRect(340, 160, 791, 371));
         QPalette palette;
         QBrush brush(QColor(241, 241, 241, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -745,9 +744,6 @@ public:
 ""));
         label_6->raise();
         pushButton_3->raise();
-        label_13 = new QLabel(employeeContainer);
-        label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setGeometry(QRect(960, 30, 201, 51));
         widget->raise();
         label->raise();
         tableWidget_2->raise();
@@ -758,7 +754,6 @@ public:
         playVideoButton->raise();
         label_8->raise();
         widget_2->raise();
-        label_13->raise();
 
         retranslateUi(Emission);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -801,7 +796,6 @@ public:
         label_12->setText(QApplication::translate("Emission", "scene", Q_NULLPTR));
         pushButton_3->setText(QString());
         label_6->setText(QString());
-        label_13->setText(QApplication::translate("Emission", "TextLabel", Q_NULLPTR));
     } // retranslateUi
 
 };

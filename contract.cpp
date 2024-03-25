@@ -18,6 +18,7 @@
 #include <QtCharts/QValueAxis>
 #include "contract.h"
 #include "ui_contract.h"
+#include "signature.h"
 
 Contract::Contract(QWidget *parent) :
     QDialog(parent), // Inherit from QDialog
@@ -25,6 +26,7 @@ Contract::Contract(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshTable();
+
     QSqlQuery emissions;
         emissions.prepare("SELECT id from emissions");
         emissions.exec();
@@ -39,6 +41,8 @@ Contract::Contract(QWidget *parent) :
                     int sceneId = emissions.value(0).toInt();
                     ui->idS->addItem(QString::number(sceneId));
                 }
+
+    signatureWidget = new Signature(this);
 }
 
 Contract::~Contract()
@@ -297,4 +301,9 @@ QVariant CrudContract::getFieldByIndex(int index) const {
         default:
             return QVariant();
     }
+}
+
+void Contract::on_pushButton_clicked()
+{
+ signatureWidget->show();
 }
