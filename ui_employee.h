@@ -437,6 +437,11 @@ public:
         search_input = new QLineEdit(employeeContainer);
         search_input->setObjectName(QStringLiteral("search_input"));
         search_input->setGeometry(QRect(470, 30, 242, 22));
+        emp->raise();
+        add_btn_2->raise();
+        add_btn_4->raise();
+        add_btn_3->raise();
+        search_input->raise();
 
         retranslateUi(Employee);
 
