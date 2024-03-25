@@ -25,8 +25,7 @@ int main(int argc, char *argv[]) {
             //mailing test
 
             // ################################################
-            QString username = "mohamedslimane555@gmail.com";
-                QString password = "zyrx jiib bvqt yxnv";
+/*
                 SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
 
                     // We need to set the username (your email address) and the password
@@ -60,7 +59,7 @@ int main(int argc, char *argv[]) {
                     smtp.login();
                     smtp.sendMail(message);
                     smtp.quit();
-
+*/
             // ##############################################
 
 
