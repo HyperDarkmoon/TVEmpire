@@ -7,7 +7,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QTableWidget>
-
+#include "contract.h"
 namespace Ui {
 class Sponsor;
 }
@@ -70,6 +70,7 @@ private slots:
 
 private:
     Ui::Sponsor *ui;
+    Contract c;
 };
 
 #endif // SPONSOR_H

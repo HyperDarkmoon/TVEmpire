@@ -26,6 +26,22 @@ Contract::Contract(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshTable();
+
+    QSqlQuery emissions;
+        emissions.prepare("SELECT id from emissions");
+        emissions.exec();
+        while (emissions.next()) {
+                int sceneId = emissions.value(0).toInt();
+                ui->idE->addItem(QString::number(sceneId));
+            }
+        QSqlQuery sponsor;
+            emissions.prepare("SELECT id from sponsor");
+            emissions.exec();
+            while (emissions.next()) {
+                    int sceneId = emissions.value(0).toInt();
+                    ui->idS->addItem(QString::number(sceneId));
+                }
+
     signatureWidget = new Signature(this);
 }
 
