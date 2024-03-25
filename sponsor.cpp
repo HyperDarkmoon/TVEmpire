@@ -19,7 +19,7 @@
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
 
-Sponsor::Sponsor(QWidget *parent) : QWidget(parent), ui(new Ui::Sponsor) {
+Sponsor::Sponsor(QWidget *parent) : QWidget(parent), ui(new Ui::Sponsor), c(new Contract) {
     ui->setupUi(this);
     refreshTable();
     connect(ui->search_input, &QLineEdit::textChanged, this, &Sponsor::filterTable);
@@ -310,10 +310,8 @@ void Sponsor::on_pushButton_clicked()
     pdfExporter.exportTableToPDF(ui->tableWidget);
 }
 void Sponsor::onContratButtonClicked(int row) {
-    // Add your logic here to handle the contrat button click event
-    // You can use the contratId parameter to identify the specific contrat button clicked
 
-    // For example, you can show a message box with the contrat ID
+    c.show();
 
 }
 void Sponsor::filterTable(const QString &text) {

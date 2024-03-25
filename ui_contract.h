@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -46,6 +47,10 @@ public:
     QLabel *label_10;
     QLineEdit *lineEdit_4;
     QLineEdit *lineEdit_6;
+    QComboBox *idE;
+    QComboBox *idS;
+    QLabel *label_9;
+    QLabel *label_11;
 
     void setupUi(QDialog *Contract)
     {
@@ -268,6 +273,18 @@ public:
         lineEdit_6 = new QLineEdit(widget_3);
         lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
         lineEdit_6->setGeometry(QRect(10, 320, 231, 191));
+        idE = new QComboBox(widget_3);
+        idE->setObjectName(QStringLiteral("idE"));
+        idE->setGeometry(QRect(130, 520, 62, 22));
+        idS = new QComboBox(widget_3);
+        idS->setObjectName(QStringLiteral("idS"));
+        idS->setGeometry(QRect(130, 550, 62, 22));
+        label_9 = new QLabel(widget_3);
+        label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setGeometry(QRect(40, 530, 47, 14));
+        label_11 = new QLabel(widget_3);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setGeometry(QRect(40, 560, 47, 14));
         label_5->raise();
         lineEdit_2->raise();
         add_btn->raise();
@@ -282,6 +299,10 @@ public:
         label_10->raise();
         lineEdit_4->raise();
         lineEdit_6->raise();
+        idE->raise();
+        idS->raise();
+        label_9->raise();
+        label_11->raise();
 
         retranslateUi(Contract);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_3, SLOT(setVisible(bool)));
@@ -319,6 +340,8 @@ public:
         pushButton_4->setText(QString());
         label_8->setText(QString());
         label_10->setText(QApplication::translate("Contract", "description", Q_NULLPTR));
+        label_9->setText(QApplication::translate("Contract", "IdE", Q_NULLPTR));
+        label_11->setText(QApplication::translate("Contract", "IdS", Q_NULLPTR));
     } // retranslateUi
 
 };
