@@ -13,6 +13,7 @@ INPUT(
 ./release\main.o
 ./release\mainwindow.o
 ./release\pdfexport.o
+./release\qrcodegen.o
 ./release\scenes.o
 ./release\search.o
 ./release\signature.o

@@ -1,6 +1,10 @@
 #include "sponsor.h"
 #include "ui_sponsor.h"
 #include <QTableWidgetItem>
+#include <QDialog>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QScreen>
 #include "QDebug"
 #include <QMessageBox>
 #include <QToolButton>
@@ -18,6 +22,7 @@
 #include <QtCharts/QBarSet>
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
+#include "qrcodegen.h" // Include Nayuki QR Code library header
 
 Sponsor::Sponsor(QWidget *parent) : QWidget(parent), ui(new Ui::Sponsor), c(new Contract) {
     ui->setupUi(this);
@@ -79,11 +84,56 @@ bool CrudSponsor::create(CrudSponsor s) {
     query.bindValue(":categories", s.getCategories());
 
     if (query.exec()) {
+        // Generate QR code with lower error correction level to allow smaller size
+        QString qrContent = "Nom: " + s.getNom() + "; Email: " + s.getEmail() + "; Phone: " + s.getPhone();
+        qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(qrContent.toUtf8().constData(), qrcodegen::QrCode::Ecc::LOW);
+
+        // Get screen dimensions
+        QScreen *screen = QGuiApplication::primaryScreen();
+        QRect screenGeometry = screen->geometry();
+        int screenWidth = screenGeometry.width();
+        int screenHeight = screenGeometry.height();
+
+        // Calculate a suitable size for the window
+        int windowSize = qMin(screenWidth, screenHeight) * 0.5; // 50% of the smaller dimension
+
+        // Convert QR code to QImage
+        QImage qrImage = QImage(qr.getSize(), qr.getSize(), QImage::Format_RGB32); // Use Format_RGB32 for color
+        qrImage.fill(Qt::white); // Fill the image with white background
+        for (int y = 0; y < qr.getSize(); y++) {
+            for (int x = 0; x < qr.getSize(); x++) {
+                // Set QR code modules as black pixels
+                qrImage.setPixelColor(x, y, qr.getModule(x, y) ? Qt::black : Qt::white);
+            }
+        }
+
+        // Create a new window to display QR code
+        QDialog qrWindow;
+        qrWindow.setWindowTitle("QR Code");
+
+        // Set the window size
+        qrWindow.setFixedSize(windowSize, windowSize);
+
+        // Display QR code in QLabel
+        QLabel *qrLabel = new QLabel(&qrWindow);
+        qrLabel->setPixmap(QPixmap::fromImage(qrImage).scaled(windowSize, windowSize, Qt::KeepAspectRatio));
+        qrLabel->setAlignment(Qt::AlignCenter);
+
+        QVBoxLayout *layout = new QVBoxLayout(&qrWindow);
+        layout->addWidget(qrLabel);
+
+        qrWindow.setLayout(layout);
+        qrWindow.exec();  // Display the window modally
+
         return true;
     } else {
         return false;
     }
 }
+
+
+// Other methods remain unchanged...
+
 
 CrudSponsor CrudSponsor::read(unsigned int id) {
     QSqlQuery query;

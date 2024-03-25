@@ -50,6 +50,7 @@ public:
     QPushButton *add_btn;
     QPushButton *pushButton_4;
     QLabel *label_7;
+    QLabel *qrCodeLabel;
 
     void setupUi(QWidget *Sponsor)
     {
@@ -569,11 +570,15 @@ public:
         label_4->raise();
         label_7->raise();
         pushButton_4->raise();
+        qrCodeLabel = new QLabel(Sponsor);
+        qrCodeLabel->setObjectName(QStringLiteral("qrCodeLabel"));
+        qrCodeLabel->setGeometry(QRect(370, 563, 161, 111));
         widget->raise();
         title_label->raise();
         widget_3->raise();
         result_widget->raise();
         widget_2->raise();
+        qrCodeLabel->raise();
 
         retranslateUi(Sponsor);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -650,6 +655,7 @@ public:
         add_btn->setText(QApplication::translate("Sponsor", "Add", Q_NULLPTR));
         pushButton_4->setText(QString());
         label_7->setText(QString());
+        qrCodeLabel->setText(QString());
     } // retranslateUi
 
 };

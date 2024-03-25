@@ -27,6 +27,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     pdfexport.cpp \
+    qrcodegen.cpp \
     scenes.cpp \
     search.cpp \
     signature.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     form2.h \
     mainwindow.h \
     pdfexport.h \
+    qrcodegen.h \
     scenes.h \
     search.h \
     signature.h \

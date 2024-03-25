@@ -1707,11 +1707,25 @@ QTextEdit {
    <zorder>label_7</zorder>
    <zorder>pushButton_4</zorder>
   </widget>
+  <widget class="QLabel" name="qrCodeLabel">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>563</y>
+     <width>161</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>widget</zorder>
   <zorder>title_label</zorder>
   <zorder>widget_3</zorder>
   <zorder>result_widget</zorder>
   <zorder>widget_2</zorder>
+  <zorder>qrCodeLabel</zorder>
  </widget>
  <resources/>
  <connections>
