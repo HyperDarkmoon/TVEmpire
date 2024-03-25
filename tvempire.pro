@@ -29,6 +29,7 @@ SOURCES += \
     pdfexport.cpp \
     scenes.cpp \
     search.cpp \
+    signature.cpp \
     sponsor.cpp \
     addequipment.cpp \
     videoplayerdialog.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     pdfexport.h \
     scenes.h \
     search.h \
+    signature.h \
     sponsor.h \
     addequipment.h \
     videoplayerdialog.h \

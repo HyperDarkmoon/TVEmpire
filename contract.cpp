@@ -18,6 +18,7 @@
 #include <QtCharts/QValueAxis>
 #include "contract.h"
 #include "ui_contract.h"
+#include "signature.h"
 
 Contract::Contract(QWidget *parent) :
     QDialog(parent), // Inherit from QDialog
@@ -25,6 +26,7 @@ Contract::Contract(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshTable();
+    signatureWidget = new Signature(this);
 }
 
 Contract::~Contract()
@@ -283,4 +285,9 @@ QVariant CrudContract::getFieldByIndex(int index) const {
         default:
             return QVariant();
     }
+}
+
+void Contract::on_pushButton_clicked()
+{
+ signatureWidget->show();
 }
