@@ -7,6 +7,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QTableWidget>
+#include "signature.h"
 
 namespace Ui {
 class Contract;
@@ -36,6 +37,7 @@ private slots:
 
 private:
     Ui::Contract *ui;
+    Signature *signatureWidget;
 };
 
 class CrudContract {

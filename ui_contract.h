@@ -51,6 +51,7 @@ public:
     QComboBox *idS;
     QLabel *label_9;
     QLabel *label_11;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *Contract)
     {
@@ -285,6 +286,9 @@ public:
         label_11 = new QLabel(widget_3);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setGeometry(QRect(40, 560, 47, 14));
+        pushButton = new QPushButton(widget_3);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(90, 580, 75, 23));
         label_5->raise();
         lineEdit_2->raise();
         add_btn->raise();
@@ -303,6 +307,7 @@ public:
         idS->raise();
         label_9->raise();
         label_11->raise();
+        pushButton->raise();
 
         retranslateUi(Contract);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_3, SLOT(setVisible(bool)));
@@ -342,6 +347,7 @@ public:
         label_10->setText(QApplication::translate("Contract", "description", Q_NULLPTR));
         label_9->setText(QApplication::translate("Contract", "IdE", Q_NULLPTR));
         label_11->setText(QApplication::translate("Contract", "IdS", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("Contract", "signature", Q_NULLPTR));
     } // retranslateUi
 
 };

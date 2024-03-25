@@ -22,7 +22,7 @@
 
 Contract::Contract(QWidget *parent) :
     QDialog(parent), // Inherit from QDialog
-    ui(new Ui::Contract)
+    ui(new Ui::Contract),signatureWidget(new Signature)
 {
     ui->setupUi(this);
     refreshTable();
@@ -41,8 +41,7 @@ Contract::Contract(QWidget *parent) :
                     int sceneId = emissions.value(0).toInt();
                     ui->idS->addItem(QString::number(sceneId));
                 }
-
-    signatureWidget = new Signature(this);
+    signatureWidget = new Signature();
 }
 
 Contract::~Contract()

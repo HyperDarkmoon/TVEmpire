@@ -529,6 +529,19 @@ QTextEdit {
      <string>IdS</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>580</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>signature</string>
+    </property>
+   </widget>
    <zorder>label_5</zorder>
    <zorder>lineEdit_2</zorder>
    <zorder>add_btn</zorder>
@@ -547,6 +560,7 @@ QTextEdit {
    <zorder>idS</zorder>
    <zorder>label_9</zorder>
    <zorder>label_11</zorder>
+   <zorder>pushButton</zorder>
   </widget>
  </widget>
  <resources/>
