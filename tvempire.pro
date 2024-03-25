@@ -30,6 +30,18 @@ SOURCES += \
     scenes.cpp \
     search.cpp \
     signature.cpp \
+    smtp/src/emailaddress.cpp \
+    smtp/src/mimeattachment.cpp \
+    smtp/src/mimecontentformatter.cpp \
+    smtp/src/mimefile.cpp \
+    smtp/src/mimehtml.cpp \
+    smtp/src/mimeinlinefile.cpp \
+    smtp/src/mimemessage.cpp \
+    smtp/src/mimemultipart.cpp \
+    smtp/src/mimepart.cpp \
+    smtp/src/mimetext.cpp \
+    smtp/src/quotedprintable.cpp \
+    smtp/src/smtpclient.cpp \
     sponsor.cpp \
     addequipment.cpp \
     usersession.cpp \
@@ -53,6 +65,20 @@ HEADERS += \
     scenes.h \
     search.h \
     signature.h \
+    smtp/src/SmtpMime \
+    smtp/src/emailaddress.h \
+    smtp/src/mimeattachment.h \
+    smtp/src/mimecontentformatter.h \
+    smtp/src/mimefile.h \
+    smtp/src/mimehtml.h \
+    smtp/src/mimeinlinefile.h \
+    smtp/src/mimemessage.h \
+    smtp/src/mimemultipart.h \
+    smtp/src/mimepart.h \
+    smtp/src/mimetext.h \
+    smtp/src/quotedprintable.h \
+    smtp/src/smtpclient.h \
+    smtp/src/smtpexports.h \
     sponsor.h \
     addequipment.h \
     usersession.h \
@@ -84,3 +110,4 @@ unix:!android: target.path = /opt/$${TARGET}/bin
 
 QT+= sql \
     widgets printsupport
+
