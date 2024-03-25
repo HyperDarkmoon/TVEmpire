@@ -26,7 +26,7 @@ Contract::Contract(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshTable();
-    signatureWidget = new Signature(this);
+    //signatureWidget = new Signature(this);
 }
 
 Contract::~Contract()
@@ -287,7 +287,7 @@ QVariant CrudContract::getFieldByIndex(int index) const {
     }
 }
 
-void Contract::on_pushButton_clicked()
+/*void Contract::on_pushButton_clicked()
 {
  signatureWidget->show();
-}
+}*/

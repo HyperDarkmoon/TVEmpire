@@ -15,8 +15,10 @@ INPUT(
 ./release\pdfexport.o
 ./release\scenes.o
 ./release\search.o
+./release\signature.o
 ./release\sponsor.o
 ./release\addequipment.o
+./release\usersession.o
 ./release\videoplayerdialog.o
 ./release\weatherapicall.o
 ./release\qrc_resource.o
@@ -31,6 +33,7 @@ INPUT(
 ./release\moc_form2.o
 ./release\moc_mainwindow.o
 ./release\moc_scenes.o
+./release\moc_signature.o
 ./release\moc_sponsor.o
 ./release\moc_addequipment.o
 ./release\moc_videoplayerdialog.o

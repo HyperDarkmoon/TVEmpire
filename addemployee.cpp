@@ -40,7 +40,7 @@ void addEmployee::validatePassword()
 void addEmployee::on_pushButton_5_clicked()
 {
     // Check if any of the fields are empty
-    if (ui->name->text().isEmpty() || ui->lastname->text().isEmpty() || ui->post->text().isEmpty() ||
+    if (ui->name->text().isEmpty() || ui->lastname->text().isEmpty() || ui->post->currentText().isEmpty() ||
         ui->salary->text().isEmpty() || ui->starttime->time().isNull() || ui->endtime->time().isNull() ||
         ui->login->text().isEmpty() || ui->password->text().isEmpty() || ui->dob->date().isNull() ||
         ui->gender->currentText().isEmpty()) {
@@ -71,7 +71,7 @@ void addEmployee::on_pushButton_5_clicked()
     }
 
     // Proceed with creating the employee if fields are not empty and password is valid
-    CrudEmployee Emp(0, ui->name->text(), ui->lastname->text(), ui->post->text(), ui->salary->text().toUInt(),
+    CrudEmployee Emp(0, ui->name->text(), ui->lastname->text(), ui->post->currentText(), ui->salary->text().toUInt(),
                      ui->starttime->time(), ui->endtime->time(), ui->login->text(), ui->password->text(),
                      ui->dob->date(), ui->gender->currentText());
 

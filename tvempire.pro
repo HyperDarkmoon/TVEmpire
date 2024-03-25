@@ -32,6 +32,7 @@ SOURCES += \
     signature.cpp \
     sponsor.cpp \
     addequipment.cpp \
+    usersession.cpp \
     videoplayerdialog.cpp \
     weatherapicall.cpp
 
@@ -54,6 +55,7 @@ HEADERS += \
     signature.h \
     sponsor.h \
     addequipment.h \
+    usersession.h \
     videoplayerdialog.h \
     weatherapicall.h
 

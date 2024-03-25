@@ -1,7 +1,9 @@
 #include "form2.h"
 #include "ui_form2.h"
 #include "mainwindow.h"
-
+#include "employee.h"
+#include <QMessageBox>
+#include "usersession.h"
 
 Form2::Form2(QWidget *parent) :
     QWidget(parent),
@@ -22,13 +24,32 @@ Form2::~Form2()
 
 void Form2::authenticate()
 {
+    QString username = ui->lineEdit->text();
+    QString password = ui->lineEdit_2->text();
 
-    if (ui->lineEdit->text() == "admin" && ui->lineEdit_2->text() == "admin")
-    {
+    CrudEmployee employee; // Create an object of CrudEmployee
+    QList<CrudEmployee> employees = employee.getAllEmployees(); // Call non-static member function on the object
+    bool authenticated = false;
+
+    for (const auto& emp : employees) {
+        if (emp.getLogin() == username && emp.getPassword() == password) {
+            authenticated = true;
+            // Store the username in the UserSession class
+            UserSession::getInstance().setUsername(username);
+            break;
+        }
+    }
+
+    if (authenticated) {
         mainWindow->show();
         this->close();
+    } else {
+        QMessageBox::warning(this, "Authentication Failed", "Invalid username or password.");
     }
 }
+
+
+
 void Form2::on_pushButton_clicked()
 {
    authenticate();

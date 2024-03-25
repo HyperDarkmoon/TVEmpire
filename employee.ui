@@ -809,6 +809,11 @@
     </column>
     <column>
      <property name="text">
+      <string>Password</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
       <string>Temps d'entree</string>
      </property>
      <property name="textAlignment">
@@ -2254,6 +2259,11 @@
      <string>Search...</string>
     </property>
    </widget>
+   <zorder>emp</zorder>
+   <zorder>add_btn_2</zorder>
+   <zorder>add_btn_4</zorder>
+   <zorder>add_btn_3</zorder>
+   <zorder>search_input</zorder>
   </widget>
  </widget>
  <resources/>
