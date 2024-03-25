@@ -487,13 +487,33 @@ QTextEdit {
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>540</y>
+      <y>570</y>
       <width>121</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>signature</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="idE">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>530</y>
+      <width>62</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="idS">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>530</y>
+      <width>62</width>
+      <height>22</height>
+     </rect>
     </property>
    </widget>
    <zorder>label_5</zorder>
@@ -511,6 +531,8 @@ QTextEdit {
    <zorder>lineEdit_4</zorder>
    <zorder>lineEdit_6</zorder>
    <zorder>pushButton</zorder>
+   <zorder>idE</zorder>
+   <zorder>idS</zorder>
   </widget>
  </widget>
  <resources/>

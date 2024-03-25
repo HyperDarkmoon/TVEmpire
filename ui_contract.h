@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -47,6 +48,8 @@ public:
     QLineEdit *lineEdit_4;
     QLineEdit *lineEdit_6;
     QPushButton *pushButton;
+    QComboBox *idE;
+    QComboBox *idS;
 
     void setupUi(QDialog *Contract)
     {
@@ -271,7 +274,13 @@ public:
         lineEdit_6->setGeometry(QRect(10, 320, 231, 191));
         pushButton = new QPushButton(widget_3);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(70, 540, 121, 23));
+        pushButton->setGeometry(QRect(70, 570, 121, 23));
+        idE = new QComboBox(widget_3);
+        idE->setObjectName(QStringLiteral("idE"));
+        idE->setGeometry(QRect(150, 530, 62, 22));
+        idS = new QComboBox(widget_3);
+        idS->setObjectName(QStringLiteral("idS"));
+        idS->setGeometry(QRect(60, 530, 62, 22));
         label_5->raise();
         lineEdit_2->raise();
         add_btn->raise();
@@ -287,6 +296,8 @@ public:
         lineEdit_4->raise();
         lineEdit_6->raise();
         pushButton->raise();
+        idE->raise();
+        idS->raise();
 
         retranslateUi(Contract);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_3, SLOT(setVisible(bool)));
