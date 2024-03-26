@@ -2764,8 +2764,8 @@ QTextEdit {
      <y>329</y>
     </hint>
     <hint type="destinationlabel">
-     <x>316</x>
-     <y>174</y>
+     <x>256</x>
+     <y>204</y>
     </hint>
    </hints>
   </connection>
@@ -2776,7 +2776,7 @@ QTextEdit {
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>287</x>
+     <x>245</x>
      <y>342</y>
     </hint>
     <hint type="destinationlabel">
@@ -2792,12 +2792,12 @@ QTextEdit {
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>282</x>
+     <x>245</x>
      <y>348</y>
     </hint>
     <hint type="destinationlabel">
-     <x>319</x>
-     <y>176</y>
+     <x>259</x>
+     <y>206</y>
     </hint>
    </hints>
   </connection>

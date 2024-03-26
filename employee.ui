@@ -480,8 +480,8 @@
    <widget class="QTableWidget" name="emp">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>190</y>
+      <x>310</x>
+      <y>160</y>
       <width>951</width>
       <height>431</height>
      </rect>
@@ -1321,10 +1321,10 @@
    <widget class="QPushButton" name="add_btn_4">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>30</y>
-      <width>161</width>
-      <height>71</height>
+      <x>340</x>
+      <y>110</y>
+      <width>141</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="palette">
@@ -1341,10 +1341,10 @@
        </colorrole>
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>47</red>
-          <green>59</green>
-          <blue>82</blue>
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -1413,19 +1413,19 @@
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>47</red>
-          <green>59</green>
-          <blue>82</blue>
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>47</red>
-          <green>59</green>
-          <blue>82</blue>
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -1487,10 +1487,10 @@
        </colorrole>
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>47</red>
-          <green>59</green>
-          <blue>82</blue>
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -1559,19 +1559,19 @@
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>47</red>
-          <green>59</green>
-          <blue>82</blue>
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>47</red>
-          <green>59</green>
-          <blue>82</blue>
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -1625,18 +1625,18 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>127</red>
-          <green>127</green>
-          <blue>127</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>47</red>
-          <green>59</green>
-          <blue>82</blue>
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -1679,9 +1679,9 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>127</red>
-          <green>127</green>
-          <blue>127</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -1697,27 +1697,27 @@
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>127</red>
-          <green>127</green>
-          <blue>127</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>47</red>
-          <green>59</green>
-          <blue>82</blue>
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>47</red>
-          <green>59</green>
-          <blue>82</blue>
+         <color alpha="0">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -1769,28 +1769,79 @@
       </disabled>
      </palette>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent; 
+    color: black;
+
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #141E46;
+    color: black;
+}
+
+/* Pressed effect */
+QPushButton:pressed {
+    background-color: #141E46;
+    border: 2px solid #141E46;
+    padding: 9px 19px;
+    color: white;
+}
+
+/* Checked effect */
+QPushButton:checked {
+    background-color: #64a1c2; /* Your desired color */
+    border: none; /* Remove the border if needed */
+}</string>
+    </property>
     <property name="text">
      <string>Export PDF</string>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../#017_Students information system/icons/add.svg</normaloff>../../#017_Students information system/icons/add.svg</iconset>
+      <normaloff>icon/format-de-fichier-pdf.png</normaloff>icon/format-de-fichier-pdf.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>20</width>
-      <height>20</height>
+      <width>30</width>
+      <height>30</height>
      </size>
     </property>
    </widget>
    <widget class="QLineEdit" name="search_input">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>60</y>
+      <x>740</x>
+      <y>111</y>
       <width>242</width>
-      <height>22</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    background-color: #FFFFFF; /* Background color */
+    border: 2px solid #CCCCCC; /* Border color */
+    border-radius: 5px; /* Border radius */
+    padding: 7px 10px; /* Padding */
+    font-size: 14px; /* Font size */
+    color: #333333; /* Text color */
+}
+
+QLineEdit:hover {
+    border-color: #999999; /* Border color on hover */
+}
+
+QLineEdit:focus {
+    border-color: #0078D4; /* Border color when focused */
+}
+</string>
     </property>
     <property name="placeholderText">
      <string>Search...</string>
@@ -2772,12 +2823,97 @@ QTextEdit {
     <zorder>label_6</zorder>
     <zorder>pushButton_3</zorder>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>110</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent; 
+    color: black;
+
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #141E46;
+    color: black;
+}
+
+/* Pressed effect */
+QPushButton:pressed {
+    background-color: #141E46;
+    border: 2px solid #141E46;
+    padding: 9px 19px;
+    color: white;
+}
+
+/* Checked effect */
+QPushButton:checked {
+    background-color: #64a1c2; /* Your desired color */
+    border: none; /* Remove the border if needed */
+}</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icon/tableau-de-bord.png</normaloff>icon/tableau-de-bord.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>955</x>
+      <y>116</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../../Downloads/recherche.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <zorder>widget</zorder>
    <zorder>emp</zorder>
    <zorder>add_btn_4</zorder>
    <zorder>add_btn_3</zorder>
    <zorder>search_input</zorder>
    <zorder>widget_2</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>label_15</zorder>
   </widget>
  </widget>
  <resources/>
