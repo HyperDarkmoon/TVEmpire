@@ -480,8 +480,8 @@
    <widget class="QTableWidget" name="emp">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>190</y>
+      <x>310</x>
+      <y>160</y>
       <width>951</width>
       <height>431</height>
      </rect>
@@ -1321,10 +1321,10 @@
    <widget class="QPushButton" name="add_btn_4">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>30</y>
-      <width>161</width>
-      <height>71</height>
+      <x>310</x>
+      <y>80</y>
+      <width>141</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="palette">
@@ -1774,12 +1774,12 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../#017_Students information system/icons/add.svg</normaloff>../../#017_Students information system/icons/add.svg</iconset>
+      <normaloff>icon/format-de-fichier-pdf.png</normaloff>icon/format-de-fichier-pdf.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>20</width>
-      <height>20</height>
+      <width>30</width>
+      <height>30</height>
      </size>
     </property>
    </widget>
@@ -2772,12 +2772,36 @@ QTextEdit {
     <zorder>label_6</zorder>
     <zorder>pushButton_3</zorder>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>102</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icon/tableau-de-bord.png</normaloff>icon/tableau-de-bord.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
    <zorder>widget</zorder>
    <zorder>emp</zorder>
    <zorder>add_btn_4</zorder>
    <zorder>add_btn_3</zorder>
    <zorder>search_input</zorder>
    <zorder>widget_2</zorder>
+   <zorder>pushButton</zorder>
   </widget>
  </widget>
  <resources/>

@@ -13,10 +13,14 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,16 +30,45 @@ class Ui_Employee
 public:
     QWidget *employeeContainer;
     QTableWidget *emp;
-    QPushButton *add_btn_2;
     QPushButton *add_btn_3;
     QPushButton *add_btn_4;
     QLineEdit *search_input;
+    QWidget *widget_2;
+    QLabel *label_5;
+    QLineEdit *lineEdit_2;
+    QLabel *label_4;
+    QLineEdit *lineEdit_3;
+    QLabel *label_3;
+    QLabel *label_7;
+    QLabel *label_10;
+    QPushButton *add_btn_5;
+    QPushButton *pushButton_4;
+    QLabel *label_11;
+    QDateEdit *dateEdit;
+    QLabel *label_12;
+    QComboBox *comboBox;
+    QComboBox *comboBox_2;
+    QTimeEdit *timeEdit;
+    QTimeEdit *timeEdit_2;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_4;
+    QLineEdit *lineEdit_5;
+    QLabel *label;
+    QLabel *label_2;
+    QLabel *label_8;
+    QLabel *label_9;
+    QLabel *label_13;
+    QLabel *label_14;
+    QPushButton *add_btn_2;
+    QWidget *widget;
+    QPushButton *pushButton_3;
+    QLabel *label_6;
 
     void setupUi(QWidget *Employee)
     {
         if (Employee->objectName().isEmpty())
             Employee->setObjectName(QStringLiteral("Employee"));
-        Employee->resize(1163, 560);
+        Employee->resize(1294, 657);
         QPalette palette;
         QBrush brush(QColor(36, 46, 66, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -115,10 +148,12 @@ public:
         Employee->setStyleSheet(QStringLiteral(""));
         employeeContainer = new QWidget(Employee);
         employeeContainer->setObjectName(QStringLiteral("employeeContainer"));
-        employeeContainer->setGeometry(QRect(-1, -1, 1171, 561));
+        employeeContainer->setGeometry(QRect(0, 0, 1311, 661));
         employeeContainer->setAutoFillBackground(false);
         employeeContainer->setStyleSheet(QLatin1String("\n"
-"	background:#2F3B52;\n"
+"#employeeContainer {\n"
+"    background-color: #EBF1F4 ; /* Background color for the Sponsor widget */\n"
+"}\n"
 ""));
         emp = new QTableWidget(employeeContainer);
         if (emp->columnCount() < 13)
@@ -205,7 +240,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem33 = new QTableWidgetItem();
         emp->setItem(19, 0, __qtablewidgetitem33);
         emp->setObjectName(QStringLiteral("emp"));
-        emp->setGeometry(QRect(10, 110, 951, 431));
+        emp->setGeometry(QRect(350, 190, 951, 431));
         QPalette palette1;
         QBrush brush10(QColor(241, 241, 241, 255));
         brush10.setStyle(Qt::SolidPattern);
@@ -243,9 +278,9 @@ public:
         emp->verticalHeader()->setHighlightSections(false);
         emp->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
         emp->verticalHeader()->setStretchLastSection(false);
-        add_btn_2 = new QPushButton(employeeContainer);
-        add_btn_2->setObjectName(QStringLiteral("add_btn_2"));
-        add_btn_2->setGeometry(QRect(10, 20, 161, 71));
+        add_btn_3 = new QPushButton(employeeContainer);
+        add_btn_3->setObjectName(QStringLiteral("add_btn_3"));
+        add_btn_3->setGeometry(QRect(1080, 30, 161, 71));
         QPalette palette2;
         palette2.setBrush(QPalette::Active, QPalette::WindowText, brush7);
         palette2.setBrush(QPalette::Active, QPalette::Button, brush1);
@@ -307,14 +342,14 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush13);
 #endif
-        add_btn_2->setPalette(palette2);
+        add_btn_3->setPalette(palette2);
         QIcon icon;
-        icon.addFile(QStringLiteral("../../../Desktop/#017_Students information system/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        add_btn_2->setIcon(icon);
-        add_btn_2->setIconSize(QSize(20, 20));
-        add_btn_3 = new QPushButton(employeeContainer);
-        add_btn_3->setObjectName(QStringLiteral("add_btn_3"));
-        add_btn_3->setGeometry(QRect(790, 20, 161, 71));
+        icon.addFile(QStringLiteral("../../#017_Students information system/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        add_btn_3->setIcon(icon);
+        add_btn_3->setIconSize(QSize(20, 20));
+        add_btn_4 = new QPushButton(employeeContainer);
+        add_btn_4->setObjectName(QStringLiteral("add_btn_4"));
+        add_btn_4->setGeometry(QRect(630, 30, 161, 71));
         QPalette palette3;
         palette3.setBrush(QPalette::Active, QPalette::WindowText, brush7);
         palette3.setBrush(QPalette::Active, QPalette::Button, brush1);
@@ -370,12 +405,165 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush13);
 #endif
-        add_btn_3->setPalette(palette3);
-        add_btn_3->setIcon(icon);
-        add_btn_3->setIconSize(QSize(20, 20));
-        add_btn_4 = new QPushButton(employeeContainer);
-        add_btn_4->setObjectName(QStringLiteral("add_btn_4"));
-        add_btn_4->setGeometry(QRect(220, 20, 161, 71));
+        add_btn_4->setPalette(palette3);
+        add_btn_4->setIcon(icon);
+        add_btn_4->setIconSize(QSize(20, 20));
+        search_input = new QLineEdit(employeeContainer);
+        search_input->setObjectName(QStringLiteral("search_input"));
+        search_input->setGeometry(QRect(820, 60, 242, 22));
+        widget_2 = new QWidget(employeeContainer);
+        widget_2->setObjectName(QStringLiteral("widget_2"));
+        widget_2->setGeometry(QRect(0, 10, 261, 651));
+        widget_2->setStyleSheet(QLatin1String("QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
+        label_5 = new QLabel(widget_2);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(0, 0, 241, 631));
+        label_5->setStyleSheet(QLatin1String("QLabel {\n"
+"    background-color: white;\n"
+"    border: 2px solid black;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px 10px;\n"
+"    color: black;\n"
+"}\n"
+""));
+        lineEdit_2 = new QLineEdit(widget_2);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        lineEdit_2->setEnabled(true);
+        lineEdit_2->setGeometry(QRect(10, 30, 191, 30));
+        lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
+        label_4 = new QLabel(widget_2);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(10, 10, 61, 16));
+        label_4->setStyleSheet(QLatin1String("color: black\n"
+""));
+        lineEdit_3 = new QLineEdit(widget_2);
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+        lineEdit_3->setGeometry(QRect(10, 90, 191, 30));
+        lineEdit_3->setStyleSheet(QLatin1String("QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
+        label_3 = new QLabel(widget_2);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(10, 70, 48, 16));
+        label_3->setStyleSheet(QLatin1String("color: black\n"
+""));
+        label_7 = new QLabel(widget_2);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setGeometry(QRect(10, 130, 101, 16));
+        label_7->setStyleSheet(QStringLiteral("color: black"));
+        label_10 = new QLabel(widget_2);
+        label_10->setObjectName(QStringLiteral("label_10"));
+        label_10->setEnabled(true);
+        label_10->setGeometry(QRect(10, 220, 50, 16));
+        label_10->setBaseSize(QSize(2, 0));
+        label_10->setStyleSheet(QStringLiteral("color: black"));
+        add_btn_5 = new QPushButton(widget_2);
+        add_btn_5->setObjectName(QStringLiteral("add_btn_5"));
+        add_btn_5->setGeometry(QRect(20, 310, 151, 34));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        add_btn_5->setIcon(icon1);
+        add_btn_5->setIconSize(QSize(20, 20));
+        pushButton_4 = new QPushButton(widget_2);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        pushButton_4->setGeometry(QRect(205, 315, 31, 31));
+        pushButton_4->setLayoutDirection(Qt::LeftToRight);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("../../../Downloads/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon2);
+        pushButton_4->setIconSize(QSize(30, 30));
+        pushButton_4->setCheckable(true);
+        label_11 = new QLabel(widget_2);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setGeometry(QRect(200, 0, 41, 631));
+        label_11->setStyleSheet(QLatin1String("QLabel {\n"
+"    background-color: white;\n"
+"    border: 2px solid black; /* Add border */\n"
+"    border-top-right-radius: 10px; /* Border radius only on the top-right */\n"
+"    border-bottom-right-radius: 10px; /* Border radius only on the bottom-right */\n"
+"    padding: 5px 10px;\n"
+"    color: black;\n"
+"}\n"
+""));
+        dateEdit = new QDateEdit(widget_2);
+        dateEdit->setObjectName(QStringLiteral("dateEdit"));
+        dateEdit->setGeometry(QRect(10, 160, 171, 22));
+        label_12 = new QLabel(widget_2);
+        label_12->setObjectName(QStringLiteral("label_12"));
+        label_12->setGeometry(QRect(10, 190, 81, 16));
+        comboBox = new QComboBox(widget_2);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(10, 220, 181, 22));
+        comboBox_2 = new QComboBox(widget_2);
+        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
+        comboBox_2->setGeometry(QRect(10, 270, 181, 22));
+        timeEdit = new QTimeEdit(widget_2);
+        timeEdit->setObjectName(QStringLiteral("timeEdit"));
+        timeEdit->setGeometry(QRect(10, 320, 181, 22));
+        timeEdit_2 = new QTimeEdit(widget_2);
+        timeEdit_2->setObjectName(QStringLiteral("timeEdit_2"));
+        timeEdit_2->setGeometry(QRect(10, 380, 181, 22));
+        lineEdit = new QLineEdit(widget_2);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(10, 430, 191, 30));
+        lineEdit_4 = new QLineEdit(widget_2);
+        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
+        lineEdit_4->setGeometry(QRect(10, 480, 191, 30));
+        lineEdit_5 = new QLineEdit(widget_2);
+        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
+        lineEdit_5->setGeometry(QRect(10, 540, 191, 30));
+        label = new QLabel(widget_2);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(10, 250, 47, 14));
+        label_2 = new QLabel(widget_2);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(10, 300, 101, 16));
+        label_8 = new QLabel(widget_2);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setGeometry(QRect(10, 360, 111, 16));
+        label_9 = new QLabel(widget_2);
+        label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setGeometry(QRect(10, 410, 47, 14));
+        label_13 = new QLabel(widget_2);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setGeometry(QRect(10, 460, 47, 14));
+        label_14 = new QLabel(widget_2);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        label_14->setGeometry(QRect(10, 520, 47, 14));
+        add_btn_2 = new QPushButton(widget_2);
+        add_btn_2->setObjectName(QStringLiteral("add_btn_2"));
+        add_btn_2->setGeometry(QRect(20, 590, 161, 31));
         QPalette palette4;
         palette4.setBrush(QPalette::Active, QPalette::WindowText, brush7);
         palette4.setBrush(QPalette::Active, QPalette::Button, brush1);
@@ -431,19 +619,71 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette4.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush13);
 #endif
-        add_btn_4->setPalette(palette4);
-        add_btn_4->setIcon(icon);
-        add_btn_4->setIconSize(QSize(20, 20));
-        search_input = new QLineEdit(employeeContainer);
-        search_input->setObjectName(QStringLiteral("search_input"));
-        search_input->setGeometry(QRect(470, 30, 242, 22));
-        emp->raise();
+        add_btn_2->setPalette(palette4);
+        add_btn_2->setIcon(icon);
+        add_btn_2->setIconSize(QSize(20, 20));
+        add_btn_5->raise();
+        label_10->raise();
+        label_5->raise();
+        lineEdit_2->raise();
+        lineEdit_3->raise();
+        label_3->raise();
+        label_4->raise();
+        label_7->raise();
+        dateEdit->raise();
+        label_11->raise();
+        pushButton_4->raise();
+        label_12->raise();
+        comboBox->raise();
+        comboBox_2->raise();
+        timeEdit->raise();
+        timeEdit_2->raise();
+        lineEdit->raise();
+        lineEdit_4->raise();
+        lineEdit_5->raise();
+        label->raise();
+        label_2->raise();
+        label_8->raise();
+        label_9->raise();
+        label_13->raise();
+        label_14->raise();
         add_btn_2->raise();
+        widget = new QWidget(employeeContainer);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(-10, 10, 61, 651));
+        widget->setStyleSheet(QStringLiteral("background-color:#fffff;"));
+        pushButton_3 = new QPushButton(widget);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setGeometry(QRect(14, 315, 31, 31));
+        pushButton_3->setIcon(icon2);
+        pushButton_3->setIconSize(QSize(30, 30));
+        pushButton_3->setCheckable(true);
+        label_6 = new QLabel(widget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(10, 0, 41, 631));
+        label_6->setStyleSheet(QLatin1String("QLabel {\n"
+"    background-color: white;\n"
+"    border: 2px solid black; /* Add border */\n"
+"    border-top-right-radius: 10px; /* Border radius only on the top-right */\n"
+"    border-bottom-right-radius: 10px; /* Border radius only on the bottom-right */\n"
+"    padding: 5px 10px;\n"
+"    color: black;\n"
+"}\n"
+""));
+        label_6->raise();
+        pushButton_3->raise();
+        widget->raise();
+        emp->raise();
         add_btn_4->raise();
         add_btn_3->raise();
         search_input->raise();
+        widget_2->raise();
 
         retranslateUi(Employee);
+        QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
+        QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget, SLOT(setHidden(bool)));
+        QObject::connect(pushButton_4, SIGNAL(toggled(bool)), widget_2, SLOT(setHidden(bool)));
+        QObject::connect(pushButton_4, SIGNAL(toggled(bool)), widget, SLOT(setVisible(bool)));
 
         QMetaObject::connectSlotsByName(Employee);
     } // setupUi
@@ -522,10 +762,27 @@ public:
         emp->setSortingEnabled(false);
         emp->setSortingEnabled(__sortingEnabled);
 
-        add_btn_2->setText(QApplication::translate("Employee", "Add", Q_NULLPTR));
         add_btn_3->setText(QApplication::translate("Employee", "Refresh", Q_NULLPTR));
         add_btn_4->setText(QApplication::translate("Employee", "Export PDF", Q_NULLPTR));
         search_input->setPlaceholderText(QApplication::translate("Employee", "Search...", Q_NULLPTR));
+        label_5->setText(QString());
+        label_4->setText(QApplication::translate("Employee", "Nom", Q_NULLPTR));
+        label_3->setText(QApplication::translate("Employee", "prenom", Q_NULLPTR));
+        label_7->setText(QApplication::translate("Employee", "date naissance", Q_NULLPTR));
+        label_10->setText(QApplication::translate("Employee", "categories", Q_NULLPTR));
+        add_btn_5->setText(QApplication::translate("Employee", "Add", Q_NULLPTR));
+        pushButton_4->setText(QString());
+        label_11->setText(QString());
+        label_12->setText(QApplication::translate("Employee", "sexe", Q_NULLPTR));
+        label->setText(QApplication::translate("Employee", "poste", Q_NULLPTR));
+        label_2->setText(QApplication::translate("Employee", "temps d'entree", Q_NULLPTR));
+        label_8->setText(QApplication::translate("Employee", "temps de sortie", Q_NULLPTR));
+        label_9->setText(QApplication::translate("Employee", "login ", Q_NULLPTR));
+        label_13->setText(QApplication::translate("Employee", "password", Q_NULLPTR));
+        label_14->setText(QApplication::translate("Employee", "salaire", Q_NULLPTR));
+        add_btn_2->setText(QApplication::translate("Employee", "Add", Q_NULLPTR));
+        pushButton_3->setText(QString());
+        label_6->setText(QString());
     } // retranslateUi
 
 };
