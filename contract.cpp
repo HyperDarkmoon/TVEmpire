@@ -17,6 +17,7 @@
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
 #include "contract.h"
+#include"sponsor.h"
 #include "ui_contract.h"
 #include "signature.h"
 

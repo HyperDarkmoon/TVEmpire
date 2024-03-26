@@ -77,7 +77,7 @@ void CrudSponsor::setCategories(const QString &newCategories) {
 bool CrudSponsor::create(CrudSponsor s) {
     QSqlQuery query;
     query.prepare("INSERT INTO Sponsor (id, nom, tel,email, categorie) VALUES (sponsor_seq.NEXTVAL, :nom , :email,:phone, :categories)");
-
+    query.bindValue(":id", s.getId());
     query.bindValue(":nom", s.getNom());
     query.bindValue(":email", s.getEmail());
     query.bindValue(":phone", s.getPhone());
@@ -130,10 +130,6 @@ bool CrudSponsor::create(CrudSponsor s) {
         return false;
     }
 }
-
-
-// Other methods remain unchanged...
-
 
 CrudSponsor CrudSponsor::read(unsigned int id) {
     QSqlQuery query;

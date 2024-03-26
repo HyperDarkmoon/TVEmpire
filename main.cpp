@@ -7,7 +7,7 @@
 #include <qsqldatabase.h>
 #include "dbconnection.h"
 #include <QMessageBox>
-#include "mailing.h"
+//#include "mailing.h"
 #include "../smtp/src/SmtpMime"
 int main(int argc, char *argv[]) {
         QApplication a(argc, argv);
