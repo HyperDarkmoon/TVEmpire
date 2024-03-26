@@ -9,6 +9,7 @@ INPUT(
 ./release\employee.o
 ./release\employeeedit.o
 ./release\equipment.o
+./release\forgotpassword.o
 ./release\form2.o
 ./release\main.o
 ./release\mainwindow.o
@@ -43,6 +44,7 @@ INPUT(
 ./release\moc_employee.o
 ./release\moc_employeeedit.o
 ./release\moc_equipment.o
+./release\moc_forgotpassword.o
 ./release\moc_form2.o
 ./release\moc_mainwindow.o
 ./release\moc_scenes.o

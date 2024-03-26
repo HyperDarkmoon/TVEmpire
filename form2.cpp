@@ -59,3 +59,8 @@ void Form2::on_pushButton_2_clicked()
 {
 
 }
+
+void Form2::on_forgotPushButton_clicked()
+{
+    forgotDialog.show();
+}
