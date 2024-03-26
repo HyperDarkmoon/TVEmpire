@@ -33,7 +33,7 @@ public:
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_2;
     QPushButton *pushButton;
-    QLabel *label_5;
+    QPushButton *forgotPushButton;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton_2;
@@ -161,10 +161,10 @@ public:
 "      background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.17 rgba(235, 241, 244, 1), stop:0.61 rgba(224, 224, 225, 1));\n"
 " color: black;\n"
 "    }"));
-        label_5 = new QLabel(widget);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(301, 345, 181, 16));
-        label_5->setStyleSheet(QStringLiteral("color:rgba(0, 0, 0, 210);"));
+        forgotPushButton = new QPushButton(widget);
+        forgotPushButton->setObjectName(QStringLiteral("forgotPushButton"));
+        forgotPushButton->setGeometry(QRect(301, 345, 181, 16));
+        forgotPushButton->setStyleSheet(QStringLiteral("color:rgba(0, 0, 0, 210);"));
         horizontalLayoutWidget = new QWidget(widget);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
         horizontalLayoutWidget->setGeometry(QRect(318, 383, 141, 32));
@@ -232,7 +232,7 @@ public:
         lineEdit->setPlaceholderText(QApplication::translate("Form2", "  User Name", Q_NULLPTR));
         lineEdit_2->setPlaceholderText(QApplication::translate("Form2", "  Password", Q_NULLPTR));
         pushButton->setText(QApplication::translate("Form2", "L o g  I n", Q_NULLPTR));
-        label_5->setText(QApplication::translate("Form2", "Forgot your User Name or password?", Q_NULLPTR));
+        forgotPushButton->setText(QApplication::translate("Form2", "Forgot your password?", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("Form2", "E", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("Form2", "D", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("Form2", "M", Q_NULLPTR));

@@ -231,7 +231,7 @@ QPushButton:hover {
      <string>L o g  I n</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QPushButton" name="forgotPushButton">
     <property name="geometry">
      <rect>
       <x>301</x>
@@ -244,7 +244,7 @@ QPushButton:hover {
      <string notr="true">color:rgba(0, 0, 0, 210);</string>
     </property>
     <property name="text">
-     <string>Forgot your User Name or password?</string>
+     <string>Forgot your password?</string>
     </property>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">

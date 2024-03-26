@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "mainwindow.h"
+#include "forgotpassword.h"
+
 namespace Ui {
 class Form2;
 }
@@ -20,7 +22,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_forgotPushButton_clicked();
+
 private:
+    ForgotPassword forgotDialog;
     Ui::Form2 *ui;
     MainWindow *mainWindow;
 

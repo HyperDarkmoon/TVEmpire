@@ -23,6 +23,7 @@ SOURCES += \
     employee.cpp \
     employeeedit.cpp \
     equipment.cpp \
+    forgotpassword.cpp \
     form2.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -60,6 +61,7 @@ HEADERS += \
     employee.h \
     employeeedit.h \
     equipment.h \
+    forgotpassword.h \
     form2.h \
     mainwindow.h \
     pdfexport.h \
@@ -96,6 +98,7 @@ FORMS += \
     employee.ui \
     employeeedit.ui \
     equipment.ui \
+    forgotpassword.ui \
     form2.ui \
     mainwindow.ui \
     scenes.ui \
