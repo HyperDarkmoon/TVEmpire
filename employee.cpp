@@ -129,7 +129,48 @@ Employee::~Employee()
 
 void Employee::on_add_btn_2_clicked()
 {
-    employeeDialog->show();
+    if (ui->name->text().isEmpty() || ui->lastname->text().isEmpty() || ui->post->currentText().isEmpty() ||
+           ui->salary->text().isEmpty() || ui->starttime->time().isNull() || ui->endtime->time().isNull() ||
+           ui->login->text().isEmpty() || ui->password->text().isEmpty() || ui->dob->date().isNull() ||
+           ui->gender->currentText().isEmpty()) {
+
+           // Show an error dialog
+           QMessageBox::critical(this, "Error", "Please fill in all the fields.");
+           return;
+       }
+
+       // Check if the date of birth is greater than the system date
+       QDate currentDate = QDate::currentDate();
+       QDate inputDate = ui->dob->date();
+
+       if (inputDate > currentDate) {
+           // Show an error dialog
+           QMessageBox::critical(this, "Error", "Date of Birth cannot be in the future.");
+           return;
+       }
+
+       // Validate the password
+       addEmployee add;
+       add.validatePassword();
+
+       // Check if the password meets the requirements
+       if (ui->password->styleSheet() == "QLineEdit { border: 1px solid red; }") {
+           // Show an error dialog
+           QMessageBox::critical(this, "Error", "Password must have at least one uppercase letter, one number, and one symbol.");
+           return;
+       }
+
+       // Proceed with creating the employee if fields are not empty and password is valid
+       CrudEmployee Emp(0, ui->name->text(), ui->lastname->text(), ui->post->currentText(), ui->salary->text().toUInt(),
+                        ui->starttime->time(), ui->endtime->time(), ui->login->text(), ui->password->text(),
+                        ui->dob->date(), ui->gender->currentText());
+
+       bool check =  Emp.createEmployee(Emp);
+       if (check) {
+           refreshTable();
+       }
+       qDebug() << check;
+
 }
 
 void Employee::on_add_btn_3_clicked()
@@ -298,6 +339,30 @@ CrudEmployee CrudEmployee::getEmployee(unsigned int id)
     QSqlQuery query;
     query.prepare("SELECT * FROM employees WHERE id = :id");
     query.bindValue(":id", id);
+    query.exec();
+    CrudEmployee emp;
+    while (query.next())
+    {
+        emp.setId(query.value(0).toUInt());
+        emp.setEmployeeName(query.value(1).toString());
+        emp.setEmployeeLastName(query.value(2).toString());
+        emp.setPost(query.value(3).toString());
+        emp.setSalary(query.value(4).toUInt());
+        emp.setStartTime(query.value(5).toTime());
+        emp.setEndTime(query.value(6).toTime());
+        emp.setPassword(query.value(7).toString());
+        emp.setLogin(query.value(8).toString());
+        emp.setDob(query.value(9).toDate());
+        emp.setGender(query.value(10).toString());
+    }
+    return emp;
+}
+
+CrudEmployee CrudEmployee::getEmployeeByLogin(QString login)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM employees WHERE login = :login");
+    query.bindValue(":login", login);
     query.exec();
     CrudEmployee emp;
     while (query.next())

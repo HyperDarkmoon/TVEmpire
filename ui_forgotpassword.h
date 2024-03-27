@@ -14,31 +14,28 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_ForgotPassword
 {
 public:
-    QDialogButtonBox *buttonBox;
     QLabel *label;
     QLineEdit *email;
     QLabel *label_2;
+    QLineEdit *login;
+    QLabel *label_3;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *ForgotPassword)
     {
         if (ForgotPassword->objectName().isEmpty())
             ForgotPassword->setObjectName(QStringLiteral("ForgotPassword"));
         ForgotPassword->resize(591, 424);
-        buttonBox = new QDialogButtonBox(ForgotPassword);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(90, 290, 341, 32));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         label = new QLabel(ForgotPassword);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(120, 60, 271, 51));
@@ -48,10 +45,17 @@ public:
         label_2 = new QLabel(ForgotPassword);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(90, 170, 71, 31));
+        login = new QLineEdit(ForgotPassword);
+        login->setObjectName(QStringLiteral("login"));
+        login->setGeometry(QRect(170, 120, 271, 31));
+        label_3 = new QLabel(ForgotPassword);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(90, 120, 71, 31));
+        pushButton = new QPushButton(ForgotPassword);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(190, 240, 191, 31));
 
         retranslateUi(ForgotPassword);
-        QObject::connect(buttonBox, SIGNAL(accepted()), ForgotPassword, SLOT(accept()));
-        QObject::connect(buttonBox, SIGNAL(rejected()), ForgotPassword, SLOT(reject()));
 
         QMetaObject::connectSlotsByName(ForgotPassword);
     } // setupUi
@@ -61,6 +65,8 @@ public:
         ForgotPassword->setWindowTitle(QApplication::translate("ForgotPassword", "Dialog", Q_NULLPTR));
         label->setText(QApplication::translate("ForgotPassword", "Password Recovery Form:", Q_NULLPTR));
         label_2->setText(QApplication::translate("ForgotPassword", "Email:", Q_NULLPTR));
+        label_3->setText(QApplication::translate("ForgotPassword", "Login", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("ForgotPassword", "Recieve Password", Q_NULLPTR));
     } // retranslateUi
 
 };

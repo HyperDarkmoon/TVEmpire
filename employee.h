@@ -75,6 +75,7 @@ public:
 
     bool createEmployee(CrudEmployee emp);
     CrudEmployee getEmployee(unsigned int id);
+    CrudEmployee getEmployeeByLogin(QString login);
     QList<CrudEmployee> getAllEmployees();
     QVariant getFieldByIndex(int index) const;
     bool updateEmployee(unsigned int idToUpdate, CrudEmployee emp);
@@ -91,7 +92,6 @@ private:
     QString login;
     QDate dob;
     QString gender;
-
 };
 
 #endif // EMPLOYEE_H

@@ -35,24 +35,24 @@ public:
     QLineEdit *search_input;
     QWidget *widget_2;
     QLabel *label_5;
-    QLineEdit *lineEdit_2;
+    QLineEdit *name;
     QLabel *label_4;
-    QLineEdit *lineEdit_3;
+    QLineEdit *lastname;
     QLabel *label_3;
     QLabel *label_7;
     QLabel *label_10;
     QPushButton *add_btn_5;
     QPushButton *pushButton_4;
     QLabel *label_11;
-    QDateEdit *dateEdit;
+    QDateEdit *dob;
     QLabel *label_12;
-    QComboBox *comboBox;
-    QComboBox *comboBox_2;
-    QTimeEdit *timeEdit;
-    QTimeEdit *timeEdit_2;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_4;
-    QLineEdit *lineEdit_5;
+    QComboBox *gender;
+    QComboBox *post;
+    QTimeEdit *starttime;
+    QTimeEdit *endtime;
+    QLineEdit *login;
+    QLineEdit *password;
+    QLineEdit *salary;
     QLabel *label;
     QLabel *label_2;
     QLabel *label_8;
@@ -490,11 +490,11 @@ public:
 "    color: black;\n"
 "}\n"
 ""));
-        lineEdit_2 = new QLineEdit(widget_2);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setEnabled(true);
-        lineEdit_2->setGeometry(QRect(10, 30, 191, 30));
-        lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {\n"
+        name = new QLineEdit(widget_2);
+        name->setObjectName(QStringLiteral("name"));
+        name->setEnabled(true);
+        name->setGeometry(QRect(10, 30, 191, 30));
+        name->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -511,10 +511,10 @@ public:
         label_4->setGeometry(QRect(10, 10, 61, 16));
         label_4->setStyleSheet(QLatin1String("color: black\n"
 ""));
-        lineEdit_3 = new QLineEdit(widget_2);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(10, 90, 191, 30));
-        lineEdit_3->setStyleSheet(QLatin1String("QLineEdit {\n"
+        lastname = new QLineEdit(widget_2);
+        lastname->setObjectName(QStringLiteral("lastname"));
+        lastname->setGeometry(QRect(10, 90, 191, 30));
+        lastname->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -569,33 +569,33 @@ public:
 "    color: black;\n"
 "}\n"
 ""));
-        dateEdit = new QDateEdit(widget_2);
-        dateEdit->setObjectName(QStringLiteral("dateEdit"));
-        dateEdit->setGeometry(QRect(10, 160, 171, 22));
+        dob = new QDateEdit(widget_2);
+        dob->setObjectName(QStringLiteral("dob"));
+        dob->setGeometry(QRect(10, 160, 171, 22));
         label_12 = new QLabel(widget_2);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setGeometry(QRect(10, 190, 81, 16));
-        comboBox = new QComboBox(widget_2);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(10, 220, 181, 22));
-        comboBox_2 = new QComboBox(widget_2);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
-        comboBox_2->setGeometry(QRect(10, 270, 181, 22));
-        timeEdit = new QTimeEdit(widget_2);
-        timeEdit->setObjectName(QStringLiteral("timeEdit"));
-        timeEdit->setGeometry(QRect(10, 320, 181, 22));
-        timeEdit_2 = new QTimeEdit(widget_2);
-        timeEdit_2->setObjectName(QStringLiteral("timeEdit_2"));
-        timeEdit_2->setGeometry(QRect(10, 380, 181, 22));
-        lineEdit = new QLineEdit(widget_2);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(10, 430, 191, 30));
-        lineEdit_4 = new QLineEdit(widget_2);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(10, 480, 191, 30));
-        lineEdit_5 = new QLineEdit(widget_2);
-        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
-        lineEdit_5->setGeometry(QRect(10, 540, 191, 30));
+        gender = new QComboBox(widget_2);
+        gender->setObjectName(QStringLiteral("gender"));
+        gender->setGeometry(QRect(10, 220, 181, 22));
+        post = new QComboBox(widget_2);
+        post->setObjectName(QStringLiteral("post"));
+        post->setGeometry(QRect(10, 270, 181, 22));
+        starttime = new QTimeEdit(widget_2);
+        starttime->setObjectName(QStringLiteral("starttime"));
+        starttime->setGeometry(QRect(10, 320, 181, 22));
+        endtime = new QTimeEdit(widget_2);
+        endtime->setObjectName(QStringLiteral("endtime"));
+        endtime->setGeometry(QRect(10, 380, 181, 22));
+        login = new QLineEdit(widget_2);
+        login->setObjectName(QStringLiteral("login"));
+        login->setGeometry(QRect(10, 430, 191, 30));
+        password = new QLineEdit(widget_2);
+        password->setObjectName(QStringLiteral("password"));
+        password->setGeometry(QRect(10, 480, 191, 30));
+        salary = new QLineEdit(widget_2);
+        salary->setObjectName(QStringLiteral("salary"));
+        salary->setGeometry(QRect(10, 540, 191, 30));
         label = new QLabel(widget_2);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(10, 250, 47, 14));
@@ -678,22 +678,22 @@ public:
         add_btn_5->raise();
         label_10->raise();
         label_5->raise();
-        lineEdit_2->raise();
-        lineEdit_3->raise();
+        name->raise();
+        lastname->raise();
         label_3->raise();
         label_4->raise();
         label_7->raise();
-        dateEdit->raise();
+        dob->raise();
         label_11->raise();
         pushButton_4->raise();
         label_12->raise();
-        comboBox->raise();
-        comboBox_2->raise();
-        timeEdit->raise();
-        timeEdit_2->raise();
-        lineEdit->raise();
-        lineEdit_4->raise();
-        lineEdit_5->raise();
+        gender->raise();
+        post->raise();
+        starttime->raise();
+        endtime->raise();
+        login->raise();
+        password->raise();
+        salary->raise();
         label->raise();
         label_2->raise();
         label_8->raise();
@@ -874,6 +874,17 @@ public:
         pushButton_4->setText(QString());
         label_11->setText(QString());
         label_12->setText(QApplication::translate("Employee", "sexe", Q_NULLPTR));
+        gender->clear();
+        gender->insertItems(0, QStringList()
+         << QApplication::translate("Employee", "Male", Q_NULLPTR)
+         << QApplication::translate("Employee", "Female", Q_NULLPTR)
+        );
+        post->clear();
+        post->insertItems(0, QStringList()
+         << QApplication::translate("Employee", "Admin", Q_NULLPTR)
+         << QApplication::translate("Employee", "RH", Q_NULLPTR)
+         << QApplication::translate("Employee", "Logistics", Q_NULLPTR)
+        );
         label->setText(QApplication::translate("Employee", "poste", Q_NULLPTR));
         label_2->setText(QApplication::translate("Employee", "temps d'entree", Q_NULLPTR));
         label_8->setText(QApplication::translate("Employee", "temps de sortie", Q_NULLPTR));
