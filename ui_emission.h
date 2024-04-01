@@ -53,6 +53,7 @@ public:
     QWidget *widget;
     QPushButton *pushButton_3;
     QLabel *label_6;
+    QLabel *tempLabel;
 
     void setupUi(QWidget *Emission)
     {
@@ -744,6 +745,9 @@ public:
 ""));
         label_6->raise();
         pushButton_3->raise();
+        tempLabel = new QLabel(employeeContainer);
+        tempLabel->setObjectName(QStringLiteral("tempLabel"));
+        tempLabel->setGeometry(QRect(790, 60, 231, 16));
         widget->raise();
         label->raise();
         tableWidget_2->raise();
@@ -754,6 +758,7 @@ public:
         playVideoButton->raise();
         label_8->raise();
         widget_2->raise();
+        tempLabel->raise();
 
         retranslateUi(Emission);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -796,6 +801,7 @@ public:
         label_12->setText(QApplication::translate("Emission", "scene", Q_NULLPTR));
         pushButton_3->setText(QString());
         label_6->setText(QString());
+        tempLabel->setText(QString());
     } // retranslateUi
 
 };
