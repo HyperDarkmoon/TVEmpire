@@ -27,6 +27,20 @@ Contract::Contract(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshTable();
+    QSqlQuery scenes;
+    scenes.prepare("SELECT id from sponsor");
+    scenes.exec();
+    while (scenes.next()) {
+            int sceneId = scenes.value(0).toInt();
+            ui->idS->addItem(QString::number(sceneId));
+        }
+    QSqlQuery emiss;
+    emiss.prepare("SELECT id from emissions");
+    emiss.exec();
+    while (emiss.next()) {
+            int sceneId = emiss.value(0).toInt();
+            ui->idE->addItem(QString::number(sceneId));
+        }
     //signatureWidget = new Signature(this);
 }
 
@@ -52,7 +66,7 @@ QString CrudContract::getLibelle() const {
     return libelle;
 }
 
-QString CrudContract::getDateDebut() const {
+QDate CrudContract::getDateDebut() const {
     return dateDebut;
 }
 
@@ -60,7 +74,7 @@ QString CrudContract::getDescription() const {
     return description;
 }
 
-QString CrudContract::getDateFin() const {
+QDate CrudContract::getDateFin() const {
     return dateFin;
 }
 
@@ -72,7 +86,7 @@ void CrudContract::setIdEmission(unsigned int newIdEmission) {
     idEmission = newIdEmission;
 }
 
-void CrudContract::setMontant(const double& newMontant) {
+void CrudContract::setMontant(const QString& newMontant) {
     montant = newMontant;
 }
 
@@ -80,7 +94,7 @@ void CrudContract::setLibelle(const QString& newLibelle) {
     libelle = newLibelle;
 }
 
-void CrudContract::setDateDebut(const QString& newDateDebut) {
+void CrudContract::setDateDebut(const QDate& newDateDebut) {
     dateDebut = newDateDebut;
 }
 
@@ -88,13 +102,13 @@ void CrudContract::setDescription(const QString& newDescription) {
     description = newDescription;
 }
 
-void CrudContract::setDateFin(const QString& newDateFin) {
+void CrudContract::setDateFin(const QDate& newDateFin) {
     dateFin = newDateFin;
 }
 
 bool CrudContract::create(CrudContract c) {
     QSqlQuery query;
-    query.prepare("INSERT INTO Contract (idSponsor, idEmission, montant, libelle, dateDebut, description, dateFin) VALUES (:idSponsor, :idEmission, :montant, :libelle, :dateDebut, :description, :dateFin)");
+    query.prepare("INSERT INTO Contract (idSponsor, idEmission, montant, libelle, date_Debut, description, date_Fin) VALUES (:idSponsor, :idEmission, :montant, :libelle, :dateDebut, :description, :dateFin)");
 
     query.bindValue(":idSponsor", c.getIdSponsor());
     query.bindValue(":idEmission", c.getIdEmission());
@@ -121,11 +135,11 @@ CrudContract CrudContract::read(unsigned int idSponsor, unsigned int idEmission)
         CrudContract c;
         c.setIdSponsor(query.value("idSponsor").toUInt());
         c.setIdEmission(query.value("idEmission").toUInt());
-        c.setMontant(query.value("montant").toDouble());
+        c.setMontant(query.value("montant").toString());
         c.setLibelle(query.value("libelle").toString());
-        c.setDateDebut(query.value("dateDebut").toString());
+        c.setDateDebut(query.value("dateDebut").toDate());
         c.setDescription(query.value("description").toString());
-        c.setDateFin(query.value("dateFin").toString());
+        c.setDateFin(query.value("dateFin").toDate());
 
         return c;
     } else {
@@ -135,7 +149,7 @@ CrudContract CrudContract::read(unsigned int idSponsor, unsigned int idEmission)
 
 bool CrudContract::update(unsigned int idSponsor, unsigned int idEmission, CrudContract c) {
     QSqlQuery query;
-    query.prepare("UPDATE Contract SET montant = :montant, libelle = :libelle, dateDebut = :dateDebut, description = :description, dateFin = :dateFin WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
+    query.prepare("UPDATE Contract SET montant = :montant, libelle = :libelle, date_Debut = :dateDebut, description = :description, date_Fin = :dateFin WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
     query.bindValue(":idSponsor", idSponsor);
     query.bindValue(":idEmission", idEmission);
     query.bindValue(":montant", c.getMontant());
@@ -186,9 +200,9 @@ void Contract::refreshTable() {
         unsigned int idEmission = query.value("idEmission").toUInt();
         QString montant = query.value("montant").toString();
         QString libelle = query.value("libelle").toString();
-        QString dateDebut = query.value("dateDebut").toString();
+        QString dateDebut = query.value("date_Debut").toString();
         QString description = query.value("description").toString();
-        QString dateFin = query.value("dateFin").toString();
+        QString dateFin = query.value("date_Fin").toString();
 
         // Insert row into the table
         int row = ui->tableWidget->rowCount();
@@ -236,7 +250,7 @@ void Contract::refreshTable() {
 
 QList<CrudContract> CrudContract::getAll() {
     QSqlQuery query;
-    query.prepare("SELECT idSponsor, idEmission, montant, libelle, dateDebut, description, dateFin FROM Contract");
+    query.prepare("SELECT idSponsor, idEmission, montant, libelle, date_Debut, description, date_Fin FROM Contract");
     if (!query.exec()) {
         qDebug() << "Query execution failed:" << query.lastError().text();
     }
@@ -246,11 +260,11 @@ QList<CrudContract> CrudContract::getAll() {
     while (query.next()) {
         unsigned int idSponsor = query.value("idSponsor").toUInt();
         unsigned int idEmission = query.value("idEmission").toUInt();
-        double montant = query.value("montant").toDouble();
+        QString montant = query.value("montant").toString();
         QString libelle = query.value("libelle").toString();
-        QString dateDebut = query.value("dateDebut").toString();
+        QDate dateDebut = query.value("dateDebut").toDate();
         QString description = query.value("description").toString();
-        QString dateFin = query.value("dateFin").toString();
+        QDate dateFin = query.value("dateFin").toDate();
 
         CrudContract Contract;
         Contract.setIdSponsor(idSponsor);
@@ -292,3 +306,18 @@ QVariant CrudContract::getFieldByIndex(int index) const {
 {
  signatureWidget->show();
 }*/
+
+void Contract::on_add_btn_clicked()
+{
+    CrudContract c;
+    c.setLibelle(ui->lib->text());
+    c.setMontant(ui->mont->text());
+    c.setDateDebut(ui->dated->date());
+    c.setDateFin(ui->datef->date());
+    c.setIdSponsor(ui->idS->currentText().toUInt());
+    c.setIdEmission(ui->idE->currentText().toUInt());
+    c.setDescription(ui->desc->text());
+    qDebug() << c.getLibelle() << c.getMontant() ;
+    c.create(c);
+    refreshTable();
+}

@@ -8,6 +8,7 @@
 #include <QSqlError>
 #include <QTableWidget>
 #include "signature.h"
+#include <QDate>
 
 namespace Ui {
 class Contract;
@@ -46,26 +47,26 @@ private:
     unsigned int idEmission;
     QString montant;
     QString libelle;
-    QString dateDebut;
+    QDate dateDebut;
     QString description;
-    QString dateFin;
+    QDate dateFin;
 
 public:
     unsigned int getIdSponsor() const;
     unsigned int getIdEmission() const;
     QString getMontant() const;
     QString getLibelle() const;
-    QString getDateDebut() const;
+    QDate getDateDebut() const;
     QString getDescription() const;
-    QString getDateFin() const;
+    QDate getDateFin() const;
 
     void setIdSponsor(unsigned int newIdSponsor);
     void setIdEmission(unsigned int newIdEmission);
-    void setMontant(const double& newMontant);
+    void setMontant(const QString& newMontant);
     void setLibelle(const QString& newLibelle);
-    void setDateDebut(const QString& newDateDebut);
+    void setDateDebut(const QDate& newDateDebut);
     void setDescription(const QString& newDescription);
-    void setDateFin(const QString& newDateFin);
+    void setDateFin(const QDate& newDateFin);
 
     bool create(CrudContract c);
     CrudContract read(unsigned int idSponsor, unsigned int idEmission);

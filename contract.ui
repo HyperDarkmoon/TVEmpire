@@ -224,7 +224,7 @@ QTextEdit {
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="lib">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -268,7 +268,7 @@ QTextEdit {
      <string>libelle </string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="mont">
     <property name="geometry">
      <rect>
       <x>9</x>
@@ -307,30 +307,6 @@ QTextEdit {
     </property>
     <property name="text">
      <string>montant </string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>180</y>
-      <width>191</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit {
-    border: 2px solid #141E46;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-QTextEdit {
-    border: 2px solid #141E46;
-    border-radius: 10px;
-    padding: 1.5px;
-}
-</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -463,17 +439,7 @@ QTextEdit {
      <string>description</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>240</y>
-      <width>191</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_6">
+   <widget class="QLineEdit" name="desc">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -516,11 +482,30 @@ QTextEdit {
      </rect>
     </property>
    </widget>
+   <widget class="QDateEdit" name="dated">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>180</y>
+      <width>110</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="datef">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>240</y>
+      <width>110</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>label_5</zorder>
-   <zorder>lineEdit_2</zorder>
+   <zorder>lib</zorder>
    <zorder>add_btn</zorder>
-   <zorder>lineEdit</zorder>
-   <zorder>lineEdit_3</zorder>
+   <zorder>mont</zorder>
    <zorder>label_3</zorder>
    <zorder>label_2</zorder>
    <zorder>label_4</zorder>
@@ -528,11 +513,12 @@ QTextEdit {
    <zorder>label_8</zorder>
    <zorder>pushButton_4</zorder>
    <zorder>label_10</zorder>
-   <zorder>lineEdit_4</zorder>
-   <zorder>lineEdit_6</zorder>
+   <zorder>desc</zorder>
    <zorder>pushButton</zorder>
    <zorder>idE</zorder>
    <zorder>idS</zorder>
+   <zorder>dated</zorder>
+   <zorder>datef</zorder>
   </widget>
  </widget>
  <resources/>

@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -34,22 +35,22 @@ public:
     QLabel *label_6;
     QWidget *widget_3;
     QLabel *label_5;
-    QLineEdit *lineEdit_2;
+    QLineEdit *lib;
     QLabel *label_4;
-    QLineEdit *lineEdit_3;
+    QLineEdit *mont;
     QLabel *label_2;
-    QLineEdit *lineEdit;
     QLabel *label_3;
     QLabel *label_7;
     QPushButton *add_btn;
     QPushButton *pushButton_4;
     QLabel *label_8;
     QLabel *label_10;
-    QLineEdit *lineEdit_4;
-    QLineEdit *lineEdit_6;
+    QLineEdit *desc;
     QPushButton *pushButton;
     QComboBox *idE;
     QComboBox *idS;
+    QDateEdit *dated;
+    QDateEdit *datef;
 
     void setupUi(QDialog *Contract)
     {
@@ -171,11 +172,11 @@ public:
 "    color: black;\n"
 "}\n"
 ""));
-        lineEdit_2 = new QLineEdit(widget_3);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setEnabled(true);
-        lineEdit_2->setGeometry(QRect(9, 42, 191, 30));
-        lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {\n"
+        lib = new QLineEdit(widget_3);
+        lib->setObjectName(QStringLiteral("lib"));
+        lib->setEnabled(true);
+        lib->setGeometry(QRect(9, 42, 191, 30));
+        lib->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -192,10 +193,10 @@ public:
         label_4->setGeometry(QRect(10, 10, 61, 16));
         label_4->setStyleSheet(QLatin1String("color: black\n"
 ""));
-        lineEdit_3 = new QLineEdit(widget_3);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(9, 111, 191, 30));
-        lineEdit_3->setStyleSheet(QLatin1String("QLineEdit {\n"
+        mont = new QLineEdit(widget_3);
+        mont->setObjectName(QStringLiteral("mont"));
+        mont->setGeometry(QRect(9, 111, 191, 30));
+        mont->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -211,21 +212,6 @@ public:
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(10, 80, 48, 16));
         label_2->setStyleSheet(QLatin1String("color: black\n"
-""));
-        lineEdit = new QLineEdit(widget_3);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(10, 180, 191, 30));
-        lineEdit->setStyleSheet(QLatin1String("QLineEdit {\n"
-"    border: 2px solid #141E46;\n"
-"    border-radius: 10px;\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QTextEdit {\n"
-"    border: 2px solid #141E46;\n"
-"    border-radius: 10px;\n"
-"    padding: 1.5px;\n"
-"}\n"
 ""));
         label_3 = new QLabel(widget_3);
         label_3->setObjectName(QStringLiteral("label_3"));
@@ -266,12 +252,9 @@ public:
         label_10 = new QLabel(widget_3);
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setGeometry(QRect(10, 290, 81, 16));
-        lineEdit_4 = new QLineEdit(widget_3);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(10, 240, 191, 31));
-        lineEdit_6 = new QLineEdit(widget_3);
-        lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
-        lineEdit_6->setGeometry(QRect(10, 320, 231, 191));
+        desc = new QLineEdit(widget_3);
+        desc->setObjectName(QStringLiteral("desc"));
+        desc->setGeometry(QRect(10, 320, 231, 191));
         pushButton = new QPushButton(widget_3);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(70, 570, 121, 23));
@@ -281,11 +264,16 @@ public:
         idS = new QComboBox(widget_3);
         idS->setObjectName(QStringLiteral("idS"));
         idS->setGeometry(QRect(60, 530, 62, 22));
+        dated = new QDateEdit(widget_3);
+        dated->setObjectName(QStringLiteral("dated"));
+        dated->setGeometry(QRect(20, 180, 110, 22));
+        datef = new QDateEdit(widget_3);
+        datef->setObjectName(QStringLiteral("datef"));
+        datef->setGeometry(QRect(20, 240, 110, 22));
         label_5->raise();
-        lineEdit_2->raise();
+        lib->raise();
         add_btn->raise();
-        lineEdit->raise();
-        lineEdit_3->raise();
+        mont->raise();
         label_3->raise();
         label_2->raise();
         label_4->raise();
@@ -293,11 +281,12 @@ public:
         label_8->raise();
         pushButton_4->raise();
         label_10->raise();
-        lineEdit_4->raise();
-        lineEdit_6->raise();
+        desc->raise();
         pushButton->raise();
         idE->raise();
         idS->raise();
+        dated->raise();
+        datef->raise();
 
         retranslateUi(Contract);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_3, SLOT(setVisible(bool)));
