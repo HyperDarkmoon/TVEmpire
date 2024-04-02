@@ -7,7 +7,7 @@
 #include <QtCharts/QBarSet>
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
-
+#include <QtCharts/QChart>
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Emission), addemission(new addEmission), edit(new EmissionEdit)
@@ -307,7 +307,7 @@ void Emission::displayChart() {
     // Create a chart and add the series to it
     QtCharts::QChart *chart = new QtCharts::QChart();
     chart->addSeries(series);
-
+    chart->setAnimationOptions(QtCharts::QChart::SeriesAnimations);
     // Create axes
     QtCharts::QBarCategoryAxis *axisX = new QtCharts::QBarCategoryAxis();
     QtCharts::QValueAxis *axisY = new QtCharts::QValueAxis();

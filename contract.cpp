@@ -26,7 +26,6 @@ Contract::Contract(QWidget *parent) :
     ui(new Ui::Contract)
 {
     ui->setupUi(this);
-    refreshTable();
     QSqlQuery scenes;
     scenes.prepare("SELECT id from sponsor");
     scenes.exec();
@@ -42,6 +41,7 @@ Contract::Contract(QWidget *parent) :
             ui->idE->addItem(QString::number(sceneId));
         }
     signatureWidget = new Signature(this);
+    refreshTable();
 }
 
 Contract::~Contract()
@@ -193,44 +193,38 @@ void Contract::refreshTable() {
         qDebug() << "Error fetching Contract data:" << query.lastError().text();
         return;
     }
+    CrudContract c;
+    QList<CrudContract> listSponsor = c.getAll();
 
-    while (query.next()) {
-        // Extract data from the query result
-        unsigned int idSponsor = query.value("idSponsor").toUInt();
-        unsigned int idEmission = query.value("idEmission").toUInt();
-        QString montant = query.value("montant").toString();
-        QString libelle = query.value("libelle").toString();
-        QString dateDebut = query.value("date_Debut").toString();
-        QString description = query.value("description").toString();
-        QString dateFin = query.value("date_Fin").toString();
+    for (int row = 0; row < listSponsor.size(); ++row) {
 
-        // Insert row into the table
-        int row = ui->tableWidget->rowCount();
         ui->tableWidget->insertRow(row);
 
         // Populate table cells with data
-        QTableWidgetItem *itemIdSponsor = new QTableWidgetItem(QString::number(idSponsor));
+        QTableWidgetItem *itemIdSponsor = new QTableWidgetItem(listSponsor.at(row).getIdSponsor());
         ui->tableWidget->setItem(row, 0, itemIdSponsor);
 
-        QTableWidgetItem *itemIdEmission = new QTableWidgetItem(QString::number(idEmission));
+        QTableWidgetItem *itemIdEmission = new QTableWidgetItem(listSponsor.at(row).getIdEmission());
         ui->tableWidget->setItem(row, 1, itemIdEmission);
 
-        QTableWidgetItem *itemMontant = new QTableWidgetItem(montant);
+        QTableWidgetItem *itemMontant = new QTableWidgetItem(listSponsor.at(row).getMontant());
         ui->tableWidget->setItem(row, 2, itemMontant);
 
-        QTableWidgetItem *itemLibelle = new QTableWidgetItem(libelle);
+        QTableWidgetItem *itemLibelle = new QTableWidgetItem(listSponsor.at(row).getLibelle());
         ui->tableWidget->setItem(row, 3, itemLibelle);
 
-        QTableWidgetItem *itemDateDebut = new QTableWidgetItem(dateDebut);
+        QTableWidgetItem *itemDateDebut = new QTableWidgetItem(listSponsor.at(row).getDateDebut().toString());
         ui->tableWidget->setItem(row, 4, itemDateDebut);
 
-        QTableWidgetItem *itemDescription = new QTableWidgetItem(description);
+        QTableWidgetItem *itemDescription = new QTableWidgetItem(listSponsor.at(row).getDateFin().toString());
         ui->tableWidget->setItem(row, 5, itemDescription);
 
-        QTableWidgetItem *itemDateFin = new QTableWidgetItem(dateFin);
+        QTableWidgetItem *itemDateFin = new QTableWidgetItem(listSponsor.at(row).getDescription());
         ui->tableWidget->setItem(row, 6, itemDateFin);
 
         // Edit button
+        int idSponsor = listSponsor.at(row).getIdSponsor();
+        int idEmission = listSponsor.at(row).getIdEmission();
         QToolButton *editButton = new QToolButton();
         editButton->setIcon(QIcon("path/to/edit/icon.png"));
         connect(editButton, &QToolButton::clicked, [this, idSponsor, idEmission]() {
@@ -250,35 +244,38 @@ void Contract::refreshTable() {
 
 QList<CrudContract> CrudContract::getAll() {
     QSqlQuery query;
-    query.prepare("SELECT idSponsor, idEmission, montant, libelle, date_Debut, description, date_Fin FROM Contract");
-    if (!query.exec()) {
+
+    // Prepare and execute the query
+    if (!query.exec("SELECT * FROM CONTRACT")) {
         qDebug() << "Query execution failed:" << query.lastError().text();
+        return {}; // Return an empty list if the query fails
     }
 
-    QList<CrudContract> ContractList;
+    QList<CrudContract> contractList;
 
+    // Fetch data from the query
     while (query.next()) {
         unsigned int idSponsor = query.value("idSponsor").toUInt();
         unsigned int idEmission = query.value("idEmission").toUInt();
         QString montant = query.value("montant").toString();
         QString libelle = query.value("libelle").toString();
-        QDate dateDebut = query.value("dateDebut").toDate();
+        QDate dateDebut = query.value("date_Debut").toDate(); // Corrected column name
         QString description = query.value("description").toString();
-        QDate dateFin = query.value("dateFin").toDate();
+        QDate dateFin = query.value("date_Fin").toDate(); // Corrected column name
 
-        CrudContract Contract;
-        Contract.setIdSponsor(idSponsor);
-        Contract.setIdEmission(idEmission);
-        Contract.setMontant(montant);
-        Contract.setLibelle(libelle);
-        Contract.setDateDebut(dateDebut);
-        Contract.setDescription(description);
-        Contract.setDateFin(dateFin);
+        CrudContract contract;
+        contract.setIdSponsor(idSponsor);
+        contract.setIdEmission(idEmission);
+        contract.setMontant(montant);
+        contract.setLibelle(libelle);
+        contract.setDateDebut(dateDebut);
+        contract.setDescription(description);
+        contract.setDateFin(dateFin);
 
-        ContractList.append(Contract);
+        contractList.append(contract);
     }
 
-    return ContractList;
+    return contractList;
 }
 
 QVariant CrudContract::getFieldByIndex(int index) const {
