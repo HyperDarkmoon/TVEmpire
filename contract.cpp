@@ -41,7 +41,7 @@ Contract::Contract(QWidget *parent) :
             int sceneId = emiss.value(0).toInt();
             ui->idE->addItem(QString::number(sceneId));
         }
-    //signatureWidget = new Signature(this);
+    signatureWidget = new Signature(this);
 }
 
 Contract::~Contract()
@@ -302,10 +302,10 @@ QVariant CrudContract::getFieldByIndex(int index) const {
     }
 }
 
-/*void Contract::on_pushButton_clicked()
+void Contract::on_pushButton_clicked()
 {
  signatureWidget->show();
-}*/
+}
 
 void Contract::on_add_btn_clicked()
 {

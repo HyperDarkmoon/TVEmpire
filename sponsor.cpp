@@ -32,6 +32,7 @@ Sponsor::Sponsor(QWidget *parent) : QWidget(parent), ui(new Ui::Sponsor), c(new 
 
 Sponsor::~Sponsor() {
     delete ui;
+
 }
 
 unsigned int CrudSponsor::getId() const {
@@ -54,6 +55,10 @@ QString CrudSponsor::getCategories() const {
     return categories;
 }
 
+QByteArray CrudSponsor::getQrCodeData() const {
+    return qrCodeData;
+}
+
 void CrudSponsor::setId(unsigned int newId) {
     id = newId;
 }
@@ -74,62 +79,48 @@ void CrudSponsor::setCategories(const QString &newCategories) {
     categories = newCategories;
 }
 
+void CrudSponsor::setQrCodeData(const QByteArray &data) {
+    qrCodeData = data;
+}
+
+
 bool CrudSponsor::create(CrudSponsor s) {
     QSqlQuery query;
-    query.prepare("INSERT INTO Sponsor (id, nom, tel,email, categorie) VALUES (sponsor_seq.NEXTVAL, :nom , :email,:phone, :categories)");
-    query.bindValue(":id", s.getId());
+    query.prepare("INSERT INTO Sponsor (id, nom, tel, email, categorie, QRCODE) VALUES (sponsor_seq.NEXTVAL, :nom , :email, :phone, :categories, :qrcode)");
     query.bindValue(":nom", s.getNom());
     query.bindValue(":email", s.getEmail());
     query.bindValue(":phone", s.getPhone());
     query.bindValue(":categories", s.getCategories());
 
-    if (query.exec()) {
-        // Generate QR code with lower error correction level to allow smaller size
-        QString qrContent = "Nom: " + s.getNom() + "; Email: " + s.getEmail() + "; Phone: " + s.getPhone();
-        qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(qrContent.toUtf8().constData(), qrcodegen::QrCode::Ecc::LOW);
+    // Generate QR code with lower error correction level to allow smaller size
+    QString qrContent = "Nom: " + s.getNom() + "; Email: " + s.getEmail() + "; Phone: " + s.getPhone();
+    qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(qrContent.toUtf8().constData(), qrcodegen::QrCode::Ecc::LOW);
 
-        // Get screen dimensions
-        QScreen *screen = QGuiApplication::primaryScreen();
-        QRect screenGeometry = screen->geometry();
-        int screenWidth = screenGeometry.width();
-        int screenHeight = screenGeometry.height();
-
-        // Calculate a suitable size for the window
-        int windowSize = qMin(screenWidth, screenHeight) * 0.5; // 50% of the smaller dimension
-
-        // Convert QR code to QImage
-        QImage qrImage = QImage(qr.getSize(), qr.getSize(), QImage::Format_RGB32); // Use Format_RGB32 for color
-        qrImage.fill(Qt::white); // Fill the image with white background
-        for (int y = 0; y < qr.getSize(); y++) {
-            for (int x = 0; x < qr.getSize(); x++) {
-                // Set QR code modules as black pixels
-                qrImage.setPixelColor(x, y, qr.getModule(x, y) ? Qt::black : Qt::white);
-            }
+    // Convert QR code to QImage
+    QImage qrImage = QImage(qr.getSize(), qr.getSize(), QImage::Format_RGB32); // Use Format_RGB32 for color
+    qrImage.fill(Qt::white); // Fill the image with white background
+    for (int y = 0; y < qr.getSize(); y++) {
+        for (int x = 0; x < qr.getSize(); x++) {
+            // Set QR code modules as black pixels
+            qrImage.setPixelColor(x, y, qr.getModule(x, y) ? Qt::black : Qt::white);
         }
+    }
 
-        // Create a new window to display QR code
-        QDialog qrWindow;
-        qrWindow.setWindowTitle("QR Code");
+    // Convert QImage to QByteArray
+    QByteArray byteArray;
+    QBuffer buffer(&byteArray);
+    buffer.open(QIODevice::WriteOnly);
+    qrImage.save(&buffer, "PNG"); // You can choose any format supported by Qt, like PNG, JPEG, etc.
 
-        // Set the window size
-        qrWindow.setFixedSize(windowSize, windowSize);
+    query.bindValue(":qrcode", byteArray);
 
-        // Display QR code in QLabel
-        QLabel *qrLabel = new QLabel(&qrWindow);
-        qrLabel->setPixmap(QPixmap::fromImage(qrImage).scaled(windowSize, windowSize, Qt::KeepAspectRatio));
-        qrLabel->setAlignment(Qt::AlignCenter);
-
-        QVBoxLayout *layout = new QVBoxLayout(&qrWindow);
-        layout->addWidget(qrLabel);
-
-        qrWindow.setLayout(layout);
-        qrWindow.exec();  // Display the window modally
-
+    if (query.exec()) {
         return true;
     } else {
         return false;
     }
 }
+
 
 CrudSponsor CrudSponsor::read(unsigned int id) {
     QSqlQuery query;
@@ -143,6 +134,7 @@ CrudSponsor CrudSponsor::read(unsigned int id) {
         s.setEmail(query.value("email").toString());
         s.setPhone(query.value("tel").toString());
         s.setCategories(query.value("categorie").toString());
+        s.setQrCodeData(query.value("QRCODE").toByteArray()); // Retrieve QR code data
 
         return s;
     } else {
@@ -150,14 +142,16 @@ CrudSponsor CrudSponsor::read(unsigned int id) {
     }
 }
 
+
 bool CrudSponsor::update(unsigned int id, CrudSponsor s) {
     QSqlQuery query;
-    query.prepare("UPDATE Sponsor SET nom = :nom, email = :email, tel = :phone, categorie = :categories WHERE id = :id");
+    query.prepare("UPDATE Sponsor SET nom = :nom, email = :email, tel = :phone, categorie = :categories, QRCODE = :qrcode WHERE id = :id");
     query.bindValue(":id", id);
     query.bindValue(":nom", s.getNom());
     query.bindValue(":email", s.getEmail());
     query.bindValue(":phone", s.getPhone());
     query.bindValue(":categories", s.getCategories());
+    query.bindValue(":qrcode", s.getQrCodeData()); // Bind QR code data directly
 
     if (query.exec()) {
         return true;
@@ -166,6 +160,10 @@ bool CrudSponsor::update(unsigned int id, CrudSponsor s) {
         return false;
     }
 }
+
+
+
+
 
 bool CrudSponsor::remove(unsigned int id) {
     QSqlQuery query;
@@ -222,23 +220,46 @@ void Sponsor::on_add_btn_clicked() {
 
 void Sponsor::refreshTable() {
     ui->tableWidget->clearContents();
-    ui->tableWidget->setRowCount(0);
+        ui->tableWidget->setRowCount(0);
 
-    QStringList headers = {"ID", "Nom", "telephone", "email", "categories", "delete", "edit", "contrat"};
-    ui->tableWidget->setColumnCount(headers.size());
-    ui->tableWidget->setHorizontalHeaderLabels(headers);
+        QStringList headers = {"ID", "Nom", "telephone", "email", "categories", "QR Code", "delete", "edit", "contrat"};
+        ui->tableWidget->setColumnCount(headers.size());
+        ui->tableWidget->setHorizontalHeaderLabels(headers);
 
-    CrudSponsor c;
-    QList<CrudSponsor> emissionList = c.getAll();
+        CrudSponsor c;
+        QList<CrudSponsor> emissionList = c.getAll();
 
-    for (int row = 0; row < emissionList.size(); ++row) {
-        ui->tableWidget->insertRow(row);
+        for (int row = 0; row < emissionList.size(); ++row) {
+            ui->tableWidget->insertRow(row);
 
-        for (int col = 0; col < headers.size() - 3; ++col) {
-            QString fieldData = emissionList.at(row).getFieldByIndex(col).toString();
-            QTableWidgetItem *item = new QTableWidgetItem(fieldData);
-            ui->tableWidget->setItem(row, col, item);
-        }
+            for (int col = 0; col < headers.size() - 4; ++col) {
+                QString fieldData = emissionList.at(row).getFieldByIndex(col).toString();
+                QTableWidgetItem *item = new QTableWidgetItem(fieldData);
+                ui->tableWidget->setItem(row, col, item);
+            }
+
+            // Display QR code
+            QByteArray qrCodeData = emissionList.at(row).getQrCodeData();
+            QPixmap qrCodePixmap;
+            qrCodePixmap.loadFromData(qrCodeData);
+
+            // Create a clickable QLabel to display the QR code
+            ClickableQLabel *clickableLabel = new ClickableQLabel(this);
+            clickableLabel->setPixmap(qrCodePixmap.scaled(22, 22)); // Adjust the size as needed
+            clickableLabel->setAlignment(Qt::AlignCenter); // Center the QR code label
+            clickableLabel->setCursor(Qt::PointingHandCursor); // Change cursor to indicate clickability
+
+            // Connect the clicked signal of the clickable label to a slot
+            connect(clickableLabel, &ClickableQLabel::clicked, [qrCodePixmap]() {
+                // Create a larger window to display the QR code
+                QLabel *largerLabel = new QLabel();
+                largerLabel->setPixmap(qrCodePixmap);
+                largerLabel->setFixedSize(qrCodePixmap.size());
+                largerLabel->show();
+            });
+
+            // Set the clickable label containing the QR code as the cell widget
+            ui->tableWidget->setCellWidget(row, headers.size() - 4, clickableLabel);
 
         // Delete button
         QToolButton *deleteButton = new QToolButton(this);
@@ -250,11 +271,6 @@ void Sponsor::refreshTable() {
         ui->tableWidget->setCellWidget(row, headers.size() - 3, deleteButton);
 
         // Style for delete button
-
-
-
-
-
         // Edit button
         QToolButton *editButton = new QToolButton(this);
         editButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/update.png"));
@@ -277,15 +293,15 @@ void Sponsor::refreshTable() {
 
         // Make cells non-editable
         int columnIndex = 0;
-        for (int row = 0; row < ui->tableWidget->rowCount(); ++row) {
-            QTableWidgetItem *item = ui->tableWidget->item(row, columnIndex);
+                for (int row = 0; row < ui->tableWidget->rowCount(); ++row) {
+                    QTableWidgetItem *item = ui->tableWidget->item(row, columnIndex);
 
-            if (item) {
-                item->setFlags(item->flags() & ~Qt::ItemIsEditable);
-            } else {
-                QTableWidgetItem *newItem = new QTableWidgetItem();
-                newItem->setFlags(newItem->flags() & ~Qt::ItemIsEditable);
-                ui->tableWidget->setItem(row, columnIndex, newItem);
+                    if (item) {
+                        item->setFlags(item->flags() & ~Qt::ItemIsEditable);
+                    } else {
+                        QTableWidgetItem *newItem = new QTableWidgetItem();
+                        newItem->setFlags(newItem->flags() & ~Qt::ItemIsEditable);
+                        ui->tableWidget->setItem(row, columnIndex, newItem);
             }
         }
     }
@@ -294,7 +310,7 @@ void Sponsor::refreshTable() {
 
 QList<CrudSponsor> CrudSponsor::getAll() {
     QSqlQuery query;
-    query.prepare("SELECT id, nom , email ,tel ,categorie FROM sponsor");
+    query.prepare("SELECT id, nom , email ,tel ,categorie, QRCODE FROM sponsor");
     if (!query.exec()) {
         qDebug() << "Query execution failed:" << query.lastError().text();
     }
@@ -308,6 +324,7 @@ QList<CrudSponsor> CrudSponsor::getAll() {
         s.setEmail(query.value(2).toString());
         s.setPhone(query.value(3).toString());
         s.setCategories(query.value(4).toString());
+        s.setQrCodeData(query.value(5).toByteArray());
         sponsorlist.append(s);
     }
 
@@ -326,10 +343,13 @@ QVariant CrudSponsor::getFieldByIndex(int index) const {
             return getPhone();
         case 4:
             return getCategories();
+        case 5:
+            return getQrCodeData();
         default:
             return QVariant();
     }
 }
+
 
 void Sponsor::onDeleteButtonClicked(int id) {
     CrudSponsor c;
@@ -344,8 +364,39 @@ void Sponsor::onEditButtonClicked(int row) {
     e.setEmail(ui->tableWidget->item(row, 2)->text());
     e.setPhone(ui->tableWidget->item(row, 3)->text());
     e.setCategories(ui->tableWidget->item(row, 4)->text());
-    e.update(ui->tableWidget->item(row, 0)->text().toUInt(), e);
+
+    // Generate QR code data based on the updated information
+    QString qrContent = "Nom: " + e.getNom() + "; Email: " + e.getEmail() + "; Phone: " + e.getPhone();
+    qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(qrContent.toUtf8().constData(), qrcodegen::QrCode::Ecc::LOW);
+
+    // Convert QR code to QImage
+    QImage qrImage = QImage(qr.getSize(), qr.getSize(), QImage::Format_RGB32); // Use Format_RGB32 for color
+    qrImage.fill(Qt::white); // Fill the image with white background
+    for (int y = 0; y < qr.getSize(); y++) {
+        for (int x = 0; x < qr.getSize(); x++) {
+            // Set QR code modules as black pixels
+            qrImage.setPixelColor(x, y, qr.getModule(x, y) ? Qt::black : Qt::white);
+        }
+    }
+
+    // Convert QImage to QByteArray
+    QByteArray byteArray;
+    QBuffer buffer(&byteArray);
+    buffer.open(QIODevice::WriteOnly);
+    qrImage.save(&buffer, "PNG"); // You can choose any format supported by Qt, like PNG, JPEG, etc.
+
+    e.setQrCodeData(byteArray);
+
+    // Update the record
+    if (e.update(ui->tableWidget->item(row, 0)->text().toUInt(), e)) {
+        // Record updated successfully
+        refreshTable(); // Refresh the table to reflect the changes
+    } else {
+        // Handle update failure
+        QMessageBox::critical(this, "Error", "Failed to update record.");
+    }
 }
+
 
 
 

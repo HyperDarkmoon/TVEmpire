@@ -650,7 +650,7 @@ QLineEdit:focus {
      <x>270</x>
      <y>170</y>
      <width>1081</width>
-     <height>391</height>
+     <height>481</height>
     </rect>
    </property>
    <property name="baseSize">
@@ -665,7 +665,7 @@ QLineEdit:focus {
       <x>20</x>
       <y>0</y>
       <width>971</width>
-      <height>371</height>
+      <height>451</height>
      </rect>
     </property>
     <property name="baseSize">

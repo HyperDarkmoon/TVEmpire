@@ -7,7 +7,13 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QTableWidget>
+#include <QMouseEvent>
+#include <QLabel> // Include QLabel header
 #include "contract.h"
+
+// Forward declaration of ClickableQLabel
+class ClickableQLabel;
+
 namespace Ui {
 class Sponsor;
 }
@@ -19,6 +25,7 @@ private:
     QString email;
     QString phone;
     QString categories;
+    QByteArray qrCodeData; // New member variable to store QR code image data
 
 public:
     unsigned int getId() const;
@@ -26,12 +33,14 @@ public:
     QString getEmail() const;
     QString getPhone() const;
     QString getCategories() const;
+    QByteArray getQrCodeData() const; // New getter for QR code data
 
     void setId(unsigned int newId);
     void setNom(const QString& newNom);
     void setEmail(const QString& newEmail);
     void setPhone(const QString& newPhone);
     void setCategories(const QString& newCategories);
+    void setQrCodeData(const QByteArray& data); // New setter for QR code data
 
     bool create(CrudSponsor s);
     CrudSponsor read(unsigned int id);
@@ -39,8 +48,6 @@ public:
     bool remove(unsigned int id);
     QVariant getFieldByIndex(int index) const;
     QList<CrudSponsor> getAll();
-
-
 };
 
 class Sponsor : public QWidget
@@ -71,6 +78,24 @@ private slots:
 private:
     Ui::Sponsor *ui;
     Contract c;
+};
+
+// Define ClickableQLabel class
+class ClickableQLabel : public QLabel {
+    Q_OBJECT
+
+public:
+    explicit ClickableQLabel(QWidget *parent = nullptr) : QLabel(parent) {}
+
+signals:
+    void clicked();
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override {
+        if (event->button() == Qt::LeftButton) {
+            emit clicked();
+        }
+    }
 };
 
 #endif // SPONSOR_H
