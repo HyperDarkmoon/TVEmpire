@@ -5,6 +5,7 @@
 #include <QtSql>
 #include "pdfexport.h"
 #include "usersession.h"
+#include "chatbox.h"
 
 Employee::Employee(QWidget *parent) : QWidget(parent),
                                       ui(new Ui::Employee), employeeDialog(new addEmployee())
@@ -502,4 +503,10 @@ void Employee::filterTable(const QString &text)
         // Show or hide the row based on whether a match was found
         ui->emp->setRowHidden(row, !matchFound);
     }
+}
+
+void Employee::on_chatBtn_clicked()
+{
+    chat = new ChatBox();
+    chat->show();
 }

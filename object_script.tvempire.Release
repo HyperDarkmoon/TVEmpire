@@ -1,6 +1,7 @@
 INPUT(
 ./release\addemission.o
 ./release\addemployee.o
+./release\chatbox.o
 ./release\contract.o
 ./release\crudequipment.o
 ./release\dbconnection.o
@@ -38,6 +39,7 @@ INPUT(
 ./release\qrc_resource.o
 ./release\moc_addemission.o
 ./release\moc_addemployee.o
+./release\moc_chatbox.o
 ./release\moc_contract.o
 ./release\moc_emission.o
 ./release\moc_emissionedit.o

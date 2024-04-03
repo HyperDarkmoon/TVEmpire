@@ -5,6 +5,7 @@
 #include <QDate>
 #include "addemployee.h"
 #include "employeeedit.h"
+#include "chatbox.h"
 
 namespace Ui {
 class Employee;
@@ -29,10 +30,13 @@ private slots:
 
     void on_add_btn_4_clicked();
 
+    void on_chatBtn_clicked();
+
 private:
     Ui::Employee *ui;
     addEmployee *employeeDialog;
     employeeedit *edit;
+    ChatBox *chat;
 };
 
 class CrudEmployee
