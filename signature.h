@@ -1,11 +1,11 @@
 // signature.h
-
 #ifndef SIGNATURE_H
 #define SIGNATURE_H
 
-#include <QWidget>
+#include <QDialog>
 
-class Signature : public QWidget {
+class Signature : public QDialog
+{
     Q_OBJECT
 
 public:
