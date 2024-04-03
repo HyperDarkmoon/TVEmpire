@@ -20,7 +20,7 @@
 #include"sponsor.h"
 #include "ui_contract.h"
 #include "signature.h"
-
+#include "dbconnection.h"
 Contract::Contract(QWidget *parent) :
     QDialog(parent), // Inherit from QDialog
     ui(new Ui::Contract)
@@ -187,15 +187,8 @@ void Contract::refreshTable() {
     ui->tableWidget->setColumnCount(headers.size());
     ui->tableWidget->setHorizontalHeaderLabels(headers);
 
-    // Fetch Contract data from the database
-    QSqlQuery query("SELECT * FROM Contract");
-    if (!query.exec()) {
-        qDebug() << "Error fetching Contract data:" << query.lastError().text();
-        return;
-    }
     CrudContract c;
     QList<CrudContract> listSponsor = c.getAll();
-
     for (int row = 0; row < listSponsor.size(); ++row) {
 
         ui->tableWidget->insertRow(row);
@@ -243,16 +236,15 @@ void Contract::refreshTable() {
 }
 
 QList<CrudContract> CrudContract::getAll() {
+    QCoreApplication::processEvents();
     QSqlQuery query;
-
-    // Prepare and execute the query
-    if (!query.exec("SELECT * FROM CONTRACT")) {
+    if( !query.exec("select * from contract") ) {
         qDebug() << "Query execution failed:" << query.lastError().text();
         return {}; // Return an empty list if the query fails
     }
 
     QList<CrudContract> contractList;
-
+    qDebug() << "WE HERE";
     // Fetch data from the query
     while (query.next()) {
         unsigned int idSponsor = query.value("idSponsor").toUInt();
