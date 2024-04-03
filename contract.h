@@ -25,12 +25,12 @@ public:
     void onDeleteButtonClicked(int idSponsor, int idEmission);
     void filterTable(const QString &text);
     void displayChart();
-
+    void onEditButtonClicked(int idSponsor, int idEmission,int row);
 private slots:
     void on_pushButton_clicked();
     void on_add_btn_2_clicked();
     void on_add_btn_clicked();
-    void onEditButtonClicked(int idSponsor, int idEmission);
+
     void onContractButtonClicked(int row);
     void on_comboBox_2_activated(const QString &arg1);
     void on_label_6_linkActivated(const QString &link);

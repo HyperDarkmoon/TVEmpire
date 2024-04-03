@@ -194,10 +194,11 @@ void Contract::refreshTable() {
         ui->tableWidget->insertRow(row);
 
         // Populate table cells with data
-        QTableWidgetItem *itemIdSponsor = new QTableWidgetItem(listSponsor.at(row).getIdSponsor());
-        ui->tableWidget->setItem(row, 0, itemIdSponsor);
 
-        QTableWidgetItem *itemIdEmission = new QTableWidgetItem(listSponsor.at(row).getIdEmission());
+        QTableWidgetItem *itemIdSponsor = new QTableWidgetItem(QString::number(listSponsor.at(row).getIdSponsor()));
+        ui->tableWidget->setItem(row, 0, itemIdSponsor);
+        qDebug( ) << listSponsor.at(row).getIdSponsor();
+        QTableWidgetItem *itemIdEmission = new QTableWidgetItem(QString::number(listSponsor.at(row).getIdEmission()));
         ui->tableWidget->setItem(row, 1, itemIdEmission);
 
         QTableWidgetItem *itemMontant = new QTableWidgetItem(listSponsor.at(row).getMontant());
@@ -220,8 +221,8 @@ void Contract::refreshTable() {
         int idEmission = listSponsor.at(row).getIdEmission();
         QToolButton *editButton = new QToolButton();
         editButton->setIcon(QIcon("path/to/edit/icon.png"));
-        connect(editButton, &QToolButton::clicked, [this, idSponsor, idEmission]() {
-          //onEditButtonClicked(idSponsor, idEmission);
+        connect(editButton, &QToolButton::clicked, [this, idSponsor, idEmission,row]() {
+          onEditButtonClicked(idSponsor, idEmission,row);
         });
         ui->tableWidget->setCellWidget(row, 7, editButton);
 
@@ -229,7 +230,7 @@ void Contract::refreshTable() {
         QToolButton *deleteButton = new QToolButton();
         deleteButton->setIcon(QIcon("path/to/delete/icon.png"));
         connect(deleteButton, &QToolButton::clicked, [this, idSponsor, idEmission]() {
-          // onDeleteButtonClicked(idSponsor, idEmission);
+           onDeleteButtonClicked(idSponsor, idEmission);
         });
         ui->tableWidget->setCellWidget(row, 8, deleteButton);
     }
@@ -308,5 +309,20 @@ void Contract::on_add_btn_clicked()
     c.setDescription(ui->desc->text());
     qDebug() << c.getLibelle() << c.getMontant() ;
     c.create(c);
+    refreshTable();
+}
+void Contract::onDeleteButtonClicked(int idSponsor, int idEmission){
+    CrudContract c;
+    c.remove(idSponsor,idEmission);
+    refreshTable();
+}
+void Contract::onEditButtonClicked(int idSponsor, int idEmission,int row){
+    CrudContract c;
+    c.read(idSponsor,idEmission);
+    c.setLibelle(ui->tableWidget->item(row,3)->text());
+    c.setMontant(ui->tableWidget->item(row,2)->text());
+    c.setDescription(ui->tableWidget->item(row,6)->text());
+    qDebug() << c.getMontant();
+    c.update(idSponsor,idEmission,c);
     refreshTable();
 }
