@@ -46,11 +46,11 @@ public:
     QLabel *label_8;
     QLabel *label_10;
     QLineEdit *desc;
-    QPushButton *pushButton;
     QComboBox *idE;
     QComboBox *idS;
     QDateEdit *dated;
     QDateEdit *datef;
+    QLabel *sign;
 
     void setupUi(QDialog *Contract)
     {
@@ -73,7 +73,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(590, 230, 601, 321));
+        tableWidget->setGeometry(QRect(450, 230, 831, 321));
         tableWidget->setStyleSheet(QLatin1String("QTableWidget {\n"
 "    alternate-background-color: #f0f0f0; /* Alternate row background color */\n"
 "    background-color: white; /* Default background color of the table */\n"
@@ -122,7 +122,7 @@ public:
         label->setMargin(200);
         widget_2 = new QWidget(Contract);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(10, 10, 61, 721));
+        widget_2->setGeometry(QRect(10, 0, 61, 781));
         widget_2->setStyleSheet(QStringLiteral("background-color:#fffff;"));
         pushButton_3 = new QPushButton(widget_2);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
@@ -134,7 +134,7 @@ public:
         pushButton_3->setCheckable(true);
         label_6 = new QLabel(widget_2);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(5, 31, 41, 651));
+        label_6->setGeometry(QRect(5, 11, 41, 751));
         label_6->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black; /* Add border */\n"
@@ -148,7 +148,7 @@ public:
         pushButton_3->raise();
         widget_3 = new QWidget(Contract);
         widget_3->setObjectName(QStringLiteral("widget_3"));
-        widget_3->setGeometry(QRect(120, 40, 331, 691));
+        widget_3->setGeometry(QRect(120, 10, 331, 761));
         widget_3->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
@@ -163,7 +163,7 @@ public:
 ""));
         label_5 = new QLabel(widget_3);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(0, 0, 291, 651));
+        label_5->setGeometry(QRect(0, 0, 291, 761));
         label_5->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black;\n"
@@ -175,7 +175,7 @@ public:
         lib = new QLineEdit(widget_3);
         lib->setObjectName(QStringLiteral("lib"));
         lib->setEnabled(true);
-        lib->setGeometry(QRect(9, 42, 191, 30));
+        lib->setGeometry(QRect(9, 90, 191, 30));
         lib->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
@@ -190,12 +190,12 @@ public:
 ""));
         label_4 = new QLabel(widget_3);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(10, 10, 61, 16));
+        label_4->setGeometry(QRect(10, 70, 61, 16));
         label_4->setStyleSheet(QLatin1String("color: black\n"
 ""));
         mont = new QLineEdit(widget_3);
         mont->setObjectName(QStringLiteral("mont"));
-        mont->setGeometry(QRect(9, 111, 191, 30));
+        mont->setGeometry(QRect(9, 140, 191, 30));
         mont->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
@@ -210,22 +210,22 @@ public:
 ""));
         label_2 = new QLabel(widget_3);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 80, 48, 16));
+        label_2->setGeometry(QRect(10, 120, 48, 16));
         label_2->setStyleSheet(QLatin1String("color: black\n"
 ""));
         label_3 = new QLabel(widget_3);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(10, 150, 141, 16));
+        label_3->setGeometry(QRect(10, 180, 141, 16));
         label_3->setStyleSheet(QStringLiteral("color: black"));
         label_7 = new QLabel(widget_3);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setEnabled(true);
-        label_7->setGeometry(QRect(10, 220, 50, 16));
+        label_7->setGeometry(QRect(10, 230, 50, 16));
         label_7->setBaseSize(QSize(2, 0));
         label_7->setStyleSheet(QStringLiteral("color: black"));
         add_btn = new QPushButton(widget_3);
         add_btn->setObjectName(QStringLiteral("add_btn"));
-        add_btn->setGeometry(QRect(60, 600, 151, 34));
+        add_btn->setGeometry(QRect(50, 720, 151, 34));
         QIcon icon1;
         icon1.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
         add_btn->setIcon(icon1);
@@ -239,7 +239,7 @@ public:
         pushButton_4->setCheckable(true);
         label_8 = new QLabel(widget_3);
         label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(250, 0, 41, 651));
+        label_8->setGeometry(QRect(250, 0, 41, 761));
         label_8->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black; /* Add border */\n"
@@ -251,25 +251,35 @@ public:
 ""));
         label_10 = new QLabel(widget_3);
         label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setGeometry(QRect(10, 290, 81, 16));
+        label_10->setGeometry(QRect(10, 280, 81, 16));
         desc = new QLineEdit(widget_3);
         desc->setObjectName(QStringLiteral("desc"));
-        desc->setGeometry(QRect(10, 320, 231, 191));
-        pushButton = new QPushButton(widget_3);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(70, 570, 121, 23));
+        desc->setGeometry(QRect(10, 300, 231, 191));
+        desc->setStyleSheet(QStringLiteral(""));
         idE = new QComboBox(widget_3);
         idE->setObjectName(QStringLiteral("idE"));
-        idE->setGeometry(QRect(150, 530, 62, 22));
+        idE->setGeometry(QRect(140, 30, 62, 22));
         idS = new QComboBox(widget_3);
         idS->setObjectName(QStringLiteral("idS"));
-        idS->setGeometry(QRect(60, 530, 62, 22));
+        idS->setGeometry(QRect(20, 30, 62, 22));
         dated = new QDateEdit(widget_3);
         dated->setObjectName(QStringLiteral("dated"));
-        dated->setGeometry(QRect(20, 180, 110, 22));
+        dated->setGeometry(QRect(20, 200, 110, 22));
         datef = new QDateEdit(widget_3);
         datef->setObjectName(QStringLiteral("datef"));
-        datef->setGeometry(QRect(20, 240, 110, 22));
+        datef->setGeometry(QRect(20, 250, 110, 22));
+        sign = new QLabel(widget_3);
+        sign->setObjectName(QStringLiteral("sign"));
+        sign->setGeometry(QRect(10, 520, 231, 131));
+        sign->setAutoFillBackground(true);
+        sign->setStyleSheet(QLatin1String("QLabel {\n"
+"    background-color: white;\n"
+"    border: 2px solid black;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px 10px;\n"
+"    color: black;\n"
+"}\n"
+""));
         label_5->raise();
         lib->raise();
         add_btn->raise();
@@ -282,11 +292,11 @@ public:
         pushButton_4->raise();
         label_10->raise();
         desc->raise();
-        pushButton->raise();
         idE->raise();
         idS->raise();
         dated->raise();
         datef->raise();
+        sign->raise();
 
         retranslateUi(Contract);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_3, SLOT(setVisible(bool)));
@@ -324,7 +334,7 @@ public:
         pushButton_4->setText(QString());
         label_8->setText(QString());
         label_10->setText(QApplication::translate("Contract", "description", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("Contract", "signature", Q_NULLPTR));
+        sign->setText(QString());
     } // retranslateUi
 
 };

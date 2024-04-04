@@ -1,34 +1,21 @@
 #include "signature.h"
 #include <QPainter>
 #include <QMouseEvent>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QLabel> // Include the QLabel header file
 
-Signature::Signature(QWidget *parent) : QDialog(parent) {
-    setFixedSize(400, 200); // Set the size of the dialog
+Signature::Signature(QWidget *parent) : QLabel(parent) {
+
+    move(15, 525);
+    setFixedSize(227, 127); // Set the size of the QLabel
     m_pixmap = QPixmap(size());
     m_pixmap.fill(Qt::white); // Initialize with a white background
     m_drawing = false;
 
-    QPushButton *clearButton = new QPushButton("Clear Signature", this);
-    QPushButton *saveButton = new QPushButton("Save Signature", this);
+    // Create the clear button
+    clearButton = new QPushButton("Clear", this);
+    clearButton->setGeometry(10, 10, 80, 25); // Adjust position and size as needed
 
+    // Connect the clear button clicked signal to clearSignature slot
     connect(clearButton, &QPushButton::clicked, this, &Signature::clearSignature);
-    connect(saveButton, &QPushButton::clicked, this, &Signature::saveSignature);
-
-    QHBoxLayout *buttonLayout = new QHBoxLayout(); // Layout for buttons
-    buttonLayout->addStretch(); // Add stretch to push buttons to the right
-    buttonLayout->addWidget(clearButton);
-    buttonLayout->addWidget(saveButton);
-
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    QLabel *label = new QLabel("Signature Area"); // Create QLabel instance
-    mainLayout->addWidget(label); // Add QLabel to the layout
-    mainLayout->addStretch(); // Add stretch to push buttons to the bottom
-    mainLayout->addLayout(buttonLayout);
-    setLayout(mainLayout);
 }
 
 void Signature::paintEvent(QPaintEvent *event) {
@@ -61,8 +48,4 @@ void Signature::mouseReleaseEvent(QMouseEvent *event) {
 void Signature::clearSignature() {
     m_pixmap.fill(Qt::white);
     update();
-}
-
-void Signature::saveSignature() {
-    // Add code to save the signature to the database
 }
