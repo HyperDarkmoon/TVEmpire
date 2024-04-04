@@ -1,7 +1,9 @@
 #ifndef CHATBOX_H
 #define CHATBOX_H
-
 #include <QWidget>
+#include <QTime>
+#include <QDate>
+#include <QtSql>
 
 namespace Ui {
 class ChatBox;
@@ -14,6 +16,12 @@ class ChatBox : public QWidget
 public:
     explicit ChatBox(QWidget *parent = nullptr);
     ~ChatBox();
+    void refreshUserList();
+    void refreshChatWindow(QString sender, QString receiver);
+
+private slots:
+    void on_SendButton_2_clicked();
+    void onUserSelectionChanged();
 
 private:
     Ui::ChatBox *ui;
@@ -34,9 +42,9 @@ public:
     void setMessage(QString message);
     QString getMessage() const;
 
-    void createMessage(CrudChat chat);
-    QList<CrudChat> getAllMessagesBetweenUsers(QString sender, QString receiver);
-    QList<CrudChat> getAllMessages();
+    bool createMessage(ChatCrud chat);
+    QList<ChatCrud> getAllMessagesBetweenUsers(QString sender, QString receiver);
+    QList<ChatCrud> getAllMessages();
     QVariant getChatDataByIndex(int idnex);
 private:
     unsigned int id;

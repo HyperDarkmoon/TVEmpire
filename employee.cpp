@@ -308,7 +308,6 @@ bool CrudEmployee::createEmployee(CrudEmployee emp)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO employees (id, name, last_name, post, salary, start_time, end_time, password, login, dob, gender) VALUES (employee_seq.NEXTVAL, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob, :gender)");
-
     query.bindValue(":name", emp.getEmployeeName());
     query.bindValue(":last_name", emp.getEmployeeLastName());
     query.bindValue(":post", emp.getPost());

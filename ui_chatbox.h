@@ -32,7 +32,7 @@ public:
     QVBoxLayout *verticalLayout_4;
     QLabel *label_2;
     QListWidget *Users_2;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QListWidget *Chat;
     QHBoxLayout *horizontalLayout;
@@ -85,13 +85,13 @@ public:
 
         verticalLayout_4->addWidget(Users_2);
 
-        widget = new QWidget(CentralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(270, 0, 691, 551));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget1 = new QWidget(CentralWidget);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(270, 0, 691, 551));
+        verticalLayout = new QVBoxLayout(layoutWidget1);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        Chat = new QListWidget(widget);
+        Chat = new QListWidget(layoutWidget1);
         Chat->setObjectName(QStringLiteral("Chat"));
         Chat->setStyleSheet(QStringLiteral("background-color: rgb(23, 23, 23)"));
         Chat->setFrameShape(QFrame::Panel);
@@ -103,7 +103,7 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        MessageLine_2 = new QTextEdit(widget);
+        MessageLine_2 = new QTextEdit(layoutWidget1);
         MessageLine_2->setObjectName(QStringLiteral("MessageLine_2"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -127,7 +127,7 @@ public:
 
         horizontalLayout->addWidget(MessageLine_2);
 
-        SendButton_2 = new QPushButton(widget);
+        SendButton_2 = new QPushButton(layoutWidget1);
         SendButton_2->setObjectName(QStringLiteral("SendButton_2"));
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
