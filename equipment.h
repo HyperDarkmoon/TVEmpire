@@ -29,6 +29,14 @@ private slots:
     void on_pdfButton_4_clicked();
     void on_pdfButton_5_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_google_clicked();
+
+    void on_amazon_clicked();
+
+    void on_visual_impact_clicked();
+
 private:
     Ui::Equipment *ui;
     addEquipment *addE;

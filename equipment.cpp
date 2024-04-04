@@ -11,7 +11,10 @@
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
 #include "pdfexport.h"
-#include <QDesktopServices>
+#include <qdesktopservices.h>
+#include <QUrl>
+
+
 
 Equipment::Equipment(QWidget *parent) :
     QWidget(parent),
@@ -43,7 +46,7 @@ void Equipment::refreshTable()
     ui->tableWidget_2->clearContents();
     ui->tableWidget_2->setRowCount(0);
 
-    QStringList headers = {"ID", "libelle", "Quantite","condition","categorie","delete","edit","search The web"};
+    QStringList headers = {"ID", "libelle", "Quantite","condition","categorie","delete","edit"};
     ui->tableWidget_2->setColumnCount(headers.size());
     ui->tableWidget_2->setHorizontalHeaderLabels(headers);
 
@@ -56,7 +59,7 @@ void Equipment::refreshTable()
     for (int row = 0; row < EquipmentList.size(); ++row) {
         ui->tableWidget_2->insertRow(row);
 
-        for (int col = 0; col < headers.size() - 3; ++col) {  // Adjusted loop to skip the "Delete" and "Edit" columns
+        for (int col = 0; col < headers.size() - 2; ++col) {  // Adjusted loop to skip the "Delete" and "Edit" columns
             QString fieldData = EquipmentList.at(row).getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
             ui->tableWidget_2->setItem(row, col, item);
@@ -68,19 +71,14 @@ void Equipment::refreshTable()
         connect(deleteButton, &QPushButton::clicked, [this, id]() {
             onDeleteButtonClicked(id);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 3, deleteButton);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 2, deleteButton);
 
         // Add "Edit" button for each row in the "Edit" column
         QPushButton *editButton = new QPushButton("Edit", this);
         connect(editButton, &QPushButton::clicked, [this, row]() {
             onEditButtonClicked(row);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 2, editButton);
-        QPushButton *WebScrape = new QPushButton("search", this);
-        connect(WebScrape, &QPushButton::clicked, [this, row]() {
-            onSearchButtonClicked(row);
-        });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 1, WebScrape);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 1, editButton);
     }
 }
 
@@ -226,10 +224,25 @@ void Equipment::on_pdfButton_5_clicked()
     pdfExporter.exportTableToPDF(ui->tableWidget_2);
 }
 
-void Equipment::onSearchButtonClicked(int row)
-{
-    QString url = "https://www.mytek.tn/catalogsearch/result/?q=";
-    url += ui->tableWidget_2->item(row,1)->text();
-    QDesktopServices::openUrl(url);
 
+
+
+
+void Equipment::on_google_clicked()
+{
+    QString link="https://www.google.com";
+    QDesktopServices:: openUrl(QUrl(link));
+}
+
+void Equipment::on_amazon_clicked()
+{
+    QString link="https://www.amazon.com/s?k=camera&crid=YY8E1FKMHB10&sprefix=camer%2Caps%2C232&ref=nb_sb_noss_2";
+    QDesktopServices:: openUrl(QUrl(link));
+
+}
+
+void Equipment::on_visual_impact_clicked()
+{
+    QString link="https://www.visualsfrance.com/14-accessoires-tournage";
+    QDesktopServices:: openUrl(QUrl(link));
 }
