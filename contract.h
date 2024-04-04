@@ -26,7 +26,7 @@ public:
     QString getEmailFromSponsorId(int idSponsor);
     void sendEmail(const QString& recipientEmail, const QString& subject, const QString& body); // Declaration of sendEmail function
     void refreshTable();
-    void onSendEmailButtonClicked(int idSponsor);
+    void onSendEmailButtonClicked(int idSponsor,int row);
     void onDeleteButtonClicked(int idSponsor, int idEmission);
     void filterTable(const QString &text);
     void displayChart();

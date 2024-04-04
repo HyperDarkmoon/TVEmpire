@@ -50,7 +50,7 @@ public:
     QDateEdit *dateEdit;
     QLabel *label_12;
     QComboBox *scene;
-    QLineEdit *lineEdit_4;
+    QLineEdit *script;
     QLabel *label_13;
     QLabel *errorLabel;
     QWidget *widget;
@@ -711,10 +711,10 @@ public:
         scene = new QComboBox(widget_2);
         scene->setObjectName(QStringLiteral("scene"));
         scene->setGeometry(QRect(10, 250, 181, 22));
-        lineEdit_4 = new QLineEdit(widget_2);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(10, 320, 191, 71));
-        lineEdit_4->setStyleSheet(QLatin1String("QLineEdit {\n"
+        script = new QLineEdit(widget_2);
+        script->setObjectName(QStringLiteral("script"));
+        script->setGeometry(QRect(10, 320, 191, 71));
+        script->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -746,7 +746,7 @@ public:
         pushButton_4->raise();
         label_12->raise();
         scene->raise();
-        lineEdit_4->raise();
+        script->raise();
         label_13->raise();
         errorLabel->raise();
         widget = new QWidget(employeeContainer);

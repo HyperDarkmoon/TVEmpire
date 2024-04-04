@@ -12,7 +12,7 @@ INPUT(
 ./release\equipment.o
 ./release\forgotpassword.o
 ./release\form2.o
-./release\geminiapi.o
+./release\geminidialog.o
 ./release\main.o
 ./release\mainwindow.o
 ./release\pdfexport.o
@@ -49,6 +49,7 @@ INPUT(
 ./release\moc_equipment.o
 ./release\moc_forgotpassword.o
 ./release\moc_form2.o
+./release\moc_geminidialog.o
 ./release\moc_mainwindow.o
 ./release\moc_scenes.o
 ./release\moc_signature.o

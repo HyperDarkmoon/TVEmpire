@@ -414,6 +414,6 @@ void Emission::resetInputs()
 
 
 void Emission::onSummarizeButtonClicked(int row){
-    GeminiApi g;
+    //GeminiApi g;
 
 }

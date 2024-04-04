@@ -289,8 +289,8 @@ void Contract::refreshTable() {
         // Send email button
         QToolButton *sendEmailButton = new QToolButton();
         sendEmailButton->setText("Send Email");
-        connect(sendEmailButton, &QToolButton::clicked, [this, idSponsor]() {
-            onSendEmailButtonClicked(idSponsor);
+        connect(sendEmailButton, &QToolButton::clicked, [this, idSponsor,row]() {
+            onSendEmailButtonClicked(idSponsor,row);
         });
         ui->tableWidget->setCellWidget(row, 10, sendEmailButton);
     }
@@ -422,7 +422,7 @@ void Contract::onEditButtonClicked(int idSponsor, int idEmission, int row) {
 }
 QString Contract::getEmailFromSponsorId(int idSponsor) {
     QSqlQuery query;
-    query.prepare("SELECT email FROM sponsor  WHERE idSponsor = :idSponsor");
+    query.prepare("SELECT email FROM sponsor  WHERE id = :sponsorId");
     query.bindValue(":sponsorId", QVariant::fromValue(idSponsor)); // Bind sponsorId as unsigned int
 
     if (query.exec() && query.next()) {
@@ -436,12 +436,12 @@ QString Contract::getEmailFromSponsorId(int idSponsor) {
 void Contract::sendEmail(const QString& recipientEmail, const QString& subject, const QString& body) {
     // SMTP Configuration
     SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
-    smtp.setUser("abidy6620@gmail.com");
-    smtp.setPassword("yassine@1234560");
-
+    smtp.setUser("mohamedslimane555@gmail.com");
+    smtp.setPassword("zyrx jiib bvqt yxnv");
+    qDebug () << recipientEmail;
     // Create MimeMessage
     MimeMessage message;
-    message.setSender(new EmailAddress("abidy6620@gmail.com", "TVEMPIRE"));
+    message.setSender(new EmailAddress("mohamedslimane555@gmail.com", "TVEMPIRE"));
     message.addRecipient(new EmailAddress(recipientEmail));
     message.setSubject(subject);
 
@@ -465,14 +465,10 @@ void Contract::sendEmail(const QString& recipientEmail, const QString& subject, 
     }
     smtp.quit();
 }
-void Contract::onSendEmailButtonClicked(int rowIndex) {
-    if (rowIndex < 0 || rowIndex >= ui->tableWidget->rowCount()) {
-        qDebug() << "Invalid row index.";
-        return;
-    }
+void Contract::onSendEmailButtonClicked(int idSponsor,int rowIndex) {
+
 
     // Retrieve the contract information from the selected row
-    int idSponsor = ui->tableWidget->item(rowIndex, 0)->text().toInt(); // Assuming ID Sponsor is in the first column
     QString email = getEmailFromSponsorId(idSponsor);
     if (email.isEmpty()) {
         qDebug() << "Failed to retrieve email for sponsor ID" << idSponsor;
