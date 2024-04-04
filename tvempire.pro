@@ -26,6 +26,7 @@ SOURCES += \
     equipment.cpp \
     forgotpassword.cpp \
     form2.cpp \
+    geminiapi.cpp \
     main.cpp \
     mainwindow.cpp \
     pdfexport.cpp \
@@ -65,6 +66,7 @@ HEADERS += \
     equipment.h \
     forgotpassword.h \
     form2.h \
+    geminiapi.h \
     mainwindow.h \
     pdfexport.h \
     qrcodegen.h \

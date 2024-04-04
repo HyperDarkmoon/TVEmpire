@@ -12,6 +12,7 @@ INPUT(
 ./release\equipment.o
 ./release\forgotpassword.o
 ./release\form2.o
+./release\geminiapi.o
 ./release\main.o
 ./release\mainwindow.o
 ./release\pdfexport.o

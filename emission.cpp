@@ -33,6 +33,11 @@ Emission::Emission(QWidget *parent) :
     } else {
         qDebug() << "Failed to retrieve temperature";
     }
+
+    //testing gemini api
+
+    GeminiApi g;
+    g.generateBotResponse("hi");
 }
 
 void Emission::onEdit(){

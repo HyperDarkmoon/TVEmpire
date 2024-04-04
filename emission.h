@@ -10,7 +10,7 @@
 #include "addemission.h"
 #include "emissionedit.h"
 #include "pdfexport.h"
-
+#include "geminiapi.h"
 namespace Ui {
 class Emission;
 }
