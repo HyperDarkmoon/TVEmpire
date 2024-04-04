@@ -1,5 +1,7 @@
-#ifndef GEMINIAPI_H
-#define GEMINIAPI_H
+#ifndef GEMINIDIALOG_H
+#define GEMINIDIALOG_H
+
+#include <QWidget>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrlQuery>
@@ -9,12 +11,21 @@
 #include <QEventLoop>
 #include <QTimer>
 #include <QObject>
-class GeminiApi
+namespace Ui {
+class GeminiDialog;
+}
+
+class GeminiDialog : public QWidget
 {
+    Q_OBJECT
+
 public:
-    GeminiApi();
+    explicit GeminiDialog(QWidget *parent = nullptr);
+    ~GeminiDialog();
     void handleBotResponse(QNetworkReply *reply);
     void generateBotResponse(const QString& userMessage);
+private:
+    Ui::GeminiDialog *ui;
 };
 
-#endif // GEMINIAPI_H
+#endif // GEMINIDIALOG_H

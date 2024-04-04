@@ -1,4 +1,5 @@
-#include "geminiapi.h"
+#include "geminidialog.h"
+#include "ui_geminidialog.h"
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrlQuery>
@@ -8,12 +9,21 @@
 #include <QEventLoop>
 #include <QTimer>
 #include <QObject>
-GeminiApi::GeminiApi()
+GeminiDialog::GeminiDialog(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::GeminiDialog)
 {
-
+    ui->setupUi(this);
 }
 
-void GeminiApi::generateBotResponse(const QString& userMessage)
+GeminiDialog::~GeminiDialog()
+{
+    delete ui;
+}
+
+
+
+void GeminiDialog::generateBotResponse(const QString& userMessage)
 {
     QNetworkAccessManager *manager = new QNetworkAccessManager;
     QUrl url("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyB7Tlh7q8ze1yFIhmdyHJKhspe0054cgIY");
@@ -38,13 +48,13 @@ void GeminiApi::generateBotResponse(const QString& userMessage)
     QNetworkReply *reply = manager->post(request, postData);
 
     // Connect signals and slots for asynchronous handling
-    QObject::connect(reply, &QNetworkReply::finished, [=]() {
+    connect(reply, &QNetworkReply::finished, [=]() {
         handleBotResponse(reply);
         reply->deleteLater();
     });
 }
 
-void GeminiApi::handleBotResponse(QNetworkReply *reply)
+void GeminiDialog::handleBotResponse(QNetworkReply *reply)
 {
     QString botResponse;
     if (reply->error() == QNetworkReply::NoError) {
@@ -67,6 +77,5 @@ void GeminiApi::handleBotResponse(QNetworkReply *reply)
         qDebug() << "Error:" << reply->errorString();
         qDebug() << "Error details:" << reply->readAll();
     }
-
-    //qDebug() << "\n\n\n\n\n" << botResponse << "\n\n\n\n\n";
+    ui->label->setText(botResponse);
 }
