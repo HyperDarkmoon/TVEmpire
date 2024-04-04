@@ -511,8 +511,8 @@
    <widget class="QPushButton" name="Ajout">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>30</y>
+      <x>280</x>
+      <y>40</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -1019,7 +1019,7 @@ QTextEdit {
       <string/>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="labelE">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -1063,7 +1063,7 @@ QTextEdit {
       <string>Libelle</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="categoryE">
      <property name="geometry">
       <rect>
        <x>5</x>
@@ -1087,7 +1087,7 @@ QTextEdit {
 </string>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_1">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1104,7 +1104,7 @@ QTextEdit {
       <string>categorie</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="stateE">
      <property name="geometry">
       <rect>
        <x>5</x>
@@ -1169,7 +1169,7 @@ QTextEdit {
       <string>stock </string>
      </property>
     </widget>
-    <widget class="QPushButton" name="add_btn">
+    <widget class="QPushButton" name="Ajout_2">
      <property name="geometry">
       <rect>
        <x>25</x>
@@ -1179,7 +1179,7 @@ QTextEdit {
       </rect>
      </property>
      <property name="text">
-      <string>Add</string>
+      <string>Ajouter</string>
      </property>
      <property name="icon">
       <iconset>
@@ -1245,7 +1245,7 @@ QTextEdit {
       <string/>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="stockE">
      <property name="geometry">
       <rect>
        <x>5</x>
@@ -1256,17 +1256,17 @@ QTextEdit {
      </property>
     </widget>
     <zorder>label_5</zorder>
-    <zorder>lineEdit_2</zorder>
-    <zorder>add_btn</zorder>
-    <zorder>lineEdit</zorder>
-    <zorder>lineEdit_3</zorder>
-    <zorder>label</zorder>
+    <zorder>labelE</zorder>
+    <zorder>Ajout_2</zorder>
+    <zorder>stateE</zorder>
+    <zorder>categoryE</zorder>
+    <zorder>label_1</zorder>
     <zorder>label_3</zorder>
     <zorder>label_2</zorder>
     <zorder>label_4</zorder>
     <zorder>label_7</zorder>
     <zorder>pushButton_4</zorder>
-    <zorder>lineEdit_4</zorder>
+    <zorder>stockE</zorder>
    </widget>
    <widget class="QWidget" name="widget_3" native="true">
     <property name="geometry">
@@ -1333,7 +1333,7 @@ QTextEdit {
     <zorder>label_6</zorder>
     <zorder>pushButton_3</zorder>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pdfButton_5">
     <property name="geometry">
      <rect>
       <x>620</x>
@@ -1375,7 +1375,7 @@ QPushButton:checked {
 }</string>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>stats</string>
     </property>
     <property name="icon">
      <iconset>
@@ -1416,7 +1416,7 @@ QPushButton:checked {
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="add_btn_4">
+   <widget class="QPushButton" name="pdfButton_4">
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -1951,8 +1951,8 @@ QLineEdit:focus {
    <zorder>Ajout</zorder>
    <zorder>tableWidget_2</zorder>
    <zorder>widget_2</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>add_btn_4</zorder>
+   <zorder>pdfButton_5</zorder>
+   <zorder>pdfButton_4</zorder>
    <zorder>search_input</zorder>
    <zorder>label_15</zorder>
   </widget>

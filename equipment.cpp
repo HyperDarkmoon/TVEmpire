@@ -4,12 +4,25 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QSqlError>
+#include <QtCharts/QChart>
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
+#include "pdfexport.h"
+
+
+
 Equipment::Equipment(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Equipment), addE(new addEquipment)
 {
     ui->setupUi(this);
     connect(addE, &addEquipment::buttonClicked, this, &Equipment::onAddEmissionDialogClosed);
+    connect(ui->pdfButton_4, &QPushButton::clicked, this, &Equipment::on_pdfButton_4_clicked);
+    connect(ui->search_input, &QLineEdit::textChanged, this, &Equipment::filterTable);
+
     refreshTable();
 }
 void Equipment::onAddEmissionDialogClosed(){
@@ -129,4 +142,82 @@ void Equipment::onEditButtonClicked(int row)
     e.setcategory(ui->tableWidget_2->item(row,4)->text());
     e.updateEquipment();
     refreshTable();
+}
+
+void Equipment::displayChart() {
+    // Create a bar series
+    QtCharts::QBarSeries *series = new QtCharts::QBarSeries();
+
+    // Fetch the stock data from the database and count the number of items for each equipment
+    QMap<QString, int> stockCountByEquipment;
+    CRUDequipment C;
+    QList<CRUDequipment> equipmentList = C.getAll();
+    for (const CRUDequipment& equipment : equipmentList) {
+        QString label = equipment.getlabel();
+        int stock = equipment.getStock();
+        stockCountByEquipment[label] = stock;
+    }
+
+    // Add data to the series
+    for (auto it = stockCountByEquipment.constBegin(); it != stockCountByEquipment.constEnd(); ++it) {
+        QtCharts::QBarSet *set = new QtCharts::QBarSet(it.key());
+        *set << it.value();
+        series->append(set);
+    }
+
+    // Create a chart and add the series to it
+    QtCharts::QChart *chart = new QtCharts::QChart();
+    chart->addSeries(series);
+    chart->setAnimationOptions(QtCharts::QChart::SeriesAnimations);
+
+    // Create axes
+    QtCharts::QBarCategoryAxis *axisX = new QtCharts::QBarCategoryAxis();
+    QtCharts::QValueAxis *axisY = new QtCharts::QValueAxis();
+    chart->addAxis(axisX, Qt::AlignBottom);
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
+
+    // Create a chart view and set the chart
+    QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // Set chart view properties
+    chartView->setWindowTitle("Stock by Equipment");
+    chartView->resize(800, 600);
+    chartView->show();
+}
+
+
+void Equipment::on_pdfButton_4_clicked()
+{
+    displayChart();
+}
+
+void Equipment::filterTable(const QString &text) {
+        // Get the search query
+        QString query = text.toLower();
+
+        // Iterate through each row in the table
+        for (int row = 0; row < ui->tableWidget_2->rowCount(); ++row) {
+            bool matchFound = false;
+            // Get the item in the first column of the current row
+            QTableWidgetItem *item = ui->tableWidget_2->item(row, 1); // Assuming the first column is the "Name" column
+            if (item) {
+                QString cellText = item->text().toLower();
+                // Check if the cell text contains the search query
+                if (cellText.contains(query)) {
+                    matchFound = true;
+                }
+            }
+            // Show or hide the row based on whether a match was found
+            ui->tableWidget_2->setRowHidden(row, !matchFound);
+        }
+    }
+
+void Equipment::on_pdfButton_5_clicked()
+{
+    pdfExport pdfExporter;
+
+    pdfExporter.exportTableToPDF(ui->tableWidget_2);
 }

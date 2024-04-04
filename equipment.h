@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "addequipment.h"
+#include "pdfexport.h"
+#include "chatbox.h"
 
 namespace Ui {
 class Equipment;
@@ -19,8 +21,12 @@ public:
     void onEditButtonClicked(int row);
     void onDeleteButtonClicked(unsigned int id);
     void onAddEmissionDialogClosed();
+    void displayChart();
+    void filterTable(const QString &text);
 private slots:
     void on_Ajout_clicked();
+    void on_pdfButton_4_clicked();
+    void on_pdfButton_5_clicked();
 
 private:
     Ui::Equipment *ui;

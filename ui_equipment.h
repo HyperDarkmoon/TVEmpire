@@ -32,23 +32,23 @@ public:
     QTableWidget *tableWidget_2;
     QWidget *widget_2;
     QLabel *label_5;
-    QLineEdit *lineEdit_2;
+    QLineEdit *labelE;
     QLabel *label_4;
-    QLineEdit *lineEdit_3;
-    QLabel *label;
-    QLineEdit *lineEdit;
+    QLineEdit *categoryE;
+    QLabel *label_1;
+    QLineEdit *stateE;
     QLabel *label_2;
     QLabel *label_3;
-    QPushButton *add_btn;
+    QPushButton *Ajout_2;
     QPushButton *pushButton_4;
     QLabel *label_7;
-    QLineEdit *lineEdit_4;
+    QLineEdit *stockE;
     QWidget *widget_3;
     QPushButton *pushButton_3;
     QLabel *label_6;
-    QPushButton *pushButton;
+    QPushButton *pdfButton_5;
     QLabel *label_15;
-    QPushButton *add_btn_4;
+    QPushButton *pdfButton_4;
     QLineEdit *search_input;
 
     void setupUi(QWidget *Equipment)
@@ -151,7 +151,7 @@ public:
         Labelequipment->setStyleSheet(QStringLiteral("color: #F1F1F1"));
         Ajout = new QPushButton(equipement);
         Ajout->setObjectName(QStringLiteral("Ajout"));
-        Ajout->setGeometry(QRect(240, 30, 91, 31));
+        Ajout->setGeometry(QRect(280, 40, 91, 31));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         palette1.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -243,11 +243,11 @@ public:
 "    color: black;\n"
 "}\n"
 ""));
-        lineEdit_2 = new QLineEdit(widget_2);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setEnabled(true);
-        lineEdit_2->setGeometry(QRect(5, 42, 191, 30));
-        lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {\n"
+        labelE = new QLineEdit(widget_2);
+        labelE->setObjectName(QStringLiteral("labelE"));
+        labelE->setEnabled(true);
+        labelE->setGeometry(QRect(5, 42, 191, 30));
+        labelE->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -264,10 +264,10 @@ public:
         label_4->setGeometry(QRect(10, 10, 61, 16));
         label_4->setStyleSheet(QLatin1String("color: black\n"
 ""));
-        lineEdit_3 = new QLineEdit(widget_2);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(5, 111, 191, 30));
-        lineEdit_3->setStyleSheet(QLatin1String("QLineEdit {\n"
+        categoryE = new QLineEdit(widget_2);
+        categoryE->setObjectName(QStringLiteral("categoryE"));
+        categoryE->setGeometry(QRect(5, 111, 191, 30));
+        categoryE->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -279,15 +279,15 @@ public:
 "    padding: 1.5px;\n"
 "}\n"
 ""));
-        label = new QLabel(widget_2);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 80, 48, 16));
-        label->setStyleSheet(QLatin1String("color: black\n"
+        label_1 = new QLabel(widget_2);
+        label_1->setObjectName(QStringLiteral("label_1"));
+        label_1->setGeometry(QRect(10, 80, 48, 16));
+        label_1->setStyleSheet(QLatin1String("color: black\n"
 ""));
-        lineEdit = new QLineEdit(widget_2);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(5, 180, 191, 30));
-        lineEdit->setStyleSheet(QLatin1String("QLineEdit {\n"
+        stateE = new QLineEdit(widget_2);
+        stateE->setObjectName(QStringLiteral("stateE"));
+        stateE->setGeometry(QRect(5, 180, 191, 30));
+        stateE->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -309,13 +309,13 @@ public:
         label_3->setGeometry(QRect(10, 220, 50, 16));
         label_3->setBaseSize(QSize(2, 0));
         label_3->setStyleSheet(QStringLiteral("color: black"));
-        add_btn = new QPushButton(widget_2);
-        add_btn->setObjectName(QStringLiteral("add_btn"));
-        add_btn->setGeometry(QRect(25, 310, 151, 34));
+        Ajout_2 = new QPushButton(widget_2);
+        Ajout_2->setObjectName(QStringLiteral("Ajout_2"));
+        Ajout_2->setGeometry(QRect(25, 310, 151, 34));
         QIcon icon;
         icon.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        add_btn->setIcon(icon);
-        add_btn->setIconSize(QSize(20, 20));
+        Ajout_2->setIcon(icon);
+        Ajout_2->setIconSize(QSize(20, 20));
         pushButton_4 = new QPushButton(widget_2);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setGeometry(QRect(205, 168, 31, 31));
@@ -337,21 +337,21 @@ public:
 "    color: black;\n"
 "}\n"
 ""));
-        lineEdit_4 = new QLineEdit(widget_2);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(5, 260, 191, 30));
+        stockE = new QLineEdit(widget_2);
+        stockE->setObjectName(QStringLiteral("stockE"));
+        stockE->setGeometry(QRect(5, 260, 191, 30));
         label_5->raise();
-        lineEdit_2->raise();
-        add_btn->raise();
-        lineEdit->raise();
-        lineEdit_3->raise();
-        label->raise();
+        labelE->raise();
+        Ajout_2->raise();
+        stateE->raise();
+        categoryE->raise();
+        label_1->raise();
         label_3->raise();
         label_2->raise();
         label_4->raise();
         label_7->raise();
         pushButton_4->raise();
-        lineEdit_4->raise();
+        stockE->raise();
         widget_3 = new QWidget(equipement);
         widget_3->setObjectName(QStringLiteral("widget_3"));
         widget_3->setGeometry(QRect(0, 140, 61, 381));
@@ -376,10 +376,10 @@ public:
 ""));
         label_6->raise();
         pushButton_3->raise();
-        pushButton = new QPushButton(equipement);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(620, 139, 141, 41));
-        pushButton->setStyleSheet(QLatin1String("QPushButton {\n"
+        pdfButton_5 = new QPushButton(equipement);
+        pdfButton_5->setObjectName(QStringLiteral("pdfButton_5"));
+        pdfButton_5->setGeometry(QRect(620, 139, 141, 41));
+        pdfButton_5->setStyleSheet(QLatin1String("QPushButton {\n"
 "    background-color: transparent; \n"
 "    color: black;\n"
 "\n"
@@ -411,8 +411,8 @@ public:
 "}"));
         QIcon icon2;
         icon2.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon2);
-        pushButton->setIconSize(QSize(30, 30));
+        pdfButton_5->setIcon(icon2);
+        pdfButton_5->setIconSize(QSize(30, 30));
         label_15 = new QLabel(equipement);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setGeometry(QRect(1035, 145, 20, 20));
@@ -421,9 +421,9 @@ public:
         label_15->setPixmap(QPixmap(QString::fromUtf8("../../../Downloads/recherche.png")));
         label_15->setScaledContents(true);
         label_15->setAlignment(Qt::AlignCenter);
-        add_btn_4 = new QPushButton(equipement);
-        add_btn_4->setObjectName(QStringLiteral("add_btn_4"));
-        add_btn_4->setGeometry(QRect(420, 139, 141, 41));
+        pdfButton_4 = new QPushButton(equipement);
+        pdfButton_4->setObjectName(QStringLiteral("pdfButton_4"));
+        pdfButton_4->setGeometry(QRect(420, 139, 141, 41));
         QPalette palette2;
         palette2.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         QBrush brush13(QColor(0, 0, 0, 0));
@@ -481,8 +481,8 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush12);
 #endif
-        add_btn_4->setPalette(palette2);
-        add_btn_4->setStyleSheet(QLatin1String("QPushButton {\n"
+        pdfButton_4->setPalette(palette2);
+        pdfButton_4->setStyleSheet(QLatin1String("QPushButton {\n"
 "    background-color: transparent; \n"
 "    color: black;\n"
 "\n"
@@ -514,8 +514,8 @@ public:
 "}"));
         QIcon icon3;
         icon3.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        add_btn_4->setIcon(icon3);
-        add_btn_4->setIconSize(QSize(30, 30));
+        pdfButton_4->setIcon(icon3);
+        pdfButton_4->setIconSize(QSize(30, 30));
         search_input = new QLineEdit(equipement);
         search_input->setObjectName(QStringLiteral("search_input"));
         search_input->setGeometry(QRect(820, 140, 242, 31));
@@ -542,8 +542,8 @@ public:
         Ajout->raise();
         tableWidget_2->raise();
         widget_2->raise();
-        pushButton->raise();
-        add_btn_4->raise();
+        pdfButton_5->raise();
+        pdfButton_4->raise();
         search_input->raise();
         label_15->raise();
 
@@ -564,17 +564,17 @@ public:
         Ajout->setText(QApplication::translate("Equipment", "Ajouter", Q_NULLPTR));
         label_5->setText(QString());
         label_4->setText(QApplication::translate("Equipment", "Libelle", Q_NULLPTR));
-        label->setText(QApplication::translate("Equipment", "categorie", Q_NULLPTR));
+        label_1->setText(QApplication::translate("Equipment", "categorie", Q_NULLPTR));
         label_2->setText(QApplication::translate("Equipment", "etat", Q_NULLPTR));
         label_3->setText(QApplication::translate("Equipment", "stock ", Q_NULLPTR));
-        add_btn->setText(QApplication::translate("Equipment", "Add", Q_NULLPTR));
+        Ajout_2->setText(QApplication::translate("Equipment", "Ajouter", Q_NULLPTR));
         pushButton_4->setText(QString());
         label_7->setText(QString());
         pushButton_3->setText(QString());
         label_6->setText(QString());
-        pushButton->setText(QApplication::translate("Equipment", "PushButton", Q_NULLPTR));
+        pdfButton_5->setText(QApplication::translate("Equipment", "stats", Q_NULLPTR));
         label_15->setText(QString());
-        add_btn_4->setText(QApplication::translate("Equipment", "Export PDF", Q_NULLPTR));
+        pdfButton_4->setText(QApplication::translate("Equipment", "Export PDF", Q_NULLPTR));
         search_input->setPlaceholderText(QApplication::translate("Equipment", "Search...", Q_NULLPTR));
     } // retranslateUi
 
