@@ -23,6 +23,7 @@ class Ui_GeminiDialog
 {
 public:
     QLabel *label;
+    QLabel *inputLabel;
 
     void setupUi(QWidget *GeminiDialog)
     {
@@ -31,7 +32,14 @@ public:
         GeminiDialog->resize(923, 496);
         label = new QLabel(GeminiDialog);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(120, 60, 671, 331));
+        label->setGeometry(QRect(140, 110, 671, 331));
+        label->setStyleSheet(QLatin1String("background:black;\n"
+"color : white;"));
+        inputLabel = new QLabel(GeminiDialog);
+        inputLabel->setObjectName(QStringLiteral("inputLabel"));
+        inputLabel->setGeometry(QRect(140, 10, 671, 91));
+        inputLabel->setStyleSheet(QLatin1String("background:black;\n"
+"color : white;"));
 
         retranslateUi(GeminiDialog);
 
@@ -42,6 +50,7 @@ public:
     {
         GeminiDialog->setWindowTitle(QApplication::translate("GeminiDialog", "Form", Q_NULLPTR));
         label->setText(QString());
+        inputLabel->setText(QString());
     } // retranslateUi
 
 };

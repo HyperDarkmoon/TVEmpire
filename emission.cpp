@@ -10,7 +10,7 @@
 #include <QtCharts/QChart>
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Emission), edit(new EmissionEdit)
+    ui(new Ui::Emission), edit(new EmissionEdit),Gemini(new GeminiDialog)
 {
     ui->setupUi(this);
     // each time the add button gets clicked it emits a signal button clicked that executes onAddEmissionDialogClosed
@@ -110,6 +110,7 @@ bool CrudEmission::create(CrudEmission e)
     query.bindValue(":genre", e.getGenre());
     query.bindValue(":horaire", e.getHoraire());
     query.bindValue(":scene_id", e.getSceneId());
+    query.bindValue(":script",e.getScript());
     return query.exec();
 }
 
@@ -383,13 +384,13 @@ void Emission::on_add_clicked()
       ui->errorLabel->setText("Error: Schedule cannot be before today's date.");
       return; // Exit the function without creating emission
     }
-
     // Proceed with creating the emission if checks pass
     CrudEmission c;
     c.setNom(nom);
     c.setGenre(ui->genre->text());
     c.setHoraire(horaire);
     c.setSceneId(ui->scene->currentText().toUInt());
+    c.setScript(ui->script->text());
     c.create(c);
     resetInputs();
     refreshTable();
@@ -414,6 +415,9 @@ void Emission::resetInputs()
 
 
 void Emission::onSummarizeButtonClicked(int row){
-    //GeminiApi g;
 
+    QString script;
+    script= ui->tableWidget_2->item(row,5)->text();
+    Gemini->setData(script);
+    Gemini->show();
 }

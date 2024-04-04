@@ -10,6 +10,7 @@
 #include "addemission.h"
 #include "emissionedit.h"
 #include "pdfexport.h"
+#include "geminidialog.h"
 namespace Ui {
 class Emission;
 }
@@ -48,6 +49,7 @@ private:
 
     Ui::Emission *ui;
     EmissionEdit *edit;
+    GeminiDialog *Gemini;
 
 };
 class CrudEmission {

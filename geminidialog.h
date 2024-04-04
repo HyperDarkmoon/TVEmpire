@@ -24,6 +24,7 @@ public:
     ~GeminiDialog();
     void handleBotResponse(QNetworkReply *reply);
     void generateBotResponse(const QString& userMessage);
+    void setData(QString message);
 private:
     Ui::GeminiDialog *ui;
 };

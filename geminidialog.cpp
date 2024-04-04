@@ -79,3 +79,7 @@ void GeminiDialog::handleBotResponse(QNetworkReply *reply)
     }
     ui->label->setText(botResponse);
 }
+void GeminiDialog::setData(QString message){
+    ui->inputLabel->setText(message);
+    generateBotResponse("summarize this : " + message);
+}
