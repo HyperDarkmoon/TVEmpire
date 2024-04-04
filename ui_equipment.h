@@ -46,10 +46,14 @@ public:
     QWidget *widget_3;
     QPushButton *pushButton_3;
     QLabel *label_6;
-    QPushButton *pdfButton_5;
-    QLabel *label_15;
     QPushButton *pdfButton_4;
+    QLabel *label_15;
+    QPushButton *pdfButton_5;
     QLineEdit *search_input;
+    QPushButton *google;
+    QPushButton *amazon;
+    QPushButton *visual_impact;
+    QLabel *label;
 
     void setupUi(QWidget *Equipment)
     {
@@ -59,7 +63,7 @@ public:
         Equipment->setAutoFillBackground(true);
         equipement = new QWidget(Equipment);
         equipement->setObjectName(QStringLiteral("equipement"));
-        equipement->setGeometry(QRect(0, 0, 1471, 771));
+        equipement->setGeometry(QRect(-30, -10, 1471, 771));
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -151,7 +155,7 @@ public:
         Labelequipment->setStyleSheet(QStringLiteral("color: #F1F1F1"));
         Ajout = new QPushButton(equipement);
         Ajout->setObjectName(QStringLiteral("Ajout"));
-        Ajout->setGeometry(QRect(280, 40, 91, 31));
+        Ajout->setGeometry(QRect(600, 60, 91, 31));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         palette1.setBrush(QPalette::Active, QPalette::Button, brush);
@@ -376,10 +380,10 @@ public:
 ""));
         label_6->raise();
         pushButton_3->raise();
-        pdfButton_5 = new QPushButton(equipement);
-        pdfButton_5->setObjectName(QStringLiteral("pdfButton_5"));
-        pdfButton_5->setGeometry(QRect(620, 139, 141, 41));
-        pdfButton_5->setStyleSheet(QLatin1String("QPushButton {\n"
+        pdfButton_4 = new QPushButton(equipement);
+        pdfButton_4->setObjectName(QStringLiteral("pdfButton_4"));
+        pdfButton_4->setGeometry(QRect(620, 139, 141, 41));
+        pdfButton_4->setStyleSheet(QLatin1String("QPushButton {\n"
 "    background-color: transparent; \n"
 "    color: black;\n"
 "\n"
@@ -411,8 +415,8 @@ public:
 "}"));
         QIcon icon2;
         icon2.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pdfButton_5->setIcon(icon2);
-        pdfButton_5->setIconSize(QSize(30, 30));
+        pdfButton_4->setIcon(icon2);
+        pdfButton_4->setIconSize(QSize(30, 30));
         label_15 = new QLabel(equipement);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setGeometry(QRect(1035, 145, 20, 20));
@@ -421,9 +425,9 @@ public:
         label_15->setPixmap(QPixmap(QString::fromUtf8("../../../Downloads/recherche.png")));
         label_15->setScaledContents(true);
         label_15->setAlignment(Qt::AlignCenter);
-        pdfButton_4 = new QPushButton(equipement);
-        pdfButton_4->setObjectName(QStringLiteral("pdfButton_4"));
-        pdfButton_4->setGeometry(QRect(420, 139, 141, 41));
+        pdfButton_5 = new QPushButton(equipement);
+        pdfButton_5->setObjectName(QStringLiteral("pdfButton_5"));
+        pdfButton_5->setGeometry(QRect(420, 139, 141, 41));
         QPalette palette2;
         palette2.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         QBrush brush13(QColor(0, 0, 0, 0));
@@ -481,8 +485,8 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette2.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush12);
 #endif
-        pdfButton_4->setPalette(palette2);
-        pdfButton_4->setStyleSheet(QLatin1String("QPushButton {\n"
+        pdfButton_5->setPalette(palette2);
+        pdfButton_5->setStyleSheet(QLatin1String("QPushButton {\n"
 "    background-color: transparent; \n"
 "    color: black;\n"
 "\n"
@@ -514,8 +518,8 @@ public:
 "}"));
         QIcon icon3;
         icon3.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pdfButton_4->setIcon(icon3);
-        pdfButton_4->setIconSize(QSize(30, 30));
+        pdfButton_5->setIcon(icon3);
+        pdfButton_5->setIconSize(QSize(30, 30));
         search_input = new QLineEdit(equipement);
         search_input->setObjectName(QStringLiteral("search_input"));
         search_input->setGeometry(QRect(820, 140, 242, 31));
@@ -536,16 +540,32 @@ public:
 "    border-color: #0078D4; /* Border color when focused */\n"
 "}\n"
 ""));
+        google = new QPushButton(equipement);
+        google->setObjectName(QStringLiteral("google"));
+        google->setGeometry(QRect(780, 650, 91, 31));
+        amazon = new QPushButton(equipement);
+        amazon->setObjectName(QStringLiteral("amazon"));
+        amazon->setGeometry(QRect(880, 650, 91, 31));
+        visual_impact = new QPushButton(equipement);
+        visual_impact->setObjectName(QStringLiteral("visual_impact"));
+        visual_impact->setGeometry(QRect(980, 650, 91, 31));
+        label = new QLabel(equipement);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(530, 640, 241, 41));
         widget_3->raise();
         Label->raise();
         Labelequipment->raise();
         Ajout->raise();
         tableWidget_2->raise();
         widget_2->raise();
-        pdfButton_5->raise();
         pdfButton_4->raise();
+        pdfButton_5->raise();
         search_input->raise();
         label_15->raise();
+        google->raise();
+        visual_impact->raise();
+        label->raise();
+        amazon->raise();
 
         retranslateUi(Equipment);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -572,10 +592,14 @@ public:
         label_7->setText(QString());
         pushButton_3->setText(QString());
         label_6->setText(QString());
-        pdfButton_5->setText(QApplication::translate("Equipment", "stats", Q_NULLPTR));
+        pdfButton_4->setText(QApplication::translate("Equipment", "stats", Q_NULLPTR));
         label_15->setText(QString());
-        pdfButton_4->setText(QApplication::translate("Equipment", "Export PDF", Q_NULLPTR));
+        pdfButton_5->setText(QApplication::translate("Equipment", "Export PDF", Q_NULLPTR));
         search_input->setPlaceholderText(QApplication::translate("Equipment", "Search...", Q_NULLPTR));
+        google->setText(QApplication::translate("Equipment", "Google", Q_NULLPTR));
+        amazon->setText(QApplication::translate("Equipment", "Amazon", Q_NULLPTR));
+        visual_impact->setText(QApplication::translate("Equipment", "Visual Impact", Q_NULLPTR));
+        label->setText(QApplication::translate("Equipment", "Chercher sur les sites partenaires :", Q_NULLPTR));
     } // retranslateUi
 
 };

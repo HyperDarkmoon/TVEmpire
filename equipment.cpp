@@ -11,6 +11,8 @@
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
 #include "pdfexport.h"
+#include <qdesktopservices.h>
+#include <QUrl>
 
 
 
@@ -220,4 +222,27 @@ void Equipment::on_pdfButton_5_clicked()
     pdfExport pdfExporter;
 
     pdfExporter.exportTableToPDF(ui->tableWidget_2);
+}
+
+
+
+
+
+void Equipment::on_google_clicked()
+{
+    QString link="https://www.google.com";
+    QDesktopServices:: openUrl(QUrl(link));
+}
+
+void Equipment::on_amazon_clicked()
+{
+    QString link="https://www.amazon.com/s?k=camera&crid=YY8E1FKMHB10&sprefix=camer%2Caps%2C232&ref=nb_sb_noss_2";
+    QDesktopServices:: openUrl(QUrl(link));
+
+}
+
+void Equipment::on_visual_impact_clicked()
+{
+    QString link="https://www.visualsfrance.com/14-accessoires-tournage";
+    QDesktopServices:: openUrl(QUrl(link));
 }
