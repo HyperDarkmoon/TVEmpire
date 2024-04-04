@@ -205,14 +205,15 @@ void Sponsor::on_add_btn_clicked() {
         return;
     }
 
-    CrudSponsor c;
-    c.setNom(nom);
-    c.setEmail(email);
-    c.setPhone(phone);
-    c.setCategories(categories);
+    CrudSponsor cc;
+    cc.setNom(nom);
+    cc.setEmail(email);
+    cc.setPhone(phone);
+    cc.setCategories(categories);
 
-    if (c.create(c)) {
+    if (cc.create(cc)) {
         refreshTable();
+        c.refreshTable();
     } else {
         QMessageBox::critical(this, "Error", "Insertion into the database failed.");
     }
