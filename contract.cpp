@@ -25,7 +25,13 @@ Contract::Contract(QWidget *parent) :
     QDialog(parent), // Inherit from QDialog
     ui(new Ui::Contract)
 {
+
     ui->setupUi(this);
+   ui->sign->setStyleSheet("background-color: rgba(255, 255, 255, 0); border: 2px solid black; border-radius: 10px; padding: 5px 10px; color: black;");
+    Signature *signatureWidget = new Signature(ui->sign);
+        signatureWidget->setGeometry(ui->sign->rect());
+        signatureWidget->show();
+
     QSqlQuery scenes;
     scenes.prepare("SELECT id from sponsor");
     scenes.exec();
@@ -40,7 +46,7 @@ Contract::Contract(QWidget *parent) :
             int sceneId = emiss.value(0).toInt();
             ui->idE->addItem(QString::number(sceneId));
         }
-    signatureWidget = new Signature(this);
+
     refreshTable();
 }
 
@@ -292,10 +298,10 @@ QVariant CrudContract::getFieldByIndex(int index) const {
     }
 }
 
-void Contract::on_pushButton_clicked()
+/*void Contract::on_pushButton_clicked()
 {
  signatureWidget->show();
-}
+}*/
 
 void Contract::on_add_btn_clicked()
 {
