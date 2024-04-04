@@ -86,7 +86,7 @@ void CrudSponsor::setQrCodeData(const QByteArray &data) {
 
 bool CrudSponsor::create(CrudSponsor s) {
     QSqlQuery query;
-    query.prepare("INSERT INTO Sponsor (id, nom, tel, email, categorie, QRCODE) VALUES (sponsor_seq.NEXTVAL, :nom , :email, :phone, :categories, :qrcode)");
+    query.prepare("INSERT INTO Sponsor (id, nom, tel, email, categorie, QRCODE) VALUES (sponsor_seq.NEXTVAL, :nom , :phone, :email, :categories, :qrcode)");
     query.bindValue(":nom", s.getNom());
     query.bindValue(":email", s.getEmail());
     query.bindValue(":phone", s.getPhone());
@@ -222,7 +222,7 @@ void Sponsor::refreshTable() {
     ui->tableWidget->clearContents();
         ui->tableWidget->setRowCount(0);
 
-        QStringList headers = {"ID", "Nom", "telephone", "email", "categories", "QR Code", "delete", "edit", "contrat"};
+        QStringList headers = {"ID", "Nom", "email", "telephone", "categories", "QR Code", "delete", "edit", "contrat"};
         ui->tableWidget->setColumnCount(headers.size());
         ui->tableWidget->setHorizontalHeaderLabels(headers);
 
