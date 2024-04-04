@@ -21,17 +21,20 @@
 #include "ui_contract.h"
 #include "signature.h"
 #include "dbconnection.h"
+#include "../smtp/src/SmtpMime"
+#include <QSslSocket>
 Contract::Contract(QWidget *parent) :
     QDialog(parent), // Inherit from QDialog
     ui(new Ui::Contract)
+
 {
 
     ui->setupUi(this);
-   ui->sign->setStyleSheet("background-color: rgba(255, 255, 255, 0); border: 2px solid black; border-radius: 10px; padding: 5px 10px; color: black;");
-    Signature *signatureWidget = new Signature(ui->sign);
-        signatureWidget->setGeometry(ui->sign->rect());
-        signatureWidget->show();
+       ui->sign->setStyleSheet("background-color: rgba(255, 255, 255, 0); border: 2px solid black; border-radius: 10px; padding: 5px 10px; color: black;");
+       signatureWidget = new Signature(ui->sign);
 
+           signatureWidget->setGeometry(ui->sign->rect());
+           signatureWidget->show();
     QSqlQuery scenes;
     scenes.prepare("SELECT id from sponsor");
     scenes.exec();
@@ -53,6 +56,8 @@ Contract::Contract(QWidget *parent) :
 Contract::~Contract()
 {
     delete ui;
+    delete signatureWidget;
+
 }
 
 
@@ -84,6 +89,10 @@ QDate CrudContract::getDateFin() const {
     return dateFin;
 }
 
+QByteArray CrudContract::getSignatureBlob() const {
+    return signatureBlob; // Return the signature blob
+}
+
 void CrudContract::setIdSponsor(unsigned int newIdSponsor) {
     idSponsor = newIdSponsor;
 }
@@ -112,9 +121,14 @@ void CrudContract::setDateFin(const QDate& newDateFin) {
     dateFin = newDateFin;
 }
 
+void CrudContract::setSignatureBlob(const QByteArray& blob) {
+    signatureBlob = blob; // Set the signature blob
+}
+
 bool CrudContract::create(CrudContract c) {
     QSqlQuery query;
-    query.prepare("INSERT INTO Contract (idSponsor, idEmission, montant, libelle, date_Debut, description, date_Fin) VALUES (:idSponsor, :idEmission, :montant, :libelle, :dateDebut, :description, :dateFin)");
+    query.prepare("INSERT INTO Contract (idSponsor, idEmission, montant, libelle, date_Debut, description, date_Fin, signature) "
+                  "VALUES (:idSponsor, :idEmission, :montant, :libelle, :dateDebut, :description, :dateFin, :signature)");
 
     query.bindValue(":idSponsor", c.getIdSponsor());
     query.bindValue(":idEmission", c.getIdEmission());
@@ -124,12 +138,19 @@ bool CrudContract::create(CrudContract c) {
     query.bindValue(":description", c.getDescription());
     query.bindValue(":dateFin", c.getDateFin());
 
+    // Bind signature blob from CrudContract instance
+    query.bindValue(":signature", c.getSignatureBlob());
+
     if (query.exec()) {
         return true;
     } else {
+        qDebug() << "Error creating contract:" << query.lastError().text();
         return false;
     }
 }
+
+
+
 
 CrudContract CrudContract::read(unsigned int idSponsor, unsigned int idEmission) {
     QSqlQuery query;
@@ -147,13 +168,21 @@ CrudContract CrudContract::read(unsigned int idSponsor, unsigned int idEmission)
         c.setDescription(query.value("description").toString());
         c.setDateFin(query.value("dateFin").toDate());
 
+        // Retrieve the signature blob from the query result
+        QByteArray signatureBlob = query.value("signature").toByteArray();
+        c.setSignatureBlob(signatureBlob);
+
         return c;
     } else {
         return CrudContract();
     }
 }
-
 bool CrudContract::update(unsigned int idSponsor, unsigned int idEmission, CrudContract c) {
+    // Implementation of the update function
+    // Make sure to perform the necessary SQL operations to update the database record
+    // You can use QSqlQuery or any other method to execute the update operation
+
+    // Example:
     QSqlQuery query;
     query.prepare("UPDATE Contract SET montant = :montant, libelle = :libelle, date_Debut = :dateDebut, description = :description, date_Fin = :dateFin WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
     query.bindValue(":idSponsor", idSponsor);
@@ -172,6 +201,7 @@ bool CrudContract::update(unsigned int idSponsor, unsigned int idEmission, CrudC
     }
 }
 
+
 bool CrudContract::remove(unsigned int idSponsor, unsigned int idEmission) {
     QSqlQuery query;
     query.prepare("DELETE FROM Contract WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
@@ -189,21 +219,19 @@ void Contract::refreshTable() {
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
 
-    QStringList headers = {"ID Sponsor", "ID Emission", "Montant", "Libelle", "Date Debut", "Description", "Date Fin", "edit", "delete"};
+    QStringList headers = {"ID Sponsor", "ID Emission", "Montant", "Libelle", "Date Debut", "Description", "Date Fin", "Signature", "edit", "delete", "send email"}; // Added "send email"
     ui->tableWidget->setColumnCount(headers.size());
     ui->tableWidget->setHorizontalHeaderLabels(headers);
 
     CrudContract c;
     QList<CrudContract> listSponsor = c.getAll();
     for (int row = 0; row < listSponsor.size(); ++row) {
-
         ui->tableWidget->insertRow(row);
 
         // Populate table cells with data
-
         QTableWidgetItem *itemIdSponsor = new QTableWidgetItem(QString::number(listSponsor.at(row).getIdSponsor()));
         ui->tableWidget->setItem(row, 0, itemIdSponsor);
-        qDebug( ) << listSponsor.at(row).getIdSponsor();
+
         QTableWidgetItem *itemIdEmission = new QTableWidgetItem(QString::number(listSponsor.at(row).getIdEmission()));
         ui->tableWidget->setItem(row, 1, itemIdEmission);
 
@@ -216,11 +244,29 @@ void Contract::refreshTable() {
         QTableWidgetItem *itemDateDebut = new QTableWidgetItem(listSponsor.at(row).getDateDebut().toString());
         ui->tableWidget->setItem(row, 4, itemDateDebut);
 
-        QTableWidgetItem *itemDescription = new QTableWidgetItem(listSponsor.at(row).getDateFin().toString());
+        QTableWidgetItem *itemDescription = new QTableWidgetItem(listSponsor.at(row).getDescription());
         ui->tableWidget->setItem(row, 5, itemDescription);
 
-        QTableWidgetItem *itemDateFin = new QTableWidgetItem(listSponsor.at(row).getDescription());
+        QTableWidgetItem *itemDateFin = new QTableWidgetItem(listSponsor.at(row).getDateFin().toString());
         ui->tableWidget->setItem(row, 6, itemDateFin);
+
+        // Inside refreshTable() method in Contract.cpp
+        QByteArray signatureBlob = listSponsor.at(row).getSignatureBlob();
+        QLabel *signatureLabel = new QLabel();
+
+        // Convert blob to QPixmap
+        QPixmap signaturePixmap;
+        signaturePixmap.loadFromData(signatureBlob);
+        signaturePixmap = signaturePixmap.scaled(100, 100, Qt::KeepAspectRatio);
+
+        // Set QPixmap to QLabel
+        signatureLabel->setPixmap(signaturePixmap);
+
+        // Set alignment of QLabel within table cell
+        signatureLabel->setAlignment(Qt::AlignCenter);
+
+        // Set QLabel as the cell widget in the table
+        ui->tableWidget->setCellWidget(row, 7, signatureLabel);
 
         // Edit button
         int idSponsor = listSponsor.at(row).getIdSponsor();
@@ -230,7 +276,7 @@ void Contract::refreshTable() {
         connect(editButton, &QToolButton::clicked, [this, idSponsor, idEmission,row]() {
           onEditButtonClicked(idSponsor, idEmission,row);
         });
-        ui->tableWidget->setCellWidget(row, 7, editButton);
+        ui->tableWidget->setCellWidget(row, 8, editButton);
 
         // Delete button
         QToolButton *deleteButton = new QToolButton();
@@ -238,14 +284,24 @@ void Contract::refreshTable() {
         connect(deleteButton, &QToolButton::clicked, [this, idSponsor, idEmission]() {
            onDeleteButtonClicked(idSponsor, idEmission);
         });
-        ui->tableWidget->setCellWidget(row, 8, deleteButton);
+        ui->tableWidget->setCellWidget(row, 9, deleteButton);
+
+        // Send email button
+        QToolButton *sendEmailButton = new QToolButton();
+        sendEmailButton->setText("Send Email");
+        connect(sendEmailButton, &QToolButton::clicked, [this, idSponsor]() {
+            onSendEmailButtonClicked(idSponsor);
+        });
+        ui->tableWidget->setCellWidget(row, 10, sendEmailButton);
     }
 }
+
+
 
 QList<CrudContract> CrudContract::getAll() {
     QCoreApplication::processEvents();
     QSqlQuery query;
-    if( !query.exec("select * from contract") ) {
+    if (!query.exec("SELECT * FROM contract")) {
         qDebug() << "Query execution failed:" << query.lastError().text();
         return {}; // Return an empty list if the query fails
     }
@@ -261,6 +317,7 @@ QList<CrudContract> CrudContract::getAll() {
         QDate dateDebut = query.value("date_Debut").toDate(); // Corrected column name
         QString description = query.value("description").toString();
         QDate dateFin = query.value("date_Fin").toDate(); // Corrected column name
+        QByteArray signatureBlob = query.value("signature").toByteArray(); // Fetch signature blob
 
         CrudContract contract;
         contract.setIdSponsor(idSponsor);
@@ -270,6 +327,7 @@ QList<CrudContract> CrudContract::getAll() {
         contract.setDateDebut(dateDebut);
         contract.setDescription(description);
         contract.setDateFin(dateFin);
+        contract.setSignatureBlob(signatureBlob); // Set signature blob
 
         contractList.append(contract);
     }
@@ -293,6 +351,8 @@ QVariant CrudContract::getFieldByIndex(int index) const {
             return getDescription();
         case 6:
             return getDateFin();
+        case 7:
+            return getSignatureBlob(); // Handle the signature field
         default:
             return QVariant();
     }
@@ -303,8 +363,10 @@ QVariant CrudContract::getFieldByIndex(int index) const {
  signatureWidget->show();
 }*/
 
-void Contract::on_add_btn_clicked()
-{
+void Contract::on_add_btn_clicked() {
+    // Get signature blob from the signature widget
+    QByteArray signatureBlob = signatureWidget->getSignatureBlob();
+
     CrudContract c;
     c.setLibelle(ui->lib->text());
     c.setMontant(ui->mont->text());
@@ -313,22 +375,124 @@ void Contract::on_add_btn_clicked()
     c.setIdSponsor(ui->idS->currentText().toUInt());
     c.setIdEmission(ui->idE->currentText().toUInt());
     c.setDescription(ui->desc->text());
+
+    // Set the signature blob
+    c.setSignatureBlob(signatureBlob);
+
     qDebug() << c.getLibelle() << c.getMontant() ;
+
+    // Create the record with the signature blob
     c.create(c);
+
     refreshTable();
 }
+
 void Contract::onDeleteButtonClicked(int idSponsor, int idEmission){
     CrudContract c;
     c.remove(idSponsor,idEmission);
     refreshTable();
 }
-void Contract::onEditButtonClicked(int idSponsor, int idEmission,int row){
+void Contract::onEditButtonClicked(int idSponsor, int idEmission, int row) {
     CrudContract c;
-    c.read(idSponsor,idEmission);
-    c.setLibelle(ui->tableWidget->item(row,3)->text());
-    c.setMontant(ui->tableWidget->item(row,2)->text());
-    c.setDescription(ui->tableWidget->item(row,6)->text());
-    qDebug() << c.getMontant();
-    c.update(idSponsor,idEmission,c);
+    c = c.read(idSponsor, idEmission);
+
+    // Retrieve date debut text from the table widget item
+    QString dateDebutString = ui->tableWidget->item(row, 4)->text(); // Assuming date debut is in the 4th column
+    QDate dateDebut = QDate::fromString(dateDebutString, "yyyy-MM-dd"); // Adjust the format as per your table data
+
+    // Retrieve date fin text from the table widget item
+    QString dateFinString = ui->tableWidget->item(row, 6)->text(); // Assuming date fin is in the 6th column
+    QDate dateFin = QDate::fromString(dateFinString, "yyyy-MM-dd"); // Adjust the format as per your table data
+
+    // Update contract fields from the table
+    c.setDateDebut(dateDebut);
+    c.setDateFin(dateFin);
+    c.setLibelle(ui->tableWidget->item(row, 3)->text());
+    c.setMontant(ui->tableWidget->item(row, 2)->text());
+    c.setDescription(ui->tableWidget->item(row, 5)->text()); // Correct column index for description
+
+    // Perform the update operation
+    if (!c.update(idSponsor, idEmission, c)) {
+        // Handle update failure
+        qDebug() << "Update operation failed.";
+        // You may want to show a message box or log the error
+    }
+
     refreshTable();
+}
+QString Contract::getEmailFromSponsorId(int idSponsor) {
+    QSqlQuery query;
+    query.prepare("SELECT email FROM sponsor  WHERE idSponsor = :idSponsor");
+    query.bindValue(":sponsorId", QVariant::fromValue(idSponsor)); // Bind sponsorId as unsigned int
+
+    if (query.exec() && query.next()) {
+        return query.value("email").toString(); // Assuming "email" is the correct column name
+    } else {
+        qDebug() << "Error retrieving email for sponsor ID" << idSponsor << ":" << query.lastError().text();
+        return QString(); // Return an empty string if retrieval fails
+    }
+}
+
+void Contract::sendEmail(const QString& recipientEmail, const QString& subject, const QString& body) {
+    // SMTP Configuration
+    SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+    smtp.setUser("abidy6620@gmail.com");
+    smtp.setPassword("yassine@1234560");
+
+    // Create MimeMessage
+    MimeMessage message;
+    message.setSender(new EmailAddress("abidy6620@gmail.com", "TVEMPIRE"));
+    message.addRecipient(new EmailAddress(recipientEmail));
+    message.setSubject(subject);
+
+    // Set email body
+    MimeText text;
+    text.setText(body);
+    message.addPart(&text);
+
+    // Send email
+    if (!smtp.connectToHost()) {
+        qDebug() << "Failed to connect to SMTP server";
+        return;
+    }
+    if (!smtp.login()) {
+        qDebug() << "SMTP login failed";
+        smtp.quit();
+        return;
+    }
+    if (!smtp.sendMail(message)) {
+        qDebug() << "Failed to send email";
+    }
+    smtp.quit();
+}
+void Contract::onSendEmailButtonClicked(int rowIndex) {
+    if (rowIndex < 0 || rowIndex >= ui->tableWidget->rowCount()) {
+        qDebug() << "Invalid row index.";
+        return;
+    }
+
+    // Retrieve the contract information from the selected row
+    int idSponsor = ui->tableWidget->item(rowIndex, 0)->text().toInt(); // Assuming ID Sponsor is in the first column
+    QString email = getEmailFromSponsorId(idSponsor);
+    if (email.isEmpty()) {
+        qDebug() << "Failed to retrieve email for sponsor ID" << idSponsor;
+        return;
+    }
+
+    QString libelle = ui->tableWidget->item(rowIndex, 3)->text(); // Assuming Libelle is in the fourth column
+    QString montant = ui->tableWidget->item(rowIndex, 2)->text(); // Assuming Montant is in the third column
+    QDate dateDebut = QDate::fromString(ui->tableWidget->item(rowIndex, 4)->text(), "yyyy-MM-dd"); // Adjust the format as per your table data
+    QDate dateFin = QDate::fromString(ui->tableWidget->item(rowIndex, 6)->text(), "yyyy-MM-dd"); // Adjust the format as per your table data
+    QString description = ui->tableWidget->item(rowIndex, 5)->text(); // Assuming Description is in the fifth column
+
+    // Construct the email subject and body with the contract information
+    QString subject = "Contract Information";
+    QString body = "Libelle: " + libelle + "\n"
+                   + "Montant: " + montant + "\n"
+                   + "Date Debut: " + dateDebut.toString() + "\n"
+                   + "Date Fin: " + dateFin.toString() + "\n"
+                   + "Description: " + description;
+
+    // Send the email
+    sendEmail(email, subject, body);
 }

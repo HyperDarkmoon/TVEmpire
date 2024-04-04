@@ -1,6 +1,9 @@
 #include "signature.h"
 #include <QPainter>
 #include <QMouseEvent>
+#include <QPixmap>
+#include <QByteArray>
+#include <QBuffer>
 
 Signature::Signature(QWidget *parent) : QLabel(parent) {
 
@@ -12,7 +15,7 @@ Signature::Signature(QWidget *parent) : QLabel(parent) {
 
     // Create the clear button
     clearButton = new QPushButton("Clear", this);
-    clearButton->setGeometry(10, 10, 80, 25); // Adjust position and size as needed
+    clearButton->setGeometry(80, 100, 80, 25); // Adjust position and size as needed
 
     // Connect the clear button clicked signal to clearSignature slot
     connect(clearButton, &QPushButton::clicked, this, &Signature::clearSignature);
@@ -48,4 +51,12 @@ void Signature::mouseReleaseEvent(QMouseEvent *event) {
 void Signature::clearSignature() {
     m_pixmap.fill(Qt::white);
     update();
+}
+QByteArray Signature::getSignatureBlob() const {
+    // Convert the pixmap to a byte array
+    QByteArray byteArray;
+    QBuffer buffer(&byteArray);
+    buffer.open(QIODevice::WriteOnly);
+    m_pixmap.save(&buffer, "PNG"); // Save pixmap as PNG format
+    return byteArray;
 }

@@ -3,6 +3,8 @@
 
 #include <QLabel>
 #include <QPushButton>
+#include <QPixmap>
+#include <QByteArray>
 
 class Signature : public QLabel
 {
@@ -10,6 +12,7 @@ class Signature : public QLabel
 
 public:
     explicit Signature(QWidget *parent = nullptr);
+    QByteArray getSignatureBlob() const;
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
