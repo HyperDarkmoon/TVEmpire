@@ -9,6 +9,8 @@
 #include <QTableWidget>
 #include "signature.h"
 #include <QDate>
+#include "../smtp/src/SmtpMime"
+#include <QSslSocket>
 
 namespace Ui {
 class Contract;
@@ -21,7 +23,10 @@ class Contract : public QDialog // Inherit from QDialog
 public:
     explicit Contract(QWidget *parent = nullptr);
     ~Contract();
+    QString getEmailFromSponsorId(int idSponsor);
+    void sendEmail(const QString& recipientEmail, const QString& subject, const QString& body); // Declaration of sendEmail function
     void refreshTable();
+    void onSendEmailButtonClicked(int idSponsor);
     void onDeleteButtonClicked(int idSponsor, int idEmission);
     void filterTable(const QString &text);
     void displayChart();
@@ -50,6 +55,7 @@ private:
     QDate dateDebut;
     QString description;
     QDate dateFin;
+    QByteArray signatureBlob;
 
 public:
     unsigned int getIdSponsor() const;
@@ -59,6 +65,7 @@ public:
     QDate getDateDebut() const;
     QString getDescription() const;
     QDate getDateFin() const;
+    QByteArray getSignatureBlob() const; // Getter for signature blob
 
     void setIdSponsor(unsigned int newIdSponsor);
     void setIdEmission(unsigned int newIdEmission);
@@ -67,6 +74,7 @@ public:
     void setDateDebut(const QDate& newDateDebut);
     void setDescription(const QString& newDescription);
     void setDateFin(const QDate& newDateFin);
+    void setSignatureBlob(const QByteArray& blob); // Setter for signature blob
 
     bool create(CrudContract c);
     CrudContract read(unsigned int idSponsor, unsigned int idEmission);
@@ -74,6 +82,7 @@ public:
     bool remove(unsigned int idSponsor, unsigned int idEmission);
     QVariant getFieldByIndex(int index) const;
     QList<CrudContract> getAll();
+
 };
 
 

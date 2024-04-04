@@ -26,6 +26,7 @@ SOURCES += \
     equipment.cpp \
     forgotpassword.cpp \
     form2.cpp \
+    geminidialog.cpp \
     main.cpp \
     mainwindow.cpp \
     pdfexport.cpp \
@@ -65,6 +66,7 @@ HEADERS += \
     equipment.h \
     forgotpassword.h \
     form2.h \
+    geminidialog.h \
     mainwindow.h \
     pdfexport.h \
     qrcodegen.h \
@@ -103,6 +105,7 @@ FORMS += \
     equipment.ui \
     forgotpassword.ui \
     form2.ui \
+    geminidialog.ui \
     mainwindow.ui \
     scenes.ui \
     sponsor.ui \

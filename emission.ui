@@ -121,7 +121,7 @@ QTableWidget::Item{
       <x>340</x>
       <y>160</y>
       <width>791</width>
-      <height>371</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="palette">
@@ -337,7 +337,7 @@ QTableWidget::Item{
     </column>
     <column>
      <property name="text">
-      <string>Horaire</string>
+      <string>Date</string>
      </property>
     </column>
     <column>
@@ -2408,7 +2408,7 @@ QPushButton:checked {
        <x>0</x>
        <y>0</y>
        <width>241</width>
-       <height>361</height>
+       <height>471</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -2425,7 +2425,7 @@ QPushButton:checked {
       <string/>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="name">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -2469,7 +2469,7 @@ QTextEdit {
       <string>Nom</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="genre">
      <property name="geometry">
       <rect>
        <x>9</x>
@@ -2523,7 +2523,7 @@ QTextEdit {
       <string notr="true">color: black</string>
      </property>
      <property name="text">
-      <string>horaire</string>
+      <string>Date</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_10">
@@ -2551,11 +2551,11 @@ QTextEdit {
       <string>categories</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="add_btn_4">
+    <widget class="QPushButton" name="add">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>310</y>
+       <x>30</x>
+       <y>410</y>
        <width>151</width>
        <height>34</height>
       </rect>
@@ -2577,8 +2577,8 @@ QTextEdit {
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>205</x>
-       <y>168</y>
+       <x>200</x>
+       <y>210</y>
        <width>31</width>
        <height>31</height>
       </rect>
@@ -2609,7 +2609,7 @@ QTextEdit {
        <x>200</x>
        <y>0</y>
        <width>41</width>
-       <height>361</height>
+       <height>471</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -2650,7 +2650,7 @@ QTextEdit {
       <string>scene</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="scene">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -2660,11 +2660,64 @@ QTextEdit {
       </rect>
      </property>
     </widget>
+    <widget class="QLineEdit" name="script">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>320</y>
+       <width>191</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 1.5px;
+}
+</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>290</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>script</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="errorLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>450</y>
+       <width>161</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
     <zorder>label_10</zorder>
     <zorder>label_5</zorder>
-    <zorder>lineEdit_2</zorder>
-    <zorder>add_btn_4</zorder>
-    <zorder>lineEdit_3</zorder>
+    <zorder>name</zorder>
+    <zorder>add</zorder>
+    <zorder>genre</zorder>
     <zorder>label_3</zorder>
     <zorder>label_4</zorder>
     <zorder>label_7</zorder>
@@ -2672,7 +2725,10 @@ QTextEdit {
     <zorder>label_11</zorder>
     <zorder>pushButton_4</zorder>
     <zorder>label_12</zorder>
-    <zorder>comboBox</zorder>
+    <zorder>scene</zorder>
+    <zorder>script</zorder>
+    <zorder>label_13</zorder>
+    <zorder>errorLabel</zorder>
    </widget>
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">

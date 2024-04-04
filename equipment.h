@@ -23,6 +23,7 @@ public:
     void onAddEmissionDialogClosed();
     void displayChart();
     void filterTable(const QString &text);
+    void onSearchButtonClicked(int row);
 private slots:
     void on_Ajout_clicked();
     void on_pdfButton_4_clicked();

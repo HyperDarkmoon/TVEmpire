@@ -10,7 +10,7 @@
 #include "addemission.h"
 #include "emissionedit.h"
 #include "pdfexport.h"
-
+#include "geminiapi.h"
 namespace Ui {
 class Emission;
 }
@@ -29,6 +29,8 @@ public:
     void onEdit();
     void filterTable(const QString &text);
     void displayChart();
+    void resetInputs();
+    void onSummarizeButtonClicked(int row);
 private slots:
     void on_pushButton_clicked();
 
@@ -41,10 +43,11 @@ private slots:
 
     void on_playVideoButton_clicked();
 
+    void on_add_clicked();
+
 private:
 
     Ui::Emission *ui;
-    addEmission *addemission;
     EmissionEdit *edit;
 
 };
@@ -55,19 +58,21 @@ private:
     QString genre;
     QDate horaire;
     unsigned int sceneId;
-
+    QString script;
 public:
     unsigned int getId() const ;
     QString getNom() const;
     QString getGenre() const;
     QDate getHoraire() const;
     unsigned int getSceneId() const;
+    QString getScript() const;
 
     void setId(unsigned int newId) ;
     void setNom(const QString& newNom);
     void setGenre(const QString& newGenre);
     void setHoraire(const QDate& newHoraire);
     void setSceneId(unsigned int newSceneId);
+    void setScript(const QString& script);
 
     bool create(CrudEmission e);
     CrudEmission read(unsigned int id);
@@ -75,6 +80,8 @@ public:
     bool remove(unsigned int id);
     QList<CrudEmission> getAll();
     QVariant getFieldByIndex(int index) const;
+
+
 
 };
 

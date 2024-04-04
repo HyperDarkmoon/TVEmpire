@@ -38,18 +38,21 @@ public:
     QLabel *label_8;
     QWidget *widget_2;
     QLabel *label_5;
-    QLineEdit *lineEdit_2;
+    QLineEdit *name;
     QLabel *label_4;
-    QLineEdit *lineEdit_3;
+    QLineEdit *genre;
     QLabel *label_3;
     QLabel *label_7;
     QLabel *label_10;
-    QPushButton *add_btn_4;
+    QPushButton *add;
     QPushButton *pushButton_4;
     QLabel *label_11;
     QDateEdit *dateEdit;
     QLabel *label_12;
-    QComboBox *comboBox;
+    QComboBox *scene;
+    QLineEdit *lineEdit_4;
+    QLabel *label_13;
+    QLabel *errorLabel;
     QWidget *widget;
     QPushButton *pushButton_3;
     QLabel *label_6;
@@ -172,7 +175,7 @@ public:
         if (tableWidget_2->rowCount() < 20)
             tableWidget_2->setRowCount(20);
         tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
-        tableWidget_2->setGeometry(QRect(340, 160, 791, 371));
+        tableWidget_2->setGeometry(QRect(340, 160, 791, 471));
         QPalette palette;
         QBrush brush(QColor(241, 241, 241, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -611,7 +614,7 @@ public:
         widget_2->setGeometry(QRect(10, 170, 261, 471));
         label_5 = new QLabel(widget_2);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(0, 0, 241, 361));
+        label_5->setGeometry(QRect(0, 0, 241, 471));
         label_5->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black;\n"
@@ -620,11 +623,11 @@ public:
 "    color: black;\n"
 "}\n"
 ""));
-        lineEdit_2 = new QLineEdit(widget_2);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setEnabled(true);
-        lineEdit_2->setGeometry(QRect(9, 42, 191, 30));
-        lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {\n"
+        name = new QLineEdit(widget_2);
+        name->setObjectName(QStringLiteral("name"));
+        name->setEnabled(true);
+        name->setGeometry(QRect(9, 42, 191, 30));
+        name->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -641,10 +644,10 @@ public:
         label_4->setGeometry(QRect(10, 10, 61, 16));
         label_4->setStyleSheet(QLatin1String("color: black\n"
 ""));
-        lineEdit_3 = new QLineEdit(widget_2);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(9, 111, 191, 30));
-        lineEdit_3->setStyleSheet(QLatin1String("QLineEdit {\n"
+        genre = new QLineEdit(widget_2);
+        genre->setObjectName(QStringLiteral("genre"));
+        genre->setGeometry(QRect(9, 111, 191, 30));
+        genre->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
@@ -671,16 +674,16 @@ public:
         label_10->setGeometry(QRect(10, 220, 50, 16));
         label_10->setBaseSize(QSize(2, 0));
         label_10->setStyleSheet(QStringLiteral("color: black"));
-        add_btn_4 = new QPushButton(widget_2);
-        add_btn_4->setObjectName(QStringLiteral("add_btn_4"));
-        add_btn_4->setGeometry(QRect(20, 310, 151, 34));
+        add = new QPushButton(widget_2);
+        add->setObjectName(QStringLiteral("add"));
+        add->setGeometry(QRect(30, 410, 151, 34));
         QIcon icon4;
         icon4.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
-        add_btn_4->setIcon(icon4);
-        add_btn_4->setIconSize(QSize(20, 20));
+        add->setIcon(icon4);
+        add->setIconSize(QSize(20, 20));
         pushButton_4 = new QPushButton(widget_2);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(205, 168, 31, 31));
+        pushButton_4->setGeometry(QRect(200, 210, 31, 31));
         pushButton_4->setLayoutDirection(Qt::LeftToRight);
         QIcon icon5;
         icon5.addFile(QStringLiteral("../../../Downloads/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -689,7 +692,7 @@ public:
         pushButton_4->setCheckable(true);
         label_11 = new QLabel(widget_2);
         label_11->setObjectName(QStringLiteral("label_11"));
-        label_11->setGeometry(QRect(200, 0, 41, 361));
+        label_11->setGeometry(QRect(200, 0, 41, 471));
         label_11->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black; /* Add border */\n"
@@ -705,14 +708,36 @@ public:
         label_12 = new QLabel(widget_2);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setGeometry(QRect(20, 220, 71, 16));
-        comboBox = new QComboBox(widget_2);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(10, 250, 181, 22));
+        scene = new QComboBox(widget_2);
+        scene->setObjectName(QStringLiteral("scene"));
+        scene->setGeometry(QRect(10, 250, 181, 22));
+        lineEdit_4 = new QLineEdit(widget_2);
+        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
+        lineEdit_4->setGeometry(QRect(10, 320, 191, 71));
+        lineEdit_4->setStyleSheet(QLatin1String("QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"}\n"
+""));
+        label_13 = new QLabel(widget_2);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setGeometry(QRect(20, 290, 71, 16));
+        errorLabel = new QLabel(widget_2);
+        errorLabel->setObjectName(QStringLiteral("errorLabel"));
+        errorLabel->setGeometry(QRect(20, 450, 161, 21));
+        errorLabel->setStyleSheet(QStringLiteral("color: red;"));
         label_10->raise();
         label_5->raise();
-        lineEdit_2->raise();
-        add_btn_4->raise();
-        lineEdit_3->raise();
+        name->raise();
+        add->raise();
+        genre->raise();
         label_3->raise();
         label_4->raise();
         label_7->raise();
@@ -720,7 +745,10 @@ public:
         label_11->raise();
         pushButton_4->raise();
         label_12->raise();
-        comboBox->raise();
+        scene->raise();
+        lineEdit_4->raise();
+        label_13->raise();
+        errorLabel->raise();
         widget = new QWidget(employeeContainer);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(0, 160, 61, 381));
@@ -779,7 +807,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget_2->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("Emission", "Genre", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget_2->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QApplication::translate("Emission", "Horaire", Q_NULLPTR));
+        ___qtablewidgetitem3->setText(QApplication::translate("Emission", "Date", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget_2->horizontalHeaderItem(4);
         ___qtablewidgetitem4->setText(QApplication::translate("Emission", "Sponsor", Q_NULLPTR));
         add_btn_2->setText(QApplication::translate("Emission", "Add", Q_NULLPTR));
@@ -793,12 +821,14 @@ public:
         label_5->setText(QString());
         label_4->setText(QApplication::translate("Emission", "Nom", Q_NULLPTR));
         label_3->setText(QApplication::translate("Emission", "genre", Q_NULLPTR));
-        label_7->setText(QApplication::translate("Emission", "horaire", Q_NULLPTR));
+        label_7->setText(QApplication::translate("Emission", "Date", Q_NULLPTR));
         label_10->setText(QApplication::translate("Emission", "categories", Q_NULLPTR));
-        add_btn_4->setText(QApplication::translate("Emission", "Add", Q_NULLPTR));
+        add->setText(QApplication::translate("Emission", "Add", Q_NULLPTR));
         pushButton_4->setText(QString());
         label_11->setText(QString());
         label_12->setText(QApplication::translate("Emission", "scene", Q_NULLPTR));
+        label_13->setText(QApplication::translate("Emission", "script", Q_NULLPTR));
+        errorLabel->setText(QString());
         pushButton_3->setText(QString());
         label_6->setText(QString());
         tempLabel->setText(QString());
