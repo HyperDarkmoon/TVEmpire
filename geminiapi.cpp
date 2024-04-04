@@ -68,5 +68,5 @@ void GeminiApi::handleBotResponse(QNetworkReply *reply)
         qDebug() << "Error details:" << reply->readAll();
     }
 
-    qDebug() << "\n\n\n\n\n" << botResponse << "\n\n\n\n\n";
+    //qDebug() << "\n\n\n\n\n" << botResponse << "\n\n\n\n\n";
 }
