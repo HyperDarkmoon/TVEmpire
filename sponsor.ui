@@ -566,7 +566,7 @@ background-color: #FCFCFF; /* Adjusted background color */
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>10</y>
+      <y>5</y>
       <width>131</width>
       <height>50</height>
      </rect>
@@ -592,7 +592,7 @@ background-color: #FCFCFF; /* Adjusted background color */
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>5</y>
       <width>121</width>
       <height>50</height>
      </rect>

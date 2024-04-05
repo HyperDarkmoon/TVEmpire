@@ -178,11 +178,7 @@ CrudContract CrudContract::read(unsigned int idSponsor, unsigned int idEmission)
     }
 }
 bool CrudContract::update(unsigned int idSponsor, unsigned int idEmission, CrudContract c) {
-    // Implementation of the update function
-    // Make sure to perform the necessary SQL operations to update the database record
-    // You can use QSqlQuery or any other method to execute the update operation
 
-    // Example:
     QSqlQuery query;
     query.prepare("UPDATE Contract SET montant = :montant, libelle = :libelle, date_Debut = :dateDebut, description = :description, date_Fin = :dateFin WHERE idSponsor = :idSponsor AND idEmission = :idEmission");
     query.bindValue(":idSponsor", idSponsor);
@@ -398,18 +394,32 @@ void Contract::onEditButtonClicked(int idSponsor, int idEmission, int row) {
 
     // Retrieve date debut text from the table widget item
     QString dateDebutString = ui->tableWidget->item(row, 4)->text(); // Assuming date debut is in the 4th column
-    QDate dateDebut = QDate::fromString(dateDebutString, "yyyy-MM-dd"); // Adjust the format as per your table data
+    QDate dateDebut;
+    if (!dateDebutString.isEmpty()) {
+        dateDebut = QDate::fromString(dateDebutString, "yyyy-MM-dd"); // Adjust the format as per your table data
+    } else {
+        // If date debut string is empty, keep the existing date value
+        dateDebut = c.getDateDebut();
+    }
 
     // Retrieve date fin text from the table widget item
     QString dateFinString = ui->tableWidget->item(row, 6)->text(); // Assuming date fin is in the 6th column
-    QDate dateFin = QDate::fromString(dateFinString, "yyyy-MM-dd"); // Adjust the format as per your table data
+    QDate dateFin;
+    if (!dateFinString.isEmpty()) {
+        dateFin = QDate::fromString(dateFinString, "yyyy-MM-dd"); // Adjust the format as per your table data
+    } else {
+        // If date fin string is empty, keep the existing date value
+        dateFin = c.getDateFin();
+    }
 
-    // Update contract fields from the table
-    c.setDateDebut(dateDebut);
-    c.setDateFin(dateFin);
+    // Update other contract fields from the table
     c.setLibelle(ui->tableWidget->item(row, 3)->text());
     c.setMontant(ui->tableWidget->item(row, 2)->text());
     c.setDescription(ui->tableWidget->item(row, 5)->text()); // Correct column index for description
+
+    // Set the retrieved or existing date values to the contract
+    c.setDateDebut(dateDebut);
+    c.setDateFin(dateFin);
 
     // Perform the update operation
     if (!c.update(idSponsor, idEmission, c)) {
@@ -420,6 +430,9 @@ void Contract::onEditButtonClicked(int idSponsor, int idEmission, int row) {
 
     refreshTable();
 }
+
+
+
 QString Contract::getEmailFromSponsorId(int idSponsor) {
     QSqlQuery query;
     query.prepare("SELECT email FROM sponsor  WHERE id = :sponsorId");

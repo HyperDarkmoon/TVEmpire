@@ -244,23 +244,42 @@ void Sponsor::refreshTable() {
             QPixmap qrCodePixmap;
             qrCodePixmap.loadFromData(qrCodeData);
 
-            // Create a clickable QLabel to display the QR code
+            // Create a clickable QLabel to display the small QR code in the table cell
             ClickableQLabel *clickableLabel = new ClickableQLabel(this);
             clickableLabel->setPixmap(qrCodePixmap.scaled(22, 22)); // Adjust the size as needed
             clickableLabel->setAlignment(Qt::AlignCenter); // Center the QR code label
             clickableLabel->setCursor(Qt::PointingHandCursor); // Change cursor to indicate clickability
 
-            // Connect the clicked signal of the clickable label to a slot
             connect(clickableLabel, &ClickableQLabel::clicked, [qrCodePixmap]() {
-                // Create a larger window to display the QR code
-                QLabel *largerLabel = new QLabel();
-                largerLabel->setPixmap(qrCodePixmap);
-                largerLabel->setFixedSize(qrCodePixmap.size());
-                largerLabel->show();
+                // Create a QDialog to display the larger QR code
+                QDialog *qrCodeDialog = new QDialog();
+
+                // Create a QVBoxLayout for the dialog
+                QVBoxLayout *layout = new QVBoxLayout(qrCodeDialog);
+
+                // Adjust the size of the dialog
+                qrCodeDialog->setFixedSize(qrCodePixmap.size() * 2 + QSize(150, 150)); // Adjust size as needed
+
+                // Create a QLabel to display the larger QR code
+                QLabel *largerLabel = new QLabel(qrCodeDialog);
+
+                // Adjust the size of the QR code inside the QLabel
+                QPixmap scaledPixmap = qrCodePixmap.scaled(qrCodePixmap.size() * 3); // Scale the QR code pixmap (double the size)
+                largerLabel->setPixmap(scaledPixmap);
+
+                // Set a fixed size for the QLabel containing the QR code pixmap
+                largerLabel->setFixedSize(scaledPixmap.size());
+
+                // Center the QLabel inside the dialog
+                layout->addWidget(largerLabel, 0, Qt::AlignCenter);
+
+                qrCodeDialog->setLayout(layout);
+                qrCodeDialog->exec(); // Use exec() instead of show() to make the dialog modal
             });
 
-            // Set the clickable label containing the QR code as the cell widget
+            // Set the clickable label containing the small QR code as the cell widget
             ui->tableWidget->setCellWidget(row, headers.size() - 4, clickableLabel);
+
 
         // Delete button
         QToolButton *deleteButton = new QToolButton(this);

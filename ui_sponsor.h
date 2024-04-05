@@ -213,7 +213,7 @@ public:
 " }"));
         pushButton_2 = new QPushButton(widget_3);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(150, 10, 131, 50));
+        pushButton_2->setGeometry(QRect(150, 5, 131, 50));
         pushButton_2->setStyleSheet(QStringLiteral(""));
         QIcon icon;
         icon.addFile(QStringLiteral("../../../Downloads/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -221,7 +221,7 @@ public:
         pushButton_2->setIconSize(QSize(25, 25));
         pushButton = new QPushButton(widget_3);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 10, 121, 50));
+        pushButton->setGeometry(QRect(10, 5, 121, 50));
         QIcon icon1;
         icon1.addFile(QStringLiteral("../../../Downloads/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon1);

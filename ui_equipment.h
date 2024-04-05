@@ -29,7 +29,6 @@ public:
     QLabel *Label;
     QLabel *Labelequipment;
     QPushButton *Ajout;
-    QTableWidget *tableWidget_2;
     QWidget *widget_2;
     QLabel *label_5;
     QLineEdit *labelE;
@@ -46,14 +45,17 @@ public:
     QWidget *widget_3;
     QPushButton *pushButton_3;
     QLabel *label_6;
-    QPushButton *pdfButton_4;
-    QLabel *label_15;
-    QPushButton *pdfButton_5;
-    QLineEdit *search_input;
     QPushButton *google;
     QPushButton *amazon;
     QPushButton *visual_impact;
     QLabel *label;
+    QWidget *widget_4;
+    QPushButton *pdfButton_5;
+    QPushButton *pdfButton_4;
+    QLineEdit *search_input;
+    QLabel *label_15;
+    QWidget *result_widget;
+    QTableWidget *tableWidget_2;
 
     void setupUi(QWidget *Equipment)
     {
@@ -63,7 +65,7 @@ public:
         Equipment->setAutoFillBackground(true);
         equipement = new QWidget(Equipment);
         equipement->setObjectName(QStringLiteral("equipement"));
-        equipement->setGeometry(QRect(-30, -10, 1471, 771));
+        equipement->setGeometry(QRect(-30, 10, 1471, 771));
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -218,52 +220,9 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush12);
 #endif
         Ajout->setPalette(palette1);
-        tableWidget_2 = new QTableWidget(equipement);
-        tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
-        tableWidget_2->setGeometry(QRect(420, 250, 871, 321));
-        tableWidget_2->setStyleSheet(QLatin1String("/* Apply styles to the QTableWidget */\n"
-"QTableWidget {\n"
-"    border: 2px solid #2c3e50; /* Set border width to 4px */\n"
-"    alternate-background-color: #f0f0f0;\n"
-"    background-color: #FCFCFF;\n"
-"    font-family: \"Arial\";\n"
-"    font-size: 12px;\n"
-"    border-radius: 20px;\n"
-"}\n"
-"\n"
-"/* Apply styles to the header of the QTableWidget */\n"
-"QHeaderView::section {\n"
-"   background-color: #15406e; /* Darker blue header background color */\n"
-"    color: white; /* Header text color */\n"
-"    padding: 5px 0; /* Adjust top and bottom padding */\n"
-"    border: 2px solid #2c3e50; /* Header border color */\n"
-"    border-top: none; /* Remove the top border */\n"
-"    border-bottom: none; /* Remove the bottom border */\n"
-"    border-radius: 0px;\n"
-"    border-width: 2px;\n"
-"}\n"
-"\n"
-"/* Apply styles to the items within the QTableWidget */\n"
-"QTableWidget::item {\n"
-"    padding: 5px; /* Item padding */\n"
-"    border: 1px solid #2c3e50; /* Item border color */\n"
-"}\n"
-"\n"
-"/* Apply styles to"
-                        " the even rows within the QTableWidget */\n"
-"QTableWidget::item:alternate {\n"
-"    background-color: #2c3e50; /* Darker blue even row background color */\n"
-"}\n"
-"\n"
-"/* Apply styles when an item is selected in the QTableWidget */\n"
-"QTableWidget::item:selected {\n"
-"    background-color: #3498db; /* Selected item background color (a slightly lighter blue) */\n"
-"    color: black; /* Selected item text color */\n"
-"}\n"
-""));
         widget_2 = new QWidget(equipement);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(30, 180, 261, 471));
+        widget_2->setGeometry(QRect(30, 230, 261, 471));
         widget_2->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
 "QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
@@ -461,7 +420,7 @@ public:
         stockE->raise();
         widget_3 = new QWidget(equipement);
         widget_3->setObjectName(QStringLiteral("widget_3"));
-        widget_3->setGeometry(QRect(20, 170, 61, 381));
+        widget_3->setGeometry(QRect(20, 220, 61, 381));
         widget_3->setStyleSheet(QStringLiteral("background-color:#fffff;"));
         pushButton_3 = new QPushButton(widget_3);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
@@ -483,10 +442,26 @@ public:
 ""));
         label_6->raise();
         pushButton_3->raise();
-        pdfButton_4 = new QPushButton(equipement);
-        pdfButton_4->setObjectName(QStringLiteral("pdfButton_4"));
-        pdfButton_4->setGeometry(QRect(620, 139, 141, 41));
-        pdfButton_4->setStyleSheet(QLatin1String("QPushButton {\n"
+        google = new QPushButton(equipement);
+        google->setObjectName(QStringLiteral("google"));
+        google->setGeometry(QRect(780, 650, 91, 31));
+        amazon = new QPushButton(equipement);
+        amazon->setObjectName(QStringLiteral("amazon"));
+        amazon->setGeometry(QRect(880, 650, 91, 31));
+        visual_impact = new QPushButton(equipement);
+        visual_impact->setObjectName(QStringLiteral("visual_impact"));
+        visual_impact->setGeometry(QRect(980, 650, 91, 31));
+        label = new QLabel(equipement);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(530, 640, 241, 41));
+        widget_4 = new QWidget(equipement);
+        widget_4->setObjectName(QStringLiteral("widget_4"));
+        widget_4->setGeometry(QRect(370, 180, 961, 61));
+        widget_4->setStyleSheet(QLatin1String("/* Initially transparent background */\n"
+"\n"
+"/*QWidget { background-color: #E0E0E1;\n"
+"}*/\n"
+"QPushButton {\n"
 "    background-color: transparent; \n"
 "    color: black;\n"
 "\n"
@@ -515,22 +490,34 @@ public:
 "QPushButton:checked {\n"
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
-"}"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pdfButton_4->setIcon(icon2);
-        pdfButton_4->setIconSize(QSize(30, 30));
-        label_15 = new QLabel(equipement);
-        label_15->setObjectName(QStringLiteral("label_15"));
-        label_15->setGeometry(QRect(1035, 145, 20, 20));
-        label_15->setAutoFillBackground(false);
-        label_15->setStyleSheet(QStringLiteral("background-color:transparent;"));
-        label_15->setPixmap(QPixmap(QString::fromUtf8("../../../Downloads/recherche.png")));
-        label_15->setScaledContents(true);
-        label_15->setAlignment(Qt::AlignCenter);
-        pdfButton_5 = new QPushButton(equipement);
+"}\n"
+"QLineEdit {\n"
+"    background-color: #FFFFFF; /* Background color */\n"
+"    border: 2px solid #CCCCCC; /* Border color */\n"
+"    border-radius: 5px; /* Border radius */\n"
+"    padding: 7px 10px; /* Padding */\n"
+"    font-si"
+                        "ze: 14px; /* Font size */\n"
+"    color: #333333; /* Text color */\n"
+"}\n"
+"\n"
+"QLineEdit:hover {\n"
+"    border-color: #999999; /* Border color on hover */\n"
+"}\n"
+"\n"
+"QLineEdit:focus {\n"
+"    border-color: #0078D4; /* Border color when focused */\n"
+"}\n"
+"#widget_4 { \n"
+"background-color: #FCFCFF; /* Adjusted background color */\n"
+"    border-width: 2px;\n"
+"    border-style: solid;\n"
+"    border-color: #242E42; /* Same border color as other elements */\n"
+"    border-radius: 5px; /* Adding border radius */\n"
+" }"));
+        pdfButton_5 = new QPushButton(widget_4);
         pdfButton_5->setObjectName(QStringLiteral("pdfButton_5"));
-        pdfButton_5->setGeometry(QRect(420, 139, 141, 41));
+        pdfButton_5->setGeometry(QRect(20, 10, 141, 41));
         QPalette palette2;
         palette2.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         QBrush brush13(QColor(0, 0, 0, 0));
@@ -619,13 +606,50 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pdfButton_5->setIcon(icon3);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pdfButton_5->setIcon(icon2);
         pdfButton_5->setIconSize(QSize(30, 30));
-        search_input = new QLineEdit(equipement);
+        pdfButton_4 = new QPushButton(widget_4);
+        pdfButton_4->setObjectName(QStringLiteral("pdfButton_4"));
+        pdfButton_4->setGeometry(QRect(210, 10, 141, 41));
+        pdfButton_4->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #141E46;\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"/* Pressed effect */\n"
+"QPushButton:pressed {\n"
+"    background-color: #141E46;\n"
+"    border: 2px solid #141E46;\n"
+"    padding: 9px 19px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"/* Checked effect */\n"
+"QPushButton:checked {\n"
+"    background-color: #64a1c2; /* Your desired color */\n"
+"    border: none; /* Remove the border if needed */\n"
+"}"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pdfButton_4->setIcon(icon3);
+        pdfButton_4->setIconSize(QSize(30, 30));
+        search_input = new QLineEdit(widget_4);
         search_input->setObjectName(QStringLiteral("search_input"));
-        search_input->setGeometry(QRect(820, 140, 242, 31));
+        search_input->setGeometry(QRect(370, 15, 242, 31));
         search_input->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    background-color: #FFFFFF; /* Background color */\n"
 "    border: 2px solid #CCCCCC; /* Border color */\n"
@@ -643,32 +667,80 @@ public:
 "    border-color: #0078D4; /* Border color when focused */\n"
 "}\n"
 ""));
-        google = new QPushButton(equipement);
-        google->setObjectName(QStringLiteral("google"));
-        google->setGeometry(QRect(780, 650, 91, 31));
-        amazon = new QPushButton(equipement);
-        amazon->setObjectName(QStringLiteral("amazon"));
-        amazon->setGeometry(QRect(880, 650, 91, 31));
-        visual_impact = new QPushButton(equipement);
-        visual_impact->setObjectName(QStringLiteral("visual_impact"));
-        visual_impact->setGeometry(QRect(980, 650, 91, 31));
-        label = new QLabel(equipement);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(530, 640, 241, 41));
+        label_15 = new QLabel(widget_4);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setGeometry(QRect(580, 20, 20, 20));
+        label_15->setAutoFillBackground(false);
+        label_15->setStyleSheet(QStringLiteral("background-color:transparent;"));
+        label_15->setPixmap(QPixmap(QString::fromUtf8("../../../Downloads/recherche.png")));
+        label_15->setScaledContents(true);
+        label_15->setAlignment(Qt::AlignCenter);
+        result_widget = new QWidget(equipement);
+        result_widget->setObjectName(QStringLiteral("result_widget"));
+        result_widget->setGeometry(QRect(370, 240, 961, 391));
+        result_widget->setBaseSize(QSize(400, 400));
+        result_widget->setStyleSheet(QLatin1String("#result_widget {\n"
+"    border-width: 2px;\n"
+"    border-style: solid;\n"
+"    border-color: #242E42; /* Same border color as other elements */\n"
+"    border-bottom-left-radius: 20px; /* Applying border radius to bottom-left corner */\n"
+"    border-bottom-right-radius: 20px; /* Applying border radius to bottom-right corner */\n"
+"}\n"
+""));
+        tableWidget_2 = new QTableWidget(result_widget);
+        tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
+        tableWidget_2->setGeometry(QRect(10, 10, 941, 371));
+        tableWidget_2->setStyleSheet(QLatin1String("/* Apply styles to the QTableWidget */\n"
+"QTableWidget {\n"
+"    border: 2px solid #2c3e50; /* Set border width to 4px */\n"
+"    alternate-background-color: #f0f0f0;\n"
+"    background-color: #FCFCFF;\n"
+"    font-family: \"Arial\";\n"
+"    font-size: 12px;\n"
+"    border-radius: 20px;\n"
+"}\n"
+"\n"
+"/* Apply styles to the header of the QTableWidget */\n"
+"QHeaderView::section {\n"
+"   background-color: #15406e; /* Darker blue header background color */\n"
+"    color: white; /* Header text color */\n"
+"    padding: 5px 0; /* Adjust top and bottom padding */\n"
+"    border: 2px solid #2c3e50; /* Header border color */\n"
+"    border-top: none; /* Remove the top border */\n"
+"    border-bottom: none; /* Remove the bottom border */\n"
+"    border-radius: 0px;\n"
+"    border-width: 2px;\n"
+"}\n"
+"\n"
+"/* Apply styles to the items within the QTableWidget */\n"
+"QTableWidget::item {\n"
+"    padding: 5px; /* Item padding */\n"
+"    border: 1px solid #2c3e50; /* Item border color */\n"
+"}\n"
+"\n"
+"/* Apply styles to"
+                        " the even rows within the QTableWidget */\n"
+"QTableWidget::item:alternate {\n"
+"    background-color: #2c3e50; /* Darker blue even row background color */\n"
+"}\n"
+"\n"
+"/* Apply styles when an item is selected in the QTableWidget */\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #3498db; /* Selected item background color (a slightly lighter blue) */\n"
+"    color: black; /* Selected item text color */\n"
+"}\n"
+""));
         widget_3->raise();
         Label->raise();
         Labelequipment->raise();
         Ajout->raise();
-        tableWidget_2->raise();
         widget_2->raise();
-        pdfButton_4->raise();
-        pdfButton_5->raise();
-        search_input->raise();
-        label_15->raise();
         google->raise();
         visual_impact->raise();
         label->raise();
         amazon->raise();
+        widget_4->raise();
+        result_widget->raise();
 
         retranslateUi(Equipment);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -695,14 +767,14 @@ public:
         label_7->setText(QString());
         pushButton_3->setText(QString());
         label_6->setText(QString());
-        pdfButton_4->setText(QApplication::translate("Equipment", "stats", Q_NULLPTR));
-        label_15->setText(QString());
-        pdfButton_5->setText(QApplication::translate("Equipment", "Export PDF", Q_NULLPTR));
-        search_input->setPlaceholderText(QApplication::translate("Equipment", "Search...", Q_NULLPTR));
         google->setText(QApplication::translate("Equipment", "Google", Q_NULLPTR));
         amazon->setText(QApplication::translate("Equipment", "Amazon", Q_NULLPTR));
         visual_impact->setText(QApplication::translate("Equipment", "Visual Impact", Q_NULLPTR));
         label->setText(QApplication::translate("Equipment", "Chercher sur les sites partenaires :", Q_NULLPTR));
+        pdfButton_5->setText(QApplication::translate("Equipment", "Export PDF", Q_NULLPTR));
+        pdfButton_4->setText(QApplication::translate("Equipment", "stats", Q_NULLPTR));
+        search_input->setPlaceholderText(QApplication::translate("Equipment", "Search...", Q_NULLPTR));
+        label_15->setText(QString());
     } // retranslateUi
 
 };

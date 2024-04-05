@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -34,12 +33,6 @@ public:
     QLineEdit *lineEdit_2;
     QPushButton *pushButton;
     QPushButton *forgotPushButton;
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
     QLabel *label_6;
     QLabel *label_7;
 
@@ -163,46 +156,8 @@ public:
 "    }"));
         forgotPushButton = new QPushButton(widget);
         forgotPushButton->setObjectName(QStringLiteral("forgotPushButton"));
-        forgotPushButton->setGeometry(QRect(301, 345, 181, 16));
-        forgotPushButton->setStyleSheet(QStringLiteral("color:rgba(0, 0, 0, 210);"));
-        horizontalLayoutWidget = new QWidget(widget);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(318, 383, 141, 32));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setSpacing(0);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(horizontalLayoutWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setMaximumSize(QSize(30, 30));
-        QFont font3;
-        font3.setFamily(QStringLiteral("Social Media Circled"));
-        font3.setPointSize(15);
-        pushButton_2->setFont(font3);
-
-        horizontalLayout->addWidget(pushButton_2);
-
-        pushButton_3 = new QPushButton(horizontalLayoutWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setMaximumSize(QSize(30, 30));
-        pushButton_3->setFont(font3);
-
-        horizontalLayout->addWidget(pushButton_3);
-
-        pushButton_4 = new QPushButton(horizontalLayoutWidget);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setMaximumSize(QSize(30, 30));
-        pushButton_4->setFont(font3);
-
-        horizontalLayout->addWidget(pushButton_4);
-
-        pushButton_5 = new QPushButton(horizontalLayoutWidget);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setMaximumSize(QSize(30, 30));
-        pushButton_5->setFont(font3);
-
-        horizontalLayout->addWidget(pushButton_5);
-
+        forgotPushButton->setGeometry(QRect(300, 350, 181, 31));
+        forgotPushButton->setStyleSheet(QStringLiteral(""));
         label_6 = new QLabel(widget);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(40, 110, 230, 130));
@@ -210,11 +165,11 @@ public:
         label_7 = new QLabel(widget);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setGeometry(QRect(60, 150, 180, 40));
-        QFont font4;
-        font4.setPointSize(22);
-        font4.setBold(true);
-        font4.setWeight(75);
-        label_7->setFont(font4);
+        QFont font3;
+        font3.setPointSize(22);
+        font3.setBold(true);
+        font3.setWeight(75);
+        label_7->setFont(font3);
         label_7->setStyleSheet(QStringLiteral("color:rgba(255, 255, 255, 200);"));
 
         retranslateUi(Form2);
@@ -233,10 +188,6 @@ public:
         lineEdit_2->setPlaceholderText(QApplication::translate("Form2", "  Password", Q_NULLPTR));
         pushButton->setText(QApplication::translate("Form2", "L o g  I n", Q_NULLPTR));
         forgotPushButton->setText(QApplication::translate("Form2", "Forgot your password?", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("Form2", "E", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("Form2", "D", Q_NULLPTR));
-        pushButton_4->setText(QApplication::translate("Form2", "M", Q_NULLPTR));
-        pushButton_5->setText(QApplication::translate("Form2", "C", Q_NULLPTR));
         label_6->setText(QString());
         label_7->setText(QApplication::translate("Form2", "Tv Empire", Q_NULLPTR));
     } // retranslateUi

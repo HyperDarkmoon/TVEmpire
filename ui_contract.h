@@ -59,7 +59,7 @@ public:
         Contract->resize(1276, 776);
         tableWidget = new QTableWidget(Contract);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(330, 120, 941, 411));
+        tableWidget->setGeometry(QRect(320, 180, 941, 411));
         tableWidget->setStyleSheet(QLatin1String("QTableWidget {\n"
 "    alternate-background-color: #f0f0f0; /* Alternate row background color */\n"
 "    background-color: white; /* Default background color of the table */\n"
@@ -99,7 +99,7 @@ public:
 "}"));
         label = new QLabel(Contract);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(520, 30, 561, 41));
+        label->setGeometry(QRect(470, 60, 561, 41));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -108,7 +108,7 @@ public:
         label->setMargin(200);
         widget_2 = new QWidget(Contract);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(0, 0, 61, 781));
+        widget_2->setGeometry(QRect(-10, 0, 61, 781));
         widget_2->setStyleSheet(QStringLiteral("background-color:#fffff;"));
         pushButton_3 = new QPushButton(widget_2);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
@@ -262,7 +262,7 @@ public:
         label_7->setStyleSheet(QStringLiteral("color: black"));
         add_btn = new QPushButton(widget_3);
         add_btn->setObjectName(QStringLiteral("add_btn"));
-        add_btn->setGeometry(QRect(50, 720, 151, 34));
+        add_btn->setGeometry(QRect(50, 700, 151, 34));
         QIcon icon1;
         icon1.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
         add_btn->setIcon(icon1);
