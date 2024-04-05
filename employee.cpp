@@ -86,17 +86,18 @@ void Employee::refreshTable()
 
     int rowIndex = 0; // Initialize the row index counter
 
-    for (const auto& employee : employeesList)
+    for (const auto &employee : employeesList)
     {
         // Check if the current user has access to view this employee's details
-        if (currentUserRole == "Personnel" && employee.getLogin() != UserSession::getInstance().getUsername()) {
+        if (currentUserRole == "Personnel" && employee.getLogin() != UserSession::getInstance().getUsername())
+        {
             // If the user is "Personnel" and the employee is not the current user, skip this row
             qDebug() << "Skipping row:" << rowIndex;
             continue;
         }
 
         // Prepare data for the current row
-        QList<QTableWidgetItem*> rowData;
+        QList<QTableWidgetItem *> rowData;
 
         for (int col = 0; col < headers.size() - 2; ++col)
         {
@@ -106,27 +107,26 @@ void Employee::refreshTable()
         }
 
         // Insert row into the table if any data is available for this row
-        if (!rowData.isEmpty()) {
+        if (!rowData.isEmpty())
+        {
             ui->emp->insertRow(rowIndex);
 
             // Insert items into the table
-            for (int col = 0; col < rowData.size(); ++col) {
+            for (int col = 0; col < rowData.size(); ++col)
+            {
                 ui->emp->setItem(rowIndex, col, rowData[col]);
             }
 
             // Add "Delete" and "Edit" buttons for each row if the user is RH or Admin
-                QPushButton *deleteButton = new QPushButton("Delete", this);
-                connect(deleteButton, &QPushButton::clicked, [this, rowIndex]() {
-                    onDeleteButtonClicked(rowIndex);
-                });
-                ui->emp->setCellWidget(rowIndex, headers.size() - 2, deleteButton);
+            QPushButton *deleteButton = new QPushButton("Delete", this);
+            connect(deleteButton, &QPushButton::clicked, [this, rowIndex]()
+                    { onDeleteButtonClicked(rowIndex); });
+            ui->emp->setCellWidget(rowIndex, headers.size() - 2, deleteButton);
 
-                QPushButton *editButton = new QPushButton("Edit", this);
-                connect(editButton, &QPushButton::clicked, [this, rowIndex]() {
-                    onEditButtonClicked(rowIndex);
-                });
-                ui->emp->setCellWidget(rowIndex, headers.size() - 1, editButton);
-
+            QPushButton *editButton = new QPushButton("Edit", this);
+            connect(editButton, &QPushButton::clicked, [this, rowIndex]()
+                    { onEditButtonClicked(rowIndex); });
+            ui->emp->setCellWidget(rowIndex, headers.size() - 1, editButton);
 
             ++rowIndex; // Increment the row index counter only if a row is inserted
         }
@@ -137,8 +137,6 @@ void Employee::refreshTable()
         QMessageBox::information(this, "Access Denied", "You have no access to view employee details.");
     }*/
 }
-
-
 
 Employee::~Employee()
 {
@@ -156,24 +154,31 @@ void Employee::on_add_btn_2_clicked()
 
     // Check if any field is empty
     if (ui->name->text().isEmpty() || ui->lastname->text().isEmpty() || ui->post->currentText().isEmpty() ||
-           ui->salary->text().isEmpty() || ui->starttime->time().isNull() || ui->endtime->time().isNull() ||
-           ui->login->text().isEmpty() || ui->password->text().isEmpty() || ui->dob->date().isNull() ||
-           ui->gender->currentText().isEmpty()) {
+        ui->salary->text().isEmpty() || ui->starttime->time().isNull() || ui->endtime->time().isNull() ||
+        ui->login->text().isEmpty() || ui->password->text().isEmpty() || ui->dob->date().isNull() ||
+        ui->gender->currentText().isEmpty())
+    {
 
-           // Show an error indication by changing the background color of empty fields to red
-           if (ui->name->text().isEmpty()) ui->name->setStyleSheet("background-color: red;");
-           if (ui->lastname->text().isEmpty()) ui->lastname->setStyleSheet("background-color: red;");
-           if (ui->salary->text().isEmpty()) ui->salary->setStyleSheet("background-color: red;");
-           if (ui->login->text().isEmpty()) ui->login->setStyleSheet("background-color: red;");
-           if (ui->password->text().isEmpty()) ui->password->setStyleSheet("background-color: red;");
+        // Show an error indication by changing the background color of empty fields to red
+        if (ui->name->text().isEmpty())
+            ui->name->setStyleSheet("background-color: red;");
+        if (ui->lastname->text().isEmpty())
+            ui->lastname->setStyleSheet("background-color: red;");
+        if (ui->salary->text().isEmpty())
+            ui->salary->setStyleSheet("background-color: red;");
+        if (ui->login->text().isEmpty())
+            ui->login->setStyleSheet("background-color: red;");
+        if (ui->password->text().isEmpty())
+            ui->password->setStyleSheet("background-color: red;");
 
-           return;
-       }
+        return;
+    }
 
     // Check if salary contains only numerical characters
     bool salaryIsNumeric;
     ui->salary->text().toInt(&salaryIsNumeric);
-    if (!salaryIsNumeric) {
+    if (!salaryIsNumeric)
+    {
         // Show an error indication by changing the background color of the salary field to red
         ui->salary->setStyleSheet("background-color: red;");
         return;
@@ -182,7 +187,8 @@ void Employee::on_add_btn_2_clicked()
     // Check if the date of birth is greater than the system date
     QDate currentDate = QDate::currentDate();
     QDate inputDate = ui->dob->date();
-    if (inputDate > currentDate) {
+    if (inputDate > currentDate)
+    {
         // Show an error indication by changing the background color of the date of birth field to red
         ui->dob->setStyleSheet("background-color: red;");
         return;
@@ -193,14 +199,17 @@ void Employee::on_add_btn_2_clicked()
     bool containsNumber = false;
 
     // Check if password contains at least one number
-    for (QChar ch : password) {
-        if (ch.isDigit()) {
+    for (QChar ch : password)
+    {
+        if (ch.isDigit())
+        {
             containsNumber = true;
             break;
         }
     }
 
-    if (!containsNumber) {
+    if (!containsNumber)
+    {
         // Show an error indication by changing the background color of the password field to red
         ui->password->setStyleSheet("background-color: red;");
         return;
@@ -211,13 +220,13 @@ void Employee::on_add_btn_2_clicked()
                      ui->starttime->time(), ui->endtime->time(), ui->login->text(), ui->password->text(),
                      ui->dob->date(), ui->gender->currentText());
 
-    bool check =  emp.createEmployee(emp);
-    if (check) {
+    bool check = emp.createEmployee(emp);
+    if (check)
+    {
         refreshTable();
     }
     qDebug() << check;
 }
-
 
 void Employee::on_add_btn_3_clicked()
 {
@@ -555,7 +564,9 @@ void Employee::filterTable(const QString &text)
         ui->emp->setRowHidden(row, !matchFound);
     }
 }
-void Employee::displayChart() {
+
+void Employee::displayChart()
+{
     // Create a bar series
     QtCharts::QBarSeries *series = new QtCharts::QBarSeries();
 
@@ -563,13 +574,15 @@ void Employee::displayChart() {
     QMap<QString, int> salaryCountByPost;
     CrudEmployee C;
     QList<CrudEmployee> employeeList = C.getAllEmployees();
-    for (const auto& employee : employeeList) {
+    for (const auto &employee : employeeList)
+    {
         QString post = employee.getPost();
         salaryCountByPost[post] += employee.getSalary(); // Accumulate the total salary for each post
     }
 
     // Add data to the series
-    for (auto it = salaryCountByPost.constBegin(); it != salaryCountByPost.constEnd(); ++it) {
+    for (auto it = salaryCountByPost.constBegin(); it != salaryCountByPost.constEnd(); ++it)
+    {
         QtCharts::QBarSet *set = new QtCharts::QBarSet(it.key());
         *set << it.value();
         series->append(set);
