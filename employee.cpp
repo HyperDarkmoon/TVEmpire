@@ -147,49 +147,77 @@ Employee::~Employee()
 
 void Employee::on_add_btn_2_clicked()
 {
+    // Clear previous error indications
+    ui->name->setStyleSheet("");
+    ui->lastname->setStyleSheet("");
+    ui->salary->setStyleSheet("");
+    ui->login->setStyleSheet("");
+    ui->password->setStyleSheet("");
+
+    // Check if any field is empty
     if (ui->name->text().isEmpty() || ui->lastname->text().isEmpty() || ui->post->currentText().isEmpty() ||
            ui->salary->text().isEmpty() || ui->starttime->time().isNull() || ui->endtime->time().isNull() ||
            ui->login->text().isEmpty() || ui->password->text().isEmpty() || ui->dob->date().isNull() ||
            ui->gender->currentText().isEmpty()) {
 
-           // Show an error dialog
-           QMessageBox::critical(this, "Error", "Please fill in all the fields.");
+           // Show an error indication by changing the background color of empty fields to red
+           if (ui->name->text().isEmpty()) ui->name->setStyleSheet("background-color: red;");
+           if (ui->lastname->text().isEmpty()) ui->lastname->setStyleSheet("background-color: red;");
+           if (ui->salary->text().isEmpty()) ui->salary->setStyleSheet("background-color: red;");
+           if (ui->login->text().isEmpty()) ui->login->setStyleSheet("background-color: red;");
+           if (ui->password->text().isEmpty()) ui->password->setStyleSheet("background-color: red;");
+
            return;
        }
 
-       // Check if the date of birth is greater than the system date
-       QDate currentDate = QDate::currentDate();
-       QDate inputDate = ui->dob->date();
+    // Check if salary contains only numerical characters
+    bool salaryIsNumeric;
+    ui->salary->text().toInt(&salaryIsNumeric);
+    if (!salaryIsNumeric) {
+        // Show an error indication by changing the background color of the salary field to red
+        ui->salary->setStyleSheet("background-color: red;");
+        return;
+    }
 
-       if (inputDate > currentDate) {
-           // Show an error dialog
-           QMessageBox::critical(this, "Error", "Date of Birth cannot be in the future.");
-           return;
-       }
+    // Check if the date of birth is greater than the system date
+    QDate currentDate = QDate::currentDate();
+    QDate inputDate = ui->dob->date();
+    if (inputDate > currentDate) {
+        // Show an error indication by changing the background color of the date of birth field to red
+        ui->dob->setStyleSheet("background-color: red;");
+        return;
+    }
 
-       // Validate the password
-       addEmployee add;
-       add.validatePassword();
+    // Validate the password
+    QString password = ui->password->text();
+    bool containsNumber = false;
 
-       // Check if the password meets the requirements
-       if (ui->password->styleSheet() == "QLineEdit { border: 1px solid red; }") {
-           // Show an error dialog
-           QMessageBox::critical(this, "Error", "Password must have at least one uppercase letter, one number, and one symbol.");
-           return;
-       }
+    // Check if password contains at least one number
+    for (QChar ch : password) {
+        if (ch.isDigit()) {
+            containsNumber = true;
+            break;
+        }
+    }
 
-       // Proceed with creating the employee if fields are not empty and password is valid
-       CrudEmployee Emp(0, ui->name->text(), ui->lastname->text(), ui->post->currentText(), ui->salary->text().toUInt(),
-                        ui->starttime->time(), ui->endtime->time(), ui->login->text(), ui->password->text(),
-                        ui->dob->date(), ui->gender->currentText());
+    if (!containsNumber) {
+        // Show an error indication by changing the background color of the password field to red
+        ui->password->setStyleSheet("background-color: red;");
+        return;
+    }
 
-       bool check =  Emp.createEmployee(Emp);
-       if (check) {
-           refreshTable();
-       }
-       qDebug() << check;
+    // Proceed with creating the employee if fields are not empty and password is valid
+    CrudEmployee emp(0, ui->name->text(), ui->lastname->text(), ui->post->currentText(), ui->salary->text().toUInt(),
+                     ui->starttime->time(), ui->endtime->time(), ui->login->text(), ui->password->text(),
+                     ui->dob->date(), ui->gender->currentText());
 
+    bool check =  emp.createEmployee(emp);
+    if (check) {
+        refreshTable();
+    }
+    qDebug() << check;
 }
+
 
 void Employee::on_add_btn_3_clicked()
 {
