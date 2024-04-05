@@ -37,7 +37,7 @@ void ChatBox::refreshChatWindow(QString sender, QString receiver) {
         QListWidgetItem *item = new QListWidgetItem(messages[i].getSender() + ": " + messages[i].getMessage());
         
         // Set the text color of the item to white
-        item->setTextColor(Qt::white);
+        item->setTextColor(Qt::black);
         
         // Add the item to the QListWidget
         ui->Chat->addItem(item);
