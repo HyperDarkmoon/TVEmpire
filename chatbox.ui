@@ -60,6 +60,7 @@ QListWidget::item:hover {
     border-width: 2px;
     border-style: solid;
     border-color: #242E42; /* Border color */
+    border-radius: 8px;
 }
 </string>
        </property>
@@ -81,11 +82,12 @@ QListWidget::item:hover {
        </property>
        <property name="styleSheet">
         <string notr="true">#Users_2 {
-    background-color: #FCFCFF; /* White background */
+    background-color: #FCFCFF;
     border-width: 2px;
     border-style: solid;
     border-color: #242E42;
     padding: 2px;
+    border-radius: 8px; /* Adding border radius */
 }
 </string>
        </property>
@@ -116,6 +118,7 @@ QListWidget::item:hover {
     border-width: 2px;
     border-style: solid;
     border-color: #242E42; /* Same border color as other elements */
+border-radius: 8px;
 }
 </string>
        </property>
@@ -170,7 +173,8 @@ selection-color: none;
 border-width: 2px;
 border-style: solid;
 border-color: #242E42;
-padding: 2px;</string>
+padding: 2px;
+border-radius: 8px;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::Panel</enum>
@@ -223,6 +227,7 @@ border-width: 2px;
 border-style: solid;
 border-color: rgb(52, 52, 52);
 padding: 4px;
+border-radius: 8px;
 }
 
 QPushButton:pressed{

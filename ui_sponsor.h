@@ -141,18 +141,18 @@ public:
 ""));
         title_label = new QLabel(Sponsor);
         title_label->setObjectName(QStringLiteral("title_label"));
-        title_label->setGeometry(QRect(530, 0, 521, 49));
+        title_label->setGeometry(QRect(380, 0, 521, 49));
         QFont font;
         font.setFamily(QStringLiteral("Roboto Black"));
         font.setPointSize(30);
         font.setBold(true);
         font.setWeight(75);
         title_label->setFont(font);
-        title_label->setStyleSheet(QStringLiteral("color: #FFFFF"));
+        title_label->setStyleSheet(QStringLiteral("color: white "));
         title_label->setAlignment(Qt::AlignCenter);
         widget_3 = new QWidget(Sponsor);
         widget_3->setObjectName(QStringLiteral("widget_3"));
-        widget_3->setGeometry(QRect(300, 110, 971, 61));
+        widget_3->setGeometry(QRect(290, 90, 1041, 61));
         widget_3->setStyleSheet(QLatin1String("/* Initially transparent background */\n"
 "\n"
 "/*QWidget { background-color: #E0E0E1;\n"
@@ -204,7 +204,13 @@ public:
 "QLineEdit:focus {\n"
 "    border-color: #0078D4; /* Border color when focused */\n"
 "}\n"
-""));
+"#widget_3 { \n"
+"background-color: #FCFCFF; /* Adjusted background color */\n"
+"    border-width: 2px;\n"
+"    border-style: solid;\n"
+"    border-color: #242E42; /* Same border color as other elements */\n"
+"    border-radius: 5px; /* Adding border radius */\n"
+" }"));
         pushButton_2 = new QPushButton(widget_3);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(150, 10, 131, 50));
@@ -232,8 +238,16 @@ public:
         label_8->setAlignment(Qt::AlignCenter);
         result_widget = new QWidget(Sponsor);
         result_widget->setObjectName(QStringLiteral("result_widget"));
-        result_widget->setGeometry(QRect(270, 170, 1081, 481));
+        result_widget->setGeometry(QRect(290, 150, 1041, 511));
         result_widget->setBaseSize(QSize(400, 400));
+        result_widget->setStyleSheet(QLatin1String("#result_widget {\n"
+"    border-width: 2px;\n"
+"    border-style: solid;\n"
+"    border-color: #242E42; /* Same border color as other elements */\n"
+"    border-bottom-left-radius: 20px; /* Applying border radius to bottom-left corner */\n"
+"    border-bottom-right-radius: 20px; /* Applying border radius to bottom-right corner */\n"
+"}\n"
+""));
         tableWidget = new QTableWidget(result_widget);
         if (tableWidget->rowCount() < 21)
             tableWidget->setRowCount(21);
@@ -280,70 +294,72 @@ public:
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
         tableWidget->setVerticalHeaderItem(20, __qtablewidgetitem20);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(20, 0, 971, 451));
+        tableWidget->setGeometry(QRect(10, 10, 1011, 491));
         tableWidget->setBaseSize(QSize(0, 0));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        palette1.setBrush(QPalette::Active, QPalette::Button, brush);
+        QBrush brush10(QColor(252, 252, 255, 255));
+        brush10.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::Button, brush10);
         palette1.setBrush(QPalette::Active, QPalette::Light, brush);
         palette1.setBrush(QPalette::Active, QPalette::Midlight, brush);
-        QBrush brush10(QColor(127, 127, 127, 255));
-        brush10.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Dark, brush10);
-        QBrush brush11(QColor(170, 170, 170, 255));
+        QBrush brush11(QColor(127, 127, 127, 255));
         brush11.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Mid, brush11);
+        palette1.setBrush(QPalette::Active, QPalette::Dark, brush11);
+        QBrush brush12(QColor(170, 170, 170, 255));
+        brush12.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::Mid, brush12);
         palette1.setBrush(QPalette::Active, QPalette::Text, brush6);
         palette1.setBrush(QPalette::Active, QPalette::BrightText, brush);
         palette1.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
-        palette1.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette1.setBrush(QPalette::Active, QPalette::Window, brush);
+        palette1.setBrush(QPalette::Active, QPalette::Base, brush10);
+        palette1.setBrush(QPalette::Active, QPalette::Window, brush10);
         palette1.setBrush(QPalette::Active, QPalette::Shadow, brush6);
-        QBrush brush12(QColor(240, 240, 240, 255));
-        brush12.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::AlternateBase, brush12);
+        QBrush brush13(QColor(240, 240, 240, 255));
+        brush13.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::AlternateBase, brush13);
         palette1.setBrush(QPalette::Active, QPalette::ToolTipBase, brush7);
         palette1.setBrush(QPalette::Active, QPalette::ToolTipText, brush6);
-        QBrush brush13(QColor(0, 0, 0, 128));
-        brush13.setStyle(Qt::SolidPattern);
+        QBrush brush14(QColor(0, 0, 0, 128));
+        brush14.setStyle(Qt::SolidPattern);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Active, QPalette::PlaceholderText, brush13);
+        palette1.setBrush(QPalette::Active, QPalette::PlaceholderText, brush14);
 #endif
         palette1.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush10);
         palette1.setBrush(QPalette::Inactive, QPalette::Light, brush);
         palette1.setBrush(QPalette::Inactive, QPalette::Midlight, brush);
-        palette1.setBrush(QPalette::Inactive, QPalette::Dark, brush10);
-        palette1.setBrush(QPalette::Inactive, QPalette::Mid, brush11);
+        palette1.setBrush(QPalette::Inactive, QPalette::Dark, brush11);
+        palette1.setBrush(QPalette::Inactive, QPalette::Mid, brush12);
         palette1.setBrush(QPalette::Inactive, QPalette::Text, brush6);
         palette1.setBrush(QPalette::Inactive, QPalette::BrightText, brush);
         palette1.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush10);
+        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush10);
         palette1.setBrush(QPalette::Inactive, QPalette::Shadow, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush12);
+        palette1.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush13);
         palette1.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush7);
         palette1.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush6);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush13);
+        palette1.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush14);
 #endif
-        palette1.setBrush(QPalette::Disabled, QPalette::WindowText, brush10);
-        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        palette1.setBrush(QPalette::Disabled, QPalette::WindowText, brush11);
+        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush10);
         palette1.setBrush(QPalette::Disabled, QPalette::Light, brush);
         palette1.setBrush(QPalette::Disabled, QPalette::Midlight, brush);
-        palette1.setBrush(QPalette::Disabled, QPalette::Dark, brush10);
-        palette1.setBrush(QPalette::Disabled, QPalette::Mid, brush11);
-        palette1.setBrush(QPalette::Disabled, QPalette::Text, brush10);
+        palette1.setBrush(QPalette::Disabled, QPalette::Dark, brush11);
+        palette1.setBrush(QPalette::Disabled, QPalette::Mid, brush12);
+        palette1.setBrush(QPalette::Disabled, QPalette::Text, brush11);
         palette1.setBrush(QPalette::Disabled, QPalette::BrightText, brush);
-        palette1.setBrush(QPalette::Disabled, QPalette::ButtonText, brush10);
-        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush);
-        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush);
+        palette1.setBrush(QPalette::Disabled, QPalette::ButtonText, brush11);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush10);
+        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush10);
         palette1.setBrush(QPalette::Disabled, QPalette::Shadow, brush6);
-        palette1.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush12);
+        palette1.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush13);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush7);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush13);
+        palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush14);
 #endif
         tableWidget->setPalette(palette1);
         QFont font1;
@@ -352,27 +368,24 @@ public:
         tableWidget->setFocusPolicy(Qt::NoFocus);
         tableWidget->setStyleSheet(QLatin1String("/* Apply styles to the QTableWidget */\n"
 "QTableWidget {\n"
-"    alternate-background-color: #f0f0f0; /* Alternate row background color */\n"
-"    background-color: white; /* Default background color of the table */\n"
-"    border-left: 1px solid #2c3e50; /* Table left border color */\n"
-"    border-right: 1px solid #2c3e50; /* Table right border color */\n"
-"    font-family: \"Arial\"; /* Set the font family */\n"
-"    font-size: 12px; /* Set the font size */\n"
-"    border-top: none; /* Remove the top border */\n"
-"    border-bottom: 1px solid #2c3e50; /* Table bottom border color */\n"
+"    border: 2px solid #2c3e50; /* Set border width to 4px */\n"
+"    alternate-background-color: #f0f0f0;\n"
+"    background-color: #FCFCFF;\n"
+"    font-family: \"Arial\";\n"
+"    font-size: 12px;\n"
 "    border-radius: 20px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the header of the QTableWidget */\n"
 "QHeaderView::section {\n"
-"    background-color: #15406e; /* Darker blue header background color */\n"
+"   background-color: #15406e; /* Darker blue header background color */\n"
 "    color: white; /* Header text color */\n"
-"    padding: 0px; /* Header padding */\n"
+"    padding: 5px 0; /* Adjust top and bottom padding */\n"
 "    border: 2px solid #2c3e50; /* Header border color */\n"
 "    border-top: none; /* Remove the top border */\n"
-"    border-bottom: non"
-                        "e; /* Remove the bottom border */\n"
+"    border-bottom: none; /* Remove the bottom border */\n"
 "    border-radius: 0px;\n"
+"    border-width: 2px;\n"
 "}\n"
 "\n"
 "/* Apply styles to the items within the QTableWidget */\n"
@@ -381,7 +394,8 @@ public:
 "    border: 1px solid #2c3e50; /* Item border color */\n"
 "}\n"
 "\n"
-"/* Apply styles to the even rows within the QTableWidget */\n"
+"/* Apply styles to"
+                        " the even rows within the QTableWidget */\n"
 "QTableWidget::item:alternate {\n"
 "    background-color: #2c3e50; /* Darker blue even row background color */\n"
 "}\n"
@@ -440,11 +454,50 @@ public:
         widget_2 = new QWidget(Sponsor);
         widget_2->setObjectName(QStringLiteral("widget_2"));
         widget_2->setGeometry(QRect(0, 140, 261, 471));
+        widget_2->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
+"QTextEdit {\n"
+"    border: 2px solid #141E46;\n"
+"    border-radius: 10px;\n"
+"    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#EBF1F4 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #141E46;\n"
+"    color: black;\n"
+"}"));
         label_5 = new QLabel(widget_2);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(0, 0, 241, 361));
         label_5->setStyleSheet(QLatin1String("QLabel {\n"
-"    background-color: white;\n"
+"    background-color:#FCFCFF;\n"
 "    border: 2px solid black;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px 10px;\n"
@@ -455,16 +508,28 @@ public:
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
         lineEdit_2->setEnabled(true);
         lineEdit_2->setGeometry(QRect(9, 42, 191, 30));
-        lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {\n"
+        lineEdit_2->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
 "}\n"
 ""));
         label_4 = new QLabel(widget_2);
@@ -475,16 +540,28 @@ public:
         lineEdit_3 = new QLineEdit(widget_2);
         lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
         lineEdit_3->setGeometry(QRect(9, 111, 191, 30));
-        lineEdit_3->setStyleSheet(QLatin1String("QLineEdit {\n"
+        lineEdit_3->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
 "}\n"
 ""));
         label = new QLabel(widget_2);
@@ -495,16 +572,28 @@ public:
         lineEdit = new QLineEdit(widget_2);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
         lineEdit->setGeometry(QRect(10, 180, 191, 30));
-        lineEdit->setStyleSheet(QLatin1String("QLineEdit {\n"
+        lineEdit->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
 "}\n"
 ""));
         label_2 = new QLabel(widget_2);
@@ -513,17 +602,42 @@ public:
         label_2->setStyleSheet(QStringLiteral("color: black"));
         comboBox = new QComboBox(widget_2);
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(9, 249, 191, 20));
-        comboBox->setStyleSheet(QLatin1String("QcomboBox {\n"
-"    border: 2px solid #141E46;\n"
-"    border-radius: 10px;\n"
-"    padding: 5px;\n"
+        comboBox->setGeometry(QRect(9, 249, 191, 25));
+        comboBox->setStyleSheet(QLatin1String("/* Styles for QComboBox */\n"
+"QComboBox {\n"
+"    border: 2px solid #141E46; /* Border color */\n"
+"    border-radius: 10px; /* Border radius */\n"
+"    padding: 5px; /* Padding */\n"
+"    min-width: 100px; /* Minimum width */\n"
+"    selection-background-color: #EBF1F4; /* Background color when item is selected */\n"
+"    background-color: white; /* Default background color */\n"
+"    color: black; /* Text color */\n"
 "}\n"
 "\n"
-"QTextEdit {\n"
-"    border: 2px solid #141E46;\n"
-"    border-radius: 10px;\n"
-"    padding: 1.5px;\n"
+"QComboBox:hover {\n"
+"    border-color: #EBF1F4; /* Border color on hover */\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    subcontrol-origin: padding; /* Positioning origin of the drop-down arrow */\n"
+"    subcontrol-position: right; /* Position of the drop-down arrow */\n"
+"    width: 20px; /* Width of the drop-down arrow */\n"
+"    border-left: 2px solid #141E46; /* Left border color of the drop-down arrow */\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"    image: url(down_arrow.png); /* Image for the drop-down arrow */\n"
+"}\n"
+"\n"
+"/* Styles for QComboBox items */\n"
+"QComboBox:"
+                        ":item {\n"
+"    padding: 5px; /* Padding for each item */\n"
+"}\n"
+"\n"
+"QComboBox::item:selected {\n"
+"    background-color: #EBF1F4; /* Background color for selected item */\n"
+"    color: black; /* Text color for selected item */\n"
 "}\n"
 ""));
         label_3 = new QLabel(widget_2);
@@ -534,7 +648,23 @@ public:
         label_3->setStyleSheet(QStringLiteral("color: black"));
         add_btn = new QPushButton(widget_2);
         add_btn->setObjectName(QStringLiteral("add_btn"));
-        add_btn->setGeometry(QRect(40, 310, 151, 34));
+        add_btn->setGeometry(QRect(30, 310, 151, 34));
+        add_btn->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#EBF1F4 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #141E46;\n"
+"    color: black;\n"
+"}"));
         QIcon icon3;
         icon3.addFile(QStringLiteral("../../../Users/moham/Desktop/icons/add.svg"), QSize(), QIcon::Normal, QIcon::Off);
         add_btn->setIcon(icon3);
@@ -550,7 +680,7 @@ public:
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setGeometry(QRect(200, 0, 41, 361));
         label_7->setStyleSheet(QLatin1String("QLabel {\n"
-"    background-color: white;\n"
+"    background-color: #FCFCFF;\n"
 "    border: 2px solid black; /* Add border */\n"
 "    border-top-right-radius: 10px; /* Border radius only on the top-right */\n"
 "    border-bottom-right-radius: 10px; /* Border radius only on the bottom-right */\n"

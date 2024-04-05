@@ -220,22 +220,89 @@ public:
         Ajout->setPalette(palette1);
         tableWidget_2 = new QTableWidget(equipement);
         tableWidget_2->setObjectName(QStringLiteral("tableWidget_2"));
-        tableWidget_2->setGeometry(QRect(340, 190, 871, 321));
+        tableWidget_2->setGeometry(QRect(420, 250, 871, 321));
+        tableWidget_2->setStyleSheet(QLatin1String("/* Apply styles to the QTableWidget */\n"
+"QTableWidget {\n"
+"    border: 2px solid #2c3e50; /* Set border width to 4px */\n"
+"    alternate-background-color: #f0f0f0;\n"
+"    background-color: #FCFCFF;\n"
+"    font-family: \"Arial\";\n"
+"    font-size: 12px;\n"
+"    border-radius: 20px;\n"
+"}\n"
+"\n"
+"/* Apply styles to the header of the QTableWidget */\n"
+"QHeaderView::section {\n"
+"   background-color: #15406e; /* Darker blue header background color */\n"
+"    color: white; /* Header text color */\n"
+"    padding: 5px 0; /* Adjust top and bottom padding */\n"
+"    border: 2px solid #2c3e50; /* Header border color */\n"
+"    border-top: none; /* Remove the top border */\n"
+"    border-bottom: none; /* Remove the bottom border */\n"
+"    border-radius: 0px;\n"
+"    border-width: 2px;\n"
+"}\n"
+"\n"
+"/* Apply styles to the items within the QTableWidget */\n"
+"QTableWidget::item {\n"
+"    padding: 5px; /* Item padding */\n"
+"    border: 1px solid #2c3e50; /* Item border color */\n"
+"}\n"
+"\n"
+"/* Apply styles to"
+                        " the even rows within the QTableWidget */\n"
+"QTableWidget::item:alternate {\n"
+"    background-color: #2c3e50; /* Darker blue even row background color */\n"
+"}\n"
+"\n"
+"/* Apply styles when an item is selected in the QTableWidget */\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #3498db; /* Selected item background color (a slightly lighter blue) */\n"
+"    color: black; /* Selected item text color */\n"
+"}\n"
+""));
         widget_2 = new QWidget(equipement);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(0, 150, 261, 471));
-        widget_2->setStyleSheet(QLatin1String("QLineEdit {\n"
+        widget_2->setGeometry(QRect(30, 180, 261, 471));
+        widget_2->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
-""));
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#EBF1F4 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #141E46;\n"
+"    color: black;\n"
+"}"));
         label_5 = new QLabel(widget_2);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(0, 0, 241, 361));
@@ -251,16 +318,28 @@ public:
         labelE->setObjectName(QStringLiteral("labelE"));
         labelE->setEnabled(true);
         labelE->setGeometry(QRect(5, 42, 191, 30));
-        labelE->setStyleSheet(QLatin1String("QLineEdit {\n"
+        labelE->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
 "}\n"
 ""));
         label_4 = new QLabel(widget_2);
@@ -271,16 +350,28 @@ public:
         categoryE = new QLineEdit(widget_2);
         categoryE->setObjectName(QStringLiteral("categoryE"));
         categoryE->setGeometry(QRect(5, 111, 191, 30));
-        categoryE->setStyleSheet(QLatin1String("QLineEdit {\n"
+        categoryE->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
 "}\n"
 ""));
         label_1 = new QLabel(widget_2);
@@ -291,16 +382,28 @@ public:
         stateE = new QLineEdit(widget_2);
         stateE->setObjectName(QStringLiteral("stateE"));
         stateE->setGeometry(QRect(5, 180, 191, 30));
-        stateE->setStyleSheet(QLatin1String("QLineEdit {\n"
+        stateE->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
 "}\n"
 ""));
         label_2 = new QLabel(widget_2);
@@ -358,7 +461,7 @@ public:
         stockE->raise();
         widget_3 = new QWidget(equipement);
         widget_3->setObjectName(QStringLiteral("widget_3"));
-        widget_3->setGeometry(QRect(0, 140, 61, 381));
+        widget_3->setGeometry(QRect(20, 170, 61, 381));
         widget_3->setStyleSheet(QStringLiteral("background-color:#fffff;"));
         pushButton_3 = new QPushButton(widget_3);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));

@@ -74,6 +74,7 @@ public:
 "    border-width: 2px;\n"
 "    border-style: solid;\n"
 "    border-color: #242E42; /* Border color */\n"
+"    border-radius: 8px;\n"
 "}\n"
 ""));
         label_2->setAlignment(Qt::AlignCenter);
@@ -84,11 +85,12 @@ public:
         Users_2->setObjectName(QStringLiteral("Users_2"));
         Users_2->setMinimumSize(QSize(200, 0));
         Users_2->setStyleSheet(QLatin1String("#Users_2 {\n"
-"    background-color: #FCFCFF; /* White background */\n"
+"    background-color: #FCFCFF;\n"
 "    border-width: 2px;\n"
 "    border-style: solid;\n"
 "    border-color: #242E42;\n"
 "    padding: 2px;\n"
+"    border-radius: 8px; /* Adding border radius */\n"
 "}\n"
 ""));
         Users_2->setFrameShape(QFrame::Panel);
@@ -110,6 +112,7 @@ public:
 "    border-width: 2px;\n"
 "    border-style: solid;\n"
 "    border-color: #242E42; /* Same border color as other elements */\n"
+"border-radius: 8px;\n"
 "}\n"
 ""));
         Chat->setFrameShape(QFrame::Panel);
@@ -142,7 +145,8 @@ public:
 "border-width: 2px;\n"
 "border-style: solid;\n"
 "border-color: #242E42;\n"
-"padding: 2px;"));
+"padding: 2px;\n"
+"border-radius: 8px;"));
         MessageLine_2->setFrameShape(QFrame::Panel);
 
         horizontalLayout->addWidget(MessageLine_2);
@@ -170,6 +174,7 @@ public:
 "border-style: solid;\n"
 "border-color: rgb(52, 52, 52);\n"
 "padding: 4px;\n"
+"border-radius: 8px;\n"
 "}\n"
 "\n"
 "QPushButton:pressed{\n"

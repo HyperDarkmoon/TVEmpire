@@ -58,22 +58,8 @@ public:
             Contract->setObjectName(QStringLiteral("Contract"));
         Contract->resize(1276, 776);
         tableWidget = new QTableWidget(Contract);
-        if (tableWidget->columnCount() < 6)
-            tableWidget->setColumnCount(6);
-        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
-        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
-        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
-        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
-        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem4);
-        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(340, 230, 941, 411));
+        tableWidget->setGeometry(QRect(330, 120, 941, 411));
         tableWidget->setStyleSheet(QLatin1String("QTableWidget {\n"
 "    alternate-background-color: #f0f0f0; /* Alternate row background color */\n"
 "    background-color: white; /* Default background color of the table */\n"
@@ -113,7 +99,7 @@ public:
 "}"));
         label = new QLabel(Contract);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(400, 70, 561, 41));
+        label->setGeometry(QRect(520, 30, 561, 41));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -122,7 +108,7 @@ public:
         label->setMargin(200);
         widget_2 = new QWidget(Contract);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(-20, 10, 61, 781));
+        widget_2->setGeometry(QRect(0, 0, 61, 781));
         widget_2->setStyleSheet(QStringLiteral("background-color:#fffff;"));
         pushButton_3 = new QPushButton(widget_2);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
@@ -149,18 +135,45 @@ public:
         widget_3 = new QWidget(Contract);
         widget_3->setObjectName(QStringLiteral("widget_3"));
         widget_3->setGeometry(QRect(0, 10, 331, 761));
-        widget_3->setStyleSheet(QLatin1String("QLineEdit {\n"
+        widget_3->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
-""));
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#EBF1F4 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #141E46;\n"
+"    color: black;\n"
+"}"));
         label_5 = new QLabel(widget_3);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(0, 0, 291, 761));
@@ -176,16 +189,28 @@ public:
         lib->setObjectName(QStringLiteral("lib"));
         lib->setEnabled(true);
         lib->setGeometry(QRect(9, 90, 191, 30));
-        lib->setStyleSheet(QLatin1String("QLineEdit {\n"
+        lib->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
 "}\n"
 ""));
         label_4 = new QLabel(widget_3);
@@ -196,16 +221,28 @@ public:
         mont = new QLineEdit(widget_3);
         mont->setObjectName(QStringLiteral("mont"));
         mont->setGeometry(QRect(9, 140, 191, 30));
-        mont->setStyleSheet(QLatin1String("QLineEdit {\n"
+        mont->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
+"QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
 "}\n"
 "\n"
+"QLineEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
+"}\n"
+"\n"
+"/* Styles for QTextEdit */\n"
 "QTextEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
 "    padding: 1.5px;\n"
+"    transition: border-color 0.3s; /* Adding transition effect for smooth hover */\n"
+"}\n"
+"\n"
+"QTextEdit:hover {\n"
+"    border-color: #E0E0E1; /* Change border color on hover */\n"
 "}\n"
 ""));
         label_2 = new QLabel(widget_3);
@@ -258,10 +295,78 @@ public:
         desc->setStyleSheet(QStringLiteral(""));
         idE = new QComboBox(widget_3);
         idE->setObjectName(QStringLiteral("idE"));
-        idE->setGeometry(QRect(140, 30, 62, 22));
+        idE->setGeometry(QRect(140, 30, 81, 25));
+        idE->setStyleSheet(QLatin1String("/* Styles for QComboBox */\n"
+"QComboBox {\n"
+"    border: 2px solid #141E46; /* Border color */\n"
+"    border-radius: 10px; /* Border radius */\n"
+"    padding: 5px; /* Padding */\n"
+"    min-width: 50px; /* Minimum width */\n"
+"    selection-background-color: #EBF1F4; /* Background color when item is selected */\n"
+"    background-color: white; /* Default background color */\n"
+"    color: black; /* Text color */\n"
+"}\n"
+"\n"
+"QComboBox:hover {\n"
+"    border-color: #EBF1F4; /* Border color on hover */\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    subcontrol-origin: padding; /* Positioning origin of the drop-down arrow */\n"
+"    subcontrol-position: right; /* Position of the drop-down arrow */\n"
+"    width: 20px; /* Width of the drop-down arrow */\n"
+"    border-left: 2px solid #141E46; /* Left border color of the drop-down arrow */\n"
+"}\n"
+"\n"
+"\n"
+"/* Styles for QComboBox items */\n"
+"QComboBox::item {\n"
+"    padding: 5px; /* Padding for each item */\n"
+"}\n"
+"\n"
+"QComboBox::item:selected {\n"
+"   "
+                        " background-color: #EBF1F4; /* Background color for selected item */\n"
+"    color: black; /* Text color for selected item */\n"
+"}\n"
+""));
         idS = new QComboBox(widget_3);
         idS->setObjectName(QStringLiteral("idS"));
-        idS->setGeometry(QRect(20, 30, 62, 22));
+        idS->setGeometry(QRect(20, 31, 81, 25));
+        idS->setStyleSheet(QLatin1String("/* Styles for QComboBox */\n"
+"QComboBox {\n"
+"    border: 2px solid #141E46; /* Border color */\n"
+"    border-radius: 10px; /* Border radius */\n"
+"    padding: 5px; /* Padding */\n"
+"    min-width: 50px; /* Minimum width */\n"
+"    selection-background-color: #EBF1F4; /* Background color when item is selected */\n"
+"    background-color: white; /* Default background color */\n"
+"    color: black; /* Text color */\n"
+"}\n"
+"\n"
+"QComboBox:hover {\n"
+"    border-color: #EBF1F4; /* Border color on hover */\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    subcontrol-origin: padding; /* Positioning origin of the drop-down arrow */\n"
+"    subcontrol-position: right; /* Position of the drop-down arrow */\n"
+"    width: 20px; /* Width of the drop-down arrow */\n"
+"    border-left: 2px solid #141E46; /* Left border color of the drop-down arrow */\n"
+"}\n"
+"\n"
+"\n"
+"/* Styles for QComboBox items */\n"
+"QComboBox::item {\n"
+"    padding: 5px; /* Padding for each item */\n"
+"}\n"
+"\n"
+"QComboBox::item:selected {\n"
+"   "
+                        " background-color: #EBF1F4; /* Background color for selected item */\n"
+"    color: black; /* Text color for selected item */\n"
+"}\n"
+""));
         dated = new QDateEdit(widget_3);
         dated->setObjectName(QStringLiteral("dated"));
         dated->setGeometry(QRect(20, 200, 110, 22));
@@ -310,18 +415,6 @@ public:
     void retranslateUi(QDialog *Contract)
     {
         Contract->setWindowTitle(QApplication::translate("Contract", "Dialog", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("Contract", "ID sponosor ", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("Contract", "ID emissions", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QApplication::translate("Contract", "libellle ", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QApplication::translate("Contract", "dur\303\251", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QApplication::translate("Contract", "description ", Q_NULLPTR));
-        QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QApplication::translate("Contract", "exportation", Q_NULLPTR));
         label->setText(QApplication::translate("Contract", "contrat ", Q_NULLPTR));
         pushButton_3->setText(QString());
         label_6->setText(QString());

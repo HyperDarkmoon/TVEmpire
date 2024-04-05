@@ -966,35 +966,103 @@
    <widget class="QTableWidget" name="tableWidget_2">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>190</y>
+      <x>420</x>
+      <y>250</y>
       <width>871</width>
       <height>321</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* Apply styles to the QTableWidget */
+QTableWidget {
+    border: 2px solid #2c3e50; /* Set border width to 4px */
+    alternate-background-color: #f0f0f0;
+    background-color: #FCFCFF;
+    font-family: &quot;Arial&quot;;
+    font-size: 12px;
+    border-radius: 20px;
+}
+
+/* Apply styles to the header of the QTableWidget */
+QHeaderView::section {
+   background-color: #15406e; /* Darker blue header background color */
+    color: white; /* Header text color */
+    padding: 5px 0; /* Adjust top and bottom padding */
+    border: 2px solid #2c3e50; /* Header border color */
+    border-top: none; /* Remove the top border */
+    border-bottom: none; /* Remove the bottom border */
+    border-radius: 0px;
+    border-width: 2px;
+}
+
+/* Apply styles to the items within the QTableWidget */
+QTableWidget::item {
+    padding: 5px; /* Item padding */
+    border: 1px solid #2c3e50; /* Item border color */
+}
+
+/* Apply styles to the even rows within the QTableWidget */
+QTableWidget::item:alternate {
+    background-color: #2c3e50; /* Darker blue even row background color */
+}
+
+/* Apply styles when an item is selected in the QTableWidget */
+QTableWidget::item:selected {
+    background-color: #3498db; /* Selected item background color (a slightly lighter blue) */
+    color: black; /* Selected item text color */
+}
+</string>
     </property>
    </widget>
    <widget class="QWidget" name="widget_2" native="true">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>150</y>
+      <x>30</x>
+      <y>180</y>
       <width>261</width>
       <height>471</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLineEdit {
+     <string notr="true">/* Styles for QLineEdit */
+QLineEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
 }
 
+QLineEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+
+/* Styles for QTextEdit */
 QTextEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 1.5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
 }
-</string>
+
+QTextEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+QPushButton {
+    background-color: transparent; 
+    color: black;
+    border: 3px solid#EBF1F4 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #141E46;
+    color: black;
+}</string>
     </property>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
@@ -1032,16 +1100,28 @@ QTextEdit {
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLineEdit {
+      <string notr="true">/* Styles for QLineEdit */
+QLineEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
 }
 
+QLineEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+
+/* Styles for QTextEdit */
 QTextEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 1.5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
+}
+
+QTextEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
 }
 </string>
      </property>
@@ -1073,16 +1153,28 @@ QTextEdit {
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLineEdit {
+      <string notr="true">/* Styles for QLineEdit */
+QLineEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
 }
 
+QLineEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+
+/* Styles for QTextEdit */
 QTextEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 1.5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
+}
+
+QTextEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
 }
 </string>
      </property>
@@ -1114,16 +1206,28 @@ QTextEdit {
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLineEdit {
+      <string notr="true">/* Styles for QLineEdit */
+QLineEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
 }
 
+QLineEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+
+/* Styles for QTextEdit */
 QTextEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 1.5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
+}
+
+QTextEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
 }
 </string>
      </property>
@@ -1271,8 +1375,8 @@ QTextEdit {
    <widget class="QWidget" name="widget_3" native="true">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>140</y>
+      <x>20</x>
+      <y>170</y>
       <width>61</width>
       <height>381</height>
      </rect>

@@ -470,7 +470,7 @@
   <widget class="QLabel" name="title_label">
    <property name="geometry">
     <rect>
-     <x>530</x>
+     <x>380</x>
      <y>0</y>
      <width>521</width>
      <height>49</height>
@@ -485,7 +485,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: #FFFFF</string>
+    <string notr="true">color: white </string>
    </property>
    <property name="text">
     <string>Liste des sponsors</string>
@@ -497,9 +497,9 @@
   <widget class="QWidget" name="widget_3" native="true">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>110</y>
-     <width>971</width>
+     <x>290</x>
+     <y>90</y>
+     <width>1041</width>
      <height>61</height>
     </rect>
    </property>
@@ -554,7 +554,13 @@ QLineEdit:hover {
 QLineEdit:focus {
     border-color: #0078D4; /* Border color when focused */
 }
-</string>
+#widget_3 { 
+background-color: #FCFCFF; /* Adjusted background color */
+    border-width: 2px;
+    border-style: solid;
+    border-color: #242E42; /* Same border color as other elements */
+    border-radius: 5px; /* Adding border radius */
+ }</string>
    </property>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
@@ -647,10 +653,10 @@ QLineEdit:focus {
   <widget class="QWidget" name="result_widget" native="true">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>170</y>
-     <width>1081</width>
-     <height>481</height>
+     <x>290</x>
+     <y>150</y>
+     <width>1041</width>
+     <height>511</height>
     </rect>
    </property>
    <property name="baseSize">
@@ -659,13 +665,23 @@ QLineEdit:focus {
      <height>400</height>
     </size>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#result_widget {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #242E42; /* Same border color as other elements */
+    border-bottom-left-radius: 20px; /* Applying border radius to bottom-left corner */
+    border-bottom-right-radius: 20px; /* Applying border radius to bottom-right corner */
+}
+</string>
+   </property>
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>0</y>
-      <width>971</width>
-      <height>451</height>
+      <x>10</x>
+      <y>10</y>
+      <width>1011</width>
+      <height>491</height>
      </rect>
     </property>
     <property name="baseSize">
@@ -689,8 +705,8 @@ QLineEdit:focus {
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
+          <red>252</red>
+          <green>252</green>
           <blue>255</blue>
          </color>
         </brush>
@@ -761,8 +777,8 @@ QLineEdit:focus {
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
+          <red>252</red>
+          <green>252</green>
           <blue>255</blue>
          </color>
         </brush>
@@ -770,8 +786,8 @@ QLineEdit:focus {
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
+          <red>252</red>
+          <green>252</green>
           <blue>255</blue>
          </color>
         </brush>
@@ -835,8 +851,8 @@ QLineEdit:focus {
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
+          <red>252</red>
+          <green>252</green>
           <blue>255</blue>
          </color>
         </brush>
@@ -907,8 +923,8 @@ QLineEdit:focus {
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
+          <red>252</red>
+          <green>252</green>
           <blue>255</blue>
          </color>
         </brush>
@@ -916,8 +932,8 @@ QLineEdit:focus {
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
+          <red>252</red>
+          <green>252</green>
           <blue>255</blue>
          </color>
         </brush>
@@ -981,8 +997,8 @@ QLineEdit:focus {
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
+          <red>252</red>
+          <green>252</green>
           <blue>255</blue>
          </color>
         </brush>
@@ -1053,8 +1069,8 @@ QLineEdit:focus {
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
+          <red>252</red>
+          <green>252</green>
           <blue>255</blue>
          </color>
         </brush>
@@ -1062,8 +1078,8 @@ QLineEdit:focus {
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
+          <red>252</red>
+          <green>252</green>
           <blue>255</blue>
          </color>
         </brush>
@@ -1128,26 +1144,24 @@ QLineEdit:focus {
     <property name="styleSheet">
      <string notr="true">/* Apply styles to the QTableWidget */
 QTableWidget {
-    alternate-background-color: #f0f0f0; /* Alternate row background color */
-    background-color: white; /* Default background color of the table */
-    border-left: 1px solid #2c3e50; /* Table left border color */
-    border-right: 1px solid #2c3e50; /* Table right border color */
-    font-family: &quot;Arial&quot;; /* Set the font family */
-    font-size: 12px; /* Set the font size */
-    border-top: none; /* Remove the top border */
-    border-bottom: 1px solid #2c3e50; /* Table bottom border color */
+    border: 2px solid #2c3e50; /* Set border width to 4px */
+    alternate-background-color: #f0f0f0;
+    background-color: #FCFCFF;
+    font-family: &quot;Arial&quot;;
+    font-size: 12px;
     border-radius: 20px;
 }
 
 /* Apply styles to the header of the QTableWidget */
 QHeaderView::section {
-    background-color: #15406e; /* Darker blue header background color */
+   background-color: #15406e; /* Darker blue header background color */
     color: white; /* Header text color */
-    padding: 0px; /* Header padding */
+    padding: 5px 0; /* Adjust top and bottom padding */
     border: 2px solid #2c3e50; /* Header border color */
     border-top: none; /* Remove the top border */
     border-bottom: none; /* Remove the bottom border */
     border-radius: 0px;
+    border-width: 2px;
 }
 
 /* Apply styles to the items within the QTableWidget */
@@ -1406,6 +1420,47 @@ QTableWidget::item:selected {
      <height>471</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">/* Styles for QLineEdit */
+QLineEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
+}
+
+QLineEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+
+/* Styles for QTextEdit */
+QTextEdit {
+    border: 2px solid #141E46;
+    border-radius: 10px;
+    padding: 1.5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
+}
+
+QTextEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+QPushButton {
+    background-color: transparent; 
+    color: black;
+    border: 3px solid#EBF1F4 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #141E46;
+    color: black;
+}</string>
+   </property>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
@@ -1417,7 +1472,7 @@ QTableWidget::item:selected {
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel {
-    background-color: white;
+    background-color:#FCFCFF;
     border: 2px solid black;
     border-radius: 10px;
     padding: 5px 10px;
@@ -1442,16 +1497,28 @@ QTableWidget::item:selected {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLineEdit {
+     <string notr="true">/* Styles for QLineEdit */
+QLineEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
 }
 
+QLineEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+
+/* Styles for QTextEdit */
 QTextEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 1.5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
+}
+
+QTextEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
 }
 </string>
     </property>
@@ -1483,16 +1550,28 @@ QTextEdit {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLineEdit {
+     <string notr="true">/* Styles for QLineEdit */
+QLineEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
 }
 
+QLineEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+
+/* Styles for QTextEdit */
 QTextEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 1.5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
+}
+
+QTextEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
 }
 </string>
     </property>
@@ -1524,16 +1603,28 @@ QTextEdit {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLineEdit {
+     <string notr="true">/* Styles for QLineEdit */
+QLineEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
 }
 
+QLineEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
+}
+
+/* Styles for QTextEdit */
 QTextEdit {
     border: 2px solid #141E46;
     border-radius: 10px;
     padding: 1.5px;
+    transition: border-color 0.3s; /* Adding transition effect for smooth hover */
+}
+
+QTextEdit:hover {
+    border-color: #E0E0E1; /* Change border color on hover */
 }
 </string>
     </property>
@@ -1560,20 +1651,44 @@ QTextEdit {
       <x>9</x>
       <y>249</y>
       <width>191</width>
-      <height>20</height>
+      <height>25</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QcomboBox {
-    border: 2px solid #141E46;
-    border-radius: 10px;
-    padding: 5px;
+     <string notr="true">/* Styles for QComboBox */
+QComboBox {
+    border: 2px solid #141E46; /* Border color */
+    border-radius: 10px; /* Border radius */
+    padding: 5px; /* Padding */
+    min-width: 100px; /* Minimum width */
+    selection-background-color: #EBF1F4; /* Background color when item is selected */
+    background-color: white; /* Default background color */
+    color: black; /* Text color */
 }
 
-QTextEdit {
-    border: 2px solid #141E46;
-    border-radius: 10px;
-    padding: 1.5px;
+QComboBox:hover {
+    border-color: #EBF1F4; /* Border color on hover */
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding; /* Positioning origin of the drop-down arrow */
+    subcontrol-position: right; /* Position of the drop-down arrow */
+    width: 20px; /* Width of the drop-down arrow */
+    border-left: 2px solid #141E46; /* Left border color of the drop-down arrow */
+}
+
+QComboBox::down-arrow {
+    image: url(down_arrow.png); /* Image for the drop-down arrow */
+}
+
+/* Styles for QComboBox items */
+QComboBox::item {
+    padding: 5px; /* Padding for each item */
+}
+
+QComboBox::item:selected {
+    background-color: #EBF1F4; /* Background color for selected item */
+    color: black; /* Text color for selected item */
 }
 </string>
     </property>
@@ -1621,11 +1736,29 @@ QTextEdit {
    <widget class="QPushButton" name="add_btn">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>310</y>
       <width>151</width>
       <height>34</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent; 
+    color: black;
+    border: 3px solid#EBF1F4 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #141E46;
+    color: black;
+}</string>
     </property>
     <property name="text">
      <string>Add</string>
@@ -1681,7 +1814,7 @@ QTextEdit {
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel {
-    background-color: white;
+    background-color: #FCFCFF;
     border: 2px solid black; /* Add border */
     border-top-right-radius: 10px; /* Border radius only on the top-right */
     border-bottom-right-radius: 10px; /* Border radius only on the bottom-right */
