@@ -81,11 +81,11 @@ private:
 };
 
 // Define ClickableQLabel class
-class ClickableQLabel : public QLabel {
+class Click : public QLabel {
     Q_OBJECT
 
 public:
-    explicit ClickableQLabel(QWidget *parent = nullptr) : QLabel(parent) {}
+    explicit Click(QWidget *parent = nullptr) : QLabel(parent) {}
 
 signals:
     void clicked();

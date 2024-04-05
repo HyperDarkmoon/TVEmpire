@@ -246,23 +246,33 @@ void Contract::refreshTable() {
         QTableWidgetItem *itemDateFin = new QTableWidgetItem(listSponsor.at(row).getDateFin().toString());
         ui->tableWidget->setItem(row, 6, itemDateFin);
 
-        // Inside refreshTable() method in Contract.cpp
-        QByteArray signatureBlob = listSponsor.at(row).getSignatureBlob();
-        QLabel *signatureLabel = new QLabel();
+        // Display signature
+                QByteArray signatureBlob = listSponsor.at(row).getSignatureBlob();
+                Click *signatureLabel = new Click();
+                QPixmap signaturePixmap;
+                signaturePixmap.loadFromData(signatureBlob);
+                signaturePixmap = signaturePixmap.scaled(100, 100, Qt::KeepAspectRatio);
+                signatureLabel->setPixmap(signaturePixmap);
+                signatureLabel->setAlignment(Qt::AlignCenter);
+                ui->tableWidget->setCellWidget(row, 7, signatureLabel);
 
-        // Convert blob to QPixmap
-        QPixmap signaturePixmap;
-        signaturePixmap.loadFromData(signatureBlob);
-        signaturePixmap = signaturePixmap.scaled(100, 100, Qt::KeepAspectRatio);
+                // Connect the clicked signal of the signature label to a slot
+                connect(signatureLabel, &Click::clicked, [signaturePixmap]() {
+                    // Create a QDialog to display the larger signature
+                    QDialog *signatureDialog = new QDialog();
 
-        // Set QPixmap to QLabel
-        signatureLabel->setPixmap(signaturePixmap);
+                    QVBoxLayout *layout = new QVBoxLayout(signatureDialog);
 
-        // Set alignment of QLabel within table cell
-        signatureLabel->setAlignment(Qt::AlignCenter);
+                    QLabel *largerLabel = new QLabel(signatureDialog);
+                    QPixmap scaledPixmap = signaturePixmap.scaled(signaturePixmap.size() * 2);
+                    largerLabel->setPixmap(scaledPixmap);
+                    largerLabel->setFixedSize(scaledPixmap.size());
+                    layout->addWidget(largerLabel, 0, Qt::AlignCenter);
 
-        // Set QLabel as the cell widget in the table
-        ui->tableWidget->setCellWidget(row, 7, signatureLabel);
+                    signatureDialog->setLayout(layout);
+                    signatureDialog->exec();
+                });
+
 
         // Edit button
         int idSponsor = listSponsor.at(row).getIdSponsor();

@@ -85,5 +85,21 @@ public:
 
 };
 
+// Define ClickableQLabel class
+class ClickableQLabel : public QLabel {
+    Q_OBJECT
 
+public:
+    explicit ClickableQLabel(QWidget *parent = nullptr) : QLabel(parent) {}
+
+signals:
+    void clicked();
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override {
+        if (event->button() == Qt::LeftButton) {
+            emit clicked();
+        }
+    }
+};
 #endif // CONTRACT_H
