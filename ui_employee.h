@@ -61,7 +61,7 @@ public:
     QLabel *label_6;
     QWidget *widget_3;
     QPushButton *add_btn_4;
-    QPushButton *pushButton;
+    QPushButton *statButton;
     QPushButton *chatBtn;
     QLineEdit *search_input;
     QLabel *label_16;
@@ -710,10 +710,10 @@ public:
         icon3.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
         add_btn_4->setIcon(icon3);
         add_btn_4->setIconSize(QSize(30, 30));
-        pushButton = new QPushButton(widget_3);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(170, 10, 141, 41));
-        pushButton->setStyleSheet(QLatin1String("QPushButton {\n"
+        statButton = new QPushButton(widget_3);
+        statButton->setObjectName(QStringLiteral("statButton"));
+        statButton->setGeometry(QRect(170, 10, 141, 41));
+        statButton->setStyleSheet(QLatin1String("QPushButton {\n"
 "    background-color: transparent; \n"
 "    color: black;\n"
 "\n"
@@ -745,8 +745,8 @@ public:
 "}"));
         QIcon icon4;
         icon4.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon4);
-        pushButton->setIconSize(QSize(30, 30));
+        statButton->setIcon(icon4);
+        statButton->setIconSize(QSize(30, 30));
         chatBtn = new QPushButton(widget_3);
         chatBtn->setObjectName(QStringLiteral("chatBtn"));
         chatBtn->setGeometry(QRect(710, 10, 141, 41));
@@ -836,7 +836,9 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        chatBtn->setIcon(icon2);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("icon/bubble.png"), QSize(), QIcon::Normal, QIcon::Off);
+        chatBtn->setIcon(icon5);
         chatBtn->setIconSize(QSize(20, 20));
         search_input = new QLineEdit(widget_3);
         search_input->setObjectName(QStringLiteral("search_input"));
@@ -1082,6 +1084,7 @@ public:
          << QApplication::translate("Employee", "Admin", Q_NULLPTR)
          << QApplication::translate("Employee", "RH", Q_NULLPTR)
          << QApplication::translate("Employee", "Logistics", Q_NULLPTR)
+         << QApplication::translate("Employee", "Personnel", Q_NULLPTR)
         );
         label->setText(QApplication::translate("Employee", "poste", Q_NULLPTR));
         label_2->setText(QApplication::translate("Employee", "temps d'entree", Q_NULLPTR));
@@ -1093,7 +1096,7 @@ public:
         pushButton_3->setText(QString());
         label_6->setText(QString());
         add_btn_4->setText(QApplication::translate("Employee", "Export PDF", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("Employee", "PushButton", Q_NULLPTR));
+        statButton->setText(QApplication::translate("Employee", "Stats", Q_NULLPTR));
         chatBtn->setText(QApplication::translate("Employee", "Chat window", Q_NULLPTR));
         search_input->setPlaceholderText(QApplication::translate("Employee", "Search...", Q_NULLPTR));
         label_16->setText(QString());

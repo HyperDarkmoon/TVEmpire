@@ -33,6 +33,8 @@ private slots:
     void on_chatBtn_clicked();
     
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Employee *ui;
     addEmployee *employeeDialog;

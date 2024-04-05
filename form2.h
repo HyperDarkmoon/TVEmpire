@@ -12,7 +12,8 @@ class Form2;
 class Form2 : public QWidget
 {
     Q_OBJECT
-
+signals:
+    void authenticationSuccessful();
 public:
     explicit Form2(QWidget *parent = nullptr);
     ~Form2();

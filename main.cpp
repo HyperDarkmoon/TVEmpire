@@ -9,66 +9,34 @@
 #include <QMessageBox>
 //#include "mailing.h"
 #include "../smtp/src/SmtpMime"
+#include "employee.h"
+
 int main(int argc, char *argv[]) {
-        QApplication a(argc, argv);
-        dbconnection db;
-        bool test = db.createconnect();
+    QApplication a(argc, argv);
+    dbconnection db;
+    bool test = db.createconnect();
 
-        if (test)
-        {
-            // Create and show the main application window (MainWindow)
-            //mainWindow.show();
-            Form2 loginpage;
-            loginpage.show();
+    if (test)
+    {
+        Form2 loginpage;
+        loginpage.show();
 
+        MainWindow mainWindow; // Create MainWindow object here but do not show it yet
 
-            //mailing test
+        // Create an Employee object here
+        Employee employee;
 
-            // ################################################
-/*
-                SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+        // Connect authenticationSuccessful signal to show MainWindow upon successful authentication
+        QObject::connect(&loginpage, &Form2::authenticationSuccessful, [&mainWindow, &employee]() {
+            mainWindow.show(); // Show MainWindow upon successful authentication
+            // Call the refreshTable function only after authentication succeeds
+            employee.refreshTable();
+        });
 
-                    // We need to set the username (your email address) and the password
-                    // for smtp authentification.
-
-                    smtp.setUser("mohamedslimane555@gmail.com");
-                    smtp.setPassword("zyrx jiib bvqt yxnv");
-
-                    // Now we create a MimeMessage object. This will be the email.
-
-                    MimeMessage message;
-
-                    message.setSender(new EmailAddress("mohamedslimane555@gmail.com", "Your Name"));
-                    message.addRecipient(new EmailAddress("medsl3032002@gmail.com", "Recipient's Name"));
-                    message.setSubject("SmtpClient for Qt - Demo");
-
-                    // Now add some text to the email.
-                    // First we create a MimeText object.
-
-                    MimeText text;
-
-                    text.setText("Hi,\nThis is a simple email message.\n");
-
-                    // Now add it to the mail
-
-                    message.addPart(&text);
-
-                    // Now we can send the mail
-
-                    smtp.connectToHost();
-                    smtp.login();
-                    smtp.sendMail(message);
-                    smtp.quit();
-*/
-            // ##############################################
-
-
-            return a.exec();
-        }
-        else qDebug() << "fail to connect to db";
-        // Start the application event loop
-
-
-
-
+        return a.exec();
+    }
+    else {
+        qDebug() << "fail to connect to db";
+        return 1; // Indicate failure to connect to the database
+    }
 }

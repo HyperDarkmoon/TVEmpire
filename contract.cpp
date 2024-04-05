@@ -313,7 +313,6 @@ QList<CrudContract> CrudContract::getAll() {
     }
 
     QList<CrudContract> contractList;
-    qDebug() << "WE HERE";
     // Fetch data from the query
     while (query.next()) {
         unsigned int idSponsor = query.value("idSponsor").toUInt();

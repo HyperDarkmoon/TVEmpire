@@ -36,13 +36,16 @@ void Form2::authenticate()
             authenticated = true;
             // Store the username in the UserSession class
             UserSession::getInstance().setUsername(username);
+            // Update the role of the user from the database
+            UserSession::getInstance().updateRoleFromDatabase();
+            qDebug() << "Role:" << UserSession::getInstance().getRole();
             break;
         }
     }
 
     if (authenticated) {
-        mainWindow->show();
-        this->close();
+        emit authenticationSuccessful(); // Emit signal upon successful authentication
+        this->close(); // Close the login form
     } else {
         QMessageBox::warning(this, "Authentication Failed", "Invalid username or password.");
     }

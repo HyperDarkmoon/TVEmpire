@@ -922,6 +922,11 @@ QComboBox::item:selected {
        <string>Logistics</string>
       </property>
      </item>
+     <item>
+      <property name="text">
+       <string>Personnel</string>
+      </property>
+     </item>
     </widget>
     <widget class="QTimeEdit" name="starttime">
      <property name="geometry">
@@ -2173,7 +2178,7 @@ QPushButton:checked {
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="statButton">
      <property name="geometry">
       <rect>
        <x>170</x>
@@ -2215,7 +2220,7 @@ QPushButton:checked {
 }</string>
      </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Stats</string>
      </property>
      <property name="icon">
       <iconset>
@@ -2716,7 +2721,7 @@ QPushButton:checked {
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../../#017_Students information system/icons/add.svg</normaloff>../../#017_Students information system/icons/add.svg</iconset>
+       <normaloff>icon/bubble.png</normaloff>icon/bubble.png</iconset>
      </property>
      <property name="iconSize">
       <size>

@@ -63,7 +63,6 @@ void Employee::refreshTable()
 
     // Get the current user's role from the session
     QString currentUserRole = UserSession::getInstance().getRole();
-    qDebug() << "Current user's role:" << currentUserRole;
 
     // Clear the existing content of the table
     ui->emp->clearContents();
@@ -79,42 +78,58 @@ void Employee::refreshTable()
     // Fetch all employees using getAllEmployees method
     QList<CrudEmployee> employeesList = crudEmployee.getAllEmployees();
 
-    for (int row = 0; row < employeesList.size(); ++row)
-    {
-        const CrudEmployee& employee = employeesList.at(row);
+    int rowIndex = 0; // Initialize the row index counter
 
+    for (const auto& employee : employeesList)
+    {
         // Check if the current user has access to view this employee's details
         if (currentUserRole == "Personnel" && employee.getLogin() != UserSession::getInstance().getUsername()) {
             // If the user is "Personnel" and the employee is not the current user, skip this row
+            qDebug() << "Skipping row:" << rowIndex;
             continue;
         }
 
-        ui->emp->insertRow(row);
+        // Prepare data for the current row
+        QList<QTableWidgetItem*> rowData;
 
         for (int col = 0; col < headers.size() - 2; ++col)
-        { // Adjusted loop to skip the "Delete" and "Edit" columns
+        { 
             QString fieldData = employee.getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
-            ui->emp->setItem(row, col, item);
+            rowData.append(item);
         }
 
-        // Add "Delete" button for each row in the "Delete" column if the user is RH or Admin
-            QPushButton *deleteButton = new QPushButton("Delete", this);
-            connect(deleteButton, &QPushButton::clicked, [this, row]()
-                    { onDeleteButtonClicked(row); });
-            ui->emp->setCellWidget(row, headers.size() - 2, deleteButton);
+        // Insert row into the table if any data is available for this row
+        if (!rowData.isEmpty()) {
+            ui->emp->insertRow(rowIndex);
 
-        // Add "Edit" button for each row in the "Edit" column if the user is RH or Admin
-            QPushButton *editButton = new QPushButton("Edit", this);
-            connect(editButton, &QPushButton::clicked, [this, row]()
-                    { onEditButtonClicked(row); });
-            ui->emp->setCellWidget(row, headers.size() - 1, editButton);
+            // Insert items into the table
+            for (int col = 0; col < rowData.size(); ++col) {
+                ui->emp->setItem(rowIndex, col, rowData[col]);
+            }
+
+            // Add "Delete" and "Edit" buttons for each row if the user is RH or Admin
+                QPushButton *deleteButton = new QPushButton("Delete", this);
+                connect(deleteButton, &QPushButton::clicked, [this, rowIndex]() {
+                    onDeleteButtonClicked(rowIndex);
+                });
+                ui->emp->setCellWidget(rowIndex, headers.size() - 2, deleteButton);
+
+                QPushButton *editButton = new QPushButton("Edit", this);
+                connect(editButton, &QPushButton::clicked, [this, rowIndex]() {
+                    onEditButtonClicked(rowIndex);
+                });
+                ui->emp->setCellWidget(rowIndex, headers.size() - 1, editButton);
+            
+
+            ++rowIndex; // Increment the row index counter only if a row is inserted
+        }
     }
 
     // If the table is empty and the user is not "RH" or "Admin", show a message indicating no access
-    if (employeesList.isEmpty() && currentUserRole != "RH" && currentUserRole != "Admin") {
+    /*if (rowIndex == 0 && currentUserRole != "RH" && currentUserRole != "Admin") {
         QMessageBox::information(this, "Access Denied", "You have no access to view employee details.");
-    }
+    }*/
 }
 
 
@@ -484,17 +499,24 @@ void Employee::filterTable(const QString &text)
     for (int row = 0; row < ui->emp->rowCount(); ++row)
     {
         bool matchFound = false;
-        // Get the item in the first column of the current row
-        QTableWidgetItem *item = ui->emp->item(row, 1); // Assuming the first column is the "Name" column
-        if (item)
+
+        // Iterate through each column in the current row
+        for (int col = 0; col < ui->emp->columnCount(); ++col)
         {
-            QString cellText = item->text().toLower();
-            // Check if the cell text contains the search query
-            if (cellText.contains(query))
+            // Get the item in the current column of the current row
+            QTableWidgetItem *item = ui->emp->item(row, col);
+            if (item)
             {
-                matchFound = true;
+                QString cellText = item->text().toLower();
+                // Check if the cell text contains the search query
+                if (cellText.contains(query))
+                {
+                    matchFound = true;
+                    break; // No need to continue searching other columns in this row
+                }
             }
         }
+
         // Show or hide the row based on whether a match was found
         ui->emp->setRowHidden(row, !matchFound);
     }
@@ -504,4 +526,9 @@ void Employee::on_chatBtn_clicked()
 {
     chat = new ChatBox();
     chat->show();
+}
+
+void Employee::on_pushButton_clicked()
+{
+
 }
