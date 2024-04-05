@@ -73,7 +73,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(450, 230, 831, 321));
+        tableWidget->setGeometry(QRect(340, 230, 941, 411));
         tableWidget->setStyleSheet(QLatin1String("QTableWidget {\n"
 "    alternate-background-color: #f0f0f0; /* Alternate row background color */\n"
 "    background-color: white; /* Default background color of the table */\n"
@@ -113,7 +113,7 @@ public:
 "}"));
         label = new QLabel(Contract);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(400, 70, 431, 41));
+        label->setGeometry(QRect(400, 70, 561, 41));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -122,7 +122,7 @@ public:
         label->setMargin(200);
         widget_2 = new QWidget(Contract);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(10, 0, 61, 781));
+        widget_2->setGeometry(QRect(-20, 10, 61, 781));
         widget_2->setStyleSheet(QStringLiteral("background-color:#fffff;"));
         pushButton_3 = new QPushButton(widget_2);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
@@ -148,7 +148,7 @@ public:
         pushButton_3->raise();
         widget_3 = new QWidget(Contract);
         widget_3->setObjectName(QStringLiteral("widget_3"));
-        widget_3->setGeometry(QRect(120, 10, 331, 761));
+        widget_3->setGeometry(QRect(0, 10, 331, 761));
         widget_3->setStyleSheet(QLatin1String("QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
 "    border-radius: 10px;\n"
@@ -271,7 +271,7 @@ public:
         sign = new QLabel(widget_3);
         sign->setObjectName(QStringLiteral("sign"));
         sign->setGeometry(QRect(10, 520, 231, 131));
-        sign->setAutoFillBackground(true);
+        sign->setAutoFillBackground(false);
         sign->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black;\n"

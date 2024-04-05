@@ -43,11 +43,11 @@ public:
     {
         if (ChatBox->objectName().isEmpty())
             ChatBox->setObjectName(QStringLiteral("ChatBox"));
-        ChatBox->resize(1168, 688);
-        ChatBox->setStyleSheet(QStringLiteral("background: rgb(28, 28, 28);"));
+        ChatBox->resize(1003, 578);
+        ChatBox->setStyleSheet(QStringLiteral("#ChatBox{background:white;}"));
         CentralWidget = new QWidget(ChatBox);
         CentralWidget->setObjectName(QStringLiteral("CentralWidget"));
-        CentralWidget->setGeometry(QRect(60, 50, 961, 551));
+        CentralWidget->setGeometry(QRect(30, 20, 961, 551));
         CentralWidget->setStyleSheet(QLatin1String("QListWidget::item:selected {\n"
 "	background: none;\n"
 "	color: none;\n"
@@ -68,7 +68,14 @@ public:
         font.setFamily(QStringLiteral("Gadugi"));
         font.setPointSize(12);
         label_2->setFont(font);
-        label_2->setStyleSheet(QStringLiteral("color: silver;"));
+        label_2->setStyleSheet(QLatin1String("#label_2 {\n"
+"    background-color: #E2E2E4; /* Background color set to E0E0E1 */\n"
+"    color: SOLID BLACK; /* Text color */\n"
+"    border-width: 2px;\n"
+"    border-style: solid;\n"
+"    border-color: #242E42; /* Border color */\n"
+"}\n"
+""));
         label_2->setAlignment(Qt::AlignCenter);
 
         verticalLayout_4->addWidget(label_2);
@@ -76,11 +83,14 @@ public:
         Users_2 = new QListWidget(layoutWidget);
         Users_2->setObjectName(QStringLiteral("Users_2"));
         Users_2->setMinimumSize(QSize(200, 0));
-        Users_2->setStyleSheet(QLatin1String("color: silver;\n"
-"border-width: 2px;\n"
-"border-style: solid;\n"
-"border-color: rgb(52, 52, 52);\n"
-"padding: 2px;"));
+        Users_2->setStyleSheet(QLatin1String("#Users_2 {\n"
+"    background-color: #FCFCFF; /* White background */\n"
+"    border-width: 2px;\n"
+"    border-style: solid;\n"
+"    border-color: #242E42;\n"
+"    padding: 2px;\n"
+"}\n"
+""));
         Users_2->setFrameShape(QFrame::Panel);
 
         verticalLayout_4->addWidget(Users_2);
@@ -93,7 +103,15 @@ public:
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         Chat = new QListWidget(layoutWidget1);
         Chat->setObjectName(QStringLiteral("Chat"));
-        Chat->setStyleSheet(QStringLiteral("background-color: rgb(23, 23, 23)"));
+        Chat->setStyleSheet(QLatin1String("\n"
+"\n"
+"#Chat {\n"
+"    background-color: #FCFCFF; /* Background color for #chat */\n"
+"    border-width: 2px;\n"
+"    border-style: solid;\n"
+"    border-color: #242E42; /* Same border color as other elements */\n"
+"}\n"
+""));
         Chat->setFrameShape(QFrame::Panel);
         Chat->setResizeMode(QListView::Adjust);
         Chat->setBatchSize(100);
@@ -116,12 +134,14 @@ public:
         font1.setFamily(QStringLiteral("Helvetica"));
         font1.setPointSize(11);
         MessageLine_2->setFont(font1);
-        MessageLine_2->setStyleSheet(QLatin1String("color: silver;\n"
+        MessageLine_2->setStyleSheet(QLatin1String("\n"
+"background-color:#FCFCFF;\n"
+"color: #242E42;\n"
 "selection-color: none;\n"
 "\n"
 "border-width: 2px;\n"
 "border-style: solid;\n"
-"border-color: rgb(52, 52, 52);\n"
+"border-color: #242E42;\n"
 "padding: 2px;"));
         MessageLine_2->setFrameShape(QFrame::Panel);
 
@@ -144,7 +164,8 @@ public:
         SendButton_2->setFont(font2);
         SendButton_2->setCursor(QCursor(Qt::PointingHandCursor));
         SendButton_2->setStyleSheet(QLatin1String("QPushButton{\n"
-"color: silver;\n"
+"background-color:#2F3B52;\n"
+"color:  white;\n"
 "border-width: 2px;\n"
 "border-style: solid;\n"
 "border-color: rgb(52, 52, 52);\n"

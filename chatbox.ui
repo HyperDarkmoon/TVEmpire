@@ -6,21 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1168</width>
-    <height>688</height>
+    <width>1003</width>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: rgb(28, 28, 28);</string>
+   <string notr="true">#ChatBox{background:white;}</string>
   </property>
   <widget class="QWidget" name="CentralWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>50</y>
+     <x>30</x>
+     <y>20</y>
      <width>961</width>
      <height>551</height>
     </rect>
@@ -54,7 +54,14 @@ QListWidget::item:hover {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: silver;</string>
+        <string notr="true">#label_2 {
+    background-color: #E2E2E4; /* Background color set to E0E0E1 */
+    color: SOLID BLACK; /* Text color */
+    border-width: 2px;
+    border-style: solid;
+    border-color: #242E42; /* Border color */
+}
+</string>
        </property>
        <property name="text">
         <string>Users</string>
@@ -73,11 +80,14 @@ QListWidget::item:hover {
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: silver;
-border-width: 2px;
-border-style: solid;
-border-color: rgb(52, 52, 52);
-padding: 2px;</string>
+        <string notr="true">#Users_2 {
+    background-color: #FCFCFF; /* White background */
+    border-width: 2px;
+    border-style: solid;
+    border-color: #242E42;
+    padding: 2px;
+}
+</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::Panel</enum>
@@ -99,7 +109,15 @@ padding: 2px;</string>
      <item>
       <widget class="QListWidget" name="Chat">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(23, 23, 23)</string>
+        <string notr="true">
+
+#Chat {
+    background-color: #FCFCFF; /* Background color for #chat */
+    border-width: 2px;
+    border-style: solid;
+    border-color: #242E42; /* Same border color as other elements */
+}
+</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::Panel</enum>
@@ -144,12 +162,14 @@ padding: 2px;</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: silver;
+          <string notr="true">
+background-color:#FCFCFF;
+color: #242E42;
 selection-color: none;
 
 border-width: 2px;
 border-style: solid;
-border-color: rgb(52, 52, 52);
+border-color: #242E42;
 padding: 2px;</string>
          </property>
          <property name="frameShape">
@@ -197,7 +217,8 @@ p, li { white-space: pre-wrap; }
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton{
-color: silver;
+background-color:#2F3B52;
+color:  white;
 border-width: 2px;
 border-style: solid;
 border-color: rgb(52, 52, 52);
