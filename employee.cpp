@@ -6,6 +6,12 @@
 #include "pdfexport.h"
 #include "usersession.h"
 #include "chatbox.h"
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
+#include <QtCharts/QChart>
 
 Employee::Employee(QWidget *parent) : QWidget(parent),
                                       ui(new Ui::Employee), employeeDialog(new addEmployee())
@@ -93,7 +99,7 @@ void Employee::refreshTable()
         QList<QTableWidgetItem*> rowData;
 
         for (int col = 0; col < headers.size() - 2; ++col)
-        { 
+        {
             QString fieldData = employee.getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
             rowData.append(item);
@@ -120,7 +126,7 @@ void Employee::refreshTable()
                     onEditButtonClicked(rowIndex);
                 });
                 ui->emp->setCellWidget(rowIndex, headers.size() - 1, editButton);
-            
+
 
             ++rowIndex; // Increment the row index counter only if a row is inserted
         }
@@ -521,6 +527,48 @@ void Employee::filterTable(const QString &text)
         ui->emp->setRowHidden(row, !matchFound);
     }
 }
+void Employee::displayChart() {
+    // Create a bar series
+    QtCharts::QBarSeries *series = new QtCharts::QBarSeries();
+
+    // Fetch the salary data from the database and count the number of employees for each post
+    QMap<QString, int> salaryCountByPost;
+    CrudEmployee C;
+    QList<CrudEmployee> employeeList = C.getAllEmployees();
+    for (const auto& employee : employeeList) {
+        QString post = employee.getPost();
+        salaryCountByPost[post] += employee.getSalary(); // Accumulate the total salary for each post
+    }
+
+    // Add data to the series
+    for (auto it = salaryCountByPost.constBegin(); it != salaryCountByPost.constEnd(); ++it) {
+        QtCharts::QBarSet *set = new QtCharts::QBarSet(it.key());
+        *set << it.value();
+        series->append(set);
+    }
+
+    // Create a chart and add the series to it
+    QtCharts::QChart *chart = new QtCharts::QChart();
+    chart->addSeries(series);
+    chart->setAnimationOptions(QtCharts::QChart::SeriesAnimations);
+
+    // Create axes
+    QtCharts::QBarCategoryAxis *axisX = new QtCharts::QBarCategoryAxis();
+    QtCharts::QValueAxis *axisY = new QtCharts::QValueAxis();
+    chart->addAxis(axisX, Qt::AlignBottom);
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
+
+    // Create a chart view and set the chart
+    QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // Set chart view properties
+    chartView->setWindowTitle("Salary Distribution by Post");
+    chartView->resize(800, 600);
+    chartView->show();
+}
 
 void Employee::on_chatBtn_clicked()
 {
@@ -528,7 +576,7 @@ void Employee::on_chatBtn_clicked()
     chat->show();
 }
 
-void Employee::on_pushButton_clicked()
+void Employee::on_statButton_clicked()
 {
-
+    displayChart();
 }

@@ -21,6 +21,7 @@ public:
     void refreshTable();
     void filterTable(const QString &text);
     void onAddEmployeeDialogClosed();
+    void displayChart();
 
 private slots:
     void on_add_btn_2_clicked();
@@ -33,7 +34,7 @@ private slots:
     void on_chatBtn_clicked();
     
 
-    void on_pushButton_clicked();
+    void on_statButton_clicked();
 
 private:
     Ui::Employee *ui;
