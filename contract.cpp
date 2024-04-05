@@ -405,7 +405,7 @@ void Contract::onEditButtonClicked(int idSponsor, int idEmission, int row) {
     QString dateDebutString = ui->tableWidget->item(row, 4)->text(); // Assuming date debut is in the 4th column
     QDate dateDebut;
     if (!dateDebutString.isEmpty()) {
-        dateDebut = QDate::fromString(dateDebutString, "yyyy-MM-dd"); // Adjust the format as per your table data
+        dateDebut = QDate::fromString(dateDebutString, "dd-MM-yyyy"); // Adjust the format as per your table data
     } else {
         // If date debut string is empty, keep the existing date value
         dateDebut = c.getDateDebut();
@@ -415,7 +415,7 @@ void Contract::onEditButtonClicked(int idSponsor, int idEmission, int row) {
     QString dateFinString = ui->tableWidget->item(row, 6)->text(); // Assuming date fin is in the 6th column
     QDate dateFin;
     if (!dateFinString.isEmpty()) {
-        dateFin = QDate::fromString(dateFinString, "yyyy-MM-dd"); // Adjust the format as per your table data
+        dateFin = QDate::fromString(dateFinString, "dd-MM-yyyy"); // Adjust the format as per your table data
     } else {
         // If date fin string is empty, keep the existing date value
         dateFin = c.getDateFin();
@@ -499,8 +499,8 @@ void Contract::onSendEmailButtonClicked(int idSponsor,int rowIndex) {
 
     QString libelle = ui->tableWidget->item(rowIndex, 3)->text(); // Assuming Libelle is in the fourth column
     QString montant = ui->tableWidget->item(rowIndex, 2)->text(); // Assuming Montant is in the third column
-    QDate dateDebut = QDate::fromString(ui->tableWidget->item(rowIndex, 4)->text(), "yyyy-MM-dd"); // Adjust the format as per your table data
-    QDate dateFin = QDate::fromString(ui->tableWidget->item(rowIndex, 6)->text(), "yyyy-MM-dd"); // Adjust the format as per your table data
+    QDate dateDebut = QDate::fromString(ui->tableWidget->item(rowIndex, 4)->text(), "dd-MM-yyyy"); // Adjust the format as per your table data
+    QDate dateFin = QDate::fromString(ui->tableWidget->item(rowIndex, 6)->text(), "dd-MM-yyyy"); // Adjust the format as per your table data
     QString description = ui->tableWidget->item(rowIndex, 5)->text(); // Assuming Description is in the fifth column
 
     // Construct the email subject and body with the contract information
