@@ -16,8 +16,8 @@
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>120</y>
+     <x>320</x>
+     <y>180</y>
      <width>941</width>
      <height>411</height>
     </rect>
@@ -64,8 +64,8 @@ QTableWidget QTableWidget::item:selected {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>30</y>
+     <x>470</x>
+     <y>60</y>
      <width>561</width>
      <height>41</height>
     </rect>
@@ -151,7 +151,7 @@ QTableWidget QTableWidget::item:selected {
   <widget class="QWidget" name="widget_3" native="true">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>0</x>
      <y>10</y>
      <width>331</width>
      <height>761</height>
