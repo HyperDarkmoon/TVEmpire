@@ -99,20 +99,16 @@ void Employee::refreshTable()
         }
 
         // Add "Delete" button for each row in the "Delete" column if the user is RH or Admin
-        if (currentUserRole == "RH" || currentUserRole == "Admin") {
             QPushButton *deleteButton = new QPushButton("Delete", this);
             connect(deleteButton, &QPushButton::clicked, [this, row]()
                     { onDeleteButtonClicked(row); });
             ui->emp->setCellWidget(row, headers.size() - 2, deleteButton);
-        }
 
         // Add "Edit" button for each row in the "Edit" column if the user is RH or Admin
-        if (currentUserRole == "RH" || currentUserRole == "Admin") {
             QPushButton *editButton = new QPushButton("Edit", this);
             connect(editButton, &QPushButton::clicked, [this, row]()
                     { onEditButtonClicked(row); });
             ui->emp->setCellWidget(row, headers.size() - 1, editButton);
-        }
     }
 
     // If the table is empty and the user is not "RH" or "Admin", show a message indicating no access
