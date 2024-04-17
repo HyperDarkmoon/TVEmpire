@@ -966,10 +966,10 @@
    <widget class="QWidget" name="widget_2" native="true">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>230</y>
+      <x>90</x>
+      <y>50</y>
       <width>261</width>
-      <height>471</height>
+      <height>381</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -2196,6 +2196,16 @@ QTableWidget::item:selected {
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="webWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>449</y>
+      <width>261</width>
+      <height>231</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>widget_3</zorder>
    <zorder>Label</zorder>
    <zorder>Labelequipment</zorder>
@@ -2207,6 +2217,7 @@ QTableWidget::item:selected {
    <zorder>amazon</zorder>
    <zorder>widget_4</zorder>
    <zorder>result_widget</zorder>
+   <zorder>webWidget</zorder>
   </widget>
  </widget>
  <resources/>

@@ -13,8 +13,8 @@
 #include "pdfexport.h"
 #include <qdesktopservices.h>
 #include <QUrl>
-
-
+#include <QPixmap>
+#include <QLabel>
 
 Equipment::Equipment(QWidget *parent) :
     QWidget(parent),
@@ -27,9 +27,11 @@ Equipment::Equipment(QWidget *parent) :
 
     refreshTable();
 }
+
 void Equipment::onAddEmissionDialogClosed(){
     refreshTable();
 }
+
 Equipment::~Equipment()
 {
     delete ui;
@@ -46,20 +48,20 @@ void Equipment::refreshTable()
     ui->tableWidget_2->clearContents();
     ui->tableWidget_2->setRowCount(0);
 
-    QStringList headers = {"ID", "libelle", "Quantite","condition","categorie","delete","edit","search The web"};
+    QStringList headers = {"ID", "libelle", "Quantite","condition","categorie","delete","edit","search The web", "Image"};
     ui->tableWidget_2->setColumnCount(headers.size());
     ui->tableWidget_2->setHorizontalHeaderLabels(headers);
 
-    // Create an object of CRUDEmployee
+    // Create an object of CRUDEquipment
     CRUDequipment c;
 
-    // Fetch all employees using getAllEmployees method
+    // Fetch all equipment using getAll method
     QList<CRUDequipment> EquipmentList = c.getAll();
 
     for (int row = 0; row < EquipmentList.size(); ++row) {
         ui->tableWidget_2->insertRow(row);
 
-        for (int col = 0; col < headers.size() - 3; ++col) {  // Adjusted loop to skip the "Delete" and "Edit" columns
+        for (int col = 0; col < headers.size() - 4; ++col) {  // Adjusted loop to skip the "Delete", "Edit", and "Search" columns
             QString fieldData = EquipmentList.at(row).getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
             ui->tableWidget_2->setItem(row, col, item);
@@ -71,22 +73,31 @@ void Equipment::refreshTable()
         connect(deleteButton, &QPushButton::clicked, [this, id]() {
             onDeleteButtonClicked(id);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 3, deleteButton);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 4, deleteButton);  // Placed in the correct column
 
         // Add "Edit" button for each row in the "Edit" column
         QPushButton *editButton = new QPushButton("Edit", this);
         connect(editButton, &QPushButton::clicked, [this, row]() {
             onEditButtonClicked(row);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 2, editButton);
-        QPushButton *WebScrape = new QPushButton("search", this);
-                connect(WebScrape, &QPushButton::clicked, [this, row]() {
-                    onSearchButtonClicked(row);
-                });
-                ui->tableWidget_2->setCellWidget(row, headers.size() - 1, WebScrape);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 3, editButton);  // Placed in the correct column
 
+        // Add "Search" button for each row in the "Search" column
+        QPushButton *WebScrape = new QPushButton("search", this);
+        connect(WebScrape, &QPushButton::clicked, [this, row]() {
+            onSearchButtonClicked(row);
+        });
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 2, WebScrape);  // Placed in the correct column
+
+        // Load and display the image from the CRUDequipment object
+        QLabel *imageLabel = new QLabel(this);
+        QPixmap pixmap;
+        pixmap.loadFromData(EquipmentList.at(row).getImage());
+        imageLabel->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio));  // Adjust size as needed
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 1, imageLabel);
     }
 }
+
 
 QList<CRUDequipment> CRUDequipment::getAll() {
     QSqlQuery query;
@@ -110,6 +121,7 @@ QList<CRUDequipment> CRUDequipment::getAll() {
 
     return EquipmentList;
 }
+
 QVariant CRUDequipment::getFieldByIndex(int index) const{
     switch (index) {
     case 0:
@@ -128,15 +140,11 @@ QVariant CRUDequipment::getFieldByIndex(int index) const{
     }
 }
 
-
 void Equipment::onDeleteButtonClicked(unsigned int id)
 {
-
-    CRUDequipment CRUDEmployee;
-    CRUDEmployee.deleteEquipment(id);
-
-        refreshTable();
-
+    CRUDequipment CRUDEquipment;
+    CRUDEquipment.deleteEquipment(id);
+    refreshTable();
 }
 
 void Equipment::onEditButtonClicked(int row)
@@ -196,43 +204,37 @@ void Equipment::displayChart() {
     chartView->show();
 }
 
-
 void Equipment::on_pdfButton_4_clicked()
 {
     displayChart();
 }
 
 void Equipment::filterTable(const QString &text) {
-        // Get the search query
-        QString query = text.toLower();
+    // Get the search query
+    QString query = text.toLower();
 
-        // Iterate through each row in the table
-        for (int row = 0; row < ui->tableWidget_2->rowCount(); ++row) {
-            bool matchFound = false;
-            // Get the item in the first column of the current row
-            QTableWidgetItem *item = ui->tableWidget_2->item(row, 1); // Assuming the first column is the "Name" column
-            if (item) {
-                QString cellText = item->text().toLower();
-                // Check if the cell text contains the search query
-                if (cellText.contains(query)) {
-                    matchFound = true;
-                }
+    // Iterate through each row in the table
+    for (int row = 0; row < ui->tableWidget_2->rowCount(); ++row) {
+        bool matchFound = false;
+        // Get the item in the first column of the current row
+        QTableWidgetItem *item = ui->tableWidget_2->item(row, 1); // Assuming the first column is the "Name" column
+        if (item) {
+            QString cellText = item->text().toLower();
+            // Check if the cell text contains the search query
+            if (cellText.contains(query)) {
+                matchFound = true;
             }
-            // Show or hide the row based on whether a match was found
-            ui->tableWidget_2->setRowHidden(row, !matchFound);
         }
+        // Show or hide the row based on whether a match was found
+        ui->tableWidget_2->setRowHidden(row, !matchFound);
     }
+}
 
 void Equipment::on_pdfButton_5_clicked()
 {
     pdfExport pdfExporter;
-
     pdfExporter.exportTableToPDF(ui->tableWidget_2);
 }
-
-
-
-
 
 void Equipment::on_google_clicked()
 {
@@ -244,7 +246,6 @@ void Equipment::on_amazon_clicked()
 {
     QString link="https://www.amazon.com/s?k=camera&crid=YY8E1FKMHB10&sprefix=camer%2Caps%2C232&ref=nb_sb_noss_2";
     QDesktopServices:: openUrl(QUrl(link));
-
 }
 
 void Equipment::on_visual_impact_clicked()
@@ -252,10 +253,10 @@ void Equipment::on_visual_impact_clicked()
     QString link="https://www.visualsfrance.com/14-accessoires-tournage";
     QDesktopServices:: openUrl(QUrl(link));
 }
+
 void Equipment::onSearchButtonClicked(int row)
 {
     QString url = "https://www.mytek.tn/catalogsearch/result/?q=";
     url += ui->tableWidget_2->item(row,1)->text();
     QDesktopServices::openUrl(url);
-
 }

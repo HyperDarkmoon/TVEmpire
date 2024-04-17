@@ -18,6 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -33,6 +34,8 @@ public:
     QLineEdit *stateE;
     QLabel *stockE;
     QLineEdit *stateE_2;
+    QPushButton *selectImageButton;
+    QLabel *imageLabel;
 
     void setupUi(QDialog *addEquipment)
     {
@@ -130,6 +133,12 @@ public:
 "    padding: 1.5px;\n"
 "}\n"
 ""));
+        selectImageButton = new QPushButton(addEquipment);
+        selectImageButton->setObjectName(QStringLiteral("selectImageButton"));
+        selectImageButton->setGeometry(QRect(50, 410, 111, 31));
+        imageLabel = new QLabel(addEquipment);
+        imageLabel->setObjectName(QStringLiteral("imageLabel"));
+        imageLabel->setGeometry(QRect(220, 370, 100, 100));
 
         retranslateUi(addEquipment);
 
@@ -143,6 +152,8 @@ public:
         label_2->setText(QApplication::translate("addEquipment", "<html><head/><body><p><span style=\" color:#ffffff;\">CATEGORIE</span></p></body></html>", Q_NULLPTR));
         label_3->setText(QApplication::translate("addEquipment", "<html><head/><body><p><span style=\" color:#ffffff;\">ETAT</span></p></body></html>", Q_NULLPTR));
         stockE->setText(QApplication::translate("addEquipment", "<html><head/><body><p><span style=\" color:#ffffff;\">STOCK</span></p></body></html>", Q_NULLPTR));
+        selectImageButton->setText(QApplication::translate("addEquipment", "DOWNLOAD", Q_NULLPTR));
+        imageLabel->setText(QString());
     } // retranslateUi
 
 };

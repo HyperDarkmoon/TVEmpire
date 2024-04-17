@@ -56,6 +56,7 @@ public:
     QLabel *label_15;
     QWidget *result_widget;
     QTableWidget *tableWidget_2;
+    QWidget *webWidget;
 
     void setupUi(QWidget *Equipment)
     {
@@ -222,7 +223,7 @@ public:
         Ajout->setPalette(palette1);
         widget_2 = new QWidget(equipement);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(30, 230, 261, 471));
+        widget_2->setGeometry(QRect(90, 50, 261, 381));
         widget_2->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
 "QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
@@ -730,6 +731,9 @@ public:
 "    color: black; /* Selected item text color */\n"
 "}\n"
 ""));
+        webWidget = new QWidget(equipement);
+        webWidget->setObjectName(QStringLiteral("webWidget"));
+        webWidget->setGeometry(QRect(90, 449, 261, 231));
         widget_3->raise();
         Label->raise();
         Labelequipment->raise();
@@ -741,6 +745,7 @@ public:
         amazon->raise();
         widget_4->raise();
         result_widget->raise();
+        webWidget->raise();
 
         retranslateUi(Equipment);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));

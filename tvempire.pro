@@ -2,6 +2,8 @@ QT += core gui widgets network charts multimedia multimediawidgets
 QT += core gui widgets network printsupport
 
 
+
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
