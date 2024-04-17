@@ -48,7 +48,7 @@ void Equipment::refreshTable()
     ui->tableWidget_2->clearContents();
     ui->tableWidget_2->setRowCount(0);
 
-    QStringList headers = {"ID", "libelle", "Quantite","condition","categorie","delete","edit","search The web", "Image"};
+    QStringList headers = {"ID", "libelle", "Quantite", "condition", "categorie", "delete", "edit", "search The web", "Image"};
     ui->tableWidget_2->setColumnCount(headers.size());
     ui->tableWidget_2->setHorizontalHeaderLabels(headers);
 
@@ -61,42 +61,46 @@ void Equipment::refreshTable()
     for (int row = 0; row < EquipmentList.size(); ++row) {
         ui->tableWidget_2->insertRow(row);
 
-        for (int col = 0; col < headers.size() - 4; ++col) {  // Adjusted loop to skip the "Delete", "Edit", and "Search" columns
+        for (int col = 0; col < headers.size() - 4; ++col) {
             QString fieldData = EquipmentList.at(row).getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
             ui->tableWidget_2->setItem(row, col, item);
         }
 
+        // Load and display the image from the CRUDequipment object
+        QLabel *imageLabel = new QLabel(this);
+        QPixmap pixmap;
+        if (pixmap.loadFromData(EquipmentList.at(row).getImage())) {
+            imageLabel->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio));
+            ui->tableWidget_2->setCellWidget(row, headers.size() - 1, imageLabel);
+        } else {
+            qDebug() << "Failed to load image for row:" << row;
+        }
+
         // Add "Delete" button for each row in the "Delete" column
         QPushButton *deleteButton = new QPushButton("Delete", this);
-        unsigned int id = ui->tableWidget_2->item(row,0)->text().toUInt();
+        unsigned int id = ui->tableWidget_2->item(row, 0)->text().toUInt();
         connect(deleteButton, &QPushButton::clicked, [this, id]() {
             onDeleteButtonClicked(id);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 4, deleteButton);  // Placed in the correct column
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 4, deleteButton);
 
         // Add "Edit" button for each row in the "Edit" column
         QPushButton *editButton = new QPushButton("Edit", this);
         connect(editButton, &QPushButton::clicked, [this, row]() {
             onEditButtonClicked(row);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 3, editButton);  // Placed in the correct column
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 3, editButton);
 
         // Add "Search" button for each row in the "Search" column
         QPushButton *WebScrape = new QPushButton("search", this);
         connect(WebScrape, &QPushButton::clicked, [this, row]() {
             onSearchButtonClicked(row);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 2, WebScrape);  // Placed in the correct column
-
-        // Load and display the image from the CRUDequipment object
-        QLabel *imageLabel = new QLabel(this);
-        QPixmap pixmap;
-        pixmap.loadFromData(EquipmentList.at(row).getImage());
-        imageLabel->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio));  // Adjust size as needed
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 1, imageLabel);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 2, WebScrape);
     }
 }
+
 
 
 QList<CRUDequipment> CRUDequipment::getAll() {

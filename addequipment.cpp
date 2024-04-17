@@ -3,6 +3,9 @@
 #include "crudequipment.h"
 #include <QDebug>
 #include <QFileDialog>  // Include QFileDialog header
+#include <QBuffer>
+#include <QIODevice>
+
 
 addEquipment::addEquipment(QWidget *parent) :
     QDialog(parent),
@@ -20,8 +23,17 @@ addEquipment::~addEquipment()
 
 void addEquipment::on_buttonBox_accepted()
 {
-    CRUDequipment E(1, ui->labelE->text(), ui->stateE_2->text().toInt(), ui->stateE->text(), ui->categoryE->text());
+    // Get the image data from the QLabel
+    QPixmap pixmap = ui->imageLabel->pixmap()->scaled(100, 100, Qt::KeepAspectRatio);
+    QByteArray byteArray;
+    QBuffer buffer(&byteArray);
+    buffer.open(QIODevice::WriteOnly);
+    pixmap.save(&buffer, "PNG");  // Save the pixmap as PNG format to the QByteArray
+
+    // Create a CRUDequipment object with image data
+    CRUDequipment E(1, ui->labelE->text(), ui->stateE_2->text().toInt(), ui->stateE->text(), ui->categoryE->text(), byteArray);
     E.addEquipment();
+
     emit buttonClicked();
     this->close();
 }
