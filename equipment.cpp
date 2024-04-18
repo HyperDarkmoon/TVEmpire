@@ -15,7 +15,7 @@
 #include <QUrl>
 #include <QPixmap>
 #include <QLabel>
-
+#include <QVBoxLayout>
 Equipment::Equipment(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Equipment), addE(new addEquipment)
@@ -68,7 +68,7 @@ void Equipment::refreshTable()
         }
 
         // Load and display the image from the CRUDequipment object
-        QLabel *imageLabel = new QLabel(this);
+        ClickableQLabel *imageLabel = new ClickableQLabel(this);
         QPixmap pixmap;
         QByteArray imageData = EquipmentList.at(row).getImage();
 
@@ -83,6 +83,66 @@ void Equipment::refreshTable()
         } else {
             qDebug() << "Failed to load image for row:" << row;
         }
+        //zoom image
+        connect(imageLabel, &ClickableQLabel::clicked, [pixmap]() {
+            // Create a QDialog to display the larger QR code
+            QDialog *qrCodeDialog = new QDialog();
+
+            // Create a QVBoxLayout for the dialog
+            QVBoxLayout *layout = new QVBoxLayout(qrCodeDialog);
+
+            // Adjust the size of the dialog
+            qrCodeDialog->setFixedSize(pixmap.size() * 2 + QSize(150, 150)); // Adjust size as needed
+
+            // Create a QLabel to display the larger QR code
+            QLabel *largerLabel = new QLabel(qrCodeDialog);
+
+            // Adjust the size of the QR code inside the QLabel
+            QPixmap scaledPixmap = pixmap.scaled(pixmap.size() * 3); // Scale the QR code pixmap (double the size)
+            largerLabel->setPixmap(scaledPixmap);
+
+            // Set a fixed size for the QLabel containing the QR code pixmap
+            largerLabel->setFixedSize(scaledPixmap.size());
+
+            // Center the QLabel inside the dialog
+            layout->addWidget(largerLabel, 0, Qt::AlignCenter);
+
+            qrCodeDialog->setLayout(layout);
+            qrCodeDialog->exec(); // Use exec() instead of show() to make the dialog modal
+        });
+
+
+        /*
+        // Event filter for zooming and dezooming
+                largerLabel->installEventFilter(largerLabel); // Enable event filtering
+
+                largerLabel->installEventFilter(new QObject); // Create an event filter for the QLabel
+                largerLabel->setMouseTracking(true); // Enable mouse tracking to receive wheel events
+
+                connect(largerLabel, &QObject::eventFilter, [=](QObject *watched, QEvent *event) {
+                    if (watched == largerLabel && event->type() == QEvent::Wheel) {
+                        QWheelEvent *wheelEvent = static_cast<QWheelEvent*>(event);
+                        QPoint numDegrees = wheelEvent->angleDelta() / 8;
+                        if (!numDegrees.isNull()) {
+                            // Zoom in
+                            if (numDegrees.y() > 0) {
+                                QPixmap currentPixmap = largerLabel->pixmap()->scaled(largerLabel->pixmap()->size() * 1.1);
+                                largerLabel->setPixmap(currentPixmap);
+                                largerLabel->setFixedSize(currentPixmap.size());
+                            }
+                            // Zoom out
+                            else if (numDegrees.y() < 0) {
+                                QPixmap currentPixmap = largerLabel->pixmap()->scaled(largerLabel->pixmap()->size() * 0.9);
+                                largerLabel->setPixmap(currentPixmap);
+                                largerLabel->setFixedSize(currentPixmap.size());
+                            }
+                            return true; // Event handled
+                        }
+                    }
+                    return false; // Event not handled
+                });  */
+
+
 
         // Add "Delete" button for each row in the "Delete" column
         QPushButton *deleteButton = new QPushButton("Delete", this);

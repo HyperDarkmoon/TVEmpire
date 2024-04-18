@@ -5,7 +5,9 @@
 #include "addequipment.h"
 #include "pdfexport.h"
 #include "chatbox.h"
-
+#include <QLabel>
+#include <QMouseEvent>
+#include "sponsor.h"
 namespace Ui {
 class Equipment;
 }
