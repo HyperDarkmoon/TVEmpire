@@ -61,7 +61,7 @@ void Equipment::refreshTable()
     for (int row = 0; row < EquipmentList.size(); ++row) {
         ui->tableWidget_2->insertRow(row);
 
-        for (int col = 0; col < headers.size() - 4; ++col) {
+        for (int col = 0; col < headers.size() - 4; ++col) {  // Adjusted loop to skip the "Delete", "Edit", and "Search" columns
             QString fieldData = EquipmentList.at(row).getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
             ui->tableWidget_2->setItem(row, col, item);
@@ -70,8 +70,15 @@ void Equipment::refreshTable()
         // Load and display the image from the CRUDequipment object
         QLabel *imageLabel = new QLabel(this);
         QPixmap pixmap;
-        if (pixmap.loadFromData(EquipmentList.at(row).getImage())) {
+        QByteArray imageData = EquipmentList.at(row).getImage();
+
+        qDebug() << "Image data size for row" << row << ":" << imageData.size();  // Debug statement to check image data size
+
+        if (!imageData.isEmpty() && pixmap.loadFromData(imageData, "PNG")) {  // Specify image format as "PNG"
+            qDebug() << "Image loaded successfully for row:" << row;
             imageLabel->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio));
+            imageLabel->setMinimumSize(100, 100);
+            imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
             ui->tableWidget_2->setCellWidget(row, headers.size() - 1, imageLabel);
         } else {
             qDebug() << "Failed to load image for row:" << row;
@@ -120,11 +127,16 @@ QList<CRUDequipment> CRUDequipment::getAll() {
         em.setstate(query.value(3).toString());
         em.setcategory(query.value(4).toString());
 
+        QByteArray imageData = query.value("IMAGE").toByteArray();
+        qDebug() << "Image data size from database:" << imageData.size();  // Debug statement to check image data size
+
+        em.setImage(imageData);  // Set image data to CRUDequipment object
         EquipmentList.append(em);  // Add the object to the list
     }
 
     return EquipmentList;
 }
+
 
 QVariant CRUDequipment::getFieldByIndex(int index) const{
     switch (index) {

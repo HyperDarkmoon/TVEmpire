@@ -70,12 +70,15 @@ void CRUDequipment::addEquipment() {
     query.bindValue(":category", category);
     query.bindValue(":image", image);
 
+    qDebug() << "Image data size before insertion:" << image.size();  // Debug statement to check image data size before insertion
+
     if (query.exec()) {
         qDebug() << "Equipment added successfully!";
     } else {
         qDebug() << "Error adding equipment:" << query.lastError().text();
     }
 }
+
 
 void CRUDequipment::readEquipment() {
     QSqlQuery query;
