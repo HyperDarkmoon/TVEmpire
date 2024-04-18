@@ -76,8 +76,8 @@ void Equipment::refreshTable()
 
         if (!imageData.isEmpty() && pixmap.loadFromData(imageData, "PNG")) {  // Specify image format as "PNG"
             qDebug() << "Image loaded successfully for row:" << row;
-            imageLabel->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio));
-            imageLabel->setMinimumSize(100, 100);
+            imageLabel->setPixmap(pixmap.scaled(25, 25, Qt::KeepAspectRatio));  // Adjusted image size
+            imageLabel->setMinimumSize(25, 25);
             imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
             ui->tableWidget_2->setCellWidget(row, headers.size() - 1, imageLabel);
         } else {
