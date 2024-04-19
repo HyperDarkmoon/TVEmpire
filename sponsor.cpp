@@ -303,7 +303,7 @@ void Sponsor::refreshTable() {
 
         // Contrat button
         QToolButton *contratButton = new QToolButton(this);
-        contratButton->setIcon(QIcon("path/to/contrat/icon.png"));  // Update with the actual path to your contrat icon
+        contratButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/contract.png"));  // Update with the actual path to your contrat icon
         connect(contratButton, &QToolButton::clicked, [this, row]() {
             onContratButtonClicked(row);
         });

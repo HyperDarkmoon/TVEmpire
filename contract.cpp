@@ -164,9 +164,9 @@ CrudContract CrudContract::read(unsigned int idSponsor, unsigned int idEmission)
         c.setIdEmission(query.value("idEmission").toUInt());
         c.setMontant(query.value("montant").toString());
         c.setLibelle(query.value("libelle").toString());
-        c.setDateDebut(query.value("dateDebut").toDate());
+        c.setDateDebut(query.value("DATE_DEBUT").toDate()); // Change to "DATE_DEBUT"
         c.setDescription(query.value("description").toString());
-        c.setDateFin(query.value("dateFin").toDate());
+        c.setDateFin(query.value("DATE_FIN").toDate());       // Change to "DATE_FIN"
 
         // Retrieve the signature blob from the query result
         QByteArray signatureBlob = query.value("signature").toByteArray();
@@ -177,6 +177,7 @@ CrudContract CrudContract::read(unsigned int idSponsor, unsigned int idEmission)
         return CrudContract();
     }
 }
+
 bool CrudContract::update(unsigned int idSponsor, unsigned int idEmission, CrudContract c) {
 
     QSqlQuery query;
@@ -215,7 +216,7 @@ void Contract::refreshTable() {
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
 
-    QStringList headers = {"ID Sponsor", "ID Emission", "Montant", "Libelle", "Date Debut", "Description", "Date Fin", "Signature", "edit", "delete", "send email"}; // Added "send email"
+    QStringList headers = {"ID Sponsor", "ID Emission", "Montant", "Libelle", "Date Debut", "Description", "Date Fin", "Signature", "edit", "delete", "send email", "export PDF"}; // Added "export PDF"
     ui->tableWidget->setColumnCount(headers.size());
     ui->tableWidget->setHorizontalHeaderLabels(headers);
 
@@ -247,60 +248,68 @@ void Contract::refreshTable() {
         ui->tableWidget->setItem(row, 6, itemDateFin);
 
         // Display signature
-                QByteArray signatureBlob = listSponsor.at(row).getSignatureBlob();
-                Click *signatureLabel = new Click();
-                QPixmap signaturePixmap;
-                signaturePixmap.loadFromData(signatureBlob);
-                signaturePixmap = signaturePixmap.scaled(100, 100, Qt::KeepAspectRatio);
-                signatureLabel->setPixmap(signaturePixmap);
-                signatureLabel->setAlignment(Qt::AlignCenter);
-                ui->tableWidget->setCellWidget(row, 7, signatureLabel);
+        QByteArray signatureBlob = listSponsor.at(row).getSignatureBlob();
+        Click *signatureLabel = new Click();
+        QPixmap signaturePixmap;
+        signaturePixmap.loadFromData(signatureBlob);
+        signaturePixmap = signaturePixmap.scaled(100, 100, Qt::KeepAspectRatio);
+        signatureLabel->setPixmap(signaturePixmap);
+        signatureLabel->setAlignment(Qt::AlignCenter);
+        ui->tableWidget->setCellWidget(row, 7, signatureLabel);
 
-                // Connect the clicked signal of the signature label to a slot
-                connect(signatureLabel, &Click::clicked, [signaturePixmap]() {
-                    // Create a QDialog to display the larger signature
-                    QDialog *signatureDialog = new QDialog();
+        // Connect the clicked signal of the signature label to a slot
+        connect(signatureLabel, &Click::clicked, [signaturePixmap]() {
+            // Create a QDialog to display the larger signature
+            QDialog *signatureDialog = new QDialog();
 
-                    QVBoxLayout *layout = new QVBoxLayout(signatureDialog);
+            QVBoxLayout *layout = new QVBoxLayout(signatureDialog);
 
-                    QLabel *largerLabel = new QLabel(signatureDialog);
-                    QPixmap scaledPixmap = signaturePixmap.scaled(signaturePixmap.size() * 2);
-                    largerLabel->setPixmap(scaledPixmap);
-                    largerLabel->setFixedSize(scaledPixmap.size());
-                    layout->addWidget(largerLabel, 0, Qt::AlignCenter);
+            QLabel *largerLabel = new QLabel(signatureDialog);
+            QPixmap scaledPixmap = signaturePixmap.scaled(signaturePixmap.size() * 2);
+            largerLabel->setPixmap(scaledPixmap);
+            largerLabel->setFixedSize(scaledPixmap.size());
+            layout->addWidget(largerLabel, 0, Qt::AlignCenter);
 
-                    signatureDialog->setLayout(layout);
-                    signatureDialog->exec();
-                });
-
+            signatureDialog->setLayout(layout);
+            signatureDialog->exec();
+        });
 
         // Edit button
         int idSponsor = listSponsor.at(row).getIdSponsor();
         int idEmission = listSponsor.at(row).getIdEmission();
         QToolButton *editButton = new QToolButton();
-        editButton->setIcon(QIcon("path/to/edit/icon.png"));
+        editButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/update.png"));
         connect(editButton, &QToolButton::clicked, [this, idSponsor, idEmission,row]() {
-          onEditButtonClicked(idSponsor, idEmission,row);
+            onEditButtonClicked(idSponsor, idEmission,row);
         });
         ui->tableWidget->setCellWidget(row, 8, editButton);
 
         // Delete button
         QToolButton *deleteButton = new QToolButton();
-        deleteButton->setIcon(QIcon("path/to/delete/icon.png"));
+        deleteButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/delete.png"));
         connect(deleteButton, &QToolButton::clicked, [this, idSponsor, idEmission]() {
-           onDeleteButtonClicked(idSponsor, idEmission);
+            onDeleteButtonClicked(idSponsor, idEmission);
         });
         ui->tableWidget->setCellWidget(row, 9, deleteButton);
 
         // Send email button
         QToolButton *sendEmailButton = new QToolButton();
-        sendEmailButton->setText("Send Email");
+        sendEmailButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/email.png"));
         connect(sendEmailButton, &QToolButton::clicked, [this, idSponsor,row]() {
             onSendEmailButtonClicked(idSponsor,row);
         });
         ui->tableWidget->setCellWidget(row, 10, sendEmailButton);
+
+        // Export PDF button
+        QPushButton *exportPDFButton = new QPushButton();
+        exportPDFButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/format-de-fichier-pdf.png"));
+        connect(exportPDFButton, &QPushButton::clicked, [this, idSponsor, idEmission]() {
+            exportPDF(idSponsor, idEmission);
+        });
+        ui->tableWidget->setCellWidget(row, 11, exportPDFButton);
     }
 }
+
 
 
 
@@ -398,14 +407,20 @@ void Contract::onDeleteButtonClicked(int idSponsor, int idEmission){
     refreshTable();
 }
 void Contract::onEditButtonClicked(int idSponsor, int idEmission, int row) {
+    // Retrieve the existing contract details from the database
     CrudContract c;
-    c = c.read(idSponsor, idEmission);
+    c.read(idSponsor, idEmission);
+
+    // Get the contract details from the table widget items
+    QString libelle = ui->tableWidget->item(row, 3)->text();
+    QString montant = ui->tableWidget->item(row, 2)->text();
+    QString description = ui->tableWidget->item(row, 5)->text();
 
     // Retrieve date debut text from the table widget item
     QString dateDebutString = ui->tableWidget->item(row, 4)->text(); // Assuming date debut is in the 4th column
     QDate dateDebut;
     if (!dateDebutString.isEmpty()) {
-        dateDebut = QDate::fromString(dateDebutString, "dd-MM-yyyy"); // Adjust the format as per your table data
+        dateDebut = QDate::fromString(dateDebutString, "yyyy-MM-dd"); // Adjust the format as per your table data
     } else {
         // If date debut string is empty, keep the existing date value
         dateDebut = c.getDateDebut();
@@ -415,18 +430,16 @@ void Contract::onEditButtonClicked(int idSponsor, int idEmission, int row) {
     QString dateFinString = ui->tableWidget->item(row, 6)->text(); // Assuming date fin is in the 6th column
     QDate dateFin;
     if (!dateFinString.isEmpty()) {
-        dateFin = QDate::fromString(dateFinString, "dd-MM-yyyy"); // Adjust the format as per your table data
+        dateFin = QDate::fromString(dateFinString, "yyyy-MM-dd"); // Adjust the format as per your table data
     } else {
         // If date fin string is empty, keep the existing date value
         dateFin = c.getDateFin();
     }
 
-    // Update other contract fields from the table
-    c.setLibelle(ui->tableWidget->item(row, 3)->text());
-    c.setMontant(ui->tableWidget->item(row, 2)->text());
-    c.setDescription(ui->tableWidget->item(row, 5)->text()); // Correct column index for description
-
-    // Set the retrieved or existing date values to the contract
+    // Update the contract object with the new values
+    c.setLibelle(libelle);
+    c.setMontant(montant);
+    c.setDescription(description);
     c.setDateDebut(dateDebut);
     c.setDateFin(dateFin);
 
@@ -439,6 +452,7 @@ void Contract::onEditButtonClicked(int idSponsor, int idEmission, int row) {
 
     refreshTable();
 }
+
 
 
 
@@ -455,12 +469,12 @@ QString Contract::getEmailFromSponsorId(int idSponsor) {
     }
 }
 
-void Contract::sendEmail(const QString& recipientEmail, const QString& subject, const QString& body) {
+void Contract::sendEmailWithAttachment(const QString& recipientEmail, const QString& subject, const QString& body, const QByteArray& attachmentData, const QString& attachmentName) {
     // SMTP Configuration
     SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
     smtp.setUser("mohamedslimane555@gmail.com");
     smtp.setPassword("zyrx jiib bvqt yxnv");
-    qDebug () << recipientEmail;
+
     // Create MimeMessage
     MimeMessage message;
     message.setSender(new EmailAddress("mohamedslimane555@gmail.com", "TVEMPIRE"));
@@ -471,6 +485,10 @@ void Contract::sendEmail(const QString& recipientEmail, const QString& subject, 
     MimeText text;
     text.setText(body);
     message.addPart(&text);
+
+    // Attach the PDF file
+    MimeAttachment attachment(attachmentData, attachmentName);
+    message.addPart(&attachment);
 
     // Send email
     if (!smtp.connectToHost()) {
@@ -487,9 +505,9 @@ void Contract::sendEmail(const QString& recipientEmail, const QString& subject, 
     }
     smtp.quit();
 }
-void Contract::onSendEmailButtonClicked(int idSponsor,int rowIndex) {
 
 
+void Contract::onSendEmailButtonClicked(int idSponsor, int rowIndex) {
     // Retrieve the contract information from the selected row
     QString email = getEmailFromSponsorId(idSponsor);
     if (email.isEmpty()) {
@@ -497,20 +515,168 @@ void Contract::onSendEmailButtonClicked(int idSponsor,int rowIndex) {
         return;
     }
 
-    QString libelle = ui->tableWidget->item(rowIndex, 3)->text(); // Assuming Libelle is in the fourth column
-    QString montant = ui->tableWidget->item(rowIndex, 2)->text(); // Assuming Montant is in the third column
-    QDate dateDebut = QDate::fromString(ui->tableWidget->item(rowIndex, 4)->text(), "dd-MM-yyyy"); // Adjust the format as per your table data
-    QDate dateFin = QDate::fromString(ui->tableWidget->item(rowIndex, 6)->text(), "dd-MM-yyyy"); // Adjust the format as per your table data
-    QString description = ui->tableWidget->item(rowIndex, 5)->text(); // Assuming Description is in the fifth column
+    // Construct the email subject
+    QString subject = "Information de contrat";
 
-    // Construct the email subject and body with the contract information
-    QString subject = "Contract Information";
-    QString body = "Libelle: " + libelle + "\n"
-                   + "Montant: " + montant + "\n"
-                   + "Date Debut: " + dateDebut.toString() + "\n"
-                   + "Date Fin: " + dateFin.toString() + "\n"
-                   + "Description: " + description;
+    // Prompt the user to select a PDF file
+    QString filePath = QFileDialog::getOpenFileName(this, tr("Select PDF File"), QString(), tr("PDF Files (*.pdf)"));
+    if (filePath.isEmpty()) {
+        qDebug() << "No PDF file selected";
+        return;
+    }
 
-    // Send the email
-    sendEmail(email, subject, body);
+    // Read the PDF file
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qDebug() << "Failed to open PDF file";
+        return;
+    }
+    QByteArray pdfData = file.readAll();
+    file.close();
+
+    // Construct the email body with the contract information and French text
+    QString body = "Je ne mets rien pour l'envoi des données par email.\n\n"
+                   "Veuillez trouver ci-joint le contrat PDF.\n\n";
+
+    // Send the email with the PDF file attached
+    sendEmailWithAttachment(email, subject, body, pdfData, "Contrat.pdf");
 }
+
+
+QPixmap Contract::getQRCodeFromDatabase(unsigned int sponsorId) {
+    QSqlQuery query;
+    query.prepare("SELECT QRCODE FROM Sponsor WHERE id = :id");
+    query.bindValue(":id", sponsorId);
+
+    if (query.exec() && query.next()) {
+        QByteArray qrCodeData = query.value("QRCODE").toByteArray();
+
+        // Convert QR code data to QPixmap
+        QPixmap qrCodePixmap;
+        qrCodePixmap.loadFromData(qrCodeData);
+
+        return qrCodePixmap;
+    } else {
+        // If QR code not found or query fails, return an empty pixmap
+        return QPixmap();
+    }
+}
+void Contract::exportPDF(unsigned int idSponsor, unsigned int idEmission) {
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save PDF"), QString(), "*.pdf");
+    if (!fileName.isEmpty()) {
+        // Create a QPainter for drawing onto a QPrinter
+        QPrinter printer(QPrinter::HighResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setOutputFileName(fileName);
+
+        QPainter painter(&printer);
+        painter.setRenderHint(QPainter::Antialiasing);
+
+        int titleFontSize = 70; // Adjust font size as needed
+        QFont titleFont = painter.font();
+        titleFont.setPointSize(titleFontSize);
+        painter.setFont(titleFont);
+        painter.drawText(2700, 900, "Contrat"); // Title
+
+        // Retrieve contract details from the database
+        CrudContract c;
+        c = c.read(idSponsor, idEmission);
+
+        // Draw QR Code on the top right
+        QPixmap qrCode = getQRCodeFromDatabase(idSponsor);
+        if (!qrCode.isNull()) {
+            // Scale up the QR code image
+            QSize scaledSize(qrCode.width() * 40, qrCode.height() * 40);
+            QPixmap scaledQrCode = qrCode.scaled(scaledSize, Qt::KeepAspectRatio);
+            int qrCodeX = printer.width() - scaledQrCode.width() - 100; // Adjusted X position
+            painter.drawPixmap(qrCodeX, 100, scaledQrCode);
+
+            // Add text below the QR code
+            int qrCodeY = 100 + scaledQrCode.height() + 200 ; // Adjusted Y position below the QR code
+            QString qrCodeText = "QRCODE SPONOSR "; // Text below the QR code
+
+            // Set font size for the text
+            int textSize = 10; // Adjust font size as needed
+            QFont textFont = painter.font();
+            textFont.setPointSize(textSize);
+            painter.setFont(textFont);
+
+            // Draw text with the modified font size
+            painter.drawText(qrCodeX, qrCodeY, qrCodeText);
+        }
+
+       // Draw contract details below QR code
+        int verticalPosition = 200 + qrCode.height() * 2; // Initial vertical position
+        int horizontalPosition = 100; // Initial horizontal position
+
+        // Prepare data as a list
+        QStringList contractDetails;
+        contractDetails << " " + c.getLibelle();
+        contractDetails << " " + c.getMontant();
+        contractDetails << "Date de début " + c.getDateDebut().toString();
+        contractDetails << "Date de fin " + c.getDateFin().toString();
+        contractDetails << " " + c.getDescription();
+
+        // Draw contract details horizontally on a single line
+        drawContractDetails(painter, contractDetails, verticalPosition, horizontalPosition, printer);
+        // Draw signature at the bottom of the page
+        QByteArray signatureBlob = c.getSignatureBlob();
+        QPixmap signaturePixmap;
+        signaturePixmap.loadFromData(signatureBlob);
+        // Scale up the signature image
+        QSize scaledSignatureSize(signaturePixmap.width() * 10, signaturePixmap.height() * 10);
+        QPixmap scaledSignature = signaturePixmap.scaled(scaledSignatureSize, Qt::KeepAspectRatio);
+        int signatureY = printer.height() - scaledSignature.height() - 80; // Adjusted Y position
+        painter.drawPixmap(80, signatureY, scaledSignature);
+
+        QString signatureText = "Signature"; // Text above the signature
+        int textWidth = painter.fontMetrics().width(signatureText);
+        int textX = 170; // Adjusted X position, closer to the left edge
+        int textY = signatureY - 50; // Adjusted Y position above the signature, moved higher
+        painter.drawText(textX, textY, signatureText);
+
+
+        // Finish painting
+        painter.end();
+
+        QMessageBox::information(this, tr("PDF Exported"), tr("PDF exported successfully."));
+    }
+}
+
+void Contract::drawContractDetails(QPainter & painter, const QStringList & textList, int verticalPosition, int & horizontalPosition, const QPrinter & printer) {
+    // Set font size
+    int fontSize =180; // Adjust font size as needed
+    QFont font("Arial", fontSize);
+    font.setPixelSize(fontSize);
+    painter.setFont(font);
+
+    // Define spacing between data
+    int spacing = 30;
+
+    // Calculate the total width of all texts
+    int totalTextWidth = 0;
+    for (const QString &text : textList) {
+        totalTextWidth += painter.fontMetrics().width(text) + spacing;
+    }
+
+    // Adjust horizontal position to center the text
+    horizontalPosition = printer.pageRect().center().x() - totalTextWidth / 2;
+
+    // Adjust vertical position
+    verticalPosition += painter.fontMetrics().height() * 20; // Move the text down by 2 lines
+
+    // Draw each text horizontally with spacing
+    for (const QString &text : textList) {
+        painter.drawText(horizontalPosition, verticalPosition, text);
+        horizontalPosition += painter.fontMetrics().width(text) + spacing;
+    }
+}
+
+
+
+
+
+
+
+
+
