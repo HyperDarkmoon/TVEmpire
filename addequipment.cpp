@@ -2,7 +2,7 @@
 #include "ui_addequipment.h"
 #include "crudequipment.h"
 #include <QDebug>
-#include <QFileDialog>  // Include QFileDialog header
+#include <QFileDialog>
 #include <QBuffer>
 #include <QIODevice>
 

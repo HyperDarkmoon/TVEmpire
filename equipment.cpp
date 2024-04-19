@@ -16,6 +16,7 @@
 #include <QPixmap>
 #include <QLabel>
 #include <QVBoxLayout>
+
 Equipment::Equipment(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Equipment), addE(new addEquipment)
@@ -44,24 +45,22 @@ void Equipment::on_Ajout_clicked()
 
 void Equipment::refreshTable()
 {
-    // Clear the existing content of the table
     ui->tableWidget_2->clearContents();
     ui->tableWidget_2->setRowCount(0);
 
-    QStringList headers = {"ID", "libelle", "Quantite", "condition", "categorie", "delete", "edit", "search The web", "Image"};
+    QStringList headers = {"ID", "libelle", "Quantite", "condition", "categorie", "delete", "edit", "search The web", "Image", "Employer"};
     ui->tableWidget_2->setColumnCount(headers.size());
     ui->tableWidget_2->setHorizontalHeaderLabels(headers);
 
-    // Create an object of CRUDEquipment
-    CRUDequipment c;
+ui->tableWidget_2->setHorizontalHeaderItem(headers.size(), new QTableWidgetItem("Employer"));
 
-    // Fetch all equipment using getAll method
+    CRUDequipment c;
     QList<CRUDequipment> EquipmentList = c.getAll();
 
     for (int row = 0; row < EquipmentList.size(); ++row) {
         ui->tableWidget_2->insertRow(row);
 
-        for (int col = 0; col < headers.size() - 4; ++col) {  // Adjusted loop to skip the "Delete", "Edit", and "Search" columns
+        for (int col = 0; col < headers.size() - 4; ++col) {
             QString fieldData = EquipmentList.at(row).getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
             ui->tableWidget_2->setItem(row, col, item);
@@ -72,31 +71,25 @@ void Equipment::refreshTable()
         QPixmap pixmap;
         QByteArray imageData = EquipmentList.at(row).getImage();
 
-        qDebug() << "Image data size for row" << row << ":" << imageData.size();  // Debug statement to check image data size
-
-        if (!imageData.isEmpty() && pixmap.loadFromData(imageData, "PNG")) {  // Specify image format as "PNG"
+        if (!imageData.isEmpty() && pixmap.loadFromData(imageData, "PNG")) {
             qDebug() << "Image loaded successfully for row:" << row;
             imageLabel->setPixmap(pixmap.scaled(25, 25, Qt::KeepAspectRatio));  // Adjusted image size
             imageLabel->setMinimumSize(25, 25);
-            imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-            ui->tableWidget_2->setCellWidget(row, headers.size() - 1, imageLabel);
-        } else {
-            qDebug() << "Failed to load image for row:" << row;
+            ui->tableWidget_2->setCellWidget(row, headers.size() - 2, imageLabel);
         }
+
+        //employee
+        QTableWidgetItem *employerItem = new QTableWidgetItem("");
+        ui->tableWidget_2->setItem(row, headers.size() - 1, employerItem);
+
         //zoom image
         connect(imageLabel, &ClickableQLabel::clicked, [pixmap]() {
-            // Create a QDialog to display the larger QR code
+
             QDialog *qrCodeDialog = new QDialog();
-
-            // Create a QVBoxLayout for the dialog
             QVBoxLayout *layout = new QVBoxLayout(qrCodeDialog);
-
-            // Adjust the size of the dialog
             qrCodeDialog->setFixedSize(pixmap.size() * 2 + QSize(150, 150)); // Adjust size as needed
-
-            // Create a QLabel to display the larger QR code
+            // Create a QLabel to display the larger image
             QLabel *largerLabel = new QLabel(qrCodeDialog);
-
             // Adjust the size of the QR code inside the QLabel
             QPixmap scaledPixmap = pixmap.scaled(pixmap.size() * 3); // Scale the QR code pixmap (double the size)
             largerLabel->setPixmap(scaledPixmap);
@@ -104,11 +97,10 @@ void Equipment::refreshTable()
             // Set a fixed size for the QLabel containing the QR code pixmap
             largerLabel->setFixedSize(scaledPixmap.size());
 
-            // Center the QLabel inside the dialog
             layout->addWidget(largerLabel, 0, Qt::AlignCenter);
 
             qrCodeDialog->setLayout(layout);
-            qrCodeDialog->exec(); // Use exec() instead of show() to make the dialog modal
+            qrCodeDialog->exec();
         });
 
 
@@ -144,27 +136,27 @@ void Equipment::refreshTable()
 
 
 
-        // Add "Delete" button for each row in the "Delete" column
+        //Delete
         QPushButton *deleteButton = new QPushButton("Delete", this);
         unsigned int id = ui->tableWidget_2->item(row, 0)->text().toUInt();
         connect(deleteButton, &QPushButton::clicked, [this, id]() {
             onDeleteButtonClicked(id);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 4, deleteButton);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 5, deleteButton);
 
-        // Add "Edit" button for each row in the "Edit" column
+        //Edit
         QPushButton *editButton = new QPushButton("Edit", this);
         connect(editButton, &QPushButton::clicked, [this, row]() {
             onEditButtonClicked(row);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 3, editButton);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 4, editButton);
 
-        // Add "Search" button for each row in the "Search" column
+        //Search
         QPushButton *WebScrape = new QPushButton("search", this);
         connect(WebScrape, &QPushButton::clicked, [this, row]() {
             onSearchButtonClicked(row);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 2, WebScrape);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 3, WebScrape);
     }
 }
 
@@ -177,7 +169,7 @@ QList<CRUDequipment> CRUDequipment::getAll() {
         qDebug() << "Query execution failed:" << query.lastError().text();
     }
 
-    QList<CRUDequipment> EquipmentList;  // Use a list to store all records
+    QList<CRUDequipment> EquipmentList;
 
     while (query.next()) {
         CRUDequipment em;  // Create a new object for each record
@@ -186,10 +178,7 @@ QList<CRUDequipment> CRUDequipment::getAll() {
         em.setStock(query.value(2).toInt());
         em.setstate(query.value(3).toString());
         em.setcategory(query.value(4).toString());
-
         QByteArray imageData = query.value("IMAGE").toByteArray();
-        qDebug() << "Image data size from database:" << imageData.size();  // Debug statement to check image data size
-
         em.setImage(imageData);  // Set image data to CRUDequipment object
         EquipmentList.append(em);  // Add the object to the list
     }
@@ -336,3 +325,4 @@ void Equipment::onSearchButtonClicked(int row)
     url += ui->tableWidget_2->item(row,1)->text();
     QDesktopServices::openUrl(url);
 }
+

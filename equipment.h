@@ -39,6 +39,8 @@ private slots:
 
     void on_visual_impact_clicked();
 
+    void on_Affecter_clicked();
+
 private:
     Ui::Equipment *ui;
     addEquipment *addE;
