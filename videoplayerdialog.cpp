@@ -1,6 +1,9 @@
 #include "videoplayerdialog.h"
 #include "ui_videoplayerdialog.h"
 #include <QVBoxLayout>
+#include <QByteArray>
+#include <QSqlQuery>
+#include <QTemporaryFile>
 VideoPlayerDialog::VideoPlayerDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::VideoPlayerDialog),
@@ -21,8 +24,26 @@ VideoPlayerDialog::~VideoPlayerDialog()
     delete ui;
 }
 
-void VideoPlayerDialog::playVideo(const QString &filePath)
+void VideoPlayerDialog::playVideo(unsigned int id)
 {
-    player->setMedia(QUrl::fromLocalFile(filePath));
-    player->play();
+    QSqlQuery query;
+    query.prepare("SELECT videodata FROM emissions WHERE id = :id");
+    query.bindValue(":id", id);
+    query.exec();
+    QByteArray vid;
+    if (query.next()) {
+        vid = query.value(0).toByteArray();
+    }
+    QTemporaryFile tempFile;
+      if (!tempFile.open()) {
+        // Handle temporary file creation error
+        return;
+      }
+      tempFile.write(vid);
+      tempFile.setAutoRemove(false); // Don't delete on close
+
+      // Play video from temporary file
+      QString tempFilePath = tempFile.fileName();
+      player->setMedia(QUrl::fromLocalFile(tempFilePath));
+      player->play();
 }

@@ -17,7 +17,7 @@ public:
     explicit VideoPlayerDialog(QWidget *parent = nullptr);
     ~VideoPlayerDialog();
 
-    void playVideo(const QString &filePath);
+    void playVideo(unsigned int id);
 
 private:
     Ui::VideoPlayerDialog *ui;

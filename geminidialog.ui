@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>923</width>
-    <height>496</height>
+    <width>1249</width>
+    <height>654</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,16 +18,24 @@
     <rect>
      <x>140</x>
      <y>110</y>
-     <width>671</width>
-     <height>331</height>
+     <width>1061</width>
+     <height>521</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:black;
-color : white;</string>
+    <string notr="true">background:white;
+color : black;
+border : 1px solid black;
+border-radius: 95%</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="inputLabel">
@@ -35,16 +43,21 @@ color : white;</string>
     <rect>
      <x>140</x>
      <y>10</y>
-     <width>671</width>
+     <width>1051</width>
      <height>91</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:black;
-color : white;</string>
+    <string notr="true">background:white;
+color : black;
+border : 1px solid black;
+border-radius: 95%;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
