@@ -140,3 +140,15 @@ void CRUDequipment::deleteEquipment(int idd) {
         qDebug() << "Error deleting equipment:" << query.lastError().text();
     }
 }
+
+unsigned int CRUDequipment::getEquipmentIdByLabel(const QString& label)
+{
+    QSqlQuery query;
+    query.prepare("SELECT id FROM equipement WHERE libelle = :label");
+    query.bindValue(":label", label);
+    query.exec();
+    if (query.next()) {
+        return query.value(0).toUInt();
+    }
+    return 0; // Return 0 if equipment not found (handle this case accordingly)
+}

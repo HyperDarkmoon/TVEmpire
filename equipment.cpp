@@ -16,10 +16,11 @@
 #include <QPixmap>
 #include <QLabel>
 #include <QVBoxLayout>
+#include "employee.h"
+#include "affectation.h"
 
-Equipment::Equipment(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Equipment), addE(new addEquipment)
+Equipment::Equipment(QWidget *parent) : QWidget(parent),
+                                        ui(new Ui::Equipment), addE(new addEquipment)
 {
     ui->setupUi(this);
     connect(addE, &addEquipment::buttonClicked, this, &Equipment::onAddEmissionDialogClosed);
@@ -29,7 +30,8 @@ Equipment::Equipment(QWidget *parent) :
     refreshTable();
 }
 
-void Equipment::onAddEmissionDialogClosed(){
+void Equipment::onAddEmissionDialogClosed()
+{
     refreshTable();
 }
 
@@ -52,15 +54,17 @@ void Equipment::refreshTable()
     ui->tableWidget_2->setColumnCount(headers.size());
     ui->tableWidget_2->setHorizontalHeaderLabels(headers);
 
-ui->tableWidget_2->setHorizontalHeaderItem(headers.size(), new QTableWidgetItem("Employer"));
+    ui->tableWidget_2->setHorizontalHeaderItem(headers.size(), new QTableWidgetItem("Employer"));
 
     CRUDequipment c;
     QList<CRUDequipment> EquipmentList = c.getAll();
 
-    for (int row = 0; row < EquipmentList.size(); ++row) {
+    for (int row = 0; row < EquipmentList.size(); ++row)
+    {
         ui->tableWidget_2->insertRow(row);
 
-        for (int col = 0; col < headers.size() - 4; ++col) {
+        for (int col = 0; col < headers.size() - 4; ++col)
+        {
             QString fieldData = EquipmentList.at(row).getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
             ui->tableWidget_2->setItem(row, col, item);
@@ -71,19 +75,34 @@ ui->tableWidget_2->setHorizontalHeaderItem(headers.size(), new QTableWidgetItem(
         QPixmap pixmap;
         QByteArray imageData = EquipmentList.at(row).getImage();
 
-        if (!imageData.isEmpty() && pixmap.loadFromData(imageData, "PNG")) {
+        if (!imageData.isEmpty() && pixmap.loadFromData(imageData, "PNG"))
+        {
             qDebug() << "Image loaded successfully for row:" << row;
-            imageLabel->setPixmap(pixmap.scaled(25, 25, Qt::KeepAspectRatio));  // Adjusted image size
+            imageLabel->setPixmap(pixmap.scaled(25, 25, Qt::KeepAspectRatio)); // Adjusted image size
             imageLabel->setMinimumSize(25, 25);
             ui->tableWidget_2->setCellWidget(row, headers.size() - 2, imageLabel);
         }
 
-        //employee
-        QTableWidgetItem *employerItem = new QTableWidgetItem("");
-        ui->tableWidget_2->setItem(row, headers.size() - 1, employerItem);
+        QString employeeFullName = ""; // Default to empty string if no employee is assigned
+        unsigned int equipmentId = EquipmentList.at(row).getId();
+        qDebug() << "Equipment ID:" << equipmentId;
+        if (equipmentId != 0) {
+            CrudAffectation crudAffectation;
+            unsigned int employeeId = crudAffectation.getEmployeeIdByEquipmentId(equipmentId);
+            qDebug() << "Employee ID:" << employeeId;
+            if (employeeId != 0) {
+                CrudEmployee crudEmployee;
+                CrudEmployee emp = crudEmployee.getEmployee(employeeId);
+                employeeFullName = emp.getEmployeeName();
+            }
 
-        //zoom image
-        connect(imageLabel, &ClickableQLabel::clicked, [pixmap]() {
+        }
+        qDebug() << "Employee full name:" << employeeFullName;
+        QTableWidgetItem *employerItem = new QTableWidgetItem(employeeFullName);
+        ui->tableWidget_2->setItem(row, headers.size() - 1, employerItem);
+        // zoom image
+        connect(imageLabel, &ClickableQLabel::clicked, [pixmap]()
+                {
 
             QDialog *qrCodeDialog = new QDialog();
             QVBoxLayout *layout = new QVBoxLayout(qrCodeDialog);
@@ -100,9 +119,7 @@ ui->tableWidget_2->setHorizontalHeaderItem(headers.size(), new QTableWidgetItem(
             layout->addWidget(largerLabel, 0, Qt::AlignCenter);
 
             qrCodeDialog->setLayout(layout);
-            qrCodeDialog->exec();
-        });
-
+            qrCodeDialog->exec(); });
 
         /*
         // Event filter for zooming and dezooming
@@ -134,61 +151,58 @@ ui->tableWidget_2->setHorizontalHeaderItem(headers.size(), new QTableWidgetItem(
                     return false; // Event not handled
                 });  */
 
-
-
-        //Delete
+        // Delete
         QPushButton *deleteButton = new QPushButton("Delete", this);
         unsigned int id = ui->tableWidget_2->item(row, 0)->text().toUInt();
-        connect(deleteButton, &QPushButton::clicked, [this, id]() {
-            onDeleteButtonClicked(id);
-        });
+        connect(deleteButton, &QPushButton::clicked, [this, id]()
+                { onDeleteButtonClicked(id); });
         ui->tableWidget_2->setCellWidget(row, headers.size() - 5, deleteButton);
 
-        //Edit
+        // Edit
         QPushButton *editButton = new QPushButton("Edit", this);
-        connect(editButton, &QPushButton::clicked, [this, row]() {
-            onEditButtonClicked(row);
-        });
+        connect(editButton, &QPushButton::clicked, [this, row]()
+                { onEditButtonClicked(row); });
         ui->tableWidget_2->setCellWidget(row, headers.size() - 4, editButton);
 
-        //Search
+        // Search
         QPushButton *WebScrape = new QPushButton("search", this);
-        connect(WebScrape, &QPushButton::clicked, [this, row]() {
-            onSearchButtonClicked(row);
-        });
+        connect(WebScrape, &QPushButton::clicked, [this, row]()
+                { onSearchButtonClicked(row); });
         ui->tableWidget_2->setCellWidget(row, headers.size() - 3, WebScrape);
     }
 }
 
-
-
-QList<CRUDequipment> CRUDequipment::getAll() {
+QList<CRUDequipment> CRUDequipment::getAll()
+{
     QSqlQuery query;
     query.prepare("SELECT * FROM Equipement");
-    if (!query.exec()) {
+    if (!query.exec())
+    {
         qDebug() << "Query execution failed:" << query.lastError().text();
     }
 
     QList<CRUDequipment> EquipmentList;
 
-    while (query.next()) {
-        CRUDequipment em;  // Create a new object for each record
+    while (query.next())
+    {
+        CRUDequipment em; // Create a new object for each record
         em.setId(query.value(0).toUInt());
         em.setlabel(query.value(1).toString());
         em.setStock(query.value(2).toInt());
         em.setstate(query.value(3).toString());
         em.setcategory(query.value(4).toString());
         QByteArray imageData = query.value("IMAGE").toByteArray();
-        em.setImage(imageData);  // Set image data to CRUDequipment object
-        EquipmentList.append(em);  // Add the object to the list
+        em.setImage(imageData);   // Set image data to CRUDequipment object
+        EquipmentList.append(em); // Add the object to the list
     }
 
     return EquipmentList;
 }
 
-
-QVariant CRUDequipment::getFieldByIndex(int index) const{
-    switch (index) {
+QVariant CRUDequipment::getFieldByIndex(int index) const
+{
+    switch (index)
+    {
     case 0:
         return getId();
     case 1:
@@ -216,16 +230,17 @@ void Equipment::onEditButtonClicked(int row)
 {
     CRUDequipment e;
 
-    e.setId(ui->tableWidget_2->item(row,0)->text().toInt());
-    e.setlabel(ui->tableWidget_2->item(row,1)->text());
-    e.setStock(ui->tableWidget_2->item(row,2)->text().toUInt());
-    e.setstate(ui->tableWidget_2->item(row,3)->text());
-    e.setcategory(ui->tableWidget_2->item(row,4)->text());
+    e.setId(ui->tableWidget_2->item(row, 0)->text().toInt());
+    e.setlabel(ui->tableWidget_2->item(row, 1)->text());
+    e.setStock(ui->tableWidget_2->item(row, 2)->text().toUInt());
+    e.setstate(ui->tableWidget_2->item(row, 3)->text());
+    e.setcategory(ui->tableWidget_2->item(row, 4)->text());
     e.updateEquipment();
     refreshTable();
 }
 
-void Equipment::displayChart() {
+void Equipment::displayChart()
+{
     // Create a bar series
     QtCharts::QBarSeries *series = new QtCharts::QBarSeries();
 
@@ -233,14 +248,16 @@ void Equipment::displayChart() {
     QMap<QString, int> stockCountByEquipment;
     CRUDequipment C;
     QList<CRUDequipment> equipmentList = C.getAll();
-    for (const CRUDequipment& equipment : equipmentList) {
+    for (const CRUDequipment &equipment : equipmentList)
+    {
         QString label = equipment.getlabel();
         int stock = equipment.getStock();
         stockCountByEquipment[label] = stock;
     }
 
     // Add data to the series
-    for (auto it = stockCountByEquipment.constBegin(); it != stockCountByEquipment.constEnd(); ++it) {
+    for (auto it = stockCountByEquipment.constBegin(); it != stockCountByEquipment.constEnd(); ++it)
+    {
         QtCharts::QBarSet *set = new QtCharts::QBarSet(it.key());
         *set << it.value();
         series->append(set);
@@ -274,19 +291,23 @@ void Equipment::on_pdfButton_4_clicked()
     displayChart();
 }
 
-void Equipment::filterTable(const QString &text) {
+void Equipment::filterTable(const QString &text)
+{
     // Get the search query
     QString query = text.toLower();
 
     // Iterate through each row in the table
-    for (int row = 0; row < ui->tableWidget_2->rowCount(); ++row) {
+    for (int row = 0; row < ui->tableWidget_2->rowCount(); ++row)
+    {
         bool matchFound = false;
         // Get the item in the first column of the current row
         QTableWidgetItem *item = ui->tableWidget_2->item(row, 1); // Assuming the first column is the "Name" column
-        if (item) {
+        if (item)
+        {
             QString cellText = item->text().toLower();
             // Check if the cell text contains the search query
-            if (cellText.contains(query)) {
+            if (cellText.contains(query))
+            {
                 matchFound = true;
             }
         }
@@ -303,26 +324,31 @@ void Equipment::on_pdfButton_5_clicked()
 
 void Equipment::on_google_clicked()
 {
-    QString link="https://www.google.com";
-    QDesktopServices:: openUrl(QUrl(link));
+    QString link = "https://www.google.com";
+    QDesktopServices::openUrl(QUrl(link));
 }
 
 void Equipment::on_amazon_clicked()
 {
-    QString link="https://www.amazon.com/s?k=camera&crid=YY8E1FKMHB10&sprefix=camer%2Caps%2C232&ref=nb_sb_noss_2";
-    QDesktopServices:: openUrl(QUrl(link));
+    QString link = "https://www.amazon.com/s?k=camera&crid=YY8E1FKMHB10&sprefix=camer%2Caps%2C232&ref=nb_sb_noss_2";
+    QDesktopServices::openUrl(QUrl(link));
 }
 
 void Equipment::on_visual_impact_clicked()
 {
-    QString link="https://www.visualsfrance.com/14-accessoires-tournage";
-    QDesktopServices:: openUrl(QUrl(link));
+    QString link = "https://www.visualsfrance.com/14-accessoires-tournage";
+    QDesktopServices::openUrl(QUrl(link));
 }
 
 void Equipment::onSearchButtonClicked(int row)
 {
     QString url = "https://www.mytek.tn/catalogsearch/result/?q=";
-    url += ui->tableWidget_2->item(row,1)->text();
+    url += ui->tableWidget_2->item(row, 1)->text();
     QDesktopServices::openUrl(url);
 }
 
+void Equipment::on_Affecter_clicked()
+{
+    affecter = new Affectation();
+    affecter->show();
+}

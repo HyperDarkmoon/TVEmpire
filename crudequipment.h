@@ -32,6 +32,7 @@ public:
     void updateEquipment();
     void deleteEquipment();
     void deleteEquipment(int id);
+    unsigned int getEquipmentIdByLabel(const QString& label);
 
     QList<CRUDequipment> getAll();
     QVariant getFieldByIndex(int index) const;

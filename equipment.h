@@ -8,6 +8,8 @@
 #include <QLabel>
 #include <QMouseEvent>
 #include "sponsor.h"
+#include "affectation.h"
+
 namespace Ui {
 class Equipment;
 }
@@ -44,6 +46,7 @@ private slots:
 private:
     Ui::Equipment *ui;
     addEquipment *addE;
+    Affectation *affecter;
 
 
 };

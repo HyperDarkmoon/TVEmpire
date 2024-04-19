@@ -88,6 +88,7 @@ public:
     QVariant getFieldByIndex(int index) const;
     bool updateEmployee(unsigned int idToUpdate, CrudEmployee emp);
     bool deleteEmployee(unsigned int id);
+    unsigned int getEmployeeIdByName(const QString& name);
 private:
     unsigned int id;
     QString CrudEmployeeName;

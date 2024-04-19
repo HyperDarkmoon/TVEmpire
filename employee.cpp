@@ -467,6 +467,19 @@ QList<CrudEmployee> CrudEmployee::getAllEmployees()
     return employeeList;
 }
 
+unsigned int CrudEmployee::getEmployeeIdByName(const QString& name)
+{
+    QSqlQuery query;
+    query.prepare("SELECT id FROM employees WHERE name = :name");
+    query.bindValue(":name", name);
+    query.exec();
+    if (query.next()) {
+        return query.value(0).toUInt();
+    }
+    return 0; // Return 0 if employee not found (handle this case accordingly)
+}
+
+
 QVariant CrudEmployee::getFieldByIndex(int index) const
 {
     switch (index)
