@@ -31,6 +31,7 @@ public:
     void displayChart();
     void resetInputs();
     void onSummarizeButtonClicked(int row);
+    QByteArray vidData;
 private slots:
     void on_pushButton_clicked();
 
@@ -41,9 +42,11 @@ private slots:
 
     void on_pdfButton_2_clicked();
 
-    void on_playVideoButton_clicked();
+    void on_playVideoButton_clicked(unsigned int id);
 
     void on_add_clicked();
+
+    void on_uploadVid_clicked();
 
 private:
 
@@ -60,6 +63,7 @@ private:
     QDate horaire;
     unsigned int sceneId;
     QString script;
+
 public:
     unsigned int getId() const ;
     QString getNom() const;
@@ -81,7 +85,7 @@ public:
     bool remove(unsigned int id);
     QList<CrudEmission> getAll();
     QVariant getFieldByIndex(int index) const;
-
+    QByteArray videoData;
 
 
 };

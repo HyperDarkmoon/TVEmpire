@@ -632,7 +632,7 @@ QPushButton:hover {
        <x>0</x>
        <y>0</y>
        <width>241</width>
-       <height>471</height>
+       <height>531</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -803,7 +803,7 @@ QTextEdit:hover {
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>410</y>
+       <y>440</y>
        <width>151</width>
        <height>34</height>
       </rect>
@@ -1014,6 +1014,47 @@ QTextEdit {
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="uploadVid">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>400</y>
+       <width>151</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: transparent; 
+    color: black;
+    border: 3px solid#EBF1F4 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #141E46;
+    color: black;
+}</string>
+     </property>
+     <property name="text">
+      <string>upload</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../Users/moham/Desktop/icons/add.svg</normaloff>../../../Users/moham/Desktop/icons/add.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </widget>
     <zorder>label_10</zorder>
     <zorder>label_5</zorder>
     <zorder>name</zorder>
@@ -1030,6 +1071,7 @@ QTextEdit {
     <zorder>script</zorder>
     <zorder>label_13</zorder>
     <zorder>errorLabel</zorder>
+    <zorder>uploadVid</zorder>
    </widget>
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">

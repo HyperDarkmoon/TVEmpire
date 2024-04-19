@@ -29,17 +29,24 @@ public:
     {
         if (GeminiDialog->objectName().isEmpty())
             GeminiDialog->setObjectName(QStringLiteral("GeminiDialog"));
-        GeminiDialog->resize(923, 496);
+        GeminiDialog->resize(1249, 654);
         label = new QLabel(GeminiDialog);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(140, 110, 671, 331));
-        label->setStyleSheet(QLatin1String("background:black;\n"
-"color : white;"));
+        label->setGeometry(QRect(140, 110, 1061, 521));
+        label->setStyleSheet(QLatin1String("background:white;\n"
+"color : black;\n"
+"border : 1px solid black;\n"
+"border-radius: 95%"));
+        label->setTextFormat(Qt::RichText);
+        label->setWordWrap(true);
         inputLabel = new QLabel(GeminiDialog);
         inputLabel->setObjectName(QStringLiteral("inputLabel"));
-        inputLabel->setGeometry(QRect(140, 10, 671, 91));
-        inputLabel->setStyleSheet(QLatin1String("background:black;\n"
-"color : white;"));
+        inputLabel->setGeometry(QRect(140, 10, 1051, 91));
+        inputLabel->setStyleSheet(QLatin1String("background:white;\n"
+"color : black;\n"
+"border : 1px solid black;\n"
+"border-radius: 95%;"));
+        inputLabel->setWordWrap(true);
 
         retranslateUi(GeminiDialog);
 

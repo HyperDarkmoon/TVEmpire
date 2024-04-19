@@ -8,6 +8,8 @@
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
 #include <QtCharts/QChart>
+#include <QFileDialog>
+#include <QByteArray>
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Emission), edit(new EmissionEdit),Gemini(new GeminiDialog)
@@ -104,13 +106,14 @@ QString CrudEmission::getScript() const{
 bool CrudEmission::create(CrudEmission e)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO emissions (id,nom, genre, horaire, idscene,script) VALUES (emission_seq.NEXTVAL, :nom, :genre, :horaire, :scene_id, :script)");
+    query.prepare("INSERT INTO emissions (id,nom, genre, horaire, idscene,script,VIDEODATA) VALUES (emission_seq.NEXTVAL, :nom, :genre, :horaire, :scene_id, :script,:vid)");
     query.bindValue(":id", e.getId());
     query.bindValue(":nom", e.getNom());
     query.bindValue(":genre", e.getGenre());
     query.bindValue(":horaire", e.getHoraire());
     query.bindValue(":scene_id", e.getSceneId());
     query.bindValue(":script",e.getScript());
+    query.bindValue(":vid",e.videoData);
     return query.exec();
 }
 
@@ -157,7 +160,7 @@ void Emission::refreshTable()
     ui->tableWidget_2->clearContents();
     ui->tableWidget_2->setRowCount(0);
 
-    QStringList headers = {"ID", "Name", "Genre","Horaire","scene","script","delete","edit","summarize script"};
+    QStringList headers = {"ID", "Name", "Genre","Horaire","scene","script","delete","edit","summarize script","playVideo"};
     ui->tableWidget_2->setColumnCount(headers.size());
     ui->tableWidget_2->setHorizontalHeaderLabels(headers);
 
@@ -170,7 +173,7 @@ void Emission::refreshTable()
     for (int row = 0; row < emissionList.size(); ++row) {
         ui->tableWidget_2->insertRow(row);
 
-        for (int col = 0; col < headers.size() - 3; ++col) {  // Adjusted loop to skip the "Delete" and "Edit" columns
+        for (int col = 0; col < headers.size() - 4; ++col) {  // Adjusted loop to skip the "Delete" and "Edit" columns
             QString fieldData = emissionList.at(row).getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
             ui->tableWidget_2->setItem(row, col, item);
@@ -182,21 +185,30 @@ void Emission::refreshTable()
         connect(deleteButton, &QPushButton::clicked, [this, id]() {
             onDeleteButtonClicked(id);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 3, deleteButton);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 4, deleteButton);
 
         // Add "Edit" button for each row in the "Edit" column
         QPushButton *editButton = new QPushButton("Edit", this);
         connect(editButton, &QPushButton::clicked, [this, row]() {
             onEditButtonClicked(row);
         });
-        ui->tableWidget_2->setCellWidget(row, headers.size() - 2, editButton);
+        ui->tableWidget_2->setCellWidget(row, headers.size() - 3, editButton);
 
         // Add "summarize script button for row in the "Edit colum
         QPushButton *sumButton = new QPushButton("summarize",this);
         connect(sumButton,&QPushButton::clicked, [this,row] () {
             onSummarizeButtonClicked(row);
         });
-        ui->tableWidget_2->setCellWidget(row,headers.size() - 1 ,sumButton);
+        ui->tableWidget_2->setCellWidget(row,headers.size() - 2 ,sumButton);
+
+        // Add Play video Button
+        QPushButton *videoButton = new QPushButton("play",this);
+        connect(videoButton,&QPushButton::clicked,[this,id]
+        {
+            on_playVideoButton_clicked(id);
+
+        });
+        ui->tableWidget_2->setCellWidget(row,headers.size() - 1, videoButton);
     }
 }
 
@@ -351,13 +363,13 @@ void Emission::on_pdfButton_2_clicked()
 
 #include "videoplayerdialog.h"
 
-void Emission::on_playVideoButton_clicked() {
+void Emission::on_playVideoButton_clicked(unsigned int id) {
     // Replace "path_to_your_video.mp4" with the actual path to your video file
     QString videoFilePath = "D:\\Movies\\Batman The Dark Knight (2008) [1080p]\\Batman.The.Dark.Knight.2008.1080p.BluRay.x264.YIFY.mp4";
 
 
     VideoPlayerDialog dialog(this);
-    dialog.playVideo(videoFilePath);
+    dialog.playVideo(id);
     dialog.exec();  // Show the dialog modally
 }
 
@@ -391,6 +403,7 @@ void Emission::on_add_clicked()
     c.setHoraire(horaire);
     c.setSceneId(ui->scene->currentText().toUInt());
     c.setScript(ui->script->text());
+    c.videoData = vidData;
     c.create(c);
     resetInputs();
     refreshTable();
@@ -420,4 +433,25 @@ void Emission::onSummarizeButtonClicked(int row){
     script= ui->tableWidget_2->item(row,5)->text();
     Gemini->setData(script);
     Gemini->show();
+}
+
+void Emission::on_uploadVid_clicked()
+{
+    QString filePath = QFileDialog::getOpenFileName(this, "Select Video", "", "*.mp4");
+     if (filePath.isEmpty()) {
+       // Handle case where no file is selected
+       return;
+     }
+
+     // Read video data into a byte array
+     QFile videoFile(filePath);
+     if (!videoFile.open(QIODevice::ReadOnly)) {
+       // Handle file opening error
+       return;
+     }
+     QByteArray videoData = videoFile.readAll();
+     videoFile.close();
+
+     // Now you have the video data as a byte array, proceed to upload it to the database
+    vidData = videoData;
 }

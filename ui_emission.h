@@ -47,6 +47,7 @@ public:
     QLineEdit *script;
     QLabel *label_13;
     QLabel *errorLabel;
+    QPushButton *uploadVid;
     QWidget *widget;
     QPushButton *pushButton_3;
     QLabel *label_6;
@@ -259,7 +260,7 @@ public:
 "}"));
         label_5 = new QLabel(widget_2);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(0, 0, 241, 471));
+        label_5->setGeometry(QRect(0, 0, 241, 531));
         label_5->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black;\n"
@@ -345,7 +346,7 @@ public:
         label_10->setStyleSheet(QStringLiteral("color: black"));
         add = new QPushButton(widget_2);
         add->setObjectName(QStringLiteral("add"));
-        add->setGeometry(QRect(30, 410, 151, 34));
+        add->setGeometry(QRect(30, 440, 151, 34));
         add->setStyleSheet(QLatin1String("QPushButton {\n"
 "    background-color: transparent; \n"
 "    color: black;\n"
@@ -452,6 +453,27 @@ public:
         errorLabel->setObjectName(QStringLiteral("errorLabel"));
         errorLabel->setGeometry(QRect(20, 450, 161, 21));
         errorLabel->setStyleSheet(QStringLiteral("color: red;"));
+        uploadVid = new QPushButton(widget_2);
+        uploadVid->setObjectName(QStringLiteral("uploadVid"));
+        uploadVid->setGeometry(QRect(30, 400, 151, 34));
+        uploadVid->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#EBF1F4 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #141E46;\n"
+"    color: black;\n"
+"}"));
+        uploadVid->setIcon(icon1);
+        uploadVid->setIconSize(QSize(20, 20));
         label_10->raise();
         label_5->raise();
         name->raise();
@@ -468,6 +490,7 @@ public:
         script->raise();
         label_13->raise();
         errorLabel->raise();
+        uploadVid->raise();
         widget = new QWidget(employeeContainer);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(-10, 150, 61, 511));
@@ -1018,6 +1041,7 @@ public:
         label_12->setText(QApplication::translate("Emission", "scene", Q_NULLPTR));
         label_13->setText(QApplication::translate("Emission", "script", Q_NULLPTR));
         errorLabel->setText(QString());
+        uploadVid->setText(QApplication::translate("Emission", "upload", Q_NULLPTR));
         pushButton_3->setText(QString());
         label_6->setText(QString());
         tempLabel->setText(QString());
