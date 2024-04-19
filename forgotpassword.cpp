@@ -41,6 +41,7 @@ void ForgotPassword::on_pushButton_clicked()
     bool test = smtp.sendMail(message);
     if (test) {
         qDebug() << "Success";
+        this->close();
     } else {
         qDebug() << "failure";
     }

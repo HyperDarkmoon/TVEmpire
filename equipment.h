@@ -47,8 +47,6 @@ private:
     Ui::Equipment *ui;
     addEquipment *addE;
     Affectation *affecter;
-
-
 };
 
 #endif // EQUIPMENT_H

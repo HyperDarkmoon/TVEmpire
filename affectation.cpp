@@ -125,6 +125,6 @@ void Affectation::on_pushButton_clicked()
     // Create affectation with retrieved IDs
     CrudAffectation crudAffect(empId, equipId);
     crudAffect.addAffectation();
-
+    emit affectationAdded();
     this->close();
 }

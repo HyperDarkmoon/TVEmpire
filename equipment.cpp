@@ -26,7 +26,6 @@ Equipment::Equipment(QWidget *parent) : QWidget(parent),
     connect(addE, &addEquipment::buttonClicked, this, &Equipment::onAddEmissionDialogClosed);
     connect(ui->pdfButton_4, &QPushButton::clicked, this, &Equipment::on_pdfButton_4_clicked);
     connect(ui->search_input, &QLineEdit::textChanged, this, &Equipment::filterTable);
-
     refreshTable();
 }
 

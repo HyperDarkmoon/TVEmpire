@@ -53,7 +53,37 @@ public:
         label_3->setGeometry(QRect(90, 120, 71, 31));
         pushButton = new QPushButton(ForgotPassword);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(190, 240, 191, 31));
+        pushButton->setGeometry(QRect(190, 240, 191, 51));
+        pushButton->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #141E46;\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"/* Pressed effect */\n"
+"QPushButton:pressed {\n"
+"    background-color: #141E46;\n"
+"    border: 2px solid #141E46;\n"
+"    padding: 9px 19px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"/* Checked effect */\n"
+"QPushButton:checked {\n"
+"    background-color: #64a1c2; /* Your desired color */\n"
+"    border: none; /* Remove the border if needed */\n"
+"}"));
 
         retranslateUi(ForgotPassword);
 

@@ -189,9 +189,6 @@ void ChatBox::on_SendButton_2_clicked()
     QString sender = currentUser;
     QString receiver = ui->Users_2->currentItem()->text();
     QString message = ui->MessageLine_2->toPlainText();
-    qDebug() << "Sender:" << sender;
-    qDebug() << "Receiver:" << receiver;
-    qDebug() << "Message:" << message;
     ChatCrud chat(0, sender, receiver, message);
     chat.createMessage(chat);
     ui->MessageLine_2->clear();

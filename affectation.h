@@ -25,6 +25,8 @@ private slots:
 
 private:
     Ui::Affectation *ui;
+signals:
+    void affectationAdded();
 };
 
 class CrudAffectation {
