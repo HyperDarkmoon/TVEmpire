@@ -8,6 +8,7 @@ ChatBox::ChatBox(QWidget *parent) :
     ui(new Ui::ChatBox)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Chat Room");
     refreshUserList();
     connect(ui->Users_2, &QListWidget::itemSelectionChanged, this, &ChatBox::onUserSelectionChanged);
 }
