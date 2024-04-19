@@ -2,7 +2,7 @@
 #include "ui_addequipment.h"
 #include "crudequipment.h"
 #include <QDebug>
-#include <QFileDialog>  // Include QFileDialog header
+#include <QFileDialog>
 #include <QBuffer>
 #include <QIODevice>
 
@@ -24,7 +24,7 @@ addEquipment::~addEquipment()
 void addEquipment::on_buttonBox_accepted()
 {
     // Get the image data from the QLabel
-    QPixmap pixmap = ui->imageLabel->pixmap()->scaled(100, 100, Qt::KeepAspectRatio);
+    QPixmap pixmap = ui->imageLabel->pixmap()->scaled(25, 25, Qt::KeepAspectRatio);
     QByteArray byteArray;
     QBuffer buffer(&byteArray);
     buffer.open(QIODevice::WriteOnly);
@@ -44,6 +44,6 @@ void addEquipment::on_selectImageButton_clicked()
 
     if (!imagePath.isEmpty()) {
         QPixmap pixmap(imagePath);
-        imageLabel->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio));
+        imageLabel->setPixmap(pixmap.scaled(25, 25, Qt::KeepAspectRatio));
     }
 }

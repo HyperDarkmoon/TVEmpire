@@ -17,6 +17,7 @@ RESOURCES += resource.qrc
 SOURCES += \
     addemission.cpp \
     addemployee.cpp \
+    affectation.cpp \
     chatbox.cpp \
     contract.cpp \
     crudequipment.cpp \
@@ -57,6 +58,7 @@ SOURCES += \
 HEADERS += \
     addemission.h \
     addemployee.h \
+    affectation.h \
     chatbox.h \
     contract.h \
     crudequipment.h \
@@ -98,6 +100,7 @@ HEADERS += \
 FORMS += \
     addemission1.ui \
     addemployee.ui \
+    affectation.ui \
     chatbox.ui \
     contract.ui \
     emission.ui \

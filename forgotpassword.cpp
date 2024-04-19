@@ -33,7 +33,6 @@ void ForgotPassword::on_pushButton_clicked()
 
     text.setText("Hi,\nYou requested your password.\nYour login is : "+login+"\nand your password is : "+password+"\n");
 
-
     message.addPart(&text);
 
 

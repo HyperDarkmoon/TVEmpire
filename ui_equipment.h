@@ -57,6 +57,7 @@ public:
     QWidget *result_widget;
     QTableWidget *tableWidget_2;
     QWidget *webWidget;
+    QPushButton *Affecter;
 
     void setupUi(QWidget *Equipment)
     {
@@ -66,7 +67,7 @@ public:
         Equipment->setAutoFillBackground(true);
         equipement = new QWidget(Equipment);
         equipement->setObjectName(QStringLiteral("equipement"));
-        equipement->setGeometry(QRect(-30, 10, 1471, 771));
+        equipement->setGeometry(QRect(-30, 0, 1471, 771));
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -734,6 +735,9 @@ public:
         webWidget = new QWidget(equipement);
         webWidget->setObjectName(QStringLiteral("webWidget"));
         webWidget->setGeometry(QRect(90, 449, 261, 231));
+        Affecter = new QPushButton(equipement);
+        Affecter->setObjectName(QStringLiteral("Affecter"));
+        Affecter->setGeometry(QRect(730, 60, 101, 31));
         widget_3->raise();
         Label->raise();
         Labelequipment->raise();
@@ -746,6 +750,7 @@ public:
         widget_4->raise();
         result_widget->raise();
         webWidget->raise();
+        Affecter->raise();
 
         retranslateUi(Equipment);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -780,6 +785,7 @@ public:
         pdfButton_4->setText(QApplication::translate("Equipment", "stats", Q_NULLPTR));
         search_input->setPlaceholderText(QApplication::translate("Equipment", "Search...", Q_NULLPTR));
         label_15->setText(QString());
+        Affecter->setText(QApplication::translate("Equipment", "Affecter", Q_NULLPTR));
     } // retranslateUi
 
 };

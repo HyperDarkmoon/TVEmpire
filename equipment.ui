@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>-30</x>
-     <y>10</y>
+     <y>0</y>
      <width>1471</width>
      <height>771</height>
     </rect>
@@ -2206,6 +2206,19 @@ QTableWidget::item:selected {
      </rect>
     </property>
    </widget>
+   <widget class="QPushButton" name="Affecter">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>60</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Affecter</string>
+    </property>
+   </widget>
    <zorder>widget_3</zorder>
    <zorder>Label</zorder>
    <zorder>Labelequipment</zorder>
@@ -2218,6 +2231,7 @@ QTableWidget::item:selected {
    <zorder>widget_4</zorder>
    <zorder>result_widget</zorder>
    <zorder>webWidget</zorder>
+   <zorder>Affecter</zorder>
   </widget>
  </widget>
  <resources/>

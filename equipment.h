@@ -5,7 +5,9 @@
 #include "addequipment.h"
 #include "pdfexport.h"
 #include "chatbox.h"
-
+#include <QLabel>
+#include <QMouseEvent>
+#include "sponsor.h"
 namespace Ui {
 class Equipment;
 }
@@ -36,6 +38,8 @@ private slots:
     void on_amazon_clicked();
 
     void on_visual_impact_clicked();
+
+    void on_Affecter_clicked();
 
 private:
     Ui::Equipment *ui;

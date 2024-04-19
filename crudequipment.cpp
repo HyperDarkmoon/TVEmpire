@@ -77,6 +77,7 @@ void CRUDequipment::addEquipment() {
     }
 }
 
+
 void CRUDequipment::readEquipment() {
     QSqlQuery query;
     query.prepare("SELECT * FROM equipement WHERE id = :id");

@@ -11,6 +11,7 @@
 #include <QDate>
 #include "../smtp/src/SmtpMime"
 #include <QSslSocket>
+#include <QPrinter>
 
 namespace Ui {
 class Contract;
@@ -24,13 +25,20 @@ public:
     explicit Contract(QWidget *parent = nullptr);
     ~Contract();
     QString getEmailFromSponsorId(int idSponsor);
-    void sendEmail(const QString& recipientEmail, const QString& subject, const QString& body); // Declaration of sendEmail function
+    void sendEmailWithAttachment(const QString& recipientEmail, const QString& subject, const QString& body, const QByteArray& attachmentData, const QString& attachmentName); // Declaration of sendEmail function
     void refreshTable();
     void onSendEmailButtonClicked(int idSponsor,int row);
     void onDeleteButtonClicked(int idSponsor, int idEmission);
     void filterTable(const QString &text);
     void displayChart();
     void onEditButtonClicked(int idSponsor, int idEmission,int row);
+    // Declaration of getQRCodeFromDatabase function
+       QPixmap getQRCodeFromDatabase(unsigned int sponsorId);
+       // Declaration of exportPDF function
+       void exportPDF(unsigned int idSponsor, unsigned int idEmission);
+       // Declaration of drawContractDetails function
+       void drawContractDetails(QPainter & painter, const QStringList & textList, int verticalPosition, int & horizontalPosition, const QPrinter & printer);
+       QStringList splitText(const QString& text, const QFontMetrics& metrics, int maxWidth);
 private slots:
     void on_pushButton_clicked();
     void on_add_btn_2_clicked();
