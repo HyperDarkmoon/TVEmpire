@@ -4,7 +4,7 @@
 #include "employee.h"
 #include <QMessageBox>
 #include "usersession.h"
-#include "arduino.h"
+
 Form2::Form2(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Form2),
@@ -26,10 +26,7 @@ void Form2::authenticate()
 {
     QString username = ui->lineEdit->text();
     QString password = ui->lineEdit_2->text();
-    Arduino a;
-    a.connect_arduino();
-    qDebug() << a.getarduino_port_name() << "\n\n\n       " ;
-    QByteArray data = a.read_from_arduino();
+
     CrudEmployee employee; // Create an object of CrudEmployee
     QList<CrudEmployee> employees = employee.getAllEmployees(); // Call non-static member function on the object
     bool authenticated = false;

@@ -392,7 +392,7 @@ public:
 "    border: 3px solid #141E46;\n"
 "    color: black;\n"
 "}"));
-        uploadVid->setIcon(icon1);
+        uploadVid->setIcon(icon);
         uploadVid->setIconSize(QSize(20, 20));
         label_10->raise();
         label_5->raise();

@@ -4,7 +4,7 @@
 #include <QWidget>
 #include "mainwindow.h"
 #include "forgotpassword.h"
-
+#include "arduino.h"
 namespace Ui {
 class Form2;
 }
