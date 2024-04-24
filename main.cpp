@@ -10,7 +10,7 @@
 //#include "mailing.h"
 #include "../smtp/src/SmtpMime"
 #include "employee.h"
-
+#include <arduino.h>
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
     dbconnection db;

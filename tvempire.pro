@@ -1,5 +1,5 @@
 QT += core gui widgets network charts multimedia multimediawidgets
-QT += core gui widgets network printsupport
+QT += core gui widgets network printsupport serialport
 
 
 
@@ -18,6 +18,7 @@ SOURCES += \
     addemission.cpp \
     addemployee.cpp \
     affectation.cpp \
+    arduino.cpp \
     chatbox.cpp \
     contract.cpp \
     crudequipment.cpp \
@@ -59,6 +60,7 @@ HEADERS += \
     addemission.h \
     addemployee.h \
     affectation.h \
+    arduino.h \
     chatbox.h \
     contract.h \
     crudequipment.h \

@@ -10,6 +10,7 @@
 #include <QtCharts/QChart>
 #include <QFileDialog>
 #include <QByteArray>
+
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Emission), edit(new EmissionEdit),Gemini(new GeminiDialog)
