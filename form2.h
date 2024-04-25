@@ -1,10 +1,12 @@
-#ifndef LOGIN_H
-#define LOGIN_H
+#ifndef FORM2_H
+#define FORM2_H
 
 #include <QWidget>
-#include "mainwindow.h"
-#include "forgotpassword.h"
+#include <QTimer>
 #include "arduino.h"
+#include "mainwindow.h" // Include the MainWindow header file
+#include "forgotpassword.h"
+
 namespace Ui {
 class Form2;
 }
@@ -12,24 +14,27 @@ class Form2;
 class Form2 : public QWidget
 {
     Q_OBJECT
-signals:
-    void authenticationSuccessful();
+
 public:
     explicit Form2(QWidget *parent = nullptr);
     ~Form2();
-    void authenticate();
+
 private slots:
+    void authenticate();
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
-
     void on_forgotPushButton_clicked();
+    void checkForScannedCard();
+
+signals:
+    void authenticationSuccessful();
 
 private:
-    ForgotPassword forgotDialog;
     Ui::Form2 *ui;
+    ForgotPassword forgotDialog;
     MainWindow *mainWindow;
-
+    Arduino *arduino;
+    QTimer *cardCheckTimer;
 };
 
-#endif // LOGIN_H
+#endif // FORM2_H

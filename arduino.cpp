@@ -1,12 +1,17 @@
 #include "arduino.h"
 #include <QtSerialPort/QtSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
+#include <QDebug>
 
 Arduino::Arduino() {
     data = "";
     arduinoPortName = "";
     arduinoIsAvailable = false;
     serial = new QSerialPort;
+}
+
+Arduino::~Arduino() {
+    delete serial;
 }
 
 QString Arduino::getArduinoPortName() {
@@ -18,6 +23,11 @@ QSerialPort* Arduino::getSerial() {
 }
 
 int Arduino::connectArduino() {
+    if (!serial) {
+        qDebug() << "Serial port is null!";
+        return -1;
+    }
+
     foreach (const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()) {
         if (serialPortInfo.hasVendorIdentifier() && serialPortInfo.hasProductIdentifier()) {
             if (serialPortInfo.vendorIdentifier() == arduinoUnoVendorId && serialPortInfo.productIdentifier() == arduinoUnoProductId) {
@@ -26,7 +36,9 @@ int Arduino::connectArduino() {
             }
         }
     }
+
     qDebug() << "Arduino port name is: " << arduinoPortName;
+    
     if (arduinoIsAvailable) {
         serial->setPortName(arduinoPortName);
         if (serial->open(QSerialPort::ReadWrite)) {
@@ -50,14 +62,14 @@ int Arduino::closeArduino() {
     return 1;
 }
 
-QByteArray Arduino::readFromArduino() {
+void Arduino::readFromArduino() {
     if (serial->isReadable()) {
         data = serial->readAll(); // Retrieve received data
-        return data;
+        qDebug() << "RFID Card scanned: " << data;
     }
 }
 
-int Arduino::writeToArduino(QByteArray d) {
+void Arduino::writeToArduino(const QByteArray &d) {
     if (serial->isWritable()) {
         serial->write(d); // Send data to Arduino
     } else {

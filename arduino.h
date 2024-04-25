@@ -9,21 +9,21 @@ class Arduino
 {
 public:
     Arduino();
-    int connectArduino(); // Connects the PC to Arduino
-    int closeArduino();   // Closes the connection
-    int writeToArduino(QByteArray); // Sends data to Arduino
-    QByteArray readFromArduino();    // Receives data from the Arduino board
-    QSerialPort* getSerial();        // Accessor
+    ~Arduino(); // Destructor added
+    int connectArduino();
+    int closeArduino();
+    void writeToArduino(const QByteArray &data); // Parameter changed to const reference
+    void readFromArduino(); // Return type changed to void
+    QSerialPort* getSerial();
     QString getArduinoPortName();
 
 private:
-    QSerialPort* serial; // This object contains information (speed, data bits, etc.)
-                         // and functions (send, receive read, etc.) about what a serial port is for Arduino.
+    QSerialPort* serial;
     static const quint16 arduinoUnoVendorId = 9025;
     static const quint16 arduinoUnoProductId = 67;
     QString arduinoPortName;
     bool arduinoIsAvailable;
-    QByteArray data; // Contains data read from Arduino
+    QByteArray data;
 };
 
 #endif // ARDUINO_H
