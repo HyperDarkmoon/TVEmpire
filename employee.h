@@ -46,7 +46,7 @@ private:
 class CrudEmployee
 {
 public:
-    CrudEmployee(unsigned int id = 0, QString name = "", QString lastName = "", QString post = "", unsigned int salary = 0, QTime startTime = QTime(), QTime endTime = QTime(), QString login = "", QString password = "", QDate dob = QDate(), QString gender = "");
+    CrudEmployee(unsigned int id = 0, QString name = "", QString lastName = "", QString post = "", unsigned int salary = 0, QTime startTime = QTime(), QTime endTime = QTime(), QString login = "", QString password = "", QDate dob = QDate(), QString gender = "", QString status = "Absent");
     void setId(unsigned int id);
     unsigned int getId() const;
 
@@ -81,6 +81,9 @@ public:
     void setGender(QString gender);
     QString getGender() const;
 
+    void setStatus(QString status);
+    QString getStatus() const;
+
     bool createEmployee(CrudEmployee emp);
     CrudEmployee getEmployee(unsigned int id);
     CrudEmployee getEmployeeByLogin(QString login);
@@ -101,6 +104,7 @@ private:
     QString login;
     QDate dob;
     QString gender;
+    QString status;
 };
 
 #endif // EMPLOYEE_H

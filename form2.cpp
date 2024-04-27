@@ -37,7 +37,12 @@ void Form2::authenticate()
 {
     QString username = ui->lineEdit->text();
         QString password = ui->lineEdit_2->text();
-
+        qDebug() << "rfid memes" << lastScannedRFID;
+        if (lastScannedRFID == "E3 64 7E 2E") {
+                username = "admeen";
+                password = "admeen";
+                qDebug() << "Pass from Card";
+            }
         CrudEmployee employee; // Create an object of CrudEmployee
         QList<CrudEmployee> employees = employee.getAllEmployees(); // Call non-static member function on the object
         bool authenticated = false;
@@ -55,11 +60,13 @@ void Form2::authenticate()
         }
 
         if (authenticated) {
-            emit authenticationSuccessful(); // Emit signal upon successful authentication
-            this->close(); // Close the login form
-        } else {
-            QMessageBox::warning(this, "Authentication Failed", "Invalid username or password.");
-        }
+              // Disconnect the timeout() signal of cardCheckTimer from checkForScannedCard()
+              disconnect(cardCheckTimer, &QTimer::timeout, this, &Form2::checkForScannedCard);
+              emit authenticationSuccessful(); // Emit signal upon successful authentication
+              this->close(); // Close the login form
+          } else {
+              QMessageBox::warning(this, "Authentication Failed", "Invalid username or password.");
+          }
 }
 
 void Form2::on_pushButton_clicked()
@@ -80,4 +87,9 @@ void Form2::on_forgotPushButton_clicked()
 void Form2::checkForScannedCard()
 {
     arduino->readFromArduino();
+    qDebug() << "rfid memes 2" << lastScannedRFID << "?";
+    if (lastScannedRFID == "E3 64 7E 2E") {
+           // Call authenticate() method to proceed with authentication
+           authenticate();
+       }
 }

@@ -25,6 +25,7 @@ private slots:
     void on_pushButton_2_clicked();
     void on_forgotPushButton_clicked();
     void checkForScannedCard();
+    void handleRFIDScan(const QString &rfidData);
 
 signals:
     void authenticationSuccessful();
@@ -35,6 +36,7 @@ private:
     MainWindow *mainWindow;
     Arduino *arduino;
     QTimer *cardCheckTimer;
+    QString lastScannedRFID;
 };
 
 #endif // FORM2_H

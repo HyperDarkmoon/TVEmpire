@@ -218,7 +218,7 @@ void Employee::on_add_btn_2_clicked()
     // Proceed with creating the employee if fields are not empty and password is valid
     CrudEmployee emp(0, ui->name->text(), ui->lastname->text(), ui->post->currentText(), ui->salary->text().toUInt(),
                      ui->starttime->time(), ui->endtime->time(), ui->login->text(), ui->password->text(),
-                     ui->dob->date(), ui->gender->currentText());
+                     ui->dob->date(), ui->gender->currentText(), "Absent");
 
     bool check = emp.createEmployee(emp);
     if (check)
@@ -233,7 +233,7 @@ void Employee::on_add_btn_3_clicked()
     refreshTable();
 }
 
-CrudEmployee::CrudEmployee(unsigned int id, QString name, QString lastName, QString post, unsigned int salary, QTime startTime, QTime endTime, QString login, QString password, QDate dob, QString gender)
+CrudEmployee::CrudEmployee(unsigned int id, QString name, QString lastName, QString post, unsigned int salary, QTime startTime, QTime endTime, QString login, QString password, QDate dob, QString gender, QString status)
 {
     this->id = id;
     this->CrudEmployeeName = name;
@@ -246,6 +246,7 @@ CrudEmployee::CrudEmployee(unsigned int id, QString name, QString lastName, QStr
     this->password = password;
     this->dob = dob;
     this->gender = gender;
+    this->status = status;
 }
 
 void CrudEmployee::setId(unsigned int id)
@@ -358,10 +359,20 @@ QString CrudEmployee::getGender() const
     return gender;
 }
 
+void CrudEmployee::setStatus(QString status)
+{
+    this->status = status;
+}
+
+QString CrudEmployee::getStatus() const
+{
+    return status;
+}
+
 bool CrudEmployee::createEmployee(CrudEmployee emp)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO employees (id, name, last_name, post, salary, start_time, end_time, password, login, dob, gender) VALUES (employee_seq.NEXTVAL, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob, :gender)");
+    query.prepare("INSERT INTO employees (id, name, last_name, post, salary, start_time, end_time, password, login, dob, gender, status) VALUES (employee_seq.NEXTVAL, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob, :gender, :status)");
     query.bindValue(":name", emp.getEmployeeName());
     query.bindValue(":last_name", emp.getEmployeeLastName());
     query.bindValue(":post", emp.getPost());
@@ -372,6 +383,7 @@ bool CrudEmployee::createEmployee(CrudEmployee emp)
     query.bindValue(":login", emp.getLogin());
     query.bindValue(":dob", emp.getDob());
     query.bindValue(":gender", emp.getGender());
+    query.bindValue(":status", emp.getStatus());
 
     if (!query.exec())
     {
@@ -408,6 +420,7 @@ CrudEmployee CrudEmployee::getEmployee(unsigned int id)
         emp.setLogin(query.value(8).toString());
         emp.setDob(query.value(9).toDate());
         emp.setGender(query.value(10).toString());
+        emp.setStatus(query.value(11).toString());
     }
     return emp;
 }
@@ -432,6 +445,7 @@ CrudEmployee CrudEmployee::getEmployeeByLogin(QString login)
         emp.setLogin(query.value(8).toString());
         emp.setDob(query.value(9).toDate());
         emp.setGender(query.value(10).toString());
+        emp.setStatus(query.value(11).toString());
     }
     return emp;
 }
@@ -461,6 +475,7 @@ QList<CrudEmployee> CrudEmployee::getAllEmployees()
         emp.setLogin(query.value(8).toString());
         emp.setDob(query.value(9).toDate());
         emp.setGender(query.value(10).toString());
+        emp.setStatus(query.value(11).toString());
 
         employeeList.append(emp); // Add the object to the list
     }
@@ -506,6 +521,8 @@ QVariant CrudEmployee::getFieldByIndex(int index) const
         return getDob();
     case 10:
         return getGender();
+    case 11:
+        return getStatus();
     default:
         return QVariant();
     }
@@ -515,7 +532,7 @@ bool CrudEmployee::updateEmployee(unsigned int idToUpdate, CrudEmployee emp)
 {
     QSqlQuery query;
     qDebug() << "editing id: " << getId();
-    query.prepare("UPDATE employees SET id = :newId, name = :name, last_name = :last_name, post = :post, salary = :salary, start_time = :start_time, end_time = :end_time, password = :password, login = :login, dob = :dob, gender = :gender WHERE id = :id");
+    query.prepare("UPDATE employees SET id = :newId, name = :name, last_name = :last_name, post = :post, salary = :salary, start_time = :start_time, end_time = :end_time, password = :password, login = :login, dob = :dob, gender = :gender WHERE id = :id, status = :status");
     query.bindValue(":newId", emp.getId()); // New employee ID
     query.bindValue(":id", idToUpdate);     // ID to update
     query.bindValue(":name", emp.getEmployeeName());
@@ -528,6 +545,7 @@ bool CrudEmployee::updateEmployee(unsigned int idToUpdate, CrudEmployee emp)
     query.bindValue(":login", emp.getLogin());
     query.bindValue(":dob", emp.getDob());
     query.bindValue(":gender", emp.getGender());
+    query.bindValue(":status", emp.getStatus());
     return query.exec();
 }
 
