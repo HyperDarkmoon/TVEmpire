@@ -62,20 +62,25 @@ int Arduino::closeArduino() {
     return 1;
 }
 
-void Arduino::readFromArduino() {
+QString Arduino::readFromArduino() {
+    QString receivedData;
+
     if (serial->isReadable()) {
         QByteArray requestData = serial->readAll(); // Read data from the Arduino
 
         // Assuming the Arduino sends RFID data in a specific format (e.g., "E3 64 7E 2E")
-        QString receivedData = QString::fromUtf8(requestData).trimmed(); // Convert to QString and remove whitespace
+        receivedData = QString::fromUtf8(requestData).trimmed(); // Convert to QString and remove whitespace
 
         if (!receivedData.isEmpty()) {
             qDebug() << "RFID Card scanned:" << receivedData;
 
-            // Here you can emit a signal with the scanned RFID data
+            // Emit a signal with the scanned RFID data if needed
         }
     }
+
+    return receivedData;
 }
+
 
 void Arduino::writeToArduino(const QByteArray &d) {
     if (serial->isWritable()) {

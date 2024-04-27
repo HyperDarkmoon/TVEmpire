@@ -13,7 +13,8 @@ public:
     int connectArduino();
     int closeArduino();
     void writeToArduino(const QByteArray &data); // Parameter changed to const reference
-    void readFromArduino(); // Return type changed to void
+    QString readFromArduino();
+     // Return type changed to void
     QSerialPort* getSerial();
     QString getArduinoPortName();
 

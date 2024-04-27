@@ -20,7 +20,7 @@ public:
     ~Form2();
 
 private slots:
-    void authenticate();
+    void authenticate(QString arduinoAuth = "");
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void on_forgotPushButton_clicked();
