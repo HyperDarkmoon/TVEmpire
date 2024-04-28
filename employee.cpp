@@ -218,7 +218,7 @@ void Employee::on_add_btn_2_clicked()
     // Proceed with creating the employee if fields are not empty and password is valid
     CrudEmployee emp(0, ui->name->text(), ui->lastname->text(), ui->post->currentText(), ui->salary->text().toUInt(),
                      ui->starttime->time(), ui->endtime->time(), ui->login->text(), ui->password->text(),
-                     ui->dob->date(), ui->gender->currentText(), "Absent");
+                     ui->dob->date(), ui->gender->currentText(), "Absent", "");
 
     bool check = emp.createEmployee(emp);
     if (check)
@@ -233,7 +233,7 @@ void Employee::on_add_btn_3_clicked()
     refreshTable();
 }
 
-CrudEmployee::CrudEmployee(unsigned int id, QString name, QString lastName, QString post, unsigned int salary, QTime startTime, QTime endTime, QString login, QString password, QDate dob, QString gender, QString status)
+CrudEmployee::CrudEmployee(unsigned int id, QString name, QString lastName, QString post, unsigned int salary, QTime startTime, QTime endTime, QString login, QString password, QDate dob, QString gender, QString status, QString rfidAuth)
 {
     this->id = id;
     this->CrudEmployeeName = name;
@@ -247,6 +247,7 @@ CrudEmployee::CrudEmployee(unsigned int id, QString name, QString lastName, QStr
     this->dob = dob;
     this->gender = gender;
     this->status = status;
+    this->rfidAuth = rfidAuth;
 }
 
 void CrudEmployee::setId(unsigned int id)
@@ -369,10 +370,20 @@ QString CrudEmployee::getStatus() const
     return status;
 }
 
+void CrudEmployee::setRfidAuth(QString rfidAuth)
+{
+    this->rfidAuth = rfidAuth;
+}
+
+QString CrudEmployee::getRfidAuth() const
+{
+    return rfidAuth;
+}
+
 bool CrudEmployee::createEmployee(CrudEmployee emp)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO employees (id, name, last_name, post, salary, start_time, end_time, password, login, dob, gender, status) VALUES (employee_seq.NEXTVAL, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob, :gender, :status)");
+    query.prepare("INSERT INTO employees (id, name, last_name, post, salary, start_time, end_time, password, login, dob, gender, status, rfid_auth) VALUES (employee_seq.NEXTVAL, :name, :last_name, :post, :salary, :start_time, :end_time, :password, :login, :dob, :gender, :status, :rfid_auth)");
     query.bindValue(":name", emp.getEmployeeName());
     query.bindValue(":last_name", emp.getEmployeeLastName());
     query.bindValue(":post", emp.getPost());
@@ -384,6 +395,7 @@ bool CrudEmployee::createEmployee(CrudEmployee emp)
     query.bindValue(":dob", emp.getDob());
     query.bindValue(":gender", emp.getGender());
     query.bindValue(":status", emp.getStatus());
+    query.bindValue(":rfid_auth", emp.getRfidAuth());
 
     if (!query.exec())
     {
@@ -421,6 +433,7 @@ CrudEmployee CrudEmployee::getEmployee(unsigned int id)
         emp.setDob(query.value(9).toDate());
         emp.setGender(query.value(10).toString());
         emp.setStatus(query.value(11).toString());
+        emp.setRfidAuth(query.value(12).toString());
     }
     return emp;
 }
@@ -446,6 +459,7 @@ CrudEmployee CrudEmployee::getEmployeeByLogin(QString login)
         emp.setDob(query.value(9).toDate());
         emp.setGender(query.value(10).toString());
         emp.setStatus(query.value(11).toString());
+        emp.setRfidAuth(query.value(12).toString());
     }
     return emp;
 }
@@ -476,6 +490,7 @@ QList<CrudEmployee> CrudEmployee::getAllEmployees()
         emp.setDob(query.value(9).toDate());
         emp.setGender(query.value(10).toString());
         emp.setStatus(query.value(11).toString());
+        emp.setRfidAuth(query.value(12).toString());
 
         employeeList.append(emp); // Add the object to the list
     }
@@ -523,6 +538,8 @@ QVariant CrudEmployee::getFieldByIndex(int index) const
         return getGender();
     case 11:
         return getStatus();
+    case 12:
+        return getRfidAuth();
     default:
         return QVariant();
     }
@@ -532,7 +549,7 @@ bool CrudEmployee::updateEmployee(unsigned int idToUpdate, CrudEmployee emp)
 {
     QSqlQuery query;
     qDebug() << "editing id: " << getId();
-    query.prepare("UPDATE employees SET id = :newId, name = :name, last_name = :last_name, post = :post, salary = :salary, start_time = :start_time, end_time = :end_time, password = :password, login = :login, dob = :dob, gender = :gender WHERE id = :id, status = :status");
+    query.prepare("UPDATE employees SET id = :newId, name = :name, last_name = :last_name, post = :post, salary = :salary, start_time = :start_time, end_time = :end_time, password = :password, login = :login, dob = :dob, gender = :gender WHERE id = :id, status = :status, rfid_auth = :rfid_auth");
     query.bindValue(":newId", emp.getId()); // New employee ID
     query.bindValue(":id", idToUpdate);     // ID to update
     query.bindValue(":name", emp.getEmployeeName());
@@ -546,6 +563,7 @@ bool CrudEmployee::updateEmployee(unsigned int idToUpdate, CrudEmployee emp)
     query.bindValue(":dob", emp.getDob());
     query.bindValue(":gender", emp.getGender());
     query.bindValue(":status", emp.getStatus());
+    query.bindValue(":rfid_auth", emp.getRfidAuth());
     return query.exec();
 }
 
