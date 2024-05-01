@@ -422,16 +422,6 @@ QPushButton:hover {
       <string/>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>180</y>
-       <width>171</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
@@ -584,6 +574,16 @@ QPushButton:hover {
       </size>
      </property>
     </widget>
+    <widget class="QTimeEdit" name="dateEdit">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>180</y>
+       <width>118</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
     <zorder>label_10</zorder>
     <zorder>label_5</zorder>
     <zorder>name</zorder>
@@ -592,7 +592,6 @@ QPushButton:hover {
     <zorder>label_3</zorder>
     <zorder>label_4</zorder>
     <zorder>label_7</zorder>
-    <zorder>dateEdit</zorder>
     <zorder>label_11</zorder>
     <zorder>pushButton_4</zorder>
     <zorder>label_12</zorder>
@@ -601,6 +600,7 @@ QPushButton:hover {
     <zorder>label_13</zorder>
     <zorder>errorLabel</zorder>
     <zorder>uploadVid</zorder>
+    <zorder>dateEdit</zorder>
    </widget>
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">

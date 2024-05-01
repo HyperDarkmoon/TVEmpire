@@ -1,5 +1,4 @@
 INPUT(
-./release\addemission.o
 ./release\addemployee.o
 ./release\affectation.o
 ./release\arduino.o
@@ -40,7 +39,6 @@ INPUT(
 ./release\videoplayerdialog.o
 ./release\weatherapicall.o
 ./release\qrc_resource.o
-./release\moc_addemission.o
 ./release\moc_addemployee.o
 ./release\moc_affectation.o
 ./release\moc_chatbox.o

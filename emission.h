@@ -7,7 +7,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
-#include "addemission.h"
+
 #include "emissionedit.h"
 #include "pdfexport.h"
 #include "geminidialog.h"
@@ -60,7 +60,7 @@ private:
     unsigned int id;
     QString nom;
     QString genre;
-    QDate horaire;
+    QTime horaire;
     unsigned int sceneId;
     QString script;
 
@@ -68,14 +68,14 @@ public:
     unsigned int getId() const ;
     QString getNom() const;
     QString getGenre() const;
-    QDate getHoraire() const;
+    QTime getHoraire() const;
     unsigned int getSceneId() const;
     QString getScript() const;
 
     void setId(unsigned int newId) ;
     void setNom(const QString& newNom);
     void setGenre(const QString& newGenre);
-    void setHoraire(const QDate& newHoraire);
+    void setHoraire(const QTime& newHoraire);
     void setSceneId(unsigned int newSceneId);
     void setScript(const QString& script);
 

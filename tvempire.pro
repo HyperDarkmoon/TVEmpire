@@ -15,7 +15,6 @@ CONFIG += c++11
 RESOURCES += resource.qrc
 
 SOURCES += \
-    addemission.cpp \
     addemployee.cpp \
     affectation.cpp \
     arduino.cpp \
@@ -57,7 +56,6 @@ SOURCES += \
     weatherapicall.cpp
 
 HEADERS += \
-    addemission.h \
     addemployee.h \
     affectation.h \
     arduino.h \
