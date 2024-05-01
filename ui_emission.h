@@ -14,12 +14,12 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -40,13 +40,13 @@ public:
     QPushButton *add;
     QPushButton *pushButton_4;
     QLabel *label_11;
-    QDateEdit *dateEdit;
     QLabel *label_12;
     QComboBox *scene;
     QLineEdit *script;
     QLabel *label_13;
     QLabel *errorLabel;
     QPushButton *uploadVid;
+    QTimeEdit *dateEdit;
     QWidget *widget;
     QPushButton *pushButton_3;
     QLabel *label_6;
@@ -308,9 +308,6 @@ public:
 "    color: black;\n"
 "}\n"
 ""));
-        dateEdit = new QDateEdit(widget_2);
-        dateEdit->setObjectName(QStringLiteral("dateEdit"));
-        dateEdit->setGeometry(QRect(10, 180, 171, 22));
         label_12 = new QLabel(widget_2);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setGeometry(QRect(20, 220, 71, 16));
@@ -394,6 +391,9 @@ public:
 "}"));
         uploadVid->setIcon(icon);
         uploadVid->setIconSize(QSize(20, 20));
+        dateEdit = new QTimeEdit(widget_2);
+        dateEdit->setObjectName(QStringLiteral("dateEdit"));
+        dateEdit->setGeometry(QRect(30, 180, 118, 22));
         label_10->raise();
         label_5->raise();
         name->raise();
@@ -402,7 +402,6 @@ public:
         label_3->raise();
         label_4->raise();
         label_7->raise();
-        dateEdit->raise();
         label_11->raise();
         pushButton_4->raise();
         label_12->raise();
@@ -411,6 +410,7 @@ public:
         label_13->raise();
         errorLabel->raise();
         uploadVid->raise();
+        dateEdit->raise();
         widget = new QWidget(employeeContainer);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(-10, 150, 61, 511));

@@ -30,11 +30,10 @@ int Arduino::connectArduino() {
 
     foreach (const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()) {
         if (serialPortInfo.hasVendorIdentifier() && serialPortInfo.hasProductIdentifier()) {
-            if (serialPortInfo.vendorIdentifier() == arduinoUnoVendorId && serialPortInfo.productIdentifier() == arduinoUnoProductId) {
                 arduinoIsAvailable = true;
                 arduinoPortName = serialPortInfo.portName();
             }
-        }
+
     }
 
     qDebug() << "Arduino port name is: " << arduinoPortName;
