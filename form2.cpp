@@ -5,7 +5,7 @@
 #include "usersession.h"
 #include <QTimer>
 #include "arduino.h"
-
+#include "esp32serial.h"
 Form2::Form2(QWidget *parent) : QWidget(parent),
                                 ui(new Ui::Form2),
                                 mainWindow(new MainWindow()),
@@ -15,7 +15,8 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
     ui->setupUi(this);
 
     arduino->connectArduino(); // Connect to the Arduino
-
+    //ESP32Serial *esp = new ESP32Serial();
+    //esp->connectToESP32("COM8",9600);
     // Connect lineEdit_2 returnPressed signal to custom lambda slot for authentication
     connect(ui->lineEdit_2, &QLineEdit::returnPressed, this, [this]()
             {

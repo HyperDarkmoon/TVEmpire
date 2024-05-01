@@ -27,6 +27,7 @@ SOURCES += \
     employee.cpp \
     employeeedit.cpp \
     equipment.cpp \
+    esp32serial.cpp \
     forgotpassword.cpp \
     form2.cpp \
     geminidialog.cpp \
@@ -68,6 +69,7 @@ HEADERS += \
     employee.h \
     employeeedit.h \
     equipment.h \
+    esp32serial.h \
     forgotpassword.h \
     form2.h \
     geminidialog.h \

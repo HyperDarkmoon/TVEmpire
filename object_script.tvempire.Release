@@ -11,6 +11,7 @@ INPUT(
 ./release\employee.o
 ./release\employeeedit.o
 ./release\equipment.o
+./release\esp32serial.o
 ./release\forgotpassword.o
 ./release\form2.o
 ./release\geminidialog.o
@@ -48,6 +49,7 @@ INPUT(
 ./release\moc_employee.o
 ./release\moc_employeeedit.o
 ./release\moc_equipment.o
+./release\moc_esp32serial.o
 ./release\moc_forgotpassword.o
 ./release\moc_form2.o
 ./release\moc_geminidialog.o
