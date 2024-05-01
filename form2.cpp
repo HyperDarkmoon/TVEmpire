@@ -52,7 +52,6 @@ void Form2::authenticate(QString arduinoAuth)
             if (emp.getLogin() == username && emp.getPassword() == password)
             {
                 authenticated = true;
-                qDebug() << "Role:" << UserSession::getInstance().getRole();
                 break;
             }
         }
@@ -66,6 +65,7 @@ void Form2::authenticate(QString arduinoAuth)
             password = "admeen";
             qDebug() << "Pass from Card";
             authenticated = true;
+            UserSession::getInstance().findRFIDAuthAndUpdateStatus(arduinoAuth);
         }
     }
 
@@ -74,6 +74,7 @@ void Form2::authenticate(QString arduinoAuth)
         UserSession::getInstance().setUsername(username);
         // Update the role of the user from the database
         UserSession::getInstance().updateRoleFromDatabase();
+        qDebug() << "Role:" << UserSession::getInstance().getRole();
         // Disconnect the timeout() signal of cardCheckTimer from checkForScannedCard()
         disconnect(cardCheckTimer, &QTimer::timeout, this, &Form2::checkForScannedCard);
         emit authenticationSuccessful(); // Emit signal upon successful authentication

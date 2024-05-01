@@ -510,6 +510,7 @@ unsigned int CrudEmployee::getEmployeeIdByName(const QString& name)
 }
 
 
+
 QVariant CrudEmployee::getFieldByIndex(int index) const
 {
     switch (index)
@@ -566,6 +567,7 @@ bool CrudEmployee::updateEmployee(unsigned int idToUpdate, CrudEmployee emp)
     query.bindValue(":rfid_auth", emp.getRfidAuth());
     return query.exec();
 }
+
 
 bool CrudEmployee::deleteEmployee(unsigned int id)
 {
@@ -670,3 +672,4 @@ void Employee::on_statButton_clicked()
 {
     displayChart();
 }
+
