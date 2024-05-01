@@ -75,6 +75,17 @@ void UserSession::findRFIDAuthAndUpdateStatus(const QString& rfidAuth) {
     }
 }
 
+void UserSession::updateAllEmployeesStatusToAbsent() {
+    QSqlQuery updateQuery;
+    updateQuery.prepare("UPDATE employees SET status = 'Absent'");
+
+    if (updateQuery.exec()) {
+        qDebug() << "All employees' status updated to Absent in the database";
+    } else {
+        qDebug() << "Failed to update all employees' status in the database:" << updateQuery.lastError().text();
+    }
+}
+
 
 
 // Private constructor and destructor

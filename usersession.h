@@ -16,6 +16,7 @@ public:
     void setUsername(const QString& username);
     void updateRoleFromDatabase(); // Method to update role from the database during login
     void findRFIDAuthAndUpdateStatus(const QString& rfidAuth);
+    void updateAllEmployeesStatusToAbsent();
 
 private:
     QString m_username;

@@ -7,11 +7,15 @@
 #include <qsqldatabase.h>
 #include "dbconnection.h"
 #include <QMessageBox>
-//#include "mailing.h"
+// #include "mailing.h"
 #include "../smtp/src/SmtpMime"
 #include "employee.h"
+#include <QCoreApplication>
 #include <arduino.h>
-int main(int argc, char *argv[]) {
+#include "usersession.h"
+
+int main(int argc, char *argv[])
+{
     QApplication a(argc, argv);
     dbconnection db;
     bool test = db.createconnect();
@@ -27,15 +31,18 @@ int main(int argc, char *argv[]) {
         Employee employee;
 
         // Connect authenticationSuccessful signal to show MainWindow upon successful authentication
-        QObject::connect(&loginpage, &Form2::authenticationSuccessful, [&mainWindow, &employee]() {
+        QObject::connect(&loginpage, &Form2::authenticationSuccessful, [&mainWindow, &employee]()
+                         {
             mainWindow.show(); // Show MainWindow upon successful authentication
             // Call the refreshTable function only after authentication succeeds
-            employee.refreshTable();
-        });
-
+            employee.refreshTable(); });
+        // Connect aboutToQuit signal to updateAllEmployeesStatusToAbsent slot
+        QObject::connect(&a, &QCoreApplication::aboutToQuit, [&]()
+                         { UserSession::getInstance().updateAllEmployeesStatusToAbsent(); });
         return a.exec();
     }
-    else {
+    else
+    {
         qDebug() << "fail to connect to db";
         return 1; // Indicate failure to connect to the database
     }
