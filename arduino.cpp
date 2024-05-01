@@ -82,9 +82,5 @@ QString Arduino::readFromArduino() {
 
 
 void Arduino::writeToArduino(const QByteArray &d) {
-    if (serial->isWritable()) {
-        serial->write(d); // Send data to Arduino
-    } else {
-        qDebug() << "Couldn't write to serial!";
-    }
+    serial->write(d);
 }
