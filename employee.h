@@ -93,6 +93,7 @@ public:
     QList<CrudEmployee> getAllEmployees();
     QVariant getFieldByIndex(int index) const;
     bool updateEmployee(unsigned int idToUpdate, CrudEmployee emp);
+    void updateEmployeeByRFIDAuth(QString rfidAuth, CrudEmployee emp);
     bool deleteEmployee(unsigned int id);
     unsigned int getEmployeeIdByName(const QString& name);
 private:
