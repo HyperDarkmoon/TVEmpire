@@ -11,6 +11,8 @@
 #include "emissionedit.h"
 #include "pdfexport.h"
 #include "geminidialog.h"
+#include "arduino.h"
+#include <QTimer>
 namespace Ui {
 class Emission;
 }
@@ -48,11 +50,15 @@ private slots:
 
     void on_uploadVid_clicked();
 
+    void readArduino();
+
 private:
 
     Ui::Emission *ui;
     EmissionEdit *edit;
     GeminiDialog *Gemini;
+    Arduino *arduino;
+    QTimer *timer;
 
 };
 class CrudEmission {

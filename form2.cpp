@@ -14,7 +14,7 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
 {
     ui->setupUi(this);
 
-    arduino->connectArduino(); // Connect to the Arduino
+    //arduino->connectArduino(); // Connect to the Arduino
     //ESP32Serial *esp = new ESP32Serial();
     //esp->connectToESP32("COM8",9600);
     // Connect lineEdit_2 returnPressed signal to custom lambda slot for authentication

@@ -2633,12 +2633,26 @@ QTableWidget::item:selected {
      </column>
     </widget>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>30</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DES DES</string>
+    </property>
+   </widget>
    <zorder>widget</zorder>
    <zorder>label</zorder>
    <zorder>widget_2</zorder>
    <zorder>tempLabel</zorder>
    <zorder>widget_3</zorder>
    <zorder>result_widget</zorder>
+   <zorder>pushButton</zorder>
   </widget>
  </widget>
  <resources/>

@@ -11,6 +11,8 @@
 #include <QFileDialog>
 #include <QByteArray>
 #include <QTime>
+#include "arduino.h"
+
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Emission), edit(new EmissionEdit),Gemini(new GeminiDialog)
@@ -35,11 +37,11 @@ Emission::Emission(QWidget *parent) :
     } else {
         qDebug() << "Failed to retrieve temperature";
     }
-
-    //testing gemini api
-
-    //GeminiApi g;
-    //g.generateBotResponse("hi");
+    arduino = new Arduino();
+    arduino->connectArduino();
+    timer = new QTimer();
+    connect(timer,&QTimer::timeout,this,&Emission::readArduino);
+    timer->start(100);
     resetInputs();
 }
 
@@ -455,4 +457,17 @@ void Emission::on_uploadVid_clicked()
 
      // Now you have the video data as a byte array, proceed to upload it to the database
     vidData = videoData;
+}
+
+void Emission::readArduino(){
+    QString aa = arduino->readFromArduino();
+    if (!aa.isEmpty())
+        qDebug() << aa << "\n";
+}
+
+void Emission::on_pushButton_clicked()
+{
+
+    QString aa = "aaaaaaaaaa";
+    arduino->writeToArduino(aa.toUtf8());
 }

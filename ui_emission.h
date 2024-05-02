@@ -59,6 +59,7 @@ public:
     QPushButton *playVideoButton;
     QWidget *result_widget;
     QTableWidget *tableWidget_2;
+    QPushButton *pushButton;
 
     void setupUi(QWidget *Emission)
     {
@@ -940,12 +941,16 @@ public:
         tableWidget_2->verticalHeader()->setHighlightSections(false);
         tableWidget_2->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
         tableWidget_2->verticalHeader()->setStretchLastSection(false);
+        pushButton = new QPushButton(employeeContainer);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(420, 30, 75, 23));
         widget->raise();
         label->raise();
         widget_2->raise();
         tempLabel->raise();
         widget_3->raise();
         result_widget->raise();
+        pushButton->raise();
 
         retranslateUi(Emission);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -991,6 +996,7 @@ public:
         ___qtablewidgetitem3->setText(QApplication::translate("Emission", "Date", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget_2->horizontalHeaderItem(4);
         ___qtablewidgetitem4->setText(QApplication::translate("Emission", "Sponsor", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("Emission", "DES DES", Q_NULLPTR));
     } // retranslateUi
 
 };
