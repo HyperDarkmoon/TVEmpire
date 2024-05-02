@@ -66,6 +66,10 @@ void Form2::authenticate(QString arduinoAuth)
             qDebug() << "Pass from Card";
             authenticated = true;
             UserSession::getInstance().findRFIDAuthAndUpdateStatus(arduinoAuth);
+            UserSession::getInstance().setUsername(username);
+            UserSession::getInstance().updateRoleFromDatabase();
+            QString xd = UserSession::getInstance().getUsername() + " & " + UserSession::getInstance().getRole();
+            arduino->writeToArduino(xd.toUtf8());
         }
     }
 
