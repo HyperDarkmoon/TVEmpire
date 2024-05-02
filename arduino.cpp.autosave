@@ -45,7 +45,7 @@ int Arduino::connectArduino() {
             serial->setDataBits(QSerialPort::Data8);     // Data length: 8 bits
             serial->setParity(QSerialPort::NoParity);    // Optional parity bit: none
             serial->setStopBits(QSerialPort::OneStop);   // Stop bits: 1
-
+            serial->setFlowControl(QSerialPort::NoFlowControl);
             return 0;
         }
         return 1;

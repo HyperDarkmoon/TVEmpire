@@ -461,11 +461,13 @@ void Emission::on_uploadVid_clicked()
 
 void Emission::readArduino(){
     QString aa = arduino->readFromArduino();
-    qDebug() << aa << "\n";
+    if (!aa.isEmpty())
+        qDebug() << aa << "\n";
 }
 
 void Emission::on_pushButton_clicked()
 {
+
     QString aa = "aaaaaaaaaa";
     arduino->writeToArduino(aa.toUtf8());
 }
