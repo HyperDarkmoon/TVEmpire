@@ -37,9 +37,9 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
 
 
     QString a;
-    for (const auto& e : emission)
+    for (const auto& em : emission)
     {
-        a += e.getNom() + " " + e.getHoraire().toString("yyyy-MM-dd") + "\n";
+        a += em.getNom() + " " + em.getHoraire().toString("yyyy-MM-dd") + "\n";
         arduino->writeToArduino(a.toUtf8());
     }
     
