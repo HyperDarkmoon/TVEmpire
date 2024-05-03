@@ -5,7 +5,7 @@
 #include "usersession.h"
 #include <QTimer>
 #include "arduino.h"
-#include "esp32serial.h"
+#include "emission.h"
 Form2::Form2(QWidget *parent) : QWidget(parent),
                                 ui(new Ui::Form2),
                                 mainWindow(new MainWindow()),
@@ -27,8 +27,23 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
     connect(cardCheckTimer, &QTimer::timeout, this, &Form2::checkForScannedCard);
 
     cardCheckTimer->start(100); // Start the timer
-    QString test = "feafeafaefaef";
-    arduino->writeToArduino(test.toUtf8());
+    CrudEmission e;
+        QList<CrudEmission> emission = e.getAll();
+        // get the emission with the nearest time to the current time
+        QTime currentTime = QTime::currentTime();
+        QTime nearestTime = QTime(23,59,59);
+        int nearestIndex = 0;
+        for (int i = 0; i < emission.size(); i++) {
+            QTime emissionTime = emission.at(i).getHoraire();
+            if (emissionTime > currentTime && emissionTime < nearestTime) {
+                nearestTime = emissionTime;
+                nearestIndex = i;
+            }
+        }
+        // write the nearest emission name to arduino serial
+        QString nearestEmissionName = emission.at(nearestIndex).getNom();
+
+        arduino->writeToArduino(nearestEmissionName.toUtf8());
 }
 
 Form2::~Form2()
@@ -68,11 +83,6 @@ void Form2::authenticate(QString arduinoAuth)
             qDebug() << "Pass from Card";
             authenticated = true;
             UserSession::getInstance().findRFIDAuthAndUpdateStatus(arduinoAuth);
-            //output
-            UserSession::getInstance().setUsername(username);
-            UserSession::getInstance().updateRoleFromDatabase();
-            QString afficher = UserSession::getInstance().getUsername() + " & " + UserSession::getInstance().getRole();
-            arduino->writeToArduino(afficher.toUtf8());
         }
     }
 
