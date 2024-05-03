@@ -14,12 +14,12 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
-#include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -46,7 +46,7 @@ public:
     QLabel *label_13;
     QLabel *errorLabel;
     QPushButton *uploadVid;
-    QTimeEdit *dateEdit;
+    QDateEdit *dateEdit;
     QWidget *widget;
     QPushButton *pushButton_3;
     QLabel *label_6;
@@ -391,9 +391,9 @@ public:
 "}"));
         uploadVid->setIcon(icon);
         uploadVid->setIconSize(QSize(20, 20));
-        dateEdit = new QTimeEdit(widget_2);
+        dateEdit = new QDateEdit(widget_2);
         dateEdit->setObjectName(QStringLiteral("dateEdit"));
-        dateEdit->setGeometry(QRect(30, 180, 118, 22));
+        dateEdit->setGeometry(QRect(10, 170, 110, 22));
         label_10->raise();
         label_5->raise();
         name->raise();

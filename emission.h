@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QString>
-#include <QTime>
+#include <QDate>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -60,7 +60,7 @@ private:
     unsigned int id;
     QString nom;
     QString genre;
-    QTime horaire;
+    QDate horaire;
     unsigned int sceneId;
     QString script;
 
@@ -68,14 +68,14 @@ public:
     unsigned int getId() const ;
     QString getNom() const;
     QString getGenre() const;
-    QTime getHoraire() const;
+    QDate getHoraire() const;
     unsigned int getSceneId() const;
     QString getScript() const;
 
     void setId(unsigned int newId) ;
     void setNom(const QString& newNom);
     void setGenre(const QString& newGenre);
-    void setHoraire(const QTime& newHoraire);
+    void setHoraire(const QDate& newHoraire);
     void setSceneId(unsigned int newSceneId);
     void setScript(const QString& script);
 

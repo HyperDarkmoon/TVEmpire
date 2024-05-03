@@ -10,7 +10,7 @@
 #include <QtCharts/QChart>
 #include <QFileDialog>
 #include <QByteArray>
-#include <QTime>
+#include <QDate>
 Emission::Emission(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Emission), edit(new EmissionEdit),Gemini(new GeminiDialog)
@@ -68,7 +68,7 @@ void CrudEmission::setGenre(const QString& newGenre) {
     genre = newGenre;
 }
 
-void CrudEmission::setHoraire(const QTime& newHoraire) {
+void CrudEmission::setHoraire(const QDate& newHoraire) {
     horaire = newHoraire;
 }
 
@@ -92,7 +92,7 @@ QString CrudEmission::getGenre() const{
     return genre;
 }
 
-QTime CrudEmission::getHoraire() const{
+QDate CrudEmission::getHoraire() const{
     return horaire;
 }
 
@@ -129,7 +129,7 @@ CrudEmission CrudEmission::read(unsigned int id)
         e.setId(query.value(0).toUInt());
         e.setNom(query.value(1).toString());
         e.setGenre(query.value(2).toString());
-        e.setHoraire(query.value(3).toTime());
+        e.setHoraire(query.value(3).toDate());
         e.setSceneId(query.value(4).toUInt());
     }
     return e;
@@ -227,7 +227,7 @@ QList<CrudEmission> CrudEmission::getAll() {
         em.setId(query.value(0).toUInt());
         em.setNom(query.value(1).toString());
         em.setGenre(query.value(2).toString());
-        em.setHoraire(query.value(3).toTime());
+        em.setHoraire(query.value(3).toDate());
         em.setSceneId(query.value(4).toUInt());
         em.setScript(query.value(5).toString());
         emissionList.append(em);  // Add the object to the list
@@ -323,7 +323,7 @@ void Emission::displayChart() {
     CrudEmission C;
     QList<CrudEmission> emissionList = C.getAll();
     for (const auto& emission : emissionList) {
-        int year = emission.getHoraire().hour();
+        int year = emission.getHoraire().year();
         emissionCountByYear[year]++;
     }
 
@@ -391,8 +391,8 @@ void Emission::on_add_clicked()
       return; // Exit the function without creating emission
     }
     // Check for horaire (schedule) to be at least the current day
-    QTime now = QTime::currentTime();
-    QTime horaire = ui->dateEdit->time();
+    QDate now = QDate::currentDate();
+    QDate horaire = ui->dateEdit->date();
     if (horaire < now) {
       ui->errorLabel->setText("Error: Schedule cannot be before today's date.");
       return; // Exit the function without creating emission

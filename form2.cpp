@@ -15,9 +15,9 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
     ui->setupUi(this);
 
     arduino->connectArduino(); // Connect to the Arduino
-    //ESP32Serial *esp = new ESP32Serial();
-    //esp->connectToESP32("COM8",9600);
-    // Connect lineEdit_2 returnPressed signal to custom lambda slot for authentication
+    // ESP32Serial *esp = new ESP32Serial();
+    // esp->connectToESP32("COM8",9600);
+    //  Connect lineEdit_2 returnPressed signal to custom lambda slot for authentication
     connect(ui->lineEdit_2, &QLineEdit::returnPressed, this, [this]()
             {
         QString text = ui->lineEdit_2->text();
@@ -28,22 +28,15 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
 
     cardCheckTimer->start(100); // Start the timer
     CrudEmission e;
-        QList<CrudEmission> emission = e.getAll();
-        // get the emission with the nearest time to the current time
-        QTime currentTime = QTime::currentTime();
-        QTime nearestTime = QTime(23,59,59);
-        int nearestIndex = 0;
-        for (int i = 0; i < emission.size(); i++) {
-            QTime emissionTime = emission.at(i).getHoraire();
-            if (emissionTime > currentTime && emissionTime < nearestTime) {
-                nearestTime = emissionTime;
-                nearestIndex = i;
-            }
-        }
-        // write the nearest emission name to arduino serial
-        QString nearestEmissionName = emission.at(nearestIndex).getNom();
+    QList<CrudEmission> emission = e.getAll();
+    //sort the emission by date
+    std::sort(emission.begin(), emission.end(), [](const CrudEmission &a, const CrudEmission &b) {
+        return a.getHoraire() < b.getHoraire();
+    });
+    // sent the  emission with the nearest date name and date to arduino 
+    QString a =  emission[0].getNom() + " " + emission[0].getHoraire().toString("yyyy-MM-dd") ;
+    arduino->writeToArduino(a.toUtf8());
 
-        arduino->writeToArduino(nearestEmissionName.toUtf8());
 }
 
 Form2::~Form2()
@@ -123,7 +116,7 @@ void Form2::checkForScannedCard()
     QString lastScannedRFID = arduino->readFromArduino();
     if (lastScannedRFID == "E3 64 7E 2E")
     {
-        qDebug () << "memes";
+        qDebug() << "memes";
         // Call authenticate() method with RFID data to proceed with authentication
         authenticate(lastScannedRFID);
     }

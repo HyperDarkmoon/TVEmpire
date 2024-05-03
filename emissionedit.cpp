@@ -34,7 +34,7 @@ void EmissionEdit::setData(const CrudEmission &emissionData)
     ui->id->setText(QString::number(emissionData.getId()));
     ui->name->setText(emissionData.getNom());
     ui->genre->setText(emissionData.getGenre());
-    ui->dob->setTime(emissionData.getHoraire());
+    ui->dob->setDate(emissionData.getHoraire());
     QSqlQuery scenes;
     scenes.prepare("SELECT id from Scenes");
     scenes.exec();
@@ -50,7 +50,7 @@ void EmissionEdit::on_pushButton_5_clicked()
         c.setId(ui->id->text().toUInt());
         c.setNom(ui->name->text());
         c.setGenre(ui->genre->text());
-        c.setHoraire(ui->dob->time());
+        c.setHoraire(ui->dob->date());
         c.setSceneId(ui->gender->currentText().toUInt());
         c.update(c.getId(),c);
         emit onButtonClick();
