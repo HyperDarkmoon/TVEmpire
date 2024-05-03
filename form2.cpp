@@ -27,6 +27,8 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
     connect(cardCheckTimer, &QTimer::timeout, this, &Form2::checkForScannedCard);
 
     cardCheckTimer->start(100); // Start the timer
+    QString test = "feafeafaefaef";
+    arduino->writeToArduino(test.toUtf8());
 }
 
 Form2::~Form2()
@@ -66,6 +68,11 @@ void Form2::authenticate(QString arduinoAuth)
             qDebug() << "Pass from Card";
             authenticated = true;
             UserSession::getInstance().findRFIDAuthAndUpdateStatus(arduinoAuth);
+            //output
+            UserSession::getInstance().setUsername(username);
+            UserSession::getInstance().updateRoleFromDatabase();
+            QString afficher = UserSession::getInstance().getUsername() + " & " + UserSession::getInstance().getRole();
+            arduino->writeToArduino(afficher.toUtf8());
         }
     }
 
