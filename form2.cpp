@@ -33,9 +33,16 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
     std::sort(emission.begin(), emission.end(), [](const CrudEmission &a, const CrudEmission &b) {
         return a.getHoraire() < b.getHoraire();
     });
-    // sent the  emission with the nearest date name and date to arduino 
-    QString a =  emission[0].getNom() + " " + emission[0].getHoraire().toString("yyyy-MM-dd") ;
-    arduino->writeToArduino(a.toUtf8());
+    // sent all the emission to the arduino
+
+
+    QString a;
+    for (const auto& e : emission)
+    {
+        a += e.getNom() + " " + e.getHoraire().toString("yyyy-MM-dd") + "\n";
+        arduino->writeToArduino(a.toUtf8());
+    }
+    
 
 }
 
