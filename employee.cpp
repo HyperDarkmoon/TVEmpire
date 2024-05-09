@@ -464,6 +464,32 @@ CrudEmployee CrudEmployee::getEmployeeByLogin(QString login)
     return emp;
 }
 
+CrudEmployee CrudEmployee::getEmployeeByRfidAuth(QString rfidAuth)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM employees WHERE rfid_auth = :rfid_auth");
+    query.bindValue(":rfid_auth", rfidAuth);
+    query.exec();
+    CrudEmployee emp;
+    while (query.next())
+    {
+        emp.setId(query.value(0).toUInt());
+        emp.setEmployeeName(query.value(1).toString());
+        emp.setEmployeeLastName(query.value(2).toString());
+        emp.setPost(query.value(3).toString());
+        emp.setSalary(query.value(4).toUInt());
+        emp.setStartTime(query.value(5).toTime());
+        emp.setEndTime(query.value(6).toTime());
+        emp.setPassword(query.value(7).toString());
+        emp.setLogin(query.value(8).toString());
+        emp.setDob(query.value(9).toDate());
+        emp.setGender(query.value(10).toString());
+        emp.setStatus(query.value(11).toString());
+        emp.setRfidAuth(query.value(12).toString());
+    }
+    return emp;
+}
+
 QList<CrudEmployee> CrudEmployee::getAllEmployees()
 {
     QSqlQuery query;

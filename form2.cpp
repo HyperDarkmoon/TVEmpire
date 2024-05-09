@@ -27,7 +27,7 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
     connect(cardCheckTimer, &QTimer::timeout, this, &Form2::checkForScannedCard);
 
     cardCheckTimer->start(100); // Start the timer
-    CrudEmission e;
+    /*CrudEmission e;
     QList<CrudEmission> emission = e.getAll();
     //sort the emission by date
     std::sort(emission.begin(), emission.end(), [](const CrudEmission &a, const CrudEmission &b) {
@@ -41,7 +41,7 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
     {
         a += e.getNom() + " " + e.getHoraire().toString("yyyy-MM-dd") + "\n";
         arduino->writeToArduino(a.toUtf8());
-    }
+    }*/
     
 
 }
@@ -76,13 +76,23 @@ void Form2::authenticate(QString arduinoAuth)
     else
     {
         // Authenticate based on RFID card data
-        if (arduinoAuth == "E3 64 7E 2E")
+        QList<CrudEmployee> employees = CrudEmployee().getAllEmployees();
+        for (const auto &emp : employees)
         {
-            username = "admeen";
-            password = "admeen";
-            qDebug() << "Pass from Card";
-            authenticated = true;
-            UserSession::getInstance().findRFIDAuthAndUpdateStatus(arduinoAuth);
+            qDebug () << emp.getRfidAuth() << "sooo " << arduinoAuth;
+            if (emp.getRfidAuth() == arduinoAuth)
+            {
+                username = emp.getLogin();
+                password = emp.getPassword();
+                authenticated = true;
+                UserSession::getInstance().findRFIDAuthAndUpdateStatus(arduinoAuth);
+                            //output
+                UserSession::getInstance().setUsername(username);
+                UserSession::getInstance().updateRoleFromDatabase();
+                QString afficher = UserSession::getInstance().getUsername() + " & " + UserSession::getInstance().getRole() + "\n";
+                arduino->writeToArduino(afficher.toUtf8());
+                break;
+            }
         }
     }
 
@@ -94,6 +104,7 @@ void Form2::authenticate(QString arduinoAuth)
         qDebug() << "Role:" << UserSession::getInstance().getRole();
         // Disconnect the timeout() signal of cardCheckTimer from checkForScannedCard()
         disconnect(cardCheckTimer, &QTimer::timeout, this, &Form2::checkForScannedCard);
+        arduino->writeToArduino("OPEN_DOOR\n");
         emit authenticationSuccessful(); // Emit signal upon successful authentication
         this->close();                   // Close the login form
     }
@@ -120,11 +131,41 @@ void Form2::on_forgotPushButton_clicked()
 
 void Form2::checkForScannedCard()
 {
-    QString lastScannedRFID = arduino->readFromArduino();
-    if (lastScannedRFID == "E3 64 7E 2E")
+    QString scannedRFID = arduino->readFromArduino(); // Read last scanned RFID from Arduino
+
+    // Split the scanned RFID data by spaces
+    QStringList parts = scannedRFID.split(" ");
+
+    // Check if there are exactly 4 parts (assuming valid RFID data format)
+    if (parts.size() == 4)
     {
-        qDebug() << "memes";
-        // Call authenticate() method with RFID data to proceed with authentication
-        authenticate(lastScannedRFID);
+        bool isValidRFID = true;
+
+        // Verify each part is a valid hexadecimal value
+        for (const QString& part : parts)
+        {
+            bool conversionOk;
+            part.toUInt(&conversionOk, 16); // Convert part to unsigned integer (hexadecimal)
+
+            if (!conversionOk)
+            {
+                isValidRFID = false;
+                break; // Exit loop if any part is not a valid hexadecimal value
+            }
+        }
+
+        if (isValidRFID)
+        {
+            // Call authenticate() method with RFID data to proceed with authentication
+            authenticate(scannedRFID);
+        }
+        else
+        {
+            // Handle invalid RFID format (e.g., show error message)
+        }
+    }
+    else
+    {
+        // Handle invalid RFID format (e.g., show error message)
     }
 }

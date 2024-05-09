@@ -90,6 +90,7 @@ public:
     bool createEmployee(CrudEmployee emp);
     CrudEmployee getEmployee(unsigned int id);
     CrudEmployee getEmployeeByLogin(QString login);
+    CrudEmployee getEmployeeByRfidAuth(QString rfidAuth);
     QList<CrudEmployee> getAllEmployees();
     QVariant getFieldByIndex(int index) const;
     bool updateEmployee(unsigned int idToUpdate, CrudEmployee emp);
