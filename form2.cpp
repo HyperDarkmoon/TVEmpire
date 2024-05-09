@@ -27,7 +27,7 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
     connect(cardCheckTimer, &QTimer::timeout, this, &Form2::checkForScannedCard);
 
     cardCheckTimer->start(100); // Start the timer
-    /*CrudEmission e;
+    CrudEmission e;
     QList<CrudEmission> emission = e.getAll();
     //sort the emission by date
     std::sort(emission.begin(), emission.end(), [](const CrudEmission &a, const CrudEmission &b) {
@@ -39,9 +39,9 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
     QString a;
     for (const auto& em : emission)
     {
-        a += em.getNom() + " " + em.getHoraire().toString("yyyy-MM-dd") + "\n";
+        a += "1" + em.getNom() + " " + em.getHoraire().toString("yyyy-MM-dd") + "\n";
         arduino->writeToArduino(a.toUtf8());
-    }*/
+    }
     
 
 }
@@ -104,7 +104,9 @@ void Form2::authenticate(QString arduinoAuth)
         qDebug() << "Role:" << UserSession::getInstance().getRole();
         // Disconnect the timeout() signal of cardCheckTimer from checkForScannedCard()
         disconnect(cardCheckTimer, &QTimer::timeout, this, &Form2::checkForScannedCard);
+        if (!arduinoAuth.isEmpty()){
         arduino->writeToArduino("OPEN_DOOR\n");
+        }
         emit authenticationSuccessful(); // Emit signal upon successful authentication
         this->close();                   // Close the login form
     }
