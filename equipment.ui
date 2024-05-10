@@ -966,8 +966,8 @@
    <widget class="QWidget" name="widget_2" native="true">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>50</y>
+      <x>30</x>
+      <y>230</y>
       <width>261</width>
       <height>381</height>
      </rect>
@@ -1308,6 +1308,42 @@ QTextEdit:hover {
       </rect>
      </property>
     </widget>
+    <widget class="QPushButton" name="imageSelector">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>210</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>upload image</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../../Users/moham/Desktop/icons/add.svg</normaloff>../../../Users/moham/Desktop/icons/add.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="imageLabel">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>210</y>
+       <width>100</width>
+       <height>100</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
     <zorder>label_5</zorder>
     <zorder>labelE</zorder>
     <zorder>Ajout_2</zorder>
@@ -1320,6 +1356,8 @@ QTextEdit:hover {
     <zorder>label_7</zorder>
     <zorder>pushButton_4</zorder>
     <zorder>stockE</zorder>
+    <zorder>imageSelector</zorder>
+    <zorder>imageLabel</zorder>
    </widget>
    <widget class="QWidget" name="widget_3" native="true">
     <property name="geometry">
@@ -2199,8 +2237,8 @@ QTableWidget::item:selected {
    <widget class="QWidget" name="webWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>449</y>
+      <x>340</x>
+      <y>490</y>
       <width>261</width>
       <height>231</height>
      </rect>

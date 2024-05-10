@@ -42,6 +42,8 @@ public:
     QPushButton *pushButton_4;
     QLabel *label_7;
     QLineEdit *stockE;
+    QPushButton *imageSelector;
+    QLabel *imageLabel;
     QWidget *widget_3;
     QPushButton *pushButton_3;
     QLabel *label_6;
@@ -224,7 +226,7 @@ public:
         Ajout->setPalette(palette1);
         widget_2 = new QWidget(equipement);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(90, 50, 261, 381));
+        widget_2->setGeometry(QRect(30, 230, 261, 381));
         widget_2->setStyleSheet(QLatin1String("/* Styles for QLineEdit */\n"
 "QLineEdit {\n"
 "    border: 2px solid #141E46;\n"
@@ -408,6 +410,14 @@ public:
         stockE = new QLineEdit(widget_2);
         stockE->setObjectName(QStringLiteral("stockE"));
         stockE->setGeometry(QRect(5, 260, 191, 30));
+        imageSelector = new QPushButton(widget_2);
+        imageSelector->setObjectName(QStringLiteral("imageSelector"));
+        imageSelector->setGeometry(QRect(90, 210, 121, 41));
+        imageSelector->setIcon(icon);
+        imageSelector->setIconSize(QSize(20, 20));
+        imageLabel = new QLabel(widget_2);
+        imageLabel->setObjectName(QStringLiteral("imageLabel"));
+        imageLabel->setGeometry(QRect(210, 210, 100, 100));
         label_5->raise();
         labelE->raise();
         Ajout_2->raise();
@@ -420,6 +430,8 @@ public:
         label_7->raise();
         pushButton_4->raise();
         stockE->raise();
+        imageSelector->raise();
+        imageLabel->raise();
         widget_3 = new QWidget(equipement);
         widget_3->setObjectName(QStringLiteral("widget_3"));
         widget_3->setGeometry(QRect(20, 220, 61, 381));
@@ -734,7 +746,7 @@ public:
 ""));
         webWidget = new QWidget(equipement);
         webWidget->setObjectName(QStringLiteral("webWidget"));
-        webWidget->setGeometry(QRect(90, 449, 261, 231));
+        webWidget->setGeometry(QRect(340, 490, 261, 231));
         Affecter = new QPushButton(equipement);
         Affecter->setObjectName(QStringLiteral("Affecter"));
         Affecter->setGeometry(QRect(730, 60, 101, 31));
@@ -775,6 +787,8 @@ public:
         Ajout_2->setText(QApplication::translate("Equipment", "Ajouter", Q_NULLPTR));
         pushButton_4->setText(QString());
         label_7->setText(QString());
+        imageSelector->setText(QApplication::translate("Equipment", "upload image", Q_NULLPTR));
+        imageLabel->setText(QString());
         pushButton_3->setText(QString());
         label_6->setText(QString());
         google->setText(QApplication::translate("Equipment", "Google", Q_NULLPTR));
