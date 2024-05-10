@@ -2,9 +2,9 @@
 #include "ui_mainwindow.h"
 #include <QFile>
 #include <QTextStream>
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent,Arduino *arduino)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),arduino(arduino)
 {
     ui->setupUi(this);
     ui->icon_only_widget->hide();
@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->home_btn_2->setChecked(true);
     loadStyleSheet("style.qss");
+
 
 
 }

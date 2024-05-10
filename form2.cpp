@@ -6,10 +6,10 @@
 #include <QTimer>
 #include "arduino.h"
 #include "emission.h"
-Form2::Form2(QWidget *parent) : QWidget(parent),
+Form2::Form2(QWidget *parent,Arduino *arduino) : QWidget(parent),
                                 ui(new Ui::Form2),
                                 mainWindow(new MainWindow()),
-                                arduino(new Arduino()),
+                                arduino(arduino),
                                 cardCheckTimer(new QTimer(this))
 {
     ui->setupUi(this);
@@ -28,7 +28,7 @@ Form2::Form2(QWidget *parent) : QWidget(parent),
 
     cardCheckTimer->start(100); // Start the timer
     CrudEmission e;
-    QList<CrudEmission> emission = e.getAll();
+    emission = e.getAll();
     //sort the emission by date
     std::sort(emission.begin(), emission.end(), [](const CrudEmission &a, const CrudEmission &b) {
         return a.getHoraire() < b.getHoraire();
@@ -169,5 +169,21 @@ void Form2::checkForScannedCard()
     else
     {
         // Handle invalid RFID format (e.g., show error message)
+        if (scannedRFID.length() == 2 && scannedRFID[0].isDigit()) {
+                int index =
+                    scannedRFID.left(1).toInt();  // Take only the first character
+                                                      // and convert it to an integer
+
+                qDebug() << index ;
+                QSqlQuery q;
+                q.prepare("Update emissions set diffused=1 where  id = :id");
+                unsigned int id = emission[index].getId();
+                qDebug() << id;
+                q.bindValue(":id", id);
+                if (q.exec())
+                    QMessageBox::information(this,"Emission Diffused",emission[index].getNom() + " a ete diffuse");
+
+
+                }
     }
 }

@@ -13,7 +13,7 @@
 #include <QCoreApplication>
 #include <arduino.h>
 #include "usersession.h"
-
+#include "arduino.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -22,10 +22,11 @@ int main(int argc, char *argv[])
 
     if (test)
     {
-        Form2 loginpage;
+        Arduino *arduino = new Arduino();
+        Form2 loginpage(nullptr,arduino);
         loginpage.show();
 
-        MainWindow mainWindow; // Create MainWindow object here but do not show it yet
+        MainWindow mainWindow(nullptr,arduino); // Create MainWindow object here but do not show it yet
 
         // Create an Employee object here
         Employee employee;
