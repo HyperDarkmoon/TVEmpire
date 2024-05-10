@@ -76,6 +76,9 @@ QTableWidget QTableWidget::item:selected {
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="styleSheet">
+    <string notr="true">size:20px</string>
+   </property>
    <property name="text">
     <string>contrat </string>
    </property>
@@ -398,7 +401,7 @@ QTextEdit:hover {
     <property name="geometry">
      <rect>
       <x>255</x>
-      <y>290</y>
+      <y>430</y>
       <width>31</width>
       <height>31</height>
      </rect>

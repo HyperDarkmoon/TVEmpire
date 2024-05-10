@@ -65,8 +65,26 @@
      <x>510</x>
      <y>610</y>
      <width>93</width>
-     <height>28</height>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: transparent; 
+    color: black;
+    border: 3px solid#141E46 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #EBF1F4;
+    color: black;
+}</string>
    </property>
    <property name="text">
     <string>Affecter</string>

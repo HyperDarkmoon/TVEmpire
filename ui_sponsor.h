@@ -141,14 +141,14 @@ public:
 ""));
         title_label = new QLabel(Sponsor);
         title_label->setObjectName(QStringLiteral("title_label"));
-        title_label->setGeometry(QRect(380, 0, 521, 49));
+        title_label->setGeometry(QRect(500, 0, 521, 49));
         QFont font;
         font.setFamily(QStringLiteral("Roboto Black"));
         font.setPointSize(30);
         font.setBold(true);
         font.setWeight(75);
         title_label->setFont(font);
-        title_label->setStyleSheet(QStringLiteral("color: white "));
+        title_label->setStyleSheet(QStringLiteral("color: SOLIDBLZCK"));
         title_label->setAlignment(Qt::AlignCenter);
         widget_3 = new QWidget(Sponsor);
         widget_3->setObjectName(QStringLiteral("widget_3"));
@@ -566,7 +566,7 @@ public:
 ""));
         label = new QLabel(widget_2);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 80, 48, 16));
+        label->setGeometry(QRect(10, 80, 81, 16));
         label->setStyleSheet(QLatin1String("color: black\n"
 ""));
         lineEdit = new QLineEdit(widget_2);
@@ -598,11 +598,11 @@ public:
 ""));
         label_2 = new QLabel(widget_2);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 150, 26, 16));
+        label_2->setGeometry(QRect(10, 150, 51, 16));
         label_2->setStyleSheet(QStringLiteral("color: black"));
         comboBox = new QComboBox(widget_2);
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(9, 249, 191, 25));
+        comboBox->setGeometry(QRect(9, 243, 191, 31));
         comboBox->setStyleSheet(QLatin1String("/* Styles for QComboBox */\n"
 "QComboBox {\n"
 "    border: 2px solid #141E46; /* Border color */\n"
@@ -643,12 +643,12 @@ public:
         label_3 = new QLabel(widget_2);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setEnabled(true);
-        label_3->setGeometry(QRect(10, 220, 50, 16));
+        label_3->setGeometry(QRect(10, 220, 71, 16));
         label_3->setBaseSize(QSize(2, 0));
         label_3->setStyleSheet(QStringLiteral("color: black"));
         add_btn = new QPushButton(widget_2);
         add_btn->setObjectName(QStringLiteral("add_btn"));
-        add_btn->setGeometry(QRect(30, 310, 151, 34));
+        add_btn->setGeometry(QRect(30, 303, 151, 41));
         add_btn->setStyleSheet(QLatin1String("QPushButton {\n"
 "    background-color: transparent; \n"
 "    color: black;\n"

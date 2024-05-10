@@ -975,8 +975,26 @@ QTextEdit:hover {
       <x>780</x>
       <y>650</y>
       <width>91</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent; 
+    color: black;
+    border: 3px solid#141E46 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #EBF1F4;
+    color: black;
+}</string>
     </property>
     <property name="text">
      <string>Google</string>
@@ -988,8 +1006,26 @@ QTextEdit:hover {
       <x>880</x>
       <y>650</y>
       <width>91</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent; 
+    color: black;
+    border: 3px solid#141E46 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #EBF1F4;
+    color: black;
+}</string>
     </property>
     <property name="text">
      <string>Amazon</string>
@@ -1000,9 +1036,27 @@ QTextEdit:hover {
      <rect>
       <x>980</x>
       <y>650</y>
-      <width>91</width>
-      <height>31</height>
+      <width>121</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent; 
+    color: black;
+    border: 3px solid#141E46 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #EBF1F4;
+    color: black;
+}</string>
     </property>
     <property name="text">
      <string>Visual Impact</string>
@@ -1701,6 +1755,37 @@ QLineEdit:focus {
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QPushButton" name="Affecter">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>10</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: transparent; 
+    color: black;
+    border: 3px solid#141E46 ;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+}
+
+/* Hover effect */
+QPushButton:hover {
+  
+    border: 3px solid #EBF1F4;
+    color: black;
+}</string>
+     </property>
+     <property name="text">
+      <string>Affecter</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="result_widget" native="true">
     <property name="geometry">
@@ -1789,19 +1874,6 @@ QTableWidget::item:selected {
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="Affecter">
-    <property name="geometry">
-     <rect>
-      <x>730</x>
-      <y>60</y>
-      <width>101</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Affecter</string>
-    </property>
-   </widget>
    <zorder>widget_3</zorder>
    <zorder>Label</zorder>
    <zorder>Labelequipment</zorder>
@@ -1813,7 +1885,6 @@ QTableWidget::item:selected {
    <zorder>widget_4</zorder>
    <zorder>result_widget</zorder>
    <zorder>webWidget</zorder>
-   <zorder>Affecter</zorder>
   </widget>
  </widget>
  <resources/>

@@ -161,7 +161,7 @@ public:
         label->setGeometry(QRect(330, 90, 951, 51));
         widget_2 = new QWidget(employeeContainer);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(0, 160, 261, 471));
+        widget_2->setGeometry(QRect(0, 160, 261, 541));
         widget_2->setStyleSheet(QLatin1String("QPushButton {\n"
 "    background-color: transparent; \n"
 "    color: black;\n"
@@ -289,7 +289,7 @@ public:
         add->setIconSize(QSize(20, 20));
         pushButton_4 = new QPushButton(widget_2);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(205, 210, 31, 31));
+        pushButton_4->setGeometry(QRect(205, 270, 31, 31));
         pushButton_4->setLayoutDirection(Qt::LeftToRight);
         QIcon icon1;
         icon1.addFile(QStringLiteral("../../../Downloads/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -298,7 +298,7 @@ public:
         pushButton_4->setCheckable(true);
         label_11 = new QLabel(widget_2);
         label_11->setObjectName(QStringLiteral("label_11"));
-        label_11->setGeometry(QRect(200, 0, 41, 471));
+        label_11->setGeometry(QRect(200, 0, 41, 531));
         label_11->setStyleSheet(QLatin1String("QLabel {\n"
 "    background-color: white;\n"
 "    border: 2px solid black; /* Add border */\n"

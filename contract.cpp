@@ -572,11 +572,11 @@ void Contract::exportPDF(unsigned int idSponsor, unsigned int idEmission) {
         QPainter painter(&printer);
         painter.setRenderHint(QPainter::Antialiasing);
 
-        int titleFontSize = 70; // Adjust font size as needed
+        int titleFontSize = 30; // Adjust font size as needed
         QFont titleFont = painter.font();
         titleFont.setPointSize(titleFontSize);
         painter.setFont(titleFont);
-        painter.drawText(2700, 900, "Contrat"); // Title
+        painter.drawText(2900,900, "Contrat"); // Title
 
         // Retrieve contract details from the database
         CrudContract c;
