@@ -60,7 +60,7 @@ QByteArray CRUDequipment::getImage() const {
     return image;
 }
 
-void CRUDequipment::addEquipment() {
+int CRUDequipment::addEquipment() {
     QSqlQuery query;
     query.prepare("INSERT INTO equipement (id, libelle, quantite, condition, categorie, IMAGE) VALUES (EQ_SEQ.NEXTVAL, :label, :stock, :state, :category, :image)");
 
@@ -72,8 +72,10 @@ void CRUDequipment::addEquipment() {
 
     if (query.exec()) {
         qDebug() << "Equipment added successfully!";
+        return 1;
     } else {
         qDebug() << "Error adding equipment:" << query.lastError().text();
+        return 0;
     }
 }
 

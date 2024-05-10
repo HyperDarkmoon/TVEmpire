@@ -18,6 +18,9 @@
 #include <QVBoxLayout>
 #include "employee.h"
 #include "affectation.h"
+#include <QFileDialog>
+#include <QBuffer>
+#include <QIODevice>
 
 Equipment::Equipment(QWidget *parent) : QWidget(parent),
                                         ui(new Ui::Equipment), addE(new addEquipment)
@@ -26,6 +29,7 @@ Equipment::Equipment(QWidget *parent) : QWidget(parent),
     connect(addE, &addEquipment::buttonClicked, this, &Equipment::onAddEmissionDialogClosed);
     connect(ui->pdfButton_4, &QPushButton::clicked, this, &Equipment::on_pdfButton_4_clicked);
     connect(ui->search_input, &QLineEdit::textChanged, this, &Equipment::filterTable);
+        connect(ui->imageSelector, &QPushButton::clicked, this, &Equipment::selectImage);
     refreshTable();
 }
 
@@ -350,4 +354,58 @@ void Equipment::on_Affecter_clicked()
 {
     affecter = new Affectation();
     affecter->show();
+}
+
+void Equipment::on_Ajout_2_clicked()
+{
+    // This function handles adding equipment with the selected image
+    if (selectedImagePath.isEmpty()) {
+        qDebug() << "No image selected.";
+        return;
+    }
+
+    // Load the selected image into a pixmap
+    QPixmap pixmap(selectedImagePath);
+
+    // Scale the image to fit within a 25x25 area while maintaining aspect ratio
+    QPixmap scaledPixmap = pixmap.scaled(25, 25, Qt::KeepAspectRatio);
+
+    // Convert the scaled pixmap to a byte array (PNG format)
+    QByteArray byteArray;
+    QBuffer buffer(&byteArray);
+    buffer.open(QIODevice::WriteOnly);
+    scaledPixmap.save(&buffer, "PNG");
+
+    // Get equipment details from existing UI elements
+    QString label = ui->labelE->text();
+    int stock = ui->stockE->text().toInt();
+    QString state = ui->stateE->text();
+    QString category = ui->categoryE->text();
+
+    // Create a CRUDequipment object with the extracted data and image
+    CRUDequipment equipment(1, label, stock, state, category, byteArray);
+
+    // Add the equipment to the database
+    if (equipment.addEquipment()) {
+        // Refresh the equipment table after successful addition
+        refreshTable();
+        qDebug() << "Equipment added successfully.";
+    } else {
+        // Handle failure to add equipment
+        qDebug() << "Failed to add equipment.";
+    }
+}
+
+void Equipment::selectImage()
+{
+    // Open a file dialog to allow the user to select an image file
+    QString imagePath = QFileDialog::getOpenFileName(this, tr("Open Image"), "", tr("Image Files (*.png *.jpg *.bmp)"));
+
+    if (!imagePath.isEmpty()) {
+        // Save the selected image path for use when adding equipment
+        selectedImagePath = imagePath;
+        qDebug() << "Image selected:" << selectedImagePath;
+    } else {
+        qDebug() << "No image selected.";
+    }
 }

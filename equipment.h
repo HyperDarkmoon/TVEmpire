@@ -43,10 +43,15 @@ private slots:
 
     void on_Affecter_clicked();
 
+    void on_Ajout_2_clicked();
+
+    void selectImage();
+
 private:
     Ui::Equipment *ui;
     addEquipment *addE;
     Affectation *affecter;
+    QString selectedImagePath;
 };
 
 #endif // EQUIPMENT_H

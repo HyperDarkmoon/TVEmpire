@@ -27,7 +27,7 @@ public:
     void setStock(int stock);
     void setImage(const QByteArray& image); // Added setImage method
 
-    void addEquipment();
+    int addEquipment();
     void readEquipment();
     void updateEquipment();
     void deleteEquipment();
