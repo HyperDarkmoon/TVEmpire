@@ -474,6 +474,7 @@ void Sponsor::displayChart() {
     // Create a chart and add the series to it
     QtCharts::QChart *chart = new QtCharts::QChart();
     chart->addSeries(series);
+    chart->setAnimationOptions(QtCharts::QChart::SeriesAnimations);
 
     // Create axes
     QtCharts::QBarCategoryAxis *axisX = new QtCharts::QBarCategoryAxis();
