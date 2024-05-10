@@ -96,12 +96,12 @@ public:
         label_2->setScaledContents(true);
         label_3 = new QLabel(widget);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(270, 30, 240, 430));
+        label_3->setGeometry(QRect(270, 30, 261, 430));
         label_3->setStyleSheet(QLatin1String("background-color:rgba(255, 255, 255, 255);\n"
 "border-bottom-right-radius: 50px;"));
         label_4 = new QLabel(widget);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(340, 80, 100, 40));
+        label_4->setGeometry(QRect(340, 80, 131, 40));
         QFont font;
         font.setPointSize(20);
         font.setBold(true);
@@ -164,7 +164,7 @@ public:
         label_6->setStyleSheet(QStringLiteral("background-color:rgba(0, 0, 0, 75);"));
         label_7 = new QLabel(widget);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(60, 150, 180, 40));
+        label_7->setGeometry(QRect(60, 150, 201, 40));
         QFont font3;
         font3.setPointSize(22);
         font3.setBold(true);

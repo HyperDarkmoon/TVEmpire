@@ -49,7 +49,23 @@ public:
         label_2->setGeometry(QRect(800, 80, 71, 21));
         pushButton = new QPushButton(Affectation);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(510, 610, 93, 28));
+        pushButton->setGeometry(QRect(510, 610, 93, 41));
+        pushButton->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#141E46 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #EBF1F4;\n"
+"    color: black;\n"
+"}"));
 
         retranslateUi(Affectation);
 

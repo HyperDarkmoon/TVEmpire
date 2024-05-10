@@ -105,6 +105,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
         label->setSizePolicy(sizePolicy);
+        label->setStyleSheet(QStringLiteral("size:20px"));
         label->setMargin(200);
         widget_2 = new QWidget(Contract);
         widget_2->setObjectName(QStringLiteral("widget_2"));
@@ -269,7 +270,7 @@ public:
         add_btn->setIconSize(QSize(20, 20));
         pushButton_4 = new QPushButton(widget_3);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(255, 290, 31, 31));
+        pushButton_4->setGeometry(QRect(255, 430, 31, 31));
         pushButton_4->setLayoutDirection(Qt::LeftToRight);
         pushButton_4->setIcon(icon);
         pushButton_4->setIconSize(QSize(30, 30));

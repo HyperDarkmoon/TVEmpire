@@ -55,10 +55,10 @@ public:
     QPushButton *pdfButton_4;
     QLineEdit *search_input;
     QLabel *label_15;
+    QPushButton *Affecter;
     QWidget *result_widget;
     QTableWidget *tableWidget_2;
     QWidget *webWidget;
-    QPushButton *Affecter;
 
     void setupUi(QWidget *Equipment)
     {
@@ -392,13 +392,61 @@ public:
         pushButton_3->raise();
         google = new QPushButton(equipement);
         google->setObjectName(QStringLiteral("google"));
-        google->setGeometry(QRect(780, 650, 91, 31));
+        google->setGeometry(QRect(780, 650, 91, 41));
+        google->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#141E46 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #EBF1F4;\n"
+"    color: black;\n"
+"}"));
         amazon = new QPushButton(equipement);
         amazon->setObjectName(QStringLiteral("amazon"));
-        amazon->setGeometry(QRect(880, 650, 91, 31));
+        amazon->setGeometry(QRect(880, 650, 91, 41));
+        amazon->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#141E46 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #EBF1F4;\n"
+"    color: black;\n"
+"}"));
         visual_impact = new QPushButton(equipement);
         visual_impact->setObjectName(QStringLiteral("visual_impact"));
-        visual_impact->setGeometry(QRect(980, 650, 91, 31));
+        visual_impact->setGeometry(QRect(980, 650, 121, 41));
+        visual_impact->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#141E46 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #EBF1F4;\n"
+"    color: black;\n"
+"}"));
         label = new QLabel(equipement);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(530, 640, 241, 41));
@@ -629,6 +677,25 @@ public:
         label_15->setPixmap(QPixmap(QString::fromUtf8("../../../Downloads/recherche.png")));
         label_15->setScaledContents(true);
         label_15->setAlignment(Qt::AlignCenter);
+        Affecter = new QPushButton(widget_4);
+        Affecter->setObjectName(QStringLiteral("Affecter"));
+        Affecter->setGeometry(QRect(700, 10, 101, 41));
+        Affecter->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color: transparent; \n"
+"    color: black;\n"
+"    border: 3px solid#141E46 ;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-family: Calibri, sans-serif;\n"
+"}\n"
+"\n"
+"/* Hover effect */\n"
+"QPushButton:hover {\n"
+"  \n"
+"    border: 3px solid #EBF1F4;\n"
+"    color: black;\n"
+"}"));
         result_widget = new QWidget(equipement);
         result_widget->setObjectName(QStringLiteral("result_widget"));
         result_widget->setGeometry(QRect(370, 240, 961, 391));
@@ -687,9 +754,6 @@ public:
         webWidget = new QWidget(equipement);
         webWidget->setObjectName(QStringLiteral("webWidget"));
         webWidget->setGeometry(QRect(340, 490, 261, 231));
-        Affecter = new QPushButton(equipement);
-        Affecter->setObjectName(QStringLiteral("Affecter"));
-        Affecter->setGeometry(QRect(730, 60, 101, 31));
         widget_3->raise();
         Label->raise();
         Labelequipment->raise();
@@ -701,7 +765,6 @@ public:
         widget_4->raise();
         result_widget->raise();
         webWidget->raise();
-        Affecter->raise();
 
         retranslateUi(Equipment);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
