@@ -20,7 +20,7 @@ Form2::Form2(QWidget *parent,Arduino *arduino) : QWidget(parent),
     //  Connect lineEdit_2 returnPressed signal to custom lambda slot for authentication
     connect(ui->lineEdit_2, &QLineEdit::returnPressed, this, [this]()
             {
-        QString text = ui->lineEdit_2->text();
+
         authenticate(); });
 
     // Connect cardCheckTimer timeout signal to checkForScannedCard slot

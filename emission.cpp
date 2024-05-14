@@ -421,6 +421,7 @@ void Emission::resetInputs()
    // ui->dateEdit->setData(); // You may want to set it to an appropriate default date
     ui->scene->clear();
     ui->errorLabel->setText("");
+    ui->dateEdit->setDate(QDate::currentDate());
     QSqlQuery scenes;
         scenes.prepare("SELECT id from Scenes");
         scenes.exec();

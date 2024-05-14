@@ -545,24 +545,6 @@
             <property name="spacing">
              <number>10</number>
             </property>
-            <item>
-             <widget class="QLineEdit" name="search_input">
-              <property name="placeholderText">
-               <string>Search...</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="search_btn">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="resource.qrc">
-                <normaloff>:/icon/icon/search-13-48.ico</normaloff>:/icon/icon/search-13-48.ico</iconset>
-              </property>
-             </widget>
-            </item>
            </layout>
           </item>
           <item>

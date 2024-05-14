@@ -118,14 +118,19 @@ void Employee::refreshTable()
             }
 
             // Add "Delete" and "Edit" buttons for each row if the user is RH or Admin
-            QPushButton *deleteButton = new QPushButton("Delete", this);
+            QPushButton *deleteButton = new QPushButton(this);
+            deleteButton->setIcon(QIcon(":icon/icon/delete.png"));
+                    deleteButton->setStyleSheet("border: none;"); // Remove border
             connect(deleteButton, &QPushButton::clicked, [this, rowIndex]()
                     { onDeleteButtonClicked(rowIndex); });
             ui->emp->setCellWidget(rowIndex, headers.size() - 2, deleteButton);
 
-            QPushButton *editButton = new QPushButton("Edit", this);
+            QPushButton *editButton = new QPushButton(this);
+            editButton->setIcon(QIcon(":icon/icon/update.png"));
+                    editButton->setStyleSheet("border: none;");
             connect(editButton, &QPushButton::clicked, [this, rowIndex]()
-                    { onEditButtonClicked(rowIndex); });
+                    { onEditButtonClicked(rowIndex)
+                        ; });
             ui->emp->setCellWidget(rowIndex, headers.size() - 1, editButton);
 
             ++rowIndex; // Increment the row index counter only if a row is inserted

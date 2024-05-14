@@ -155,14 +155,18 @@ void Equipment::refreshTable()
                 });  */
 
         // Delete
-        QPushButton *deleteButton = new QPushButton("Delete", this);
+        QPushButton *deleteButton = new QPushButton(this);
+        deleteButton->setIcon(QIcon(":icon/icon/delete.png"));
+        deleteButton->setStyleSheet("border: none;"); // Remove border
         unsigned int id = ui->tableWidget_2->item(row, 0)->text().toUInt();
         connect(deleteButton, &QPushButton::clicked, [this, id]()
                 { onDeleteButtonClicked(id); });
         ui->tableWidget_2->setCellWidget(row, headers.size() - 5, deleteButton);
 
         // Edit
-        QPushButton *editButton = new QPushButton("Edit", this);
+        QPushButton *editButton = new QPushButton(this);
+        editButton->setIcon(QIcon(":icon/icon/update.png"));
+        editButton->setStyleSheet("border: none;");
         connect(editButton, &QPushButton::clicked, [this, row]()
                 { onEditButtonClicked(row); });
         ui->tableWidget_2->setCellWidget(row, headers.size() - 4, editButton);

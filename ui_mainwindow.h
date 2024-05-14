@@ -17,7 +17,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
@@ -70,8 +69,6 @@ public:
     QPushButton *change_btn;
     QSpacerItem *horizontalSpacer;
     QHBoxLayout *horizontalLayout;
-    QLineEdit *search_input;
-    QPushButton *search_btn;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *user_btn;
     QStackedWidget *stackedWidget;
@@ -341,19 +338,6 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(10);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        search_input = new QLineEdit(widget);
-        search_input->setObjectName(QStringLiteral("search_input"));
-
-        horizontalLayout->addWidget(search_input);
-
-        search_btn = new QPushButton(widget);
-        search_btn->setObjectName(QStringLiteral("search_btn"));
-        QIcon icon8;
-        icon8.addFile(QStringLiteral(":/icon/icon/search-13-48.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        search_btn->setIcon(icon8);
-
-        horizontalLayout->addWidget(search_btn);
-
 
         horizontalLayout_4->addLayout(horizontalLayout);
 
@@ -363,9 +347,9 @@ public:
 
         user_btn = new QPushButton(widget);
         user_btn->setObjectName(QStringLiteral("user_btn"));
-        QIcon icon9;
-        icon9.addFile(QStringLiteral(":/icon/icon/user-48.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        user_btn->setIcon(icon9);
+        QIcon icon8;
+        icon8.addFile(QStringLiteral(":/icon/icon/user-48.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        user_btn->setIcon(icon8);
 
         horizontalLayout_4->addWidget(user_btn);
 
@@ -486,8 +470,6 @@ public:
         customers_btn_4->setText(QApplication::translate("MainWindow", "Sponsor", Q_NULLPTR));
         exit_btn_2->setText(QApplication::translate("MainWindow", "Exit", Q_NULLPTR));
         change_btn->setText(QString());
-        search_input->setPlaceholderText(QApplication::translate("MainWindow", "Search...", Q_NULLPTR));
-        search_btn->setText(QString());
         user_btn->setText(QString());
         label_4->setText(QApplication::translate("MainWindow", "Home Page", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindow", "Scenes Page", Q_NULLPTR));
