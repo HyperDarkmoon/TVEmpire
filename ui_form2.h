@@ -35,15 +35,16 @@ public:
     QPushButton *forgotPushButton;
     QLabel *label_6;
     QLabel *label_7;
+    QPushButton *exitbutton;
 
     void setupUi(QWidget *Form2)
     {
         if (Form2->objectName().isEmpty())
             Form2->setObjectName(QStringLiteral("Form2"));
-        Form2->resize(551, 481);
+        Form2->resize(539, 436);
         widget = new QWidget(Form2);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(0, 0, 550, 500));
+        widget->setGeometry(QRect(0, -30, 551, 501));
         widget->setStyleSheet(QLatin1String("QPushButton#pushButton{\n"
 "	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(11, 131, 120, 219), stop:1 rgba(85, 98, 112, 226));\n"
 "	color:rgba(255, 255, 255, 210);\n"
@@ -84,7 +85,7 @@ public:
 "border-top-left-radius: 50px;"));
         label_2 = new QLabel(widget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(40, 30, 280, 430));
+        label_2->setGeometry(QRect(30, 30, 280, 430));
         label_2->setStyleSheet(QLatin1String("\n"
 "QLabel#label_2 {\n"
 "        background-image: url(C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/forma.jpg); /* Background image */\n"
@@ -93,6 +94,7 @@ public:
 "       border-image:  url(C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/forma.jpg) 10 10 10 10 stretch stretch; /* Border image */\n"
 "        background-size: 280px 430px; /* Resize the background image */\n"
 "    }"));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/icon/icon/forma.jpg")));
         label_2->setScaledContents(true);
         label_3 = new QLabel(widget);
         label_3->setObjectName(QStringLiteral("label_3"));
@@ -171,8 +173,15 @@ public:
         font3.setWeight(75);
         label_7->setFont(font3);
         label_7->setStyleSheet(QStringLiteral("color:rgba(255, 255, 255, 200);"));
+        exitbutton = new QPushButton(widget);
+        exitbutton->setObjectName(QStringLiteral("exitbutton"));
+        exitbutton->setGeometry(QRect(510, 30, 21, 23));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/icon/icon/close-window-64.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        exitbutton->setIcon(icon);
 
         retranslateUi(Form2);
+        QObject::connect(exitbutton, SIGNAL(clicked()), Form2, SLOT(close()));
 
         QMetaObject::connectSlotsByName(Form2);
     } // setupUi
@@ -190,6 +199,7 @@ public:
         forgotPushButton->setText(QApplication::translate("Form2", "Forgot your password?", Q_NULLPTR));
         label_6->setText(QString());
         label_7->setText(QApplication::translate("Form2", "Tv Empire", Q_NULLPTR));
+        exitbutton->setText(QString());
     } // retranslateUi
 
 };

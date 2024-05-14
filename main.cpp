@@ -24,6 +24,10 @@ int main(int argc, char *argv[])
     {
         Arduino *arduino = new Arduino();
         Form2 loginpage(nullptr,arduino);
+        loginpage.setWindowFlag(Qt::FramelessWindowHint);
+        loginpage.setAttribute(Qt::WA_TranslucentBackground);
+
+
         loginpage.show();
 
         MainWindow mainWindow(nullptr,arduino); // Create MainWindow object here but do not show it yet

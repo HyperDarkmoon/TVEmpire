@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>551</width>
-    <height>481</height>
+    <width>539</width>
+    <height>436</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
-     <width>550</width>
-     <height>500</height>
+     <y>-30</y>
+     <width>551</width>
+     <height>501</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -76,7 +76,7 @@ border-top-left-radius: 50px;</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>30</y>
       <width>280</width>
       <height>430</height>
@@ -94,6 +94,9 @@ QLabel#label_2 {
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resource.qrc">:/icon/icon/forma.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -286,8 +289,44 @@ QPushButton:hover {
      <string>Tv Empire</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="exitbutton">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>30</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resource.qrc">
+      <normaloff>:/icon/icon/close-window-64.ico</normaloff>:/icon/icon/close-window-64.ico</iconset>
+    </property>
+   </widget>
   </widget>
  </widget>
- <resources/>
- <connections/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>exitbutton</sender>
+   <signal>clicked()</signal>
+   <receiver>Form2</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>534</x>
+     <y>11</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>275</x>
+     <y>240</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
