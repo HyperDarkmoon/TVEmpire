@@ -224,7 +224,7 @@ void Contract::refreshTable() {
     QList<CrudContract> listSponsor = c.getAll();
     for (int row = 0; row < listSponsor.size(); ++row) {
         ui->tableWidget->insertRow(row);
-
+        ui->tableWidget->setRowHeight(row,40);
         // Populate table cells with data
         QTableWidgetItem *itemIdSponsor = new QTableWidgetItem(QString::number(listSponsor.at(row).getIdSponsor()));
         ui->tableWidget->setItem(row, 0, itemIdSponsor);
@@ -278,7 +278,8 @@ void Contract::refreshTable() {
         int idSponsor = listSponsor.at(row).getIdSponsor();
         int idEmission = listSponsor.at(row).getIdEmission();
         QToolButton *editButton = new QToolButton();
-        editButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/update.png"));
+        editButton->setIcon(QIcon(":icon/icon/update.png"));
+                editButton->setStyleSheet("border: none;");
         connect(editButton, &QToolButton::clicked, [this, idSponsor, idEmission,row]() {
             onEditButtonClicked(idSponsor, idEmission,row);
         });
@@ -286,7 +287,8 @@ void Contract::refreshTable() {
 
         // Delete button
         QToolButton *deleteButton = new QToolButton();
-        deleteButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/delete.png"));
+        deleteButton->setIcon(QIcon(":icon/icon/delete.png"));
+                deleteButton->setStyleSheet("border: none;"); // Remove border
         connect(deleteButton, &QToolButton::clicked, [this, idSponsor, idEmission]() {
             onDeleteButtonClicked(idSponsor, idEmission);
         });
@@ -294,7 +296,8 @@ void Contract::refreshTable() {
 
         // Send email button
         QToolButton *sendEmailButton = new QToolButton();
-        sendEmailButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/email.png"));
+        sendEmailButton->setIcon(QIcon(":icon/icon/email.png"));
+        sendEmailButton->setStyleSheet("border: none;");
         connect(sendEmailButton, &QToolButton::clicked, [this, idSponsor,row]() {
             onSendEmailButtonClicked(idSponsor,row);
         });
@@ -302,7 +305,8 @@ void Contract::refreshTable() {
 
         // Export PDF button
         QPushButton *exportPDFButton = new QPushButton();
-        exportPDFButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/format-de-fichier-pdf.png"));
+        exportPDFButton->setIcon(QIcon(":icon/icon/format-de-fichier-pdf.png"));
+        exportPDFButton->setStyleSheet("border: none;");
         connect(exportPDFButton, &QPushButton::clicked, [this, idSponsor, idEmission]() {
             exportPDF(idSponsor, idEmission);
         });

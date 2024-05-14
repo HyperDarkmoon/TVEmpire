@@ -28,6 +28,13 @@ Sponsor::Sponsor(QWidget *parent) : QWidget(parent), ui(new Ui::Sponsor), c(new 
     ui->setupUi(this);
     refreshTable();
     connect(ui->search_input, &QLineEdit::textChanged, this, &Sponsor::filterTable);
+    c.setWindowFlag(Qt::Window);
+    // Assuming 'dialog' is the name of your QDialog
+    Qt::WindowFlags flags = c.windowFlags();
+    flags |= Qt::WindowMinimizeButtonHint;
+    flags &= ~Qt::WindowContextHelpButtonHint;
+    c.setWindowFlags(flags);
+
 }
 
 Sponsor::~Sponsor() {

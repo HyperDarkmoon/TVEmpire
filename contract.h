@@ -12,7 +12,7 @@
 #include "../smtp/src/SmtpMime"
 #include <QSslSocket>
 #include <QPrinter>
-
+#include <QCoreApplication>
 namespace Ui {
 class Contract;
 }
