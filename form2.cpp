@@ -21,7 +21,7 @@ Form2::Form2(QWidget *parent,Arduino *arduino) : QWidget(parent),
     connect(ui->lineEdit_2, &QLineEdit::returnPressed, this, [this]()
             {
         QString text = ui->lineEdit_2->text();
-        authenticate(text); });
+        authenticate(); });
 
     // Connect cardCheckTimer timeout signal to checkForScannedCard slot
     connect(cardCheckTimer, &QTimer::timeout, this, &Form2::checkForScannedCard);

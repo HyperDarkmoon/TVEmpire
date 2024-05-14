@@ -283,7 +283,9 @@ void Sponsor::refreshTable() {
 
         // Delete button
         QToolButton *deleteButton = new QToolButton(this);
-        deleteButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/delete.png"));
+        deleteButton->setIcon(QIcon(":icon/icon/delete.png"));
+        deleteButton->setStyleSheet("border: none;"); // Remove border
+
         unsigned int deleteId = ui->tableWidget->item(row, 0)->text().toUInt();
         connect(deleteButton, &QToolButton::clicked, [this, deleteId]() {
             onDeleteButtonClicked(deleteId);
@@ -293,7 +295,8 @@ void Sponsor::refreshTable() {
         // Style for delete button
         // Edit button
         QToolButton *editButton = new QToolButton(this);
-        editButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/update.png"));
+        editButton->setIcon(QIcon(":icon/icon/update.png"));
+        editButton->setStyleSheet("border: none;");
         connect(editButton, &QToolButton::clicked, [this, row]() {
             onEditButtonClicked(row);
         });
@@ -303,7 +306,8 @@ void Sponsor::refreshTable() {
 
         // Contrat button
         QToolButton *contratButton = new QToolButton(this);
-        contratButton->setIcon(QIcon("C:/Users/yassine abid/Desktop/tv/TVEmpire/icon/contract.png"));  // Update with the actual path to your contrat icon
+        contratButton->setIcon(QIcon(":icon/icon/contract.png"));  // Update with the actual path to your contrat icon
+        contratButton->setStyleSheet("border: none;");
         connect(contratButton, &QToolButton::clicked, [this, row]() {
             onContratButtonClicked(row);
         });
