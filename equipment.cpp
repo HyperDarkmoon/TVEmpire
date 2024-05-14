@@ -65,7 +65,7 @@ void Equipment::refreshTable()
     for (int row = 0; row < EquipmentList.size(); ++row)
     {
         ui->tableWidget_2->insertRow(row);
-
+        ui->tableWidget_2->setRowHeight(row,40);
         for (int col = 0; col < headers.size() - 4; ++col)
         {
             QString fieldData = EquipmentList.at(row).getFieldByIndex(col).toString();

@@ -88,6 +88,7 @@ void Employee::refreshTable()
 
     for (const auto &employee : employeesList)
     {
+        ui->emp->setRowHeight(rowIndex,40);
         // Check if the current user has access to view this employee's details
         if (currentUserRole == "Personnel" && employee.getLogin() != UserSession::getInstance().getUsername())
         {
@@ -132,6 +133,7 @@ void Employee::refreshTable()
                     { onEditButtonClicked(rowIndex)
                         ; });
             ui->emp->setCellWidget(rowIndex, headers.size() - 1, editButton);
+            ui->emp->setRowHeight(rowIndex,40);
 
             ++rowIndex; // Increment the row index counter only if a row is inserted
         }

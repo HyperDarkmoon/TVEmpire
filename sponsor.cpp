@@ -232,6 +232,7 @@ void Sponsor::refreshTable() {
 
         for (int row = 0; row < emissionList.size(); ++row) {
             ui->tableWidget->insertRow(row);
+            ui->tableWidget->setRowHeight(row,40);
 
             for (int col = 0; col < headers.size() - 4; ++col) {
                 QString fieldData = emissionList.at(row).getFieldByIndex(col).toString();

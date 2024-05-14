@@ -924,6 +924,8 @@ public:
         tableWidget_2->setAutoScroll(true);
         tableWidget_2->setSelectionMode(QAbstractItemView::ExtendedSelection);
         tableWidget_2->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidget_2->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+        tableWidget_2->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
         tableWidget_2->setShowGrid(false);
         tableWidget_2->setGridStyle(Qt::NoPen);
         tableWidget_2->setSortingEnabled(true);

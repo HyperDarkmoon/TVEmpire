@@ -172,8 +172,9 @@ void Emission::refreshTable()
     QList<CrudEmission> emissionList = c.getAll();
 
     for (int row = 0; row < emissionList.size(); ++row) {
-        ui->tableWidget_2->insertRow(row);
 
+        ui->tableWidget_2->insertRow(row);
+        ui->tableWidget_2->setRowHeight(row,40);
         for (int col = 0; col < headers.size() - 4; ++col) {  // Adjusted loop to skip the "Delete" and "Edit" columns
             QString fieldData = emissionList.at(row).getFieldByIndex(col).toString();
             QTableWidgetItem *item = new QTableWidgetItem(fieldData);
