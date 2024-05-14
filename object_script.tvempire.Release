@@ -16,6 +16,7 @@ INPUT(
 ./release\form2.o
 ./release\geminidialog.o
 ./release\main.o
+./release\mainmenu.o
 ./release\mainwindow.o
 ./release\pdfexport.o
 ./release\qrcodegen.o
@@ -53,6 +54,7 @@ INPUT(
 ./release\moc_forgotpassword.o
 ./release\moc_form2.o
 ./release\moc_geminidialog.o
+./release\moc_mainmenu.o
 ./release\moc_mainwindow.o
 ./release\moc_scenes.o
 ./release\moc_signature.o

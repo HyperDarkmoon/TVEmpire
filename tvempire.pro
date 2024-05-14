@@ -32,6 +32,7 @@ SOURCES += \
     form2.cpp \
     geminidialog.cpp \
     main.cpp \
+    mainmenu.cpp \
     mainwindow.cpp \
     pdfexport.cpp \
     qrcodegen.cpp \
@@ -73,6 +74,7 @@ HEADERS += \
     forgotpassword.h \
     form2.h \
     geminidialog.h \
+    mainmenu.h \
     mainwindow.h \
     pdfexport.h \
     qrcodegen.h \
@@ -113,6 +115,7 @@ FORMS += \
     forgotpassword.ui \
     form2.ui \
     geminidialog.ui \
+    mainmenu.ui \
     mainwindow.ui \
     scenes.ui \
     sponsor.ui \

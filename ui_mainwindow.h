@@ -26,6 +26,7 @@
 #include "emission.h"
 #include "employee.h"
 #include "equipment.h"
+#include "mainmenu.h"
 #include "sponsor.h"
 
 QT_BEGIN_NAMESPACE
@@ -72,9 +73,8 @@ public:
     QSpacerItem *horizontalSpacer_2;
     QPushButton *user_btn;
     QStackedWidget *stackedWidget;
-    QWidget *page;
-    QGridLayout *gridLayout_2;
-    QLabel *label_4;
+    MainMenu *page;
+    QGridLayout *_2;
     Emission *page_2;
     QGridLayout *gridLayout_3;
     Equipment *page_3;
@@ -358,19 +358,10 @@ public:
 
         stackedWidget = new QStackedWidget(widget_3);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        page = new QWidget();
+        page = new MainMenu();
         page->setObjectName(QStringLiteral("page"));
-        gridLayout_2 = new QGridLayout(page);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        label_4 = new QLabel(page);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        QFont font1;
-        font1.setPointSize(20);
-        label_4->setFont(font1);
-        label_4->setAlignment(Qt::AlignCenter);
-
-        gridLayout_2->addWidget(label_4, 0, 0, 1, 1);
-
+        _2 = new QGridLayout(page);
+        _2->setObjectName(QStringLiteral("_2"));
         stackedWidget->addWidget(page);
         page_2 = new Emission();
         page_2->setObjectName(QStringLiteral("page_2"));
@@ -388,6 +379,8 @@ public:
         gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
         label_7 = new QLabel(page_4);
         label_7->setObjectName(QStringLiteral("label_7"));
+        QFont font1;
+        font1.setPointSize(20);
         label_7->setFont(font1);
         label_7->setAlignment(Qt::AlignCenter);
 
@@ -443,7 +436,7 @@ public:
         QObject::connect(exit_btn_2, SIGNAL(clicked()), MainWindow, SLOT(close()));
         QObject::connect(exit_btn_1, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -471,7 +464,6 @@ public:
         exit_btn_2->setText(QApplication::translate("MainWindow", "Exit", Q_NULLPTR));
         change_btn->setText(QString());
         user_btn->setText(QString());
-        label_4->setText(QApplication::translate("MainWindow", "Home Page", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindow", "Scenes Page", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "User Page", Q_NULLPTR));
     } // retranslateUi

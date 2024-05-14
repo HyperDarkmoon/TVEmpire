@@ -8,7 +8,7 @@
 #include "emission.h"
 Form2::Form2(QWidget *parent,Arduino *arduino) : QWidget(parent),
                                 ui(new Ui::Form2),
-                                mainWindow(new MainWindow()),
+                                mainWindow(nullptr),
                                 arduino(arduino),
                                 cardCheckTimer(new QTimer(this))
 {
