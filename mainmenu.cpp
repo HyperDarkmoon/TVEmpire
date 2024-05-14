@@ -19,12 +19,9 @@ MainMenu::~MainMenu()
 
 void MainMenu::fetchEmissionData() {
     QSqlQuery q;
-    q.prepare("SELECT"
-              "(SELECT COUNT(DISTINCT e.id) FROM emissions e INNER JOIN contract c ON e.id = c.idemission) AS emissions_with_contracts,"
-              "(SELECT COUNT(*) FROM emissions) - (SELECT COUNT(DISTINCT e.id) FROM emissions e INNER JOIN contract c ON e.id = c.idemission) AS emissions_without_contracts"
-          "FROM"
-              "dual;");
-    q.exec();
+    q.prepare("SELECT(SELECT COUNT(DISTINCT e.id) FROM emissions e INNER JOIN contract c ON e.id = c.idemission) AS emissions_with_contracts,(SELECT COUNT(*) FROM emissions) - (SELECT COUNT(DISTINCT e.id) FROM emissions e INNER JOIN contract c ON e.id = c.idemission) AS emissions_without_contractsFROMdual;");
+    if (q.exec() )
+       qDebug() << "hazebi";
     if (q.next()) {
         int emissionsWithContracts = q.value(0).toInt();
         int emissionsWithoutContracts = q.value(1).toUInt();
