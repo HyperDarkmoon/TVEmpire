@@ -9,7 +9,7 @@ MainMenu::MainMenu(QWidget *parent) :
     ui(new Ui::MainMenu)
 {
     ui->setupUi(this);
-    fetchEmissionData();
+   // fetchEmissionData();
 }
 
 MainMenu::~MainMenu()
