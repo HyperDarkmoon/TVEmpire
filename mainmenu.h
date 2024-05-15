@@ -14,7 +14,9 @@ class MainMenu : public QWidget
 public:
     explicit MainMenu(QWidget *parent = nullptr);
     ~MainMenu();
-    void fetchEmissionData();
+    void displayEmissionChart(QWidget *widget);
+    void displayEmployeeChart(QWidget *widget);
+
 private:
     Ui::MainMenu *ui;
 };
