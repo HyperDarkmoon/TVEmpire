@@ -17,13 +17,17 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "emission.h"
+#include "employee.h"
+#include "equipment.h"
+#include "mainmenu.h"
+#include "sponsor.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -33,7 +37,7 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QWidget *icon_only_widget;
-    QVBoxLayout *verticalLayout_3;
+    QGridLayout *gridLayout_10;
     QHBoxLayout *horizontalLayout_3;
     QLabel *logo_label_1;
     QVBoxLayout *verticalLayout;
@@ -42,10 +46,11 @@ public:
     QPushButton *orders_btn_1;
     QPushButton *products_btn_1;
     QPushButton *customers_btn_1;
+    QPushButton *customers_btn_3;
     QSpacerItem *verticalSpacer;
     QPushButton *exit_btn_1;
     QWidget *full_menu_widget;
-    QVBoxLayout *verticalLayout_4;
+    QGridLayout *gridLayout_9;
     QHBoxLayout *horizontalLayout_2;
     QLabel *logo_label_2;
     QLabel *logo_label_3;
@@ -55,6 +60,7 @@ public:
     QPushButton *orders_btn_2;
     QPushButton *products_btn_2;
     QPushButton *customers_btn_2;
+    QPushButton *customers_btn_4;
     QSpacerItem *verticalSpacer_2;
     QPushButton *exit_btn_2;
     QWidget *widget_3;
@@ -64,29 +70,22 @@ public:
     QPushButton *change_btn;
     QSpacerItem *horizontalSpacer;
     QHBoxLayout *horizontalLayout;
-    QLineEdit *search_input;
-    QPushButton *search_btn;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *user_btn;
     QStackedWidget *stackedWidget;
-    QWidget *page;
-    QGridLayout *gridLayout_2;
-    QLabel *label_4;
-    QWidget *page_2;
+    MainMenu *page;
+    QGridLayout *_2;
+    Emission *page_2;
     QGridLayout *gridLayout_3;
-    QLabel *label_5;
-    QWidget *page_3;
+    Equipment *page_3;
     QGridLayout *gridLayout_4;
-    QLabel *label_6;
     QWidget *page_4;
     QGridLayout *gridLayout_5;
     QLabel *label_7;
-    QWidget *page_5;
+    Employee *page_5;
     QGridLayout *gridLayout_6;
-    QLabel *label_8;
-    QWidget *page_6;
+    Sponsor *page_6;
     QGridLayout *gridLayout_7;
-    QLabel *label_9;
     QWidget *page_7;
     QGridLayout *gridLayout_8;
     QLabel *label_10;
@@ -95,7 +94,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(950, 600);
+        MainWindow->resize(1518, 754);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -104,23 +103,21 @@ public:
         gridLayout->setContentsMargins(0, 0, 0, 0);
         icon_only_widget = new QWidget(centralwidget);
         icon_only_widget->setObjectName(QStringLiteral("icon_only_widget"));
-        verticalLayout_3 = new QVBoxLayout(icon_only_widget);
-        verticalLayout_3->setSpacing(0);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        gridLayout_10 = new QGridLayout(icon_only_widget);
+        gridLayout_10->setObjectName(QStringLiteral("gridLayout_10"));
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         logo_label_1 = new QLabel(icon_only_widget);
         logo_label_1->setObjectName(QStringLiteral("logo_label_1"));
-        logo_label_1->setMinimumSize(QSize(50, 50));
-        logo_label_1->setMaximumSize(QSize(50, 50));
-        logo_label_1->setPixmap(QPixmap(QString::fromUtf8("../../Desktop/hhh.png")));
+        logo_label_1->setMinimumSize(QSize(60, 60));
+        logo_label_1->setMaximumSize(QSize(60, 60));
+        logo_label_1->setPixmap(QPixmap(QString::fromUtf8("hhh.png")));
         logo_label_1->setScaledContents(true);
 
         horizontalLayout_3->addWidget(logo_label_1);
 
 
-        verticalLayout_3->addLayout(horizontalLayout_3);
+        gridLayout_10->addLayout(horizontalLayout_3, 0, 0, 1, 1);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(0);
@@ -128,10 +125,9 @@ public:
         home_btn_1 = new QPushButton(icon_only_widget);
         home_btn_1->setObjectName(QStringLiteral("home_btn_1"));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/icon/icon/home-4-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon.addFile(QStringLiteral(":/icon/icon/home-4-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon.addFile(QStringLiteral("icon/graph-bar.png"), QSize(), QIcon::Normal, QIcon::Off);
         home_btn_1->setIcon(icon);
-        home_btn_1->setIconSize(QSize(20, 20));
+        home_btn_1->setIconSize(QSize(40, 40));
         home_btn_1->setCheckable(true);
         home_btn_1->setAutoExclusive(true);
 
@@ -140,10 +136,9 @@ public:
         dashborad_btn_1 = new QPushButton(icon_only_widget);
         dashborad_btn_1->setObjectName(QStringLiteral("dashborad_btn_1"));
         QIcon icon1;
-        icon1.addFile(QStringLiteral(":/icon/icon/dashboard-5-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon1.addFile(QStringLiteral(":/icon/icon/dashboard-5-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon1.addFile(QStringLiteral("icon/tv.png"), QSize(), QIcon::Normal, QIcon::Off);
         dashborad_btn_1->setIcon(icon1);
-        dashborad_btn_1->setIconSize(QSize(20, 20));
+        dashborad_btn_1->setIconSize(QSize(40, 40));
         dashborad_btn_1->setCheckable(true);
         dashborad_btn_1->setAutoExclusive(true);
 
@@ -152,10 +147,9 @@ public:
         orders_btn_1 = new QPushButton(icon_only_widget);
         orders_btn_1->setObjectName(QStringLiteral("orders_btn_1"));
         QIcon icon2;
-        icon2.addFile(QStringLiteral(":/icon/icon/activity-feed-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon2.addFile(QStringLiteral(":/icon/icon/activity-feed-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon2.addFile(QStringLiteral("icon/studio-lighting.png"), QSize(), QIcon::Normal, QIcon::Off);
         orders_btn_1->setIcon(icon2);
-        orders_btn_1->setIconSize(QSize(20, 20));
+        orders_btn_1->setIconSize(QSize(40, 40));
         orders_btn_1->setCheckable(true);
         orders_btn_1->setAutoExclusive(true);
 
@@ -164,10 +158,9 @@ public:
         products_btn_1 = new QPushButton(icon_only_widget);
         products_btn_1->setObjectName(QStringLiteral("products_btn_1"));
         QIcon icon3;
-        icon3.addFile(QStringLiteral(":/icon/icon/product-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon3.addFile(QStringLiteral(":/icon/icon/product-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon3.addFile(QStringLiteral("icon/clapperboard.png"), QSize(), QIcon::Normal, QIcon::Off);
         products_btn_1->setIcon(icon3);
-        products_btn_1->setIconSize(QSize(20, 20));
+        products_btn_1->setIconSize(QSize(40, 40));
         products_btn_1->setCheckable(true);
         products_btn_1->setAutoExclusive(true);
 
@@ -176,46 +169,56 @@ public:
         customers_btn_1 = new QPushButton(icon_only_widget);
         customers_btn_1->setObjectName(QStringLiteral("customers_btn_1"));
         QIcon icon4;
-        icon4.addFile(QStringLiteral(":/icon/icon/group-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        icon4.addFile(QStringLiteral(":/icon/icon/group-48.ico"), QSize(), QIcon::Normal, QIcon::On);
+        icon4.addFile(QStringLiteral("icon/self-employed (1).png"), QSize(), QIcon::Normal, QIcon::Off);
         customers_btn_1->setIcon(icon4);
-        customers_btn_1->setIconSize(QSize(20, 20));
+        customers_btn_1->setIconSize(QSize(40, 40));
         customers_btn_1->setCheckable(true);
         customers_btn_1->setAutoExclusive(true);
 
         verticalLayout->addWidget(customers_btn_1);
 
+        customers_btn_3 = new QPushButton(icon_only_widget);
+        customers_btn_3->setObjectName(QStringLiteral("customers_btn_3"));
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("icon/tv-antenna (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        customers_btn_3->setIcon(icon5);
+        customers_btn_3->setIconSize(QSize(40, 40));
+        customers_btn_3->setCheckable(true);
+        customers_btn_3->setAutoExclusive(true);
 
-        verticalLayout_3->addLayout(verticalLayout);
+        verticalLayout->addWidget(customers_btn_3);
+
+
+        gridLayout_10->addLayout(verticalLayout, 1, 0, 1, 1);
 
         verticalSpacer = new QSpacerItem(20, 375, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_3->addItem(verticalSpacer);
+        gridLayout_10->addItem(verticalSpacer, 2, 0, 1, 1);
 
         exit_btn_1 = new QPushButton(icon_only_widget);
         exit_btn_1->setObjectName(QStringLiteral("exit_btn_1"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral(":/icon/icon/close-window-64.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        exit_btn_1->setIcon(icon5);
-        exit_btn_1->setIconSize(QSize(20, 20));
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/icon/icon/close-window-64.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        exit_btn_1->setIcon(icon6);
+        exit_btn_1->setIconSize(QSize(40, 40));
 
-        verticalLayout_3->addWidget(exit_btn_1);
+        gridLayout_10->addWidget(exit_btn_1, 3, 0, 1, 1);
 
 
         gridLayout->addWidget(icon_only_widget, 0, 0, 1, 1);
 
         full_menu_widget = new QWidget(centralwidget);
         full_menu_widget->setObjectName(QStringLiteral("full_menu_widget"));
-        verticalLayout_4 = new QVBoxLayout(full_menu_widget);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        gridLayout_9 = new QGridLayout(full_menu_widget);
+        gridLayout_9->setObjectName(QStringLiteral("gridLayout_9"));
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(0);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         logo_label_2 = new QLabel(full_menu_widget);
         logo_label_2->setObjectName(QStringLiteral("logo_label_2"));
-        logo_label_2->setMinimumSize(QSize(40, 40));
-        logo_label_2->setMaximumSize(QSize(40, 40));
-        logo_label_2->setPixmap(QPixmap(QString::fromUtf8("../../Desktop/hhh.png")));
+        logo_label_2->setMinimumSize(QSize(50, 50));
+        logo_label_2->setMaximumSize(QSize(50, 50));
+        logo_label_2->setPixmap(QPixmap(QString::fromUtf8("hhh.png")));
         logo_label_2->setScaledContents(true);
 
         horizontalLayout_2->addWidget(logo_label_2);
@@ -229,7 +232,7 @@ public:
         horizontalLayout_2->addWidget(logo_label_3);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_2);
+        gridLayout_9->addLayout(horizontalLayout_2, 0, 0, 1, 1);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(0);
@@ -237,7 +240,7 @@ public:
         home_btn_2 = new QPushButton(full_menu_widget);
         home_btn_2->setObjectName(QStringLiteral("home_btn_2"));
         home_btn_2->setIcon(icon);
-        home_btn_2->setIconSize(QSize(14, 14));
+        home_btn_2->setIconSize(QSize(40, 40));
         home_btn_2->setCheckable(true);
         home_btn_2->setAutoExclusive(true);
 
@@ -246,7 +249,7 @@ public:
         dashborad_btn_2 = new QPushButton(full_menu_widget);
         dashborad_btn_2->setObjectName(QStringLiteral("dashborad_btn_2"));
         dashborad_btn_2->setIcon(icon1);
-        dashborad_btn_2->setIconSize(QSize(14, 14));
+        dashborad_btn_2->setIconSize(QSize(40, 40));
         dashborad_btn_2->setCheckable(true);
         dashborad_btn_2->setAutoExclusive(true);
 
@@ -255,7 +258,7 @@ public:
         orders_btn_2 = new QPushButton(full_menu_widget);
         orders_btn_2->setObjectName(QStringLiteral("orders_btn_2"));
         orders_btn_2->setIcon(icon2);
-        orders_btn_2->setIconSize(QSize(14, 14));
+        orders_btn_2->setIconSize(QSize(40, 40));
         orders_btn_2->setCheckable(true);
         orders_btn_2->setAutoExclusive(true);
 
@@ -264,7 +267,7 @@ public:
         products_btn_2 = new QPushButton(full_menu_widget);
         products_btn_2->setObjectName(QStringLiteral("products_btn_2"));
         products_btn_2->setIcon(icon3);
-        products_btn_2->setIconSize(QSize(14, 14));
+        products_btn_2->setIconSize(QSize(40, 40));
         products_btn_2->setCheckable(true);
         products_btn_2->setAutoExclusive(true);
 
@@ -273,25 +276,34 @@ public:
         customers_btn_2 = new QPushButton(full_menu_widget);
         customers_btn_2->setObjectName(QStringLiteral("customers_btn_2"));
         customers_btn_2->setIcon(icon4);
-        customers_btn_2->setIconSize(QSize(14, 14));
+        customers_btn_2->setIconSize(QSize(40, 40));
         customers_btn_2->setCheckable(true);
         customers_btn_2->setAutoExclusive(true);
 
         verticalLayout_2->addWidget(customers_btn_2);
 
+        customers_btn_4 = new QPushButton(full_menu_widget);
+        customers_btn_4->setObjectName(QStringLiteral("customers_btn_4"));
+        customers_btn_4->setIcon(icon5);
+        customers_btn_4->setIconSize(QSize(40, 40));
+        customers_btn_4->setCheckable(true);
+        customers_btn_4->setAutoExclusive(true);
 
-        verticalLayout_4->addLayout(verticalLayout_2);
+        verticalLayout_2->addWidget(customers_btn_4);
+
+
+        gridLayout_9->addLayout(verticalLayout_2, 1, 0, 1, 1);
 
         verticalSpacer_2 = new QSpacerItem(20, 373, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_4->addItem(verticalSpacer_2);
+        gridLayout_9->addItem(verticalSpacer_2, 2, 0, 1, 1);
 
         exit_btn_2 = new QPushButton(full_menu_widget);
         exit_btn_2->setObjectName(QStringLiteral("exit_btn_2"));
-        exit_btn_2->setIcon(icon5);
-        exit_btn_2->setIconSize(QSize(14, 14));
+        exit_btn_2->setIcon(icon6);
+        exit_btn_2->setIconSize(QSize(40, 40));
 
-        verticalLayout_4->addWidget(exit_btn_2);
+        gridLayout_9->addWidget(exit_btn_2, 3, 0, 1, 1);
 
 
         gridLayout->addWidget(full_menu_widget, 0, 1, 1, 1);
@@ -311,10 +323,10 @@ public:
         horizontalLayout_4->setContentsMargins(0, 0, 9, 0);
         change_btn = new QPushButton(widget);
         change_btn->setObjectName(QStringLiteral("change_btn"));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral(":/icon/icon/menu-4-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        change_btn->setIcon(icon6);
-        change_btn->setIconSize(QSize(14, 14));
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/icon/icon/menu-4-32.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        change_btn->setIcon(icon7);
+        change_btn->setIconSize(QSize(30, 30));
         change_btn->setCheckable(true);
 
         horizontalLayout_4->addWidget(change_btn);
@@ -326,19 +338,6 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(10);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        search_input = new QLineEdit(widget);
-        search_input->setObjectName(QStringLiteral("search_input"));
-
-        horizontalLayout->addWidget(search_input);
-
-        search_btn = new QPushButton(widget);
-        search_btn->setObjectName(QStringLiteral("search_btn"));
-        QIcon icon7;
-        icon7.addFile(QStringLiteral(":/icon/icon/search-13-48.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        search_btn->setIcon(icon7);
-
-        horizontalLayout->addWidget(search_btn);
-
 
         horizontalLayout_4->addLayout(horizontalLayout);
 
@@ -359,43 +358,20 @@ public:
 
         stackedWidget = new QStackedWidget(widget_3);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        page = new QWidget();
+        page = new MainMenu();
         page->setObjectName(QStringLiteral("page"));
-        gridLayout_2 = new QGridLayout(page);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        label_4 = new QLabel(page);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        QFont font1;
-        font1.setPointSize(20);
-        label_4->setFont(font1);
-        label_4->setAlignment(Qt::AlignCenter);
-
-        gridLayout_2->addWidget(label_4, 0, 0, 1, 1);
-
+        _2 = new QGridLayout(page);
+        _2->setObjectName(QStringLiteral("_2"));
         stackedWidget->addWidget(page);
-        page_2 = new QWidget();
+        page_2 = new Emission();
         page_2->setObjectName(QStringLiteral("page_2"));
         gridLayout_3 = new QGridLayout(page_2);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        label_5 = new QLabel(page_2);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setFont(font1);
-        label_5->setAlignment(Qt::AlignCenter);
-
-        gridLayout_3->addWidget(label_5, 0, 0, 1, 1);
-
         stackedWidget->addWidget(page_2);
-        page_3 = new QWidget();
+        page_3 = new Equipment();
         page_3->setObjectName(QStringLiteral("page_3"));
         gridLayout_4 = new QGridLayout(page_3);
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
-        label_6 = new QLabel(page_3);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setFont(font1);
-        label_6->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_6, 0, 0, 1, 1);
-
         stackedWidget->addWidget(page_3);
         page_4 = new QWidget();
         page_4->setObjectName(QStringLiteral("page_4"));
@@ -403,35 +379,26 @@ public:
         gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
         label_7 = new QLabel(page_4);
         label_7->setObjectName(QStringLiteral("label_7"));
+        QFont font1;
+        font1.setPointSize(20);
         label_7->setFont(font1);
         label_7->setAlignment(Qt::AlignCenter);
 
         gridLayout_5->addWidget(label_7, 0, 0, 1, 1);
 
         stackedWidget->addWidget(page_4);
-        page_5 = new QWidget();
+        page_5 = new Employee();
         page_5->setObjectName(QStringLiteral("page_5"));
+        page_5->setStyleSheet(QLatin1String("#Employee{	\n"
+"	background:#2F3B52;\n"
+"}"));
         gridLayout_6 = new QGridLayout(page_5);
         gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
-        label_8 = new QLabel(page_5);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setFont(font1);
-        label_8->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(label_8, 0, 0, 1, 1);
-
         stackedWidget->addWidget(page_5);
-        page_6 = new QWidget();
+        page_6 = new Sponsor();
         page_6->setObjectName(QStringLiteral("page_6"));
         gridLayout_7 = new QGridLayout(page_6);
         gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
-        label_9 = new QLabel(page_6);
-        label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setFont(font1);
-        label_9->setAlignment(Qt::AlignCenter);
-
-        gridLayout_7->addWidget(label_9, 0, 0, 1, 1);
-
         stackedWidget->addWidget(page_6);
         page_7 = new QWidget();
         page_7->setObjectName(QStringLiteral("page_7"));
@@ -469,7 +436,7 @@ public:
         QObject::connect(exit_btn_2, SIGNAL(clicked()), MainWindow, SLOT(close()));
         QObject::connect(exit_btn_1, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -484,25 +451,20 @@ public:
         orders_btn_1->setText(QString());
         products_btn_1->setText(QString());
         customers_btn_1->setText(QString());
+        customers_btn_3->setText(QString());
         exit_btn_1->setText(QString());
         logo_label_2->setText(QString());
         logo_label_3->setText(QApplication::translate("MainWindow", "TvEmpire", Q_NULLPTR));
         home_btn_2->setText(QApplication::translate("MainWindow", "Home", Q_NULLPTR));
-        dashborad_btn_2->setText(QApplication::translate("MainWindow", "Dashboard", Q_NULLPTR));
-        orders_btn_2->setText(QApplication::translate("MainWindow", "Orders", Q_NULLPTR));
-        products_btn_2->setText(QApplication::translate("MainWindow", "Products", Q_NULLPTR));
-        customers_btn_2->setText(QApplication::translate("MainWindow", "Customers", Q_NULLPTR));
+        dashborad_btn_2->setText(QApplication::translate("MainWindow", "Emissions", Q_NULLPTR));
+        orders_btn_2->setText(QApplication::translate("MainWindow", "Equipements", Q_NULLPTR));
+        products_btn_2->setText(QApplication::translate("MainWindow", "Scenes", Q_NULLPTR));
+        customers_btn_2->setText(QApplication::translate("MainWindow", "Employees", Q_NULLPTR));
+        customers_btn_4->setText(QApplication::translate("MainWindow", "Sponsor", Q_NULLPTR));
         exit_btn_2->setText(QApplication::translate("MainWindow", "Exit", Q_NULLPTR));
         change_btn->setText(QString());
-        search_input->setPlaceholderText(QApplication::translate("MainWindow", "Search...", Q_NULLPTR));
-        search_btn->setText(QString());
         user_btn->setText(QString());
-        label_4->setText(QApplication::translate("MainWindow", "Home Page", Q_NULLPTR));
-        label_5->setText(QApplication::translate("MainWindow", "Dashboard Page", Q_NULLPTR));
-        label_6->setText(QApplication::translate("MainWindow", "Orders Page", Q_NULLPTR));
-        label_7->setText(QApplication::translate("MainWindow", "Product Page", Q_NULLPTR));
-        label_8->setText(QApplication::translate("MainWindow", "Customers Page", Q_NULLPTR));
-        label_9->setText(QApplication::translate("MainWindow", "Search Page", Q_NULLPTR));
+        label_7->setText(QApplication::translate("MainWindow", "Scenes Page", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "User Page", Q_NULLPTR));
     } // retranslateUi
 

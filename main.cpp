@@ -1,32 +1,54 @@
 #include "mainwindow.h"
+#include "form2.h"
 #include <QApplication>
 #include <QFile>
 #include <QDir>
 #include <QDebug>
-
-int main(int argc, char *argv[]) {
+#include <qsqldatabase.h>
+#include "dbconnection.h"
+#include <QMessageBox>
+// #include "mailing.h"
+#include "../smtp/src/SmtpMime"
+#include "employee.h"
+#include <QCoreApplication>
+#include <arduino.h>
+#include "usersession.h"
+#include "arduino.h"
+int main(int argc, char *argv[])
+{
     QApplication a(argc, argv);
+    dbconnection db;
+    bool test = db.createconnect();
 
-    // File path to the style.qss file
-    QString styleFilePath = "style.qss";
+    if (test)
+    {
+        Arduino *arduino = new Arduino();
+        Form2 loginpage(nullptr,arduino);
+        loginpage.setWindowFlag(Qt::FramelessWindowHint);
+        loginpage.setAttribute(Qt::WA_TranslucentBackground);
 
-    // Open the style.qss file
-    QFile styleFile(styleFilePath);
-    if (styleFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        // Read the contents of the file and set it as the application's stylesheet
-        QString styleSheet = QLatin1String(styleFile.readAll());
-        a.setStyleSheet(styleSheet);
-        styleFile.close();
 
-        // Create and show the main application window (MainWindow)
-        MainWindow mainWindow;
-        mainWindow.show();
+        loginpage.show();
 
-        // Start the application event loop
+        MainWindow mainWindow(nullptr,arduino); // Create MainWindow object here but do not show it yet
+
+        // Create an Employee object here
+        Employee employee;
+
+        // Connect authenticationSuccessful signal to show MainWindow upon successful authentication
+        QObject::connect(&loginpage, &Form2::authenticationSuccessful, [&mainWindow, &employee]()
+                         {
+            mainWindow.show(); // Show MainWindow upon successful authentication
+            // Call the refreshTable function only after authentication succeeds
+            employee.refreshTable(); });
+        // Connect aboutToQuit signal to updateAllEmployeesStatusToAbsent slot
+        QObject::connect(&a, &QCoreApplication::aboutToQuit, [&]()
+                         { UserSession::getInstance().updateAllEmployeesStatusToAbsent(); });
         return a.exec();
-    } else {
-        // Print an error message if opening the file fails
-        qDebug() << "Failed to open style.qss file! Error: " << styleFile.errorString();
-        return -1; // Return an error code or handle accordingly
+    }
+    else
+    {
+        qDebug() << "fail to connect to db";
+        return 1; // Indicate failure to connect to the database
     }
 }

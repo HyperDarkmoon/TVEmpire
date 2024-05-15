@@ -1,22 +1,45 @@
 <RCC>
-  <qresource prefix="icon">
-    <file>icon/account-logout-64.ico</file>
-    <file>icon/activity-feed-32.ico</file>
-    <file>icon/activity-feed-48.ico</file>
-    <file>icon/close-window-64.ico</file>
-    <file>icon/dashboard-5-32.ico</file>
-    <file>icon/dashboard-5-48.ico</file>
-    <file>icon/group-32.ico</file>
-    <file>icon/group-48.ico</file>
-    <file>icon/home-4-32.ico</file>
-    <file>icon/home-4-48.ico</file>
-    <file>icon/Logo.png</file>
-    <file>icon/menu-4-32.ico</file>
-    <file>icon/product-32.ico</file>
-    <file>icon/product-48.ico</file>
-    <file>icon/search-13-48.ico</file>
-    <file>icon/user-48.ico</file>
-<file>style.qss</file>
-
-  </qresource>
+    <qresource prefix="/icon">
+        <file>icon/account-logout-64.ico</file>
+        <file>icon/activity-feed-32.ico</file>
+        <file>icon/activity-feed-48.ico</file>
+        <file>icon/close-window-64.ico</file>
+        <file>icon/dashboard-5-32.ico</file>
+        <file>icon/dashboard-5-48.ico</file>
+        <file>icon/group-32.ico</file>
+        <file>icon/group-48.ico</file>
+        <file>icon/home-4-32.ico</file>
+        <file>icon/home-4-48.ico</file>
+        <file>icon/Logo.png</file>
+        <file>icon/menu-4-32.ico</file>
+        <file>icon/product-32.ico</file>
+        <file>icon/product-48.ico</file>
+        <file>icon/search-13-48.ico</file>
+        <file>icon/user-48.ico</file>
+        <file>style.qss</file>
+        <file>icon/bubble.png</file>
+        <file>icon/clapperboard.png</file>
+        <file>icon/contract.png</file>
+        <file>icon/delete.png</file>
+        <file>icon/down-arrow.png</file>
+        <file>icon/email.png</file>
+        <file>icon/forma.jpg</file>
+        <file>icon/forma.png</file>
+        <file>icon/format-de-fichier-pdf.png</file>
+        <file>icon/graph-bar.png</file>
+        <file>icon/mise-a-jour.gif</file>
+        <file>icon/play.png</file>
+        <file>icon/plus (1).png</file>
+        <file>icon/recherche.png</file>
+        <file>icon/self-employed (1).png</file>
+        <file>icon/self-employed.png</file>
+        <file>icon/studio-lighting (1).png</file>
+        <file>icon/studio-lighting.png</file>
+        <file>icon/supprimer-un-utilisateur.gif</file>
+        <file>icon/tableau-de-bord.png</file>
+        <file>icon/tv (1).png</file>
+        <file>icon/tv.png</file>
+        <file>icon/tv-antenna (1).png</file>
+        <file>icon/update.png</file>
+    </qresource>
 </RCC>

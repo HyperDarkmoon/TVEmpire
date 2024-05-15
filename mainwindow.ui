@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>950</width>
-    <height>600</height>
+    <width>1518</width>
+    <height>754</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,43 +32,28 @@
     </property>
     <item row="0" column="0">
      <widget class="QWidget" name="icon_only_widget" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
+      <layout class="QGridLayout" name="gridLayout_10">
+       <item row="0" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
           <widget class="QLabel" name="logo_label_1">
            <property name="minimumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>60</width>
+             <height>60</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>60</width>
+             <height>60</height>
             </size>
            </property>
            <property name="text">
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>../../Desktop/hhh.png</pixmap>
+            <pixmap>hhh.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -77,7 +62,7 @@
          </item>
         </layout>
        </item>
-       <item>
+       <item row="1" column="0">
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
           <number>0</number>
@@ -88,14 +73,13 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
-             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/graph-bar.png</normaloff>icon/graph-bar.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -112,14 +96,13 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
-             <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/tv.png</normaloff>icon/tv.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -136,14 +119,13 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/activity-feed-32.ico</normaloff>
-             <normalon>:/icon/icon/activity-feed-48.ico</normalon>:/icon/icon/activity-feed-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/studio-lighting.png</normaloff>icon/studio-lighting.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -160,14 +142,13 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/product-32.ico</normaloff>
-             <normalon>:/icon/icon/product-48.ico</normalon>:/icon/icon/product-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/clapperboard.png</normaloff>icon/clapperboard.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -184,14 +165,36 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/group-32.ico</normaloff>
-             <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/self-employed (1).png</normaloff>icon/self-employed (1).png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="customers_btn_3">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icon/tv-antenna (1).png</normaloff>icon/tv-antenna (1).png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -204,7 +207,7 @@
          </item>
         </layout>
        </item>
-       <item>
+       <item row="2" column="0">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -217,7 +220,7 @@
          </property>
         </spacer>
        </item>
-       <item>
+       <item row="3" column="0">
         <widget class="QPushButton" name="exit_btn_1">
          <property name="text">
           <string/>
@@ -228,8 +231,8 @@
          </property>
          <property name="iconSize">
           <size>
-           <width>20</width>
-           <height>20</height>
+           <width>40</width>
+           <height>40</height>
           </size>
          </property>
         </widget>
@@ -239,8 +242,8 @@
     </item>
     <item row="0" column="1">
      <widget class="QWidget" name="full_menu_widget" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
+      <layout class="QGridLayout" name="gridLayout_9">
+       <item row="0" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="spacing">
           <number>0</number>
@@ -249,21 +252,21 @@
           <widget class="QLabel" name="logo_label_2">
            <property name="minimumSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>50</width>
+             <height>50</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>50</width>
+             <height>50</height>
             </size>
            </property>
            <property name="text">
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>../../Desktop/hhh.png</pixmap>
+            <pixmap>hhh.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -284,7 +287,7 @@
          </item>
         </layout>
        </item>
-       <item>
+       <item row="1" column="0">
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <property name="spacing">
           <number>0</number>
@@ -295,14 +298,13 @@
             <string>Home</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
-             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/graph-bar.png</normaloff>icon/graph-bar.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -316,17 +318,16 @@
          <item>
           <widget class="QPushButton" name="dashborad_btn_2">
            <property name="text">
-            <string>Dashboard</string>
+            <string>Emissions</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
-             <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/tv.png</normaloff>icon/tv.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -340,17 +341,16 @@
          <item>
           <widget class="QPushButton" name="orders_btn_2">
            <property name="text">
-            <string>Orders</string>
+            <string>Equipements</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/activity-feed-32.ico</normaloff>
-             <normalon>:/icon/icon/activity-feed-48.ico</normalon>:/icon/icon/activity-feed-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/studio-lighting.png</normaloff>icon/studio-lighting.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -364,17 +364,16 @@
          <item>
           <widget class="QPushButton" name="products_btn_2">
            <property name="text">
-            <string>Products</string>
+            <string>Scenes</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/product-32.ico</normaloff>
-             <normalon>:/icon/icon/product-48.ico</normalon>:/icon/icon/product-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/clapperboard.png</normaloff>icon/clapperboard.png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -388,17 +387,39 @@
          <item>
           <widget class="QPushButton" name="customers_btn_2">
            <property name="text">
-            <string>Customers</string>
+            <string>Employees</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/group-32.ico</normaloff>
-             <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
+            <iconset>
+             <normaloff>icon/self-employed (1).png</normaloff>icon/self-employed (1).png</iconset>
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="customers_btn_4">
+           <property name="text">
+            <string>Sponsor</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icon/tv-antenna (1).png</normaloff>icon/tv-antenna (1).png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
             </size>
            </property>
            <property name="checkable">
@@ -411,7 +432,7 @@
          </item>
         </layout>
        </item>
-       <item>
+       <item row="2" column="0">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -424,7 +445,7 @@
          </property>
         </spacer>
        </item>
-       <item>
+       <item row="3" column="0">
         <widget class="QPushButton" name="exit_btn_2">
          <property name="text">
           <string>Exit</string>
@@ -435,8 +456,8 @@
          </property>
          <property name="iconSize">
           <size>
-           <width>14</width>
-           <height>14</height>
+           <width>40</width>
+           <height>40</height>
           </size>
          </property>
         </widget>
@@ -497,8 +518,8 @@
             </property>
             <property name="iconSize">
              <size>
-              <width>14</width>
-              <height>14</height>
+              <width>30</width>
+              <height>30</height>
              </size>
             </property>
             <property name="checkable">
@@ -524,24 +545,6 @@
             <property name="spacing">
              <number>10</number>
             </property>
-            <item>
-             <widget class="QLineEdit" name="search_input">
-              <property name="placeholderText">
-               <string>Search...</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="search_btn">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="resource.qrc">
-                <normaloff>:/icon/icon/search-13-48.ico</normaloff>:/icon/icon/search-13-48.ico</iconset>
-              </property>
-             </widget>
-            </item>
            </layout>
           </item>
           <item>
@@ -574,64 +577,16 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>6</number>
+          <number>1</number>
          </property>
-         <widget class="QWidget" name="page">
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Home Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <widget class="MainMenu" name="page">
+          <layout class="QGridLayout" name="_2"/>
          </widget>
-         <widget class="QWidget" name="page_2">
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_5">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Dashboard Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <widget class="Emission" name="page_2">
+          <layout class="QGridLayout" name="gridLayout_3"/>
          </widget>
-         <widget class="QWidget" name="page_3">
-          <layout class="QGridLayout" name="gridLayout_4">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Orders Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <widget class="Equipment" name="page_3">
+          <layout class="QGridLayout" name="gridLayout_4"/>
          </widget>
          <widget class="QWidget" name="page_4">
           <layout class="QGridLayout" name="gridLayout_5">
@@ -643,7 +598,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Product Page</string>
+              <string>Scenes Page</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -652,43 +607,16 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_5">
-          <layout class="QGridLayout" name="gridLayout_6">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_8">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Customers Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <widget class="Employee" name="page_5">
+          <property name="styleSheet">
+           <string notr="true">#Employee{	
+	background:#2F3B52;
+}</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_6"/>
          </widget>
-         <widget class="QWidget" name="page_6">
-          <layout class="QGridLayout" name="gridLayout_7">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Search Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <widget class="Sponsor" name="page_6">
+          <layout class="QGridLayout" name="gridLayout_7"/>
          </widget>
          <widget class="QWidget" name="page_7">
           <layout class="QGridLayout" name="gridLayout_8">
@@ -717,6 +645,38 @@
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Emission</class>
+   <extends>QWidget</extends>
+   <header>emission.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Employee</class>
+   <extends>QWidget</extends>
+   <header>employee.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Sponsor</class>
+   <extends>QWidget</extends>
+   <header>sponsor.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Equipment</class>
+   <extends>QWidget</extends>
+   <header>equipment.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MainMenu</class>
+   <extends>QWidget</extends>
+   <header>mainmenu.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resource.qrc"/>
  </resources>
@@ -728,8 +688,8 @@
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>197</x>
-     <y>23</y>
+     <x>274</x>
+     <y>24</y>
     </hint>
     <hint type="destinationlabel">
      <x>50</x>
@@ -744,8 +704,8 @@
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>188</x>
-     <y>25</y>
+     <x>274</x>
+     <y>26</y>
     </hint>
     <hint type="destinationlabel">
      <x>173</x>
@@ -760,12 +720,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>27</x>
-     <y>69</y>
+     <x>37</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
-     <x>72</x>
-     <y>76</y>
+     <x>162</x>
+     <y>115</y>
     </hint>
    </hints>
   </connection>
@@ -776,12 +736,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>33</x>
-     <y>100</y>
+     <x>43</x>
+     <y>173</y>
     </hint>
     <hint type="destinationlabel">
-     <x>67</x>
-     <y>99</y>
+     <x>157</x>
+     <y>163</y>
     </hint>
    </hints>
   </connection>
@@ -792,12 +752,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>33</x>
-     <y>123</y>
+     <x>43</x>
+     <y>221</y>
     </hint>
     <hint type="destinationlabel">
-     <x>69</x>
-     <y>125</y>
+     <x>159</x>
+     <y>211</y>
     </hint>
    </hints>
   </connection>
@@ -808,12 +768,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>24</x>
-     <y>148</y>
+     <x>34</x>
+     <y>269</y>
     </hint>
     <hint type="destinationlabel">
-     <x>72</x>
-     <y>148</y>
+     <x>162</x>
+     <y>259</y>
     </hint>
    </hints>
   </connection>
@@ -824,12 +784,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>33</x>
-     <y>177</y>
+     <x>43</x>
+     <y>317</y>
     </hint>
     <hint type="destinationlabel">
-     <x>67</x>
-     <y>172</y>
+     <x>157</x>
+     <y>307</y>
     </hint>
    </hints>
   </connection>
@@ -840,12 +800,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>70</x>
-     <y>63</y>
+     <x>160</x>
+     <y>115</y>
     </hint>
     <hint type="destinationlabel">
-     <x>41</x>
-     <y>60</y>
+     <x>51</x>
+     <y>125</y>
     </hint>
    </hints>
   </connection>
@@ -856,12 +816,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>160</x>
-     <y>99</y>
+     <x>222</x>
+     <y>163</y>
     </hint>
     <hint type="destinationlabel">
-     <x>26</x>
-     <y>90</y>
+     <x>36</x>
+     <y>173</y>
     </hint>
    </hints>
   </connection>
@@ -872,12 +832,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>143</x>
-     <y>112</y>
+     <x>222</x>
+     <y>211</y>
     </hint>
     <hint type="destinationlabel">
-     <x>39</x>
-     <y>114</y>
+     <x>49</x>
+     <y>221</y>
     </hint>
    </hints>
   </connection>
@@ -888,12 +848,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>162</x>
-     <y>142</y>
+     <x>222</x>
+     <y>259</y>
     </hint>
     <hint type="destinationlabel">
-     <x>43</x>
-     <y>144</y>
+     <x>53</x>
+     <y>269</y>
     </hint>
    </hints>
   </connection>
@@ -904,12 +864,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>162</x>
-     <y>163</y>
+     <x>222</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
-     <x>39</x>
-     <y>184</y>
+     <x>49</x>
+     <y>317</y>
     </hint>
    </hints>
   </connection>
@@ -920,8 +880,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>126</x>
-     <y>584</y>
+     <x>215</x>
+     <y>744</y>
     </hint>
     <hint type="destinationlabel">
      <x>284</x>
@@ -936,8 +896,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>34</x>
-     <y>592</y>
+     <x>43</x>
+     <y>744</y>
     </hint>
     <hint type="destinationlabel">
      <x>47</x>

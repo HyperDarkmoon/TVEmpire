@@ -1,11 +1,18 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
-MainWindow::MainWindow(QWidget *parent)
+#include <QFile>
+#include <QTextStream>
+MainWindow::MainWindow(QWidget *parent,Arduino *arduino)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),arduino(arduino)
 {
     ui->setupUi(this);
+    ui->icon_only_widget->hide();
+    ui->stackedWidget->setCurrentIndex(0);
+
+    ui->home_btn_1->setChecked(true);
+    ui->home_btn_2->setChecked(true);
+    loadStyleSheet("style.qss");
 }
 
 MainWindow::~MainWindow()
@@ -64,3 +71,29 @@ void MainWindow::on_customers_btn_2_clicked()
     ui->stackedWidget->setCurrentIndex(4);
 }
 
+void MainWindow::loadStyleSheet(const QString &styleSheetPath)
+{
+    QFile file(styleSheetPath);
+
+    if (!file.open(QFile::ReadOnly | QFile::Text))
+    {
+        return;
+    }
+
+    QTextStream stream(&file);
+    QString styleSheet = stream.readAll();
+    file.close();
+
+    this->setStyleSheet(styleSheet);
+}
+
+
+void MainWindow::on_customers_btn_4_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+void MainWindow::on_customers_btn_3_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(5);
+}
