@@ -452,6 +452,13 @@
     </disabled>
    </palette>
   </property>
+  <property name="font">
+   <font>
+    <family>Roboto</family>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -739,8 +746,8 @@ QTextEdit:hover {
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../../Downloads/plus (1).png</normaloff>../../../Downloads/plus (1).png</iconset>
+      <iconset resource="resource.qrc">
+       <normaloff>:/icon/icon/plus (1).png</normaloff>:/icon/icon/plus (1).png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -1617,9 +1624,9 @@ QComboBox::item:selected {
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>40</y>
+      <y>50</y>
       <width>991</width>
-      <height>61</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -3255,13 +3262,37 @@ QTableWidget::item:selected {
      </item>
     </widget>
    </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>10</y>
+      <width>741</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Roboto</family>
+      <pointsize>36</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>LISTE DES EMPLOYEES</string>
+    </property>
+   </widget>
    <zorder>widget</zorder>
    <zorder>widget_2</zorder>
    <zorder>widget_3</zorder>
    <zorder>result_widget</zorder>
+   <zorder>label_15</zorder>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton_3</sender>

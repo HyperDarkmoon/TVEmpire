@@ -10,6 +10,13 @@
     <height>730</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Roboto</family>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -385,8 +392,8 @@ QPushButton:hover {
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../../Downloads/plus (1).png</normaloff>../../../Downloads/plus (1).png</iconset>
+      <iconset resource="resource.qrc">
+       <normaloff>:/icon/icon/plus (1).png</normaloff>:/icon/icon/plus (1).png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -2639,15 +2646,39 @@ QTableWidget::item:selected {
      </column>
     </widget>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>30</y>
+      <width>721</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Roboto</family>
+      <pointsize>36</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>LISTE DES EMISSIONS</string>
+    </property>
+   </widget>
    <zorder>widget</zorder>
    <zorder>label</zorder>
    <zorder>widget_2</zorder>
    <zorder>tempLabel</zorder>
    <zorder>widget_3</zorder>
    <zorder>result_widget</zorder>
+   <zorder>label_2</zorder>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton_3</sender>

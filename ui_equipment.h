@@ -59,6 +59,7 @@ public:
     QWidget *result_widget;
     QTableWidget *tableWidget_2;
     QWidget *webWidget;
+    QLabel *label_8;
 
     void setupUi(QWidget *Equipment)
     {
@@ -325,7 +326,7 @@ public:
         pushButton_4->setGeometry(QRect(205, 168, 31, 31));
         pushButton_4->setLayoutDirection(Qt::LeftToRight);
         QIcon icon1;
-        icon1.addFile(QStringLiteral("../../../Downloads/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/icon/icon/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_4->setIcon(icon1);
         pushButton_4->setIconSize(QSize(30, 30));
         pushButton_4->setCheckable(true);
@@ -373,7 +374,9 @@ public:
         pushButton_3 = new QPushButton(widget_3);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setGeometry(QRect(14, 168, 31, 31));
-        pushButton_3->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("../../../Downloads/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon2);
         pushButton_3->setIconSize(QSize(30, 30));
         pushButton_3->setCheckable(true);
         label_6 = new QLabel(widget_3);
@@ -608,9 +611,9 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pdfButton_5->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pdfButton_5->setIcon(icon3);
         pdfButton_5->setIconSize(QSize(30, 30));
         pdfButton_4 = new QPushButton(widget_4);
         pdfButton_4->setObjectName(QStringLiteral("pdfButton_4"));
@@ -645,9 +648,9 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pdfButton_4->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pdfButton_4->setIcon(icon4);
         pdfButton_4->setIconSize(QSize(30, 30));
         search_input = new QLineEdit(widget_4);
         search_input->setObjectName(QStringLiteral("search_input"));
@@ -754,6 +757,15 @@ public:
         webWidget = new QWidget(equipement);
         webWidget->setObjectName(QStringLiteral("webWidget"));
         webWidget->setGeometry(QRect(340, 490, 261, 231));
+        label_8 = new QLabel(equipement);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setGeometry(QRect(570, 60, 671, 71));
+        QFont font;
+        font.setFamily(QStringLiteral("Roboto Black"));
+        font.setPointSize(36);
+        font.setBold(true);
+        font.setWeight(75);
+        label_8->setFont(font);
         widget_3->raise();
         Label->raise();
         Labelequipment->raise();
@@ -765,6 +777,7 @@ public:
         widget_4->raise();
         result_widget->raise();
         webWidget->raise();
+        label_8->raise();
 
         retranslateUi(Equipment);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -801,6 +814,7 @@ public:
         search_input->setPlaceholderText(QApplication::translate("Equipment", "Search...", Q_NULLPTR));
         label_15->setText(QString());
         Affecter->setText(QApplication::translate("Equipment", "Affecter", Q_NULLPTR));
+        label_8->setText(QApplication::translate("Equipment", "LISTE DES EQUIPEMENT", Q_NULLPTR));
     } // retranslateUi
 
 };

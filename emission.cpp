@@ -27,14 +27,14 @@ Emission::Emission(QWidget *parent) :
 
     refreshTable();
    // WeatherAPI weatherAPI;
-    WeatherApiClient client;
+   /* WeatherApiClient client;
     QString temperature = client.getTemperature(36.689758, 10.182578, "4532eb473c444451c6c57986a7f7f4c9");
     if (!temperature.isEmpty()) {
         temperature = "current temp: " + temperature;
         ui->tempLabel->setText(temperature);
     } else {
         qDebug() << "Failed to retrieve temperature";
-    }
+    }*/
 
     //testing gemini api
 

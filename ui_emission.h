@@ -59,12 +59,18 @@ public:
     QPushButton *playVideoButton;
     QWidget *result_widget;
     QTableWidget *tableWidget_2;
+    QLabel *label_2;
 
     void setupUi(QWidget *Emission)
     {
         if (Emission->objectName().isEmpty())
             Emission->setObjectName(QStringLiteral("Emission"));
         Emission->resize(1310, 730);
+        QFont font;
+        font.setFamily(QStringLiteral("Roboto"));
+        font.setBold(true);
+        font.setWeight(75);
+        Emission->setFont(font);
         Emission->setStyleSheet(QLatin1String("#info_frame {\n"
 "	background-color: #fff;\n"
 "	border: none;\n"
@@ -292,7 +298,7 @@ public:
         pushButton_4->setGeometry(QRect(205, 270, 31, 31));
         pushButton_4->setLayoutDirection(Qt::LeftToRight);
         QIcon icon1;
-        icon1.addFile(QStringLiteral("../../../Downloads/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/icon/icon/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_4->setIcon(icon1);
         pushButton_4->setIconSize(QSize(30, 30));
         pushButton_4->setCheckable(true);
@@ -418,7 +424,9 @@ public:
         pushButton_3 = new QPushButton(widget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setGeometry(QRect(14, 210, 31, 31));
-        pushButton_3->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("../../../Downloads/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon2);
         pushButton_3->setIconSize(QSize(30, 30));
         pushButton_3->setCheckable(true);
         label_6 = new QLabel(widget);
@@ -603,9 +611,9 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pdfButton->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pdfButton->setIcon(icon3);
         pdfButton->setIconSize(QSize(30, 30));
         pdfButton_2 = new QPushButton(widget_3);
         pdfButton_2->setObjectName(QStringLiteral("pdfButton_2"));
@@ -697,9 +705,9 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pdfButton_2->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pdfButton_2->setIcon(icon4);
         pdfButton_2->setIconSize(QSize(30, 30));
         searchBar = new QLineEdit(widget_3);
         searchBar->setObjectName(QStringLiteral("searchBar"));
@@ -819,9 +827,9 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral("icon/play.png"), QSize(), QIcon::Normal, QIcon::Off);
-        playVideoButton->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("icon/play.png"), QSize(), QIcon::Normal, QIcon::Off);
+        playVideoButton->setIcon(icon5);
         playVideoButton->setIconSize(QSize(30, 30));
         result_widget = new QWidget(employeeContainer);
         result_widget->setObjectName(QStringLiteral("result_widget"));
@@ -838,12 +846,12 @@ public:
         tableWidget_2 = new QTableWidget(result_widget);
         if (tableWidget_2->columnCount() < 5)
             tableWidget_2->setColumnCount(5);
-        QFont font;
-        font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font.setPointSize(10);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
+        font1.setPointSize(10);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         __qtablewidgetitem->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
-        __qtablewidgetitem->setFont(font);
+        __qtablewidgetitem->setFont(font1);
         tableWidget_2->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         tableWidget_2->setHorizontalHeaderItem(1, __qtablewidgetitem1);
@@ -875,9 +883,9 @@ public:
         palette3.setBrush(QPalette::Disabled, QPalette::Window, brush7);
         palette3.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush8);
         tableWidget_2->setPalette(palette3);
-        QFont font1;
-        font1.setFamily(QStringLiteral("Arial"));
-        tableWidget_2->setFont(font1);
+        QFont font2;
+        font2.setFamily(QStringLiteral("Arial"));
+        tableWidget_2->setFont(font2);
         tableWidget_2->setFocusPolicy(Qt::NoFocus);
         tableWidget_2->setAutoFillBackground(true);
         tableWidget_2->setStyleSheet(QLatin1String("/* Apply styles to the QTableWidget */\n"
@@ -942,12 +950,22 @@ public:
         tableWidget_2->verticalHeader()->setHighlightSections(false);
         tableWidget_2->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
         tableWidget_2->verticalHeader()->setStretchLastSection(false);
+        label_2 = new QLabel(employeeContainer);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(540, 30, 721, 51));
+        QFont font3;
+        font3.setFamily(QStringLiteral("Roboto"));
+        font3.setPointSize(36);
+        font3.setBold(true);
+        font3.setWeight(75);
+        label_2->setFont(font3);
         widget->raise();
         label->raise();
         widget_2->raise();
         tempLabel->raise();
         widget_3->raise();
         result_widget->raise();
+        label_2->raise();
 
         retranslateUi(Emission);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -993,6 +1011,7 @@ public:
         ___qtablewidgetitem3->setText(QApplication::translate("Emission", "Date", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget_2->horizontalHeaderItem(4);
         ___qtablewidgetitem4->setText(QApplication::translate("Emission", "Sponsor", Q_NULLPTR));
+        label_2->setText(QApplication::translate("Emission", "LISTE DES EMISSIONS", Q_NULLPTR));
     } // retranslateUi
 
 };

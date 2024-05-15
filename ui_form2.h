@@ -42,6 +42,11 @@ public:
         if (Form2->objectName().isEmpty())
             Form2->setObjectName(QStringLiteral("Form2"));
         Form2->resize(539, 436);
+        QFont font;
+        font.setFamily(QStringLiteral("Roboto"));
+        font.setBold(true);
+        font.setWeight(75);
+        Form2->setFont(font);
         widget = new QWidget(Form2);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(0, -30, 551, 501));
@@ -104,18 +109,18 @@ public:
         label_4 = new QLabel(widget);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(340, 80, 131, 40));
-        QFont font;
-        font.setPointSize(20);
-        font.setBold(true);
-        font.setWeight(75);
-        label_4->setFont(font);
+        QFont font1;
+        font1.setPointSize(20);
+        font1.setBold(true);
+        font1.setWeight(75);
+        label_4->setFont(font1);
         label_4->setStyleSheet(QStringLiteral("color:rgba(0, 0, 0, 200);"));
         lineEdit = new QLineEdit(widget);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
         lineEdit->setGeometry(QRect(295, 150, 190, 40));
-        QFont font1;
-        font1.setPointSize(10);
-        lineEdit->setFont(font1);
+        QFont font2;
+        font2.setPointSize(10);
+        lineEdit->setFont(font2);
         lineEdit->setStyleSheet(QLatin1String("QLineEdit {background-color:rgba(0, 0, 0, 0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(46, 82, 101, 200) ;\n"
@@ -128,7 +133,7 @@ public:
         lineEdit_2 = new QLineEdit(widget);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
         lineEdit_2->setGeometry(QRect(295, 215, 190, 40));
-        lineEdit_2->setFont(font1);
+        lineEdit_2->setFont(font2);
         lineEdit_2->setStyleSheet(QLatin1String("QLineEdit {background-color:rgba(0, 0, 0, 0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(46, 82, 101, 200) ;\n"
@@ -142,11 +147,11 @@ public:
         pushButton = new QPushButton(widget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(295, 295, 190, 40));
-        QFont font2;
-        font2.setPointSize(11);
-        font2.setBold(true);
-        font2.setWeight(75);
-        pushButton->setFont(font2);
+        QFont font3;
+        font3.setPointSize(11);
+        font3.setBold(true);
+        font3.setWeight(75);
+        pushButton->setFont(font3);
         pushButton->setStyleSheet(QLatin1String("QPushButton {\n"
 "        background: rgb(36, 46, 66);  \n"
 "       background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(36, 46, 66, 1), stop:0.93 rgba(224, 224, 225, 1));\n"
@@ -167,11 +172,11 @@ public:
         label_7 = new QLabel(widget);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setGeometry(QRect(60, 150, 201, 40));
-        QFont font3;
-        font3.setPointSize(22);
-        font3.setBold(true);
-        font3.setWeight(75);
-        label_7->setFont(font3);
+        QFont font4;
+        font4.setPointSize(22);
+        font4.setBold(true);
+        font4.setWeight(75);
+        label_7->setFont(font4);
         label_7->setStyleSheet(QStringLiteral("color:rgba(255, 255, 255, 200);"));
         exitbutton = new QPushButton(widget);
         exitbutton->setObjectName(QStringLiteral("exitbutton"));

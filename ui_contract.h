@@ -272,7 +272,9 @@ public:
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setGeometry(QRect(255, 430, 31, 31));
         pushButton_4->setLayoutDirection(Qt::LeftToRight);
-        pushButton_4->setIcon(icon);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/icon/icon/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon2);
         pushButton_4->setIconSize(QSize(30, 30));
         pushButton_4->setCheckable(true);
         label_8 = new QLabel(widget_3);

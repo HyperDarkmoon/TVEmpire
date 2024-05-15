@@ -10,6 +10,13 @@
     <height>436</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Roboto</family>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>

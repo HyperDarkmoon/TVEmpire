@@ -67,6 +67,7 @@ public:
     QLabel *label_16;
     QWidget *result_widget;
     QTableWidget *emp;
+    QLabel *label_15;
 
     void setupUi(QWidget *Employee)
     {
@@ -149,6 +150,11 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush9);
 #endif
         Employee->setPalette(palette);
+        QFont font;
+        font.setFamily(QStringLiteral("Roboto"));
+        font.setBold(true);
+        font.setWeight(75);
+        Employee->setFont(font);
         Employee->setStyleSheet(QStringLiteral(""));
         employeeContainer = new QWidget(Employee);
         employeeContainer->setObjectName(QStringLiteral("employeeContainer"));
@@ -299,7 +305,7 @@ public:
         pushButton_4->setGeometry(QRect(205, 315, 31, 31));
         pushButton_4->setLayoutDirection(Qt::LeftToRight);
         QIcon icon1;
-        icon1.addFile(QStringLiteral("../../../Downloads/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/icon/icon/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_4->setIcon(icon1);
         pushButton_4->setIconSize(QSize(30, 30));
         pushButton_4->setCheckable(true);
@@ -539,7 +545,9 @@ public:
         pushButton_3 = new QPushButton(widget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setGeometry(QRect(14, 315, 31, 31));
-        pushButton_3->setIcon(icon1);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("../../../Downloads/plus (1).png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon3);
         pushButton_3->setIconSize(QSize(30, 30));
         pushButton_3->setCheckable(true);
         label_6 = new QLabel(widget);
@@ -558,7 +566,7 @@ public:
         pushButton_3->raise();
         widget_3 = new QWidget(employeeContainer);
         widget_3->setObjectName(QStringLiteral("widget_3"));
-        widget_3->setGeometry(QRect(270, 40, 991, 61));
+        widget_3->setGeometry(QRect(270, 50, 991, 51));
         widget_3->setStyleSheet(QLatin1String("/* Initially transparent background */\n"
 "\n"
 "/*QWidget { background-color: #E0E0E1;\n"
@@ -706,9 +714,9 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        add_btn_4->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("icon/format-de-fichier-pdf.png"), QSize(), QIcon::Normal, QIcon::Off);
+        add_btn_4->setIcon(icon4);
         add_btn_4->setIconSize(QSize(30, 30));
         statButton = new QPushButton(widget_3);
         statButton->setObjectName(QStringLiteral("statButton"));
@@ -743,9 +751,9 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
-        statButton->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("icon/tableau-de-bord.png"), QSize(), QIcon::Normal, QIcon::Off);
+        statButton->setIcon(icon5);
         statButton->setIconSize(QSize(30, 30));
         chatBtn = new QPushButton(widget_3);
         chatBtn->setObjectName(QStringLiteral("chatBtn"));
@@ -836,9 +844,9 @@ public:
 "    background-color: #64a1c2; /* Your desired color */\n"
 "    border: none; /* Remove the border if needed */\n"
 "}"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral("icon/bubble.png"), QSize(), QIcon::Normal, QIcon::Off);
-        chatBtn->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral("icon/bubble.png"), QSize(), QIcon::Normal, QIcon::Off);
+        chatBtn->setIcon(icon6);
         chatBtn->setIconSize(QSize(20, 20));
         search_input = new QLineEdit(widget_3);
         search_input->setObjectName(QStringLiteral("search_input"));
@@ -882,18 +890,18 @@ public:
         emp = new QTableWidget(result_widget);
         if (emp->columnCount() < 13)
             emp->setColumnCount(13);
-        QFont font;
-        font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font.setPointSize(10);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
+        font1.setPointSize(10);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         __qtablewidgetitem->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
-        __qtablewidgetitem->setFont(font);
+        __qtablewidgetitem->setFont(font1);
         emp->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         emp->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
         __qtablewidgetitem2->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
-        __qtablewidgetitem2->setFont(font);
+        __qtablewidgetitem2->setFont(font1);
         emp->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         __qtablewidgetitem3->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
@@ -983,9 +991,9 @@ public:
         palette4.setBrush(QPalette::Disabled, QPalette::Window, brush14);
         palette4.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush15);
         emp->setPalette(palette4);
-        QFont font1;
-        font1.setFamily(QStringLiteral("Arial"));
-        emp->setFont(font1);
+        QFont font2;
+        font2.setFamily(QStringLiteral("Arial"));
+        emp->setFont(font2);
         emp->setFocusPolicy(Qt::NoFocus);
         emp->setAutoFillBackground(true);
         emp->setStyleSheet(QLatin1String("/* Apply styles to the QTableWidget */\n"
@@ -1048,10 +1056,20 @@ public:
         emp->verticalHeader()->setHighlightSections(false);
         emp->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
         emp->verticalHeader()->setStretchLastSection(false);
+        label_15 = new QLabel(employeeContainer);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setGeometry(QRect(450, 10, 741, 41));
+        QFont font3;
+        font3.setFamily(QStringLiteral("Roboto"));
+        font3.setPointSize(36);
+        font3.setBold(true);
+        font3.setWeight(75);
+        label_15->setFont(font3);
         widget->raise();
         widget_2->raise();
         widget_3->raise();
         result_widget->raise();
+        label_15->raise();
 
         retranslateUi(Employee);
         QObject::connect(pushButton_3, SIGNAL(toggled(bool)), widget_2, SLOT(setVisible(bool)));
@@ -1171,6 +1189,7 @@ public:
         emp->setSortingEnabled(false);
         emp->setSortingEnabled(__sortingEnabled);
 
+        label_15->setText(QApplication::translate("Employee", "LISTE DES EMPLOYEES", Q_NULLPTR));
     } // retranslateUi
 
 };

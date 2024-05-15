@@ -8,13 +8,11 @@ MainWindow::MainWindow(QWidget *parent,Arduino *arduino)
 {
     ui->setupUi(this);
     ui->icon_only_widget->hide();
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 
-    ui->home_btn_2->setChecked(true);
+    ui->dashborad_btn_1->setChecked(true);
+    ui->dashborad_btn_2->setChecked(true);
     loadStyleSheet("style.qss");
-
-
-
 }
 
 MainWindow::~MainWindow()

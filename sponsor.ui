@@ -1790,8 +1790,8 @@ QPushButton:hover {
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../../../Downloads/plus (1).png</normaloff>../../../Downloads/plus (1).png</iconset>
+     <iconset resource="resource.qrc">
+      <normaloff>:/icon/icon/plus (1).png</normaloff>:/icon/icon/plus (1).png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1860,7 +1860,9 @@ QPushButton:hover {
   <zorder>widget_2</zorder>
   <zorder>qrCodeLabel</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton_3</sender>
