@@ -1862,6 +1862,9 @@ QTableWidget::item:selected {
 }
 </string>
      </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="webWidget" native="true">

@@ -754,6 +754,7 @@ public:
 "    color: black; /* Selected item text color */\n"
 "}\n"
 ""));
+        tableWidget_2->setSortingEnabled(true);
         webWidget = new QWidget(equipement);
         webWidget->setObjectName(QStringLiteral("webWidget"));
         webWidget->setGeometry(QRect(340, 490, 261, 231));
