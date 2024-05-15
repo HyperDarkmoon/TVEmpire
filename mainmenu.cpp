@@ -4,9 +4,13 @@
 #include <QtCharts/QtCharts>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QGridLayout>
 #include <QDebug>
 #include <QSqlError>
 #include "employee.h"
+#include "equipment.h"
+#include "crudequipment.h"
+#include "sponsor.h"
 
 MainMenu::MainMenu(QWidget *parent) :
     QWidget(parent),
@@ -14,24 +18,32 @@ MainMenu::MainMenu(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Create a horizontal layout to hold the two chart views side by side
-    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    // Create a grid layout to split the main window into 2x2 sections
+    QGridLayout *mainLayout = new QGridLayout(this);
 
-    // Create a widget for the left chart (emission data)
-    QWidget *leftWidget = new QWidget();
-    QVBoxLayout *leftLayout = new QVBoxLayout(leftWidget);
-    mainLayout->addWidget(leftWidget);
+    // Display emission chart in top-left quadrant
+    QWidget *emissionWidget = new QWidget();
+    QVBoxLayout *emissionLayout = new QVBoxLayout(emissionWidget);
+    mainLayout->addWidget(emissionWidget, 0, 0);
+    displayEmissionChart(emissionWidget);
 
-    // Create a widget for the right chart (employee data)
-    QWidget *rightWidget = new QWidget();
-    QVBoxLayout *rightLayout = new QVBoxLayout(rightWidget);
-    mainLayout->addWidget(rightWidget);
+    // Display employee chart in top-right quadrant
+    QWidget *employeeWidget = new QWidget();
+    QVBoxLayout *employeeLayout = new QVBoxLayout(employeeWidget);
+    mainLayout->addWidget(employeeWidget, 0, 1);
+    displayEmployeeChart(employeeWidget);
 
-    // Fetch and display emission data on the left side
-    displayEmissionChart(leftWidget);
+    // Display equipment chart in bottom-left quadrant
+    QWidget *equipmentWidget = new QWidget();
+    QVBoxLayout *equipmentLayout = new QVBoxLayout(equipmentWidget);
+    mainLayout->addWidget(equipmentWidget, 1, 0);
+    displayEquipmentChart(equipmentWidget);
 
-    // Display employee chart on the right side
-    displayEmployeeChart(rightWidget);
+    // Display sponsor chart in bottom-right quadrant
+    QWidget *sponsorWidget = new QWidget();
+    QVBoxLayout *sponsorLayout = new QVBoxLayout(sponsorWidget);
+    mainLayout->addWidget(sponsorWidget, 1, 1);
+    displaySponsorChart(sponsorWidget);
 
     // Set the main layout for the MainMenu widget
     setLayout(mainLayout);
@@ -104,6 +116,99 @@ void MainMenu::displayEmployeeChart(QWidget *widget)
     QChart *chart = new QChart();
     chart->addSeries(series);
     chart->setTitle("Salary Distribution by Post");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+
+    // Create axes
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    QValueAxis *axisY = new QValueAxis();
+    chart->addAxis(axisX, Qt::AlignBottom);
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
+
+    // Create a chart view and set the chart
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(widget->layout());
+    if (layout) {
+        layout->addWidget(chartView);
+    }
+}
+
+void MainMenu::displayEquipmentChart(QWidget *widget)
+{
+    // Create a bar series for equipment stock
+    QBarSeries *series = new QBarSeries();
+
+    // Fetch equipment data from the database and count by equipment label
+    QMap<QString, int> stockCountByEquipment;
+    CRUDequipment C;
+    QList<CRUDequipment> equipmentList = C.getAll();
+    for (const CRUDequipment &equipment : equipmentList)
+    {
+        QString label = equipment.getlabel();
+        int stock = equipment.getStock();
+        stockCountByEquipment[label] = stock;
+    }
+
+    // Add data to the bar series
+    for (auto it = stockCountByEquipment.constBegin(); it != stockCountByEquipment.constEnd(); ++it)
+    {
+        QBarSet *set = new QBarSet(it.key());
+        *set << it.value();
+        series->append(set);
+    }
+
+    // Create a chart and set the series
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Stock by Equipment");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+
+    // Create axes
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    QValueAxis *axisY = new QValueAxis();
+    chart->addAxis(axisX, Qt::AlignBottom);
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
+
+    // Create a chart view and set the chart
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(widget->layout());
+    if (layout) {
+        layout->addWidget(chartView);
+    }
+}
+
+void MainMenu::displaySponsorChart(QWidget *widget)
+{
+    // Create a bar series for sponsor count by category
+    QBarSeries *series = new QBarSeries();
+
+    // Fetch sponsor data from the database and count by category
+    QMap<QString, int> sponsorCountByCategory;
+    CrudSponsor c;
+    QList<CrudSponsor> sponsorList = c.getAll();
+    for (const auto& sponsor : sponsorList) {
+        QString category = sponsor.getCategories();
+        sponsorCountByCategory[category]++;
+    }
+
+    // Add data to the bar series
+    for (auto it = sponsorCountByCategory.constBegin(); it != sponsorCountByCategory.constEnd(); ++it) {
+        QBarSet *set = new QBarSet(it.key());
+        *set << it.value();
+        series->append(set);
+    }
+
+    // Create a chart and set the series
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Sponsors by Category");
     chart->setAnimationOptions(QChart::SeriesAnimations);
 
     // Create axes

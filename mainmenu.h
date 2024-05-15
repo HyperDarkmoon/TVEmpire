@@ -16,7 +16,8 @@ public:
     ~MainMenu();
     void displayEmissionChart(QWidget *widget);
     void displayEmployeeChart(QWidget *widget);
-
+    void displayEquipmentChart(QWidget *widget);
+    void displaySponsorChart(QWidget *widget);
 private:
     Ui::MainMenu *ui;
 };
