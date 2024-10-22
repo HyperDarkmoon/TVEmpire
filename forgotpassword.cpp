@@ -23,8 +23,8 @@ void ForgotPassword::on_pushButton_clicked()
     QString password = emp.getPassword();
 
     SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
-    smtp.setUser("zizo3badri@gmail.com");
-    smtp.setPassword("qywp klxh vdhn ozsi");
+    smtp.setUser("Insert your email here");
+    smtp.setPassword("Insert your token password here");
     MimeMessage message;
     message.setSender(new EmailAddress("zizo3badri@gmail.com", "TVEmpire"));
     message.addRecipient(new EmailAddress(ui->email->text(), "Recipient's Name"));
